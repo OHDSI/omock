@@ -11,7 +11,7 @@ Imports:
     cli,
     dplyr,
     methods,
-    omopgenerics (>= 0.0.1),
+    omopgenerics (>= 0.0.3),
     rlang,
     lubridate,
     snakecase,
@@ -23,3 +23,5 @@ Depends:
 Suggests: 
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
+Remotes:  
+    darwin-eu-dev/omopgenerics
