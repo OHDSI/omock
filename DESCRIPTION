@@ -1,0 +1,25 @@
+Package: omock
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: It creates a mock omop cdm object.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Imports: 
+    cli,
+    dplyr,
+    methods,
+    omopgenerics (>= 0.0.1),
+    rlang,
+    lubridate,
+    snakecase,
+    stats,
+    purrr,
+    stringr
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    testthat (>= 3.0.0)
+RoxygenNote: 7.2.3
