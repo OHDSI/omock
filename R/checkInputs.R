@@ -15,11 +15,8 @@
 #'
 #' @examples
 #' \donttest{
-#' library(OmopMocker)
 #' library(dplyr)
 #'
-#'# cdm <- mockCdm()
-#'# checkInput(cdm = cdm)
 #' }
 #'
 checkInput <- function(..., .options = list(), call = parent.frame()) {

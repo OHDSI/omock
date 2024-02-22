@@ -15,13 +15,12 @@ Imports:
     rlang,
     lubridate,
     snakecase,
-    stats,
-    purrr,
-    stringr
+    stats
 Depends: 
     R (>= 2.10)
 Suggests: 
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
-Remotes:  
+Remotes: 
     darwin-eu-dev/omopgenerics
+Config/testthat/edition: 3
