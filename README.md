@@ -8,12 +8,9 @@
 [![R-CMD-check](https://github.com/oxford-pharmacoepi/omock/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/oxford-pharmacoepi/omock/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of omock is to …
-
 ## Installation
 
-You can install the development version of omock from
-[GitHub](https://github.com/) with:
+You can install the development version of omock using:
 
 ``` r
 # install.packages("devtools")
@@ -22,33 +19,86 @@ devtools::install_github("oxford-pharmacoepi/omock")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+With omock we can quickly make a simple mock of OMOP CDM data.
 
 ``` r
+library(omopgenerics)
 library(omock)
-## basic example code
+library(dplyr)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+We first start by making an empty cdm reference. This includes the
+person and observation tables (as they are required) but they are
+currently empty.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+cdm <- emptyCdmReference(cdmName = "mock")
+cdm$person %>% 
+  glimpse()
+#> Rows: 0
+#> Columns: 18
+#> $ person_id                   <int> 
+#> $ gender_concept_id           <int> 
+#> $ year_of_birth               <int> 
+#> $ month_of_birth              <int> 
+#> $ day_of_birth                <int> 
+#> $ birth_datetime              <date> 
+#> $ race_concept_id             <int> 
+#> $ ethnicity_concept_id        <int> 
+#> $ location_id                 <int> 
+#> $ provider_id                 <int> 
+#> $ care_site_id                <int> 
+#> $ person_source_value         <chr> 
+#> $ gender_source_value         <chr> 
+#> $ gender_source_concept_id    <int> 
+#> $ race_source_value           <chr> 
+#> $ race_source_concept_id      <int> 
+#> $ ethnicity_source_value      <chr> 
+#> $ ethnicity_source_concept_id <int>
+cdm$observation_period %>% 
+  glimpse()
+#> Rows: 0
+#> Columns: 5
+#> $ observation_period_id         <int> 
+#> $ person_id                     <int> 
+#> $ observation_period_start_date <date> 
+#> $ observation_period_end_date   <date> 
+#> $ period_type_concept_id        <int>
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+Once we have have our empty cdm reference, we can quickly add a person
+table with a specific number of individuals.
 
-You can also embed plots, for example:
+``` r
+cdm <- cdm %>% 
+  omock::mockPerson(nPerson = 1000)
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+cdm$person %>% 
+  glimpse()
+#> Rows: 1,000
+#> Columns: 7
+#> $ person_id            <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15…
+#> $ gender_concept_id    <dbl> 8507, 8507, 8532, 8532, 8507, 8507, 8507, 8532, 8…
+#> $ year_of_birth        <chr> "1997", "1963", "1986", "1978", "1973", "1961", "…
+#> $ month_of_birth       <chr> "8", "1", "3", "11", "3", "2", "12", "9", "7", "6…
+#> $ day_of_birth         <chr> "22", "27", "10", "8", "2", "1", "16", "5", "23",…
+#> $ race_concept_id      <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+#> $ ethnicity_concept_id <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+We can then fill in the observation period table for these individuals.
+
+``` r
+cdm <- cdm %>% 
+  omock::mockObservationPeriod()
+
+cdm$observation_period %>% 
+  glimpse()
+#> Rows: 1,000
+#> Columns: 5
+#> $ observation_period_id         <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
+#> $ person_id                     <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
+#> $ observation_period_start_date <date> 2008-02-25, 2002-10-22, 1991-12-17, 201…
+#> $ observation_period_end_date   <date> 2010-08-14, 2019-11-12, 2013-05-08, 201…
+#> $ period_type_concept_id        <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+```
