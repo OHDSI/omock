@@ -97,7 +97,7 @@ performChecks <- function(toCheck, inputs, call = call) {
   for (k in seq_len(nrow(toCheck))) {
     x <- toCheck[k,]
     nam <- ifelse(
-      x$package == "OmopMocker", x$name, paste0(x$package, "::", x$name)
+      x$package == "omock", x$name, paste0(x$package, "::", x$name)
     )
     eval(parse(text = paste0(nam, "(", paste0(
       unlist(x$available_argument), " = inputs[[\"",
@@ -125,9 +125,9 @@ assertNamedList <- function(input) {
 #' @noRd
 #'
 getAvailableFunctions <- function() {
-  # functions available in OmopMocker
-  name <- ls(getNamespace("OmopMocker"), all.names = TRUE)
-  functionsOmopMocker <- dplyr::tibble(package = "OmopMocker", name = name)
+  # functions available in omock
+  name <- ls(getNamespace("omock"), all.names = TRUE)
+  functionsomock <- dplyr::tibble(package = "omock", name = name)
 
   # functions available in source package
   packageName <- methods::getPackageName()
@@ -141,7 +141,7 @@ getAvailableFunctions <- function() {
   }
 
   # eliminate standard checks if present in source package
-  functions <- functionsOmopMocker |>
+  functions <- functionsomock |>
     dplyr::anti_join(functionsSourcePackage, by = "name") |>
     dplyr::union_all(functionsSourcePackage) |>
     dplyr::filter(
@@ -168,7 +168,7 @@ addArgument <- function(functions, exclude = character()) {
     dplyr::group_split() |>
     lapply(function(x){
       nam <- ifelse(
-        x$package == "OmopMocker", x$name, paste0(x$package, "::", x$name)
+        x$package == "omock", x$name, paste0(x$package, "::", x$name)
       )
       argument <- formals(eval(parse(text = nam)))
       argument <- argument[!names(argument) %in% exclude]
