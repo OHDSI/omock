@@ -1,0 +1,21 @@
+---
+title: "Building a bespoke mock cdm"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{a04_Building_a_bespoke_mock_cdm}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(omock)
+```
+
+Here we explain how to build a mock cdm around a table you have specified using mockCdmFromTables()

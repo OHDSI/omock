@@ -1,0 +1,21 @@
+---
+title: "a01_Creating_synthetic_clinical_tables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{a01_Creating_synthetic_clinical_tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(omock)
+```
+
+Here we explain making a mock cdm table using mockPerson, mockObservationPeriod, etc
