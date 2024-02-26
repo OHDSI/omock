@@ -1,5 +1,5 @@
 ---
-title: "a01_Creating_synthetic_clinical_tables"
+title: "Creating synthetic clinical tables"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{a01_Creating_synthetic_clinical_tables}
@@ -14,8 +14,42 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+The omock package provides functionality to quickly create a cdm reference containing synthetic data based on population settings specified by the user.   
+
+First, let's load packages required for this vignette.
+```{r, message=FALSE, warning=FALSE}
 library(omock)
+library(dplyr)
+library(ggplot2)
 ```
 
-Here we explain making a mock cdm table using mockPerson, mockObservationPeriod, etc
+Now, in three lines of code, we can create a cdm reference with a person and observation period table for 1000 people.
+```{r}
+cdm <- emptyCdmReference(cdmName = "synthetic cdm") %>% 
+  mockPerson(nPerson = 1000) %>% 
+  mockObservationPeriod()
+
+cdm
+
+cdm$person %>% glimpse()
+
+cdm$observation_period %>% glimpse()
+```
+
+We can add further requirements around the population we create. For example we can require that they were born between 1960 and 1980 like so.
+```{r}
+cdm <- emptyCdmReference(cdmName = "synthetic cdm") %>% 
+  mockPerson(nPerson = 1000,
+             birthRange = c("1960-01-01", "1980-12-31")) %>% 
+  mockObservationPeriod()
+```
+
+```{r}
+cdm$person %>% 
+  collect() %>% 
+  ggplot() +
+  geom_histogram(aes(as.integer(year_of_birth)), 
+                 binwidth = 1, colour = "grey") +
+  theme_minimal() + 
+  xlab("Year of birth")
+```

@@ -8,4 +8,11 @@
 \description{
 It creates a mock omop cdm object.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://oxford-pharmacoepi.github.io/omock/}
+}
+
+}
 \keyword{internal}
