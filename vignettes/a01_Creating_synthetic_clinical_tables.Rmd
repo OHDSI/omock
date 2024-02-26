@@ -40,7 +40,7 @@ We can add further requirements around the population we create. For example we 
 ```{r}
 cdm <- emptyCdmReference(cdmName = "synthetic cdm") %>% 
   mockPerson(nPerson = 1000,
-             birthRange = c("1960-01-01", "1980-12-31")) %>% 
+             birthRange = as.Date(c("1960-01-01", "1980-12-31"))) %>% 
   mockObservationPeriod()
 ```
 

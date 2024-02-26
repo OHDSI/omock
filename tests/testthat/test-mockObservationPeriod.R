@@ -5,7 +5,7 @@ test_that("mockObservationPeriod", {
                  birthRange = as.Date(c("1990-01-01", "2000-01-01"))) |>
       mockObservationPeriod()
   )
-  expect_true(all(colnames(cdm$person) %in%
+  expect_true(all(colnames(cdm$observation_period) %in%
                     c("observation_period_id", "person_id",
                       "observation_period_start_date",
                       "observation_period_end_date",
