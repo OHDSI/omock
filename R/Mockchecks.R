@@ -270,8 +270,8 @@ assertNumeric <- function(x,
     paste0(substitute(x), collapse = ""),
     " must be a numeric",
     ifelse(integerish, "; it has to be integerish", ""),
-    ifelse(is.infinite(min), "", paste0("; greater than", min)),
-    ifelse(is.infinite(max), "", paste0("; smaller than", max)),
+    ifelse(is.infinite(min), "", paste0("; equal or greater than ", min)),
+    ifelse(is.infinite(max), "", paste0("; smaller than ", max)),
     errorLength(length),
     errorNa(na),
     errorNull(null),
@@ -459,6 +459,29 @@ assertClass <- function(x,
     paste0(base::class(x), collapse = ", "), "."
   )
   if (!all(class %in% base::class(x))) {
+    cli::cli_abort(errorMessage, call = call)
+  }
+  invisible(x)
+}
+
+#' Assert that an object is a Date.
+#'
+#' @param x To check.
+#' @param length Length that has to have.
+#' @param call Call argument that will be passed to `cli`.
+#'
+#' @noRd
+#'
+assertDate <- function(x,
+                       length,
+                       call = parent.frame()) {
+  # create error message
+  errorMessage <- paste0(substitute(x), " must be an object of class Date.")
+  if (! class(x) %in% "Date") {
+    cli::cli_abort(errorMessage, call = call)
+  }
+  errorMessage <- paste0(substitute(x), " must have length = ", length)
+  if (length(x) != length) {
     cli::cli_abort(errorMessage, call = call)
   }
   invisible(x)

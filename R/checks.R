@@ -300,9 +300,9 @@ checknPerson <- function(nPerson, call = parent.frame()) {
 
 # check birthRange
 checkbirthRange <- function(birthRange, call = parent.frame()) {
-  assertCharacter(birthRange, length = 2, call = call)
+  assertDate(birthRange, length = 2, call = call)
 
-  if(as.Date(birthRange[1]) >= as.Date(birthRange[2])){
+  if(birthRange[1] >= birthRange[2]){
     cli::cli_abort("max date must be greater than min date ", call = call)
   }
 

@@ -1,5 +1,3 @@
-
-
 #' mockPerson
 #'
 #' @param cdm Name of the cdm object
@@ -16,7 +14,7 @@
 #' }
 mockPerson <- function(cdm,
                        nPerson = 10,
-                       birthRange = c("1950-01-01", "2000-12-31"),
+                       birthRange = as.Date(c("1950-01-01", "2000-12-31")),
                        seed = 1) {
   checkInput(cdm = cdm)
   if (nrow(cdm$person) == 0) {
@@ -31,8 +29,8 @@ mockPerson <- function(cdm,
     person_id <- seq_len(nPerson)
 
     dob <-
-      sample(seq(as.Date(birthRange[1]),
-                 as.Date(birthRange[2]),
+      sample(seq(birthRange[1],
+                 birthRange[2],
                  by =
                    "day"),
              length(person_id),
@@ -56,6 +54,8 @@ mockPerson <- function(cdm,
       omopgenerics::insertTable(cdm = cdm,
                                 name = "person",
                                 table = person)
+  } else {
+    cli::cli_abort("CDM reference already contains a non-empty person table.")
   }
 
   return(cdm)
