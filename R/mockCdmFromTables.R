@@ -80,7 +80,7 @@ mockCdmFromTable <- function(cdm,
 
     for (table in names(cohortTable)){
 
-      cohortId <- cohortTable[[table]] |> dplyr::select(cohort_definition_id) |>
+      cohortId <- cohortTable[[table]] |> dplyr::select(.data$cohort_definition_id) |>
         dplyr::pull() |> unique()
 
       cohortName <- paste0("cohort_", cohortId)
