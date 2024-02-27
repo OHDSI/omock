@@ -10,7 +10,6 @@ mockCohort(
   numberCohorts = 1,
   cohortName = paste0("cohort_", seq_len(numberCohorts)),
   recordPerson = 1,
-  cohort = NULL,
   seed = 1
 )
 }
@@ -24,8 +23,6 @@ mockCohort(
 \item{cohortName}{name of the cohort within the table}
 
 \item{recordPerson}{the expected number of record per person}
-
-\item{cohort}{custom cohort}
 
 \item{seed}{random seed}
 }
