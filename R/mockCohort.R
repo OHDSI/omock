@@ -7,7 +7,6 @@
 #' @param cohortName name of the cohort within the table
 #' @param recordPerson the expected number of record per person
 #' @param seed random seed
-#' @param cohort custom cohort
 #'
 #' @return A cdm reference with the mock tables
 #' @examples
@@ -20,7 +19,6 @@ mockCohort <- function(cdm,
                        numberCohorts = 1,
                        cohortName = paste0("cohort_", seq_len(numberCohorts)),
                        recordPerson = 1,
-                       cohort = NULL,
                        seed = 1) {
 
   # initial checks
@@ -51,17 +49,17 @@ mockCohort <- function(cdm,
   cohortId = seq_len(numberCohorts)
 
   #number of rows per cohort
-  numberRows <-
+  numberRows_to_keep <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  if (is.null(nrow(cohort))) {
+
     # generate cohort table
     cohort <- list()
-    if (length(numberRows) == 1) {
-      numberRows <- rep(numberRows, length(cohortId))
+    if (length(numberRows_to_keep) == 1) {
+      numberRows <- rep(numberRows_to_keep*1.2, length(cohortId))
     }
     for (i in seq_along(cohortId)) {
-      num <- numberRows[[i]]
+      num <- numberRows_to_keep[[i]]*1.2
       cohort[[i]] <- dplyr::tibble(
         cohort_definition_id = cohortId[i],
         subject_id = sample(
@@ -98,11 +96,14 @@ mockCohort <- function(cdm,
               !is.na(.data$next_observation),
             .data$next_observation - 1,
             .data$cohort_end_date
-          )
-      ) |> dplyr::ungroup() |> dplyr::select(-"next_observation")
+        ),
+        cohort_end_date = dplyr::if_else(.data$cohort_end_date < .data$cohort_start_date,
+                                         NA,.data$cohort_end_date)
+      ) |> dplyr::ungroup() |> dplyr::select(-"next_observation") |> stats::na.omit() |>
+      dplyr::distinct() |> dplyr::slice(1:numberRows_to_keep)
 
 
-  }
+
   # generate cohort set table
 
   cohortName <- snakecase::to_snake_case(cohortName)
@@ -123,6 +124,9 @@ mockCohort <- function(cdm,
 
   return(cdm)
 }
+
+
+
 
 addCohortDates <-
   function(x,

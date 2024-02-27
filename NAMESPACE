@@ -2,6 +2,7 @@
 
 export(emptyCdmReference)
 export(mockCdmFromTable)
+export(mockCdmRefernce)
 export(mockCohort)
 export(mockObservationPeriod)
 export(mockPerson)
