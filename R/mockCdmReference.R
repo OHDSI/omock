@@ -12,9 +12,9 @@
 #' }
 #' @export
 
-mockCdmRefernce <- function(cdmName = "mock database"){
+mockCdmReference <- function(cdmName = "mock database"){
 
-  checkInput(TableName = cdmName)
+  checkInput(tableName = cdmName)
 
 
   cdm <- omopgenerics::emptyCdmReference(cdmName = cdmName)
