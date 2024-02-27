@@ -48,4 +48,10 @@ test_that("mockPerson", {
                  birthRange = as.Date(c("1990-01-01", "2000-01-01"))
       )
   )
+  expect_error(
+    cdm <- emptyCdmReference(cdmName = "test") |>
+      mockPerson(nPerson = 100,
+                 birthRange = c("1990-01-01", "2000-01-01")
+      )
+  )
 })

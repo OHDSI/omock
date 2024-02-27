@@ -16,7 +16,9 @@ mockPerson <- function(cdm,
                        nPerson = 10,
                        birthRange = as.Date(c("1950-01-01", "2000-12-31")),
                        seed = 1) {
-  checkInput(cdm = cdm)
+  checkInput(cdm = cdm,
+             nPerson = nPerson,
+             birthRange = birthRange)
   if (nrow(cdm$person) == 0) {
     checkInput(nPerson = nPerson,
                birthRange = birthRange,
