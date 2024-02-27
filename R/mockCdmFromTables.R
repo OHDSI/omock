@@ -23,7 +23,7 @@ mockCdmFromTable <- function(cdm,
     }
 
     # pull unique id from cohort table
-    person_id <- cohortTable |> noneNullTable() |> uniqueIdFromTable()
+    person_id <- cohortTable |> noneNullTable() |> uniqueIdFromTable() |> sort()
 
 
     obsDate <- function(date,dayToAdd = 3650) {
@@ -70,8 +70,9 @@ mockCdmFromTable <- function(cdm,
 
     cdm <- omopgenerics::insertTable(cdm = cdm,
                                 name ="observation_period",
-                                table = observationPeriod) |>
-      omopgenerics::insertTable(cdm = cdm,
+                                table = observationPeriod)
+
+    cdm <- omopgenerics::insertTable(cdm = cdm,
                                 name ="person",
                                 table = person)
 
@@ -79,11 +80,24 @@ mockCdmFromTable <- function(cdm,
 
     for (table in names(cohortTable)){
 
+      cohortId <- cohortTable[[table]] |> dplyr::select(.data$cohort_definition_id) |>
+        dplyr::pull() |> unique()
+
+      cohortName <- paste0("cohort_", cohortId)
+
+
+      cohortSetTable <- dplyr::tibble(cohort_definition_id = cohortId, cohort_name = cohortName)
+
       # create class
       cdm <-
         omopgenerics::insertTable(cdm = cdm,
                                   name = table,
                                   table = cohortTable[[table]])
+
+      cdm[[table]] <-
+        cdm[[table]] |> omopgenerics::newCohortTable(
+          cohortSetRef = cohortSetTable
+        )
     }
 
 
