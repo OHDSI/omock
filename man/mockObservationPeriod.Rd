@@ -16,8 +16,10 @@ a cdm object with mock observation table
 mockObservationPeriod
 }
 \examples{
+\donttest{
 library(omock)
 cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod()
+}
 }
