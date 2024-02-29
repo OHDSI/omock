@@ -18,5 +18,8 @@ mockObservationPeriod
 \examples{
 \donttest{
 library(omock)
+cdm <- mockCdmReference() |>
+  mockPerson(nPerson = 100) |>
+  mockObservationPeriod()
 }
 }
