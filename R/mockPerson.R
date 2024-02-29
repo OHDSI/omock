@@ -3,6 +3,7 @@
 #' @param cdm Name of the cdm object
 #' @param nPerson number of mock person to create in person table
 #' @param birthRange birthday range of the person in person table
+#' @param genderSplit proportion of person in the person table are female
 #' @param seed seed
 #'
 #' @return A cdm reference with the mock person table
@@ -15,11 +16,13 @@
 mockPerson <- function(cdm,
                        nPerson = 10,
                        birthRange = as.Date(c("1950-01-01", "2000-12-31")),
+                       genderSplit = 0.5,
                        seed = 1) {
   checkInput(cdm = cdm)
  if (nrow(cdm$person) == 0) {
     checkInput(nPerson = nPerson,
                birthRange = birthRange,
+               genderSplit = genderSplit,
                seed = seed)
 
     if (!is.null(seed)) {
@@ -36,7 +39,11 @@ mockPerson <- function(cdm,
              length(person_id),
              replace = TRUE)
 
-    gender <- sample(c(8507, 8532), length(person_id), TRUE)
+    gender <-
+      sample(c(8532, 8507),
+             length(person_id),
+             prob = c(genderSplit, 1 - genderSplit),
+             TRUE)
 
     person = dplyr::tibble(
       person_id = person_id,

@@ -49,17 +49,21 @@ mockCohort <- function(cdm,
   cohortId = seq_len(numberCohorts)
 
   #number of rows per cohort
-  numberRows_to_keep <-
+  numberRows<-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
+
+  numberRows <- numberRows*1.2
+  rows_to_keep <- sum(numberRows/1.2)
 
 
     # generate cohort table
     cohort <- list()
-    if (length(numberRows_to_keep) == 1) {
-      numberRows <- rep(numberRows_to_keep*1.2, length(cohortId))
+    if (length(numberRows) == 1) {
+      numberRows <- rep(numberRows, length(cohortId))
+      rows_to_keep <- sum(numberRows/1.2)
     }
     for (i in seq_along(cohortId)) {
-      num <- numberRows_to_keep[[i]]*1.2
+      num <- numberRows[[i]]
       cohort[[i]] <- dplyr::tibble(
         cohort_definition_id = cohortId[i],
         subject_id = sample(
@@ -100,7 +104,7 @@ mockCohort <- function(cdm,
         cohort_end_date = dplyr::if_else(.data$cohort_end_date < .data$cohort_start_date,
                                          NA,.data$cohort_end_date)
       ) |> dplyr::ungroup() |> dplyr::select(-"next_observation") |> stats::na.omit() |>
-      dplyr::distinct() |> dplyr::slice(1:numberRows_to_keep)
+      dplyr::distinct() |> dplyr::slice(1:rows_to_keep)
 
 
 
