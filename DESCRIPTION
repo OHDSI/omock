@@ -1,8 +1,8 @@
 Package: omock
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Creation of Mock Observational Medical Outcomes Partnership common data model
 Version: 0.1.0
-Author: c(
+Authors@R: c(
     person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut","cre"), 
     comment = c(ORCID = "0000-0002-9517-8834")),
     person("Marti", "Catala", , "marti.catalasabate@ndorms.ox.ac.uk", 
@@ -10,12 +10,12 @@ Author: c(
     person("Edward", "Burn", , "edward.burn@ndorms.ox.ac.uk", role = c("aut"),
     comment = c(ORCID = "0000-0002-9286-1128")),
     person("Nuria", "Mercade-Besora", , "nuria.mercadebesora@ndorms.ox.ac.uk", 
-    role = c("ctb"), comment = c(ORCID = "0009-0006-7948-3747")),
+    role = c("aut"), comment = c(ORCID = "0009-0006-7948-3747")),
     person("Xihang", "Chen", , "xihang.chen@ndorms.ox.ac.uk", role = c("aut"),
            comment = c(ORCID = "0009-0001-8112-8959"))
     )
 Maintainer: Mike Du <mike.du@ndorms.ox.ac.uk>
-Description: It creates a mock omop cdm object.
+Description: Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model.
 License: Apache License (>= 2)
 Encoding: UTF-8
 Imports: 

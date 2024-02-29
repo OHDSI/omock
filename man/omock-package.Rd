@@ -4,14 +4,26 @@
 \name{omock-package}
 \alias{omock}
 \alias{omock-package}
-\title{omock: What the Package Does (Title Case)}
+\title{omock: Creation of Mock Observational Medical Outcomes Partnership common data model}
 \description{
-It creates a mock omop cdm object.
+Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://oxford-pharmacoepi.github.io/omock/}
+}
+
+}
+\author{
+\strong{Maintainer}: Mike Du \email{mike.du@ndorms.ox.ac.uk} (\href{https://orcid.org/0000-0002-9517-8834}{ORCID})
+
+Authors:
+\itemize{
+  \item Marti Catala \email{marti.catalasabate@ndorms.ox.ac.uk} (\href{https://orcid.org/0000-0003-3308-9905}{ORCID})
+  \item Edward Burn \email{edward.burn@ndorms.ox.ac.uk} (\href{https://orcid.org/0000-0002-9286-1128}{ORCID})
+  \item Nuria Mercade-Besora \email{nuria.mercadebesora@ndorms.ox.ac.uk} (\href{https://orcid.org/0009-0006-7948-3747}{ORCID})
+  \item Xihang Chen \email{xihang.chen@ndorms.ox.ac.uk} (\href{https://orcid.org/0009-0001-8112-8959}{ORCID})
 }
 
 }
