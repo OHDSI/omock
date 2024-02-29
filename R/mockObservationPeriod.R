@@ -4,6 +4,7 @@
 #' mockObservationPeriod
 #'
 #' @param cdm Name of the cdm object
+#' @param seed random seed
 #'
 #' @return a cdm object with mock observation table
 #' @export
@@ -16,10 +17,15 @@
 #'   mockObservationPeriod()
 #'}
 
-mockObservationPeriod <- function(cdm) {
+mockObservationPeriod <- function(cdm,
+                                  seed = 1) {
   checkInput(cdm = cdm)
   if (nrow(cdm$observation_period) == 0 &
       nrow(cdm$person) != 0) {
+
+    if (!is.null(seed)) {
+      set.seed(seed = seed)
+    }
     # pull date of birth from person table
     dob <- cdm$person |>
       dplyr::mutate(

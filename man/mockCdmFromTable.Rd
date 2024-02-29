@@ -5,12 +5,14 @@
 \title{mockCdmFrom Table
 This function creates a mock cdm object from user self defined tables}
 \usage{
-mockCdmFromTable(cdm, cohortTable = NULL)
+mockCdmFromTable(cdm, cohortTable = NULL, seed = 1)
 }
 \arguments{
 \item{cdm}{Name of the cdm object}
 
 \item{cohortTable}{List of user self defined cohort table}
+
+\item{seed}{random seed}
 }
 \value{
 a cdm object

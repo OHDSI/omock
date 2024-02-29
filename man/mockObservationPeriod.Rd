@@ -4,10 +4,12 @@
 \alias{mockObservationPeriod}
 \title{mockObservationPeriod}
 \usage{
-mockObservationPeriod(cdm)
+mockObservationPeriod(cdm, seed = 1)
 }
 \arguments{
 \item{cdm}{Name of the cdm object}
+
+\item{seed}{random seed}
 }
 \value{
 a cdm object with mock observation table

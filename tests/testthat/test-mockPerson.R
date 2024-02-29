@@ -56,4 +56,21 @@ test_that("mockPerson", {
   )
 })
 
+test_that("mockPerson test gender split", {
+
+  cdm <-
+    mockCdmReference() |> mockPerson(nPerson = 100, proportionFemale = 0)
+
+
+  expect_true(cdm$person |> dplyr::filter(gender_concept_id != 8507) |>
+    dplyr::tally() |> dplyr::pull() == 0)
+
+  cdm <-
+    mockCdmReference() |> mockPerson(nPerson = 100, proportionFemale = 1)
+
+  expect_true(cdm$person |> dplyr::filter(gender_concept_id == 8507) |>
+                dplyr::tally() |> dplyr::pull() == 0)
+
+
+})
 

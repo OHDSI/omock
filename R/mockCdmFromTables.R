@@ -5,6 +5,7 @@
 #'
 #' @param cdm Name of the cdm object
 #' @param cohortTable List of user self defined cohort table
+#' @param seed random seed
 #'
 #' @return a cdm object
 #' @export
@@ -12,7 +13,8 @@
 #' @examples
 #' library(omock)
 mockCdmFromTable <- function(cdm,
-                             cohortTable = NULL) {
+                             cohortTable = NULL,
+                             seed = 1) {
   checkInput(cdm = cdm)
 
 
@@ -20,6 +22,10 @@ mockCdmFromTable <- function(cdm,
 
     for (table in names(table)){
       checkCohortTable(cohortTable[[table]])
+    }
+
+    if (!is.null(seed)) {
+      set.seed(seed = seed)
     }
 
     # pull unique id from cohort table
