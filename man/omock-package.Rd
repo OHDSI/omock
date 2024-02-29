@@ -6,6 +6,8 @@
 \alias{omock-package}
 \title{omock: Creation of Mock Observational Medical Outcomes Partnership common data model}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model.
 }
 \seealso{
