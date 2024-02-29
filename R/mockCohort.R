@@ -11,7 +11,14 @@
 #' @return A cdm reference with the mock tables
 #' @examples
 #' library(omock)
-#'
+#' cdm <- mockCdmReference() |>
+#'   mockPerson(nPerson = 100) |>
+#'   mockObservationPeriod() |>
+#'   mockCohort(
+#'     tableName = "omock_example",
+#'     numberCohorts = 2,
+#'     cohortName = c("omock_cohort_1", "omock_cohort_2")
+#'   )
 #' @export
 #'
 mockCohort <- function(cdm,

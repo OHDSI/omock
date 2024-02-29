@@ -9,9 +9,11 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(omock)
-#' }
+#' cdm <- mockCdmReference() |>
+#'   mockPerson(nPerson = 100) |>
+#'   mockObservationPeriod()
+
 mockObservationPeriod <- function(cdm) {
   checkInput(cdm = cdm)
   if (nrow(cdm$observation_period) == 0 &
