@@ -8,6 +8,7 @@ mockPerson(
   cdm,
   nPerson = 10,
   birthRange = as.Date(c("1950-01-01", "2000-12-31")),
+  genderSplit = 0.5,
   seed = 1
 )
 }
@@ -17,6 +18,8 @@ mockPerson(
 \item{nPerson}{number of mock person to create in person table}
 
 \item{birthRange}{birthday range of the person in person table}
+
+\item{genderSplit}{proportion of person in the person table are female}
 
 \item{seed}{seed}
 }

@@ -26,12 +26,13 @@ mockCdmFromTable <- function(cdm,
     person_id <- cohortTable |> noneNullTable() |> uniqueIdFromTable() |> sort()
 
 
-    obsDate <- function(date,dayToAdd = 3650) {
+    obsDate <- function(date ,dayToAdd = 3650, person_id = person_id) {
       # Initialise vector for output
-      start <- rep(as.Date(NA), length(date))
-      end <- rep(as.Date(NA), length(date))
+      start <- rep(as.Date(NA), length(person_id))
+      end <- rep(as.Date(NA), length(person_id))
       #generate obs start and end date
       for (i in seq_along(date[[1]])) {
+
         start[i] <- sample(seq(as.Date(date[[1]][i])-dayToAdd, as.Date(date[[1]][i]), by =
                                  "day"), 1)
         end[i] <- sample(seq(as.Date(date[[2]][i]), as.Date(date[[2]][i])+dayToAdd, by =
@@ -43,7 +44,7 @@ mockCdmFromTable <- function(cdm,
 
     #pull date range from user defined table
     obs_date <- cohortTable |> dateTable() |> dplyr::select(-.data$subject_id) |>
-      obsDate()
+      obsDate(person_id = person_id)
 
     #create observation_period table
     observationPeriod = dplyr::tibble(
@@ -54,7 +55,7 @@ mockCdmFromTable <- function(cdm,
     ) |> dplyr::mutate(period_type_concept_id = NA)
 
     #create person table
-    dob <- obs_date |> obsDate()
+    dob <- obs_date |> obsDate(person_id = person_id)
 
     gender <- sample(c(8507, 8532), length(person_id), TRUE)
 

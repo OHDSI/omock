@@ -335,3 +335,9 @@ checkcohortName <- function(cohortName, call = parent.frame()) {
 checkcohort <- function(cohortName, call = parent.frame()) {
   assertTibble(cohortName, null = FALSE, call = call)
 }
+
+# check genderSplit
+checkgenderSplit <- function(genderSplit, call = parent.frame()) {
+  assertNumeric(genderSplit,
+                integerish = FALSE,length = NULL, min = 0,max = 1, call = call)
+}
