@@ -88,14 +88,13 @@
 reference from its own bespoke tables. The mockCdmFromTable() function
 is designed to facilitates the creation of mock CDM reference from
 bespoke tables.</p>
-<p>Arguments:</p>
-<ul>
-<li><p>cdm: The name of the CDM object to be modify.</p></li>
-<li><p>cohortTable: A list of user-defined cohort tables. Default is
-NULL.</p></li>
-<li><p>seed: A random seed for reproducibility. Default is 1.</p></li>
-</ul>
-<p>Return Value:</p>
+<p><strong>Arguments:</strong></p>
+<p><strong>- cdm:</strong> The name of the CDM object to be modify.</p>
+<p><strong>- cohortTable:</strong> A list of user-defined cohort tables.
+Default is NULL.</p>
+<p><strong>- seed:</strong> A random seed for reproducibility. Default
+is 1.</p>
+<p><strong>Return Value:</strong></p>
 <p>The function returns an OMOP CDM reference with the user-defined
 cohort tables, including the addition of observation period and person
 tables that matches the user-defined cohort tables to make it a valid

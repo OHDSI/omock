@@ -82,7 +82,54 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://oxford-pharmacoepi.github.io/omock/">omock</a></span><span class="op">)</span></span></code></pre></div>
-<p>Here we explain making a mock cohort table using mockCohort()</p>
+<p>Here we explain making a mock cohort table using mockCohort().
+mockCohort() is designed to generate synthetic cohorts within a given
+CDM reference. It allows for the creation of multiple cohorts with
+specified names and the expected number of records per person. This can
+be useful for testing, simulations, or educational purposes where real
+patient data cannot be used.</p>
+<p><strong>Arguments:</strong></p>
+<p><strong>cdm:</strong> The CDM reference to which the synthetic cohort
+will be added. This object is assumed to be a structured dataset
+following a clinical data model format.</p>
+<p><strong>tableName:</strong> The name of the table within the CDM
+where the cohort data will be stored. Defaults to “cohort”.</p>
+<p><strong>numberCohorts:</strong> The number of different cohorts to
+create within the table. Defaults to 1.</p>
+<p><strong>cohortName:</strong> The name(s) of the cohorts to be
+created. This can be a single name or a vector of names if multiple
+cohorts are being created. Defaults to generating names based on a
+sequence.</p>
+<p><strong>recordPerson:</strong> The expected number of records per
+person within each cohort. This can help simulate the frequency of
+observations for individuals in the cohort.</p>
+<p><strong>seed:</strong> A random seed to ensure reproducibility of the
+generated data.</p>
+<p><strong>Example</strong></p>
+<p>The example provided in the vignette demonstrates how to use the
+mockCohort function within a pipeline that includes generating a mock
+CDM reference, adding mock persons, and observation periods before
+finally adding the mock cohorts. This showcases a typical workflow for
+setting up a synthetic CDM with multiple components for testing or
+analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmReference.html">mockCdmReference</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockCohort.html">mockCohort</a></span><span class="op">(</span></span>
+<span>    tableName <span class="op">=</span> <span class="st">"omock_example"</span>,</span>
+<span>    numberCohorts <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>    cohortName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"omock_cohort_1"</span>, <span class="st">"omock_cohort_2"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">cdm</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;"># OMOP CDM reference (local) of mock database</span> <span style="color: #00BBBB;">───────────────────────────────</span></span></span>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">omop tables:</span> person, observation_period</span></span>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">cohort tables:</span> omock_example</span></span>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">achilles tables:</span> -</span></span>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">other tables:</span> -</span></span></code></pre></div>
   </main>
 </div>
 
