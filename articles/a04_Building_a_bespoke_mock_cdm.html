@@ -87,21 +87,9 @@
 <p>There are times where the user will want to create a mock CDM
 reference from its own bespoke tables. The mockCdmFromTable() function
 is designed to facilitates the creation of mock CDM reference from
-bespoke tables.</p>
-<p><strong>Arguments:</strong></p>
-<p><strong>- cdm:</strong> The name of the CDM object to be modify.</p>
-<p><strong>- cohortTable:</strong> A list of user-defined cohort tables.
-Default is NULL.</p>
-<p><strong>- seed:</strong> A random seed for reproducibility. Default
-is 1.</p>
-<p><strong>Return Value:</strong></p>
-<p>The function returns an OMOP CDM reference with the user-defined
-cohort tables, including the addition of observation period and person
-tables that matches the user-defined cohort tables to make it a valid
-OMOP CDM reference.</p>
-<p>For example if you want to create a CDM reference based on below
-bespoke cohorts. You can do it simple using the mockCdmFromTable()
-functions in a few lines of code.</p>
+bespoke tables.For example if you want to create a CDM reference based
+on below bespoke cohorts. You can do it simple using the
+mockCdmFromTable() functions in a few lines of code.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define a list of user-defined cohort tables</span></span>
 <span><span class="va">cohortTables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>

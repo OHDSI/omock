@@ -64,27 +64,27 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>cdm</dt>
-<dd><p>cdm object</p></dd>
+<dd><p>the CDM reference into which the synthetic cohort will be added</p></dd>
 
 
 <dt>tableName</dt>
-<dd><p>name of the cohort table</p></dd>
+<dd><p>The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".</p></dd>
 
 
 <dt>numberCohorts</dt>
-<dd><p>number of different cohort to create</p></dd>
+<dd><p>The number of different cohorts to create within the table. Defaults to 1.</p></dd>
 
 
 <dt>cohortName</dt>
-<dd><p>name of the cohort within the table</p></dd>
+<dd><p>The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.</p></dd>
 
 
 <dt>recordPerson</dt>
-<dd><p>the expected number of record per person</p></dd>
+<dd><p>The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.</p></dd>
 
 
 <dt>seed</dt>
-<dd><p>random seed</p></dd>
+<dd><p>A random seed to ensure reproducibility of the generated data.</p></dd>
 
 </dl></div>
     <div class="section level2">
