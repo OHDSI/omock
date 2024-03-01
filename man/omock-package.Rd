@@ -4,7 +4,7 @@
 \name{omock-package}
 \alias{omock}
 \alias{omock-package}
-\title{omock: Creation of Mock Observational Medical Outcomes Partnership common data model}
+\title{omock: Creation of Mock Observational Medical Outcomes Partnership Common Data Model}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
