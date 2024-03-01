@@ -2,8 +2,7 @@
 % Please edit documentation in R/mockCdmFromTables.R
 \name{mockCdmFromTable}
 \alias{mockCdmFromTable}
-\title{mockCdmFrom Table
-This function creates a mock cdm object from user self defined tables}
+\title{The goal of this function is to create a mock Cdm reference from user self defined tables.}
 \usage{
 mockCdmFromTable(cdm, cohortTable = NULL, seed = 1)
 }
@@ -18,9 +17,33 @@ mockCdmFromTable(cdm, cohortTable = NULL, seed = 1)
 a cdm object
 }
 \description{
-mockCdmFrom Table
-This function creates a mock cdm object from user self defined tables
+The goal of this function is to create a mock Cdm reference from user self defined tables.
 }
 \examples{
+\donttest{
 library(omock)
+library(dplyr)
+cdm <- mockCdmReference()
+
+cohort <- dplyr::tibble(
+cohort_definition_id = c(1, 1, 2, 2, 1, 3, 3, 3, 1, 3),
+subject_id = c(1, 4, 2, 3, 5, 5, 4, 3, 3, 1),
+cohort_start_date = as.Date(
+ c(
+   "2020-04-01",
+   "2021-06-01",
+   "2022-05-22",
+   "2010-01-01",
+   "2019-08-01",
+   "2019-04-07",
+   "2021-01-01",
+   "2008-02-02",
+   "2009-09-09",
+   "2021-01-01"
+ )
+),
+cohort_end_date = cohort_start_date)
+
+cdm <- cdm |> mockCdmFromTable(cohortTable = list(cohort = cohort))
+}
 }
