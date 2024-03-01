@@ -20,21 +20,7 @@ library(dplyr)
 library(lubridate)
 ```
 
-There are times where the user will want to create a mock CDM reference from its own bespoke tables. The mockCdmFromTable() function is designed to facilitates the creation of mock CDM reference from bespoke tables.
-
-**Arguments:**
-
-**- cdm:** The name of the CDM object to be modify.
-
-**- cohortTable:** A list of user-defined cohort tables. Default is NULL.
-
-**- seed:** A random seed for reproducibility. Default is 1.
-
-**Return Value:**
-
-The function returns an OMOP CDM reference with the user-defined cohort tables, including the addition of observation period and person tables that matches the user-defined cohort tables to make it a valid OMOP CDM reference.
-
-For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code.
+There are times where the user will want to create a mock CDM reference from its own bespoke tables. The mockCdmFromTable() function is designed to facilitates the creation of mock CDM reference from bespoke tables.For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code. 
 
 ```{r, warning = FALSE}
 # Define a list of user-defined cohort tables

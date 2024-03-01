@@ -1,12 +1,12 @@
 
 #' Function to generate synthetic Cohort
 #'
-#' @param cdm cdm object
-#' @param tableName name of the cohort table
-#' @param numberCohorts number of different cohort to create
-#' @param cohortName name of the cohort within the table
-#' @param recordPerson the expected number of record per person
-#' @param seed random seed
+#' @param cdm the CDM reference into which the synthetic cohort will be added
+#' @param tableName The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
+#' @param numberCohorts The number of different cohorts to create within the table. Defaults to 1.
+#' @param cohortName The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.
+#' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
+#' @param seed A random seed to ensure reproducibility of the generated data.
 #'
 #' @return A cdm reference with the mock tables
 #' @examples

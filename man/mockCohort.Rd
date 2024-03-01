@@ -14,17 +14,17 @@ mockCohort(
 )
 }
 \arguments{
-\item{cdm}{cdm object}
+\item{cdm}{the CDM reference into which the synthetic cohort will be added}
 
-\item{tableName}{name of the cohort table}
+\item{tableName}{The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".}
 
-\item{numberCohorts}{number of different cohort to create}
+\item{numberCohorts}{The number of different cohorts to create within the table. Defaults to 1.}
 
-\item{cohortName}{name of the cohort within the table}
+\item{cohortName}{The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.}
 
-\item{recordPerson}{the expected number of record per person}
+\item{recordPerson}{The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.}
 
-\item{seed}{random seed}
+\item{seed}{A random seed to ensure reproducibility of the generated data.}
 }
 \value{
 A cdm reference with the mock tables

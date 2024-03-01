@@ -20,19 +20,7 @@ library(omock)
 
 Here we explain making a mock cohort table using mockCohort(). mockCohort() is designed to generate synthetic cohorts within a given CDM reference. It allows for the creation of multiple cohorts with specified names and the expected number of records per person. This can be useful for testing, simulations, or educational purposes where real patient data cannot be used.
 
-**Arguments:**
-
-**cdm:** The CDM reference to which the synthetic cohort will be added. This object is assumed to be a structured dataset following a clinical data model format.
-
-**tableName:** The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
-
-**numberCohorts:** The number of different cohorts to create within the table. Defaults to 1.
-
-**cohortName:** The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.
-
-**recordPerson:** The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
-
-**seed:** A random seed to ensure reproducibility of the generated data.
+The mockCohort() function has several different arguments to help user to taylor the synthetic cohort creation process. The cdm argument represents the local CDM reference into which the synthetic cohort will be integrated. The tableName argument specifies the name of the table within the CDM to store the cohort data. For scenarios necessitating multiple cohorts, the numberCohorts argument determines how many distinct cohorts to generate within the table, defaulting to 1. The cohortName argument allows for the assignment of names to the created cohorts, supporting either a single name or a vector of names for multiple cohorts. Additionally, the recordPerson argument indicates the expected number of records per person in each cohort. Lastly, the seed argument is used to set a random seed, ensuring the reproducibility of the generated data.
 
 
 **Example**
