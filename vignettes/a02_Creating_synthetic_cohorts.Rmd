@@ -18,4 +18,38 @@ knitr::opts_chunk$set(
 library(omock)
 ```
 
-Here we explain making a mock cohort table using mockCohort()
+Here we explain making a mock cohort table using mockCohort(). mockCohort() is designed to generate synthetic cohorts within a given CDM reference. It allows for the creation of multiple cohorts with specified names and the expected number of records per person. This can be useful for testing, simulations, or educational purposes where real patient data cannot be used.
+
+**Arguments:**
+
+**cdm:** The CDM reference to which the synthetic cohort will be added. This object is assumed to be a structured dataset following a clinical data model format.
+
+**tableName:** The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
+
+**numberCohorts:** The number of different cohorts to create within the table. Defaults to 1.
+
+**cohortName:** The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.
+
+**recordPerson:** The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
+
+**seed:** A random seed to ensure reproducibility of the generated data.
+
+
+**Example**
+
+The example provided in the vignette demonstrates how to use the mockCohort function within a pipeline that includes generating a mock CDM reference, adding mock persons, and observation periods before finally adding the mock cohorts. This showcases a typical workflow for setting up a synthetic CDM with multiple components for testing or analysis.
+
+```{r}
+
+cdm <- mockCdmReference() |>
+  mockPerson(nPerson = 100) |>
+  mockObservationPeriod() |>
+  mockCohort(
+    tableName = "omock_example",
+    numberCohorts = 2,
+    cohortName = c("omock_cohort_1", "omock_cohort_2")
+  )
+
+cdm
+
+```
