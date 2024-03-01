@@ -14,8 +14,49 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup,message=FALSE, warning=FALSE}
 library(omock)
+library(dplyr)
+library(lubridate)
 ```
 
-Here we explain how to build a mock cdm around a table you have specified using mockCdmFromTables()
+The mockCdmFromTable() function is designed to create a mock Common Data Model (CDM) object from user-defined tables. This function facilitates the generation of a synthetic dataset for testing and development purposes.
+
+Function Parameters
+
+- cdm: The name of the CDM object to be modify.
+
+- cohortTable: A list of user-defined cohort tables. Default is NULL.
+
+- seed: A random seed for reproducibility. Default is 1.
+
+Return Value
+
+The function returns an OMOP CDM object with the user-defined cohort tables, including the addition of observation period and person tables that matches the user-defined cohort tables to make it a valid OMOP CDM object.
+
+For example if you want to create a CDM object based on belows bespoke cohorts. You can do it simple using the mockCdmFromTable() functions.
+
+```{r, warning = FALSE}
+# Define a list of user-defined cohort tables
+cohortTables <- list(
+  cohort1 = tibble(
+    subject_id = 1:10,
+    cohort_definition_id = rep(1, 10),
+    cohort_start_date = as.Date('2020-01-01') + 1:10,
+    cohort_end_date = as.Date('2020-01-01') + 11:20
+  ),
+  cohort2 = tibble(
+    subject_id = 11:20,
+    cohort_definition_id = rep(2, 10),
+    cohort_start_date = as.Date('2020-02-01') + 1:10,
+    cohort_end_date = as.Date('2020-02-01') + 11:20
+  )
+)
+
+# Create a mock CDM object from the user-defined tables
+cdm <- mockCdmReference() |> mockCdmFromTable(cohortTable = cohortTables)
+
+cdm |> glimpse()
+
+```
+
