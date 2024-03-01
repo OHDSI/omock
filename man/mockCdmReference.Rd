@@ -19,6 +19,8 @@ Function to create empty cdm reference for mock database
 \donttest{
 library(omock)
 cdm <- mockCdmReference()
+
 cdm
+
 }
 }

@@ -10,7 +10,9 @@
 #' \donttest{
 #' library(omock)
 #' cdm <- mockCdmReference()
+#'
 #' cdm
+#'
 #' }
 #' @export
 
