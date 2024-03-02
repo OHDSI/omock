@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omock <img src="man/figures/logo.png" align="right" height="150"/>
+# omock <img src="man/figures/logo.png" align="right" height="169"/>
 
 <!-- badges: start -->
 
@@ -10,7 +10,12 @@
 coverage](https://codecov.io/gh/oxford-pharmacoepi/omock/branch/main/graph/badge.svg)](https://app.codecov.io/gh/oxford-pharmacoepi/omock?branch=main)
 <!-- badges: end -->
 
-## Installation
+The primary objective of the omock package is to generate mock OMOP CDM
+(Observational Medical Outcomes Partnership Common Data Model) data to
+facilitating the testing of various packages within the OMOPverse
+ecosystem.
+
+## Introduction
 
 You can install the development version of omock using:
 
