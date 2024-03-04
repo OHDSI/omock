@@ -1,42 +1,48 @@
-Package: omock
 Type: Package
-Title: Creation of Mock Observational Medical Outcomes Partnership Common Data Model
+Package: omock
+Title: Creation of Mock Observational Medical Outcomes Partnership Common
+    Data Model
 Version: 0.1.0
 Authors@R: c(
-    person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut","cre"), 
-    comment = c(ORCID = "0000-0002-9517-8834")),
-    person("Marti", "Catala", , "marti.catalasabate@ndorms.ox.ac.uk", 
-    role = c("aut"), comment = c(ORCID = "0000-0003-3308-9905")),
-    person("Edward", "Burn", , "edward.burn@ndorms.ox.ac.uk", role = c("aut"),
-    comment = c(ORCID = "0000-0002-9286-1128")),
-    person("Nuria", "Mercade-Besora", , "nuria.mercadebesora@ndorms.ox.ac.uk", 
-    role = c("aut"), comment = c(ORCID = "0009-0006-7948-3747")),
-    person("Xihang", "Chen", , "xihang.chen@ndorms.ox.ac.uk", role = c("aut"),
+    person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9517-8834")),
+    person("Marti", "Catala", , "marti.catalasabate@ndorms.ox.ac.uk", role = "aut",
+           comment = c(ORCID = "0000-0003-3308-9905")),
+    person("Edward", "Burn", , "edward.burn@ndorms.ox.ac.uk", role = "aut",
+           comment = c(ORCID = "0000-0002-9286-1128")),
+    person("Nuria", "Mercade-Besora", , "nuria.mercadebesora@ndorms.ox.ac.uk", role = "aut",
+           comment = c(ORCID = "0009-0006-7948-3747")),
+    person("Xihang", "Chen", , "xihang.chen@ndorms.ox.ac.uk", role = "aut",
            comment = c(ORCID = "0009-0001-8112-8959"))
-    )
+  )
 Maintainer: Mike Du <mike.du@ndorms.ox.ac.uk>
-Description: Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model.
+Description: Creates mock data for testing and package development for the
+    Observational Medical Outcomes Partnership common data model. The
+    package offers functions crafted with pipeline-friendly
+    implementation, enabling users to effortlessly include only the
+    necessary tables for their testing needs.
 License: Apache License (>= 2)
-Encoding: UTF-8
+URL: https://oxford-pharmacoepi.github.io/omock/
+Depends: 
+    R (>= 2.10)
 Imports: 
     cli,
     dplyr,
+    lubridate,
     methods,
     omopgenerics (>= 0.0.3),
+    purrr,
     rlang,
-    lubridate,
     snakecase,
     stats,
-    stringr,
-    purrr
-Depends: 
-    R (>= 2.10)
+    stringr
 Suggests: 
     ggplot2,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
-RoxygenNote: 7.3.1
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
-VignetteBuilder: knitr
-URL: https://oxford-pharmacoepi.github.io/omock/
+Encoding: UTF-8
+RoxygenNote: 7.3.1

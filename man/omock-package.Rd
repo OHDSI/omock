@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model.
+Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model. The package offers functions crafted with pipeline-friendly implementation, enabling users to effortlessly include only the necessary tables for their testing needs.
 }
 \seealso{
 Useful links:
