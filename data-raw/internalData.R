@@ -30,8 +30,8 @@ usethis::use_data(
   mockConceptAncestor,
   mockCdmSource,
   mockVocabulary,
-  mockconceptRelationship,
-  mockconceptSynonym,
+  mockConceptRelationship,
+  mockConceptSynonym,
   internal = TRUE,
   overwrite = TRUE
 )

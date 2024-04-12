@@ -53,9 +53,9 @@ mockPerson <- function(cdm,
     person = dplyr::tibble(
       person_id = person_id,
       gender_concept_id = gender,
-      year_of_birth = as.double(lubridate::year(dob)),
-      month_of_birth = as.double(lubridate::month(dob)),
-      day_of_birth = as.double(lubridate::day(dob))
+      year_of_birth = as.numeric(lubridate::year(dob)),
+      month_of_birth = as.numeric(lubridate::month(dob)),
+      day_of_birth = as.numeric(lubridate::day(dob))
     )
     person <- person |>
       dplyr::mutate(race_concept_id = NA,

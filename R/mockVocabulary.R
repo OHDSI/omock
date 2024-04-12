@@ -19,7 +19,7 @@
 #' }
 #'
 
-mockVocabularyTable <- function(cdm,
+mockVocabularyTables <- function(cdm,
                            cdmSource = NULL,
                               concept = NULL,
                               vocabulary = NULL,
