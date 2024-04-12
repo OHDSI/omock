@@ -4,7 +4,7 @@
 \alias{mockCdmFromTable}
 \title{The goal of this function is to create a mock Cdm reference from user self defined tables.}
 \usage{
-mockCdmFromTable(cdm, cohortTable = NULL, seed = 1)
+mockCdmFromTable(cdm = mockCdmReference(), cohortTable, seed = 1)
 }
 \arguments{
 \item{cdm}{Name of the cdm object}

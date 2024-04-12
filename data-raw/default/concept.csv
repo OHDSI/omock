@@ -1,0 +1,20 @@
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept,concept_class_id,concept_code,valid_start_date,valid_end_date,invalid_reason
+1,Musculoskeletal disorder,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+2,Osteoarthrosis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+3,Arthritis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+4,Osteoarthritis of knee,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+5,Osteoarthritis of hip,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+6,Osteonecrosis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
+7,Degenerative arthropathy,Condition,Read,NA,Diagnosis,1234,NA,NA,NA
+8,Knee osteoarthritis,Condition,Read,NA,Diagnosis,1234,NA,NA,NA
+9,H/O osteoarthritis,Observation,LOINC,S,Observation,1234,NA,NA,NA
+10,Adalimumab,Drug,RxNorm,S,Ingredient,1234,NA,NA,NA
+11,Injection,Drug,OMOP,NA,Dose Form,1234,NA,NA,NA
+12,ALIMENTARY TRACT AND METABOLISM,Drug,ATC,NA,ATC 1st,1234,NA,NA,NA
+13,Descendant drug,Drug,RxNorm,S,Drug,1234,NA,NA,NA
+14,Injectable,Drug,OMOP,NA,Dose Form,1234,NA,NA,NA
+15,Diseases of the musculoskeletal system and connective tissue,Condition,ICD10,NA,ICD10 Chapter,1234,NA,NA,NA
+16,Arthropathies,Condition,ICD10,NA,ICD10 SubChapter,1234,NA,NA,NA
+17,Arthritis,Condition,ICD10,NA,ICD Code,1234,NA,NA,NA
+18,OA,Condition,ICD10,NA,ICD Code,1234,NA,NA,NA
+19,Other ingredient,Drug,RxNorm,S,Ingredient,1234,NA,NA,NA

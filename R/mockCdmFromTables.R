@@ -37,10 +37,10 @@
 #'
 #' cdm <- cdm |> mockCdmFromTable(cohortTable = list(cohort = cohort))
 #'}
-mockCdmFromTable <- function(cdm,
-                             cohortTable = NULL,
+mockCdmFromTable <- function(cdm = mockCdmReference(),
+                             cohortTable,
                              seed = 1) {
-  checkInput(cdm = cdm)
+  checkInput(cdm = cdm, cohortTable = cohortTable)
 
 
   if (!is.null(cohortTable)) {
