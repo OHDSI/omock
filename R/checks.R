@@ -1,14 +1,14 @@
 # check cohortTable
-checkCohortTable <- function(cohortTable, call = parent.frame()) {
-  assertTibble(
-    cohortTable,
-    columns = c(
-      "cohort_definition_id", "subject_id", "cohort_start_date",
-      "cohort_end_date"
-    ),
-    call = call
-  )
-}
+# checkCohortTable <- function(cohortTable, call = parent.frame()) {
+#   assertTibble(
+#     cohortTable,
+#     columns = c(
+#       "cohort_definition_id", "subject_id", "cohort_start_date",
+#       "cohort_end_date"
+#     ),
+#     call = call
+#   )
+# }
 
 # check cohortSetTable
 checkCohortSetTable <- function(cohortSetTable, call = parent.frame()) {
@@ -190,4 +190,16 @@ checkcohort <- function(cohortName, call = parent.frame()) {
 checkgenderSplit <- function(genderSplit, call = parent.frame()) {
   assertNumeric(genderSplit,
                 integerish = FALSE,length = NULL, min = 0,max = 1, call = call)
+}
+
+# check list
+
+checkCohortTable <- function(cohortTable, call = parent.frame()) {
+  assertList(cohortTable,
+             length = NULL,
+             na = FALSE,
+             null = FALSE,
+             named = FALSE,
+             class = NULL,
+             call = parent.frame())
 }

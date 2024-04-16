@@ -1,0 +1,3 @@
+vocabulary_id,vocabulary_name,vocabulary_reference,vocabulary_version,vocabulary_concept_id
+SNOMED,SNOMED,1,1,1
+None,OMOP Standardized Vocabularies,Omop generated,v5.0 22-JUN-22,44819096
