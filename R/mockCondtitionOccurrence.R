@@ -12,11 +12,19 @@
 #' library(omock)
 #' }
 mockConditionOccurrence <- function(cdm,
-                             recordPerson = 1,
-                             seed = 1) {
+                                    recordPerson = 1,
+                                    seed = 1) {
   checkInput(cdm = cdm,
              recordPerson = recordPerson,
              seed = seed)
+
+
+  #check if table are empty
+  if (cdm$person |> nrow() == 0 |
+      cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+    cli::cli_abort("person, observation_period and concept table cannot be empty")
+
+  }
 
   if (!is.null(seed)) {
     set.seed(seed = seed)
@@ -24,7 +32,7 @@ mockConditionOccurrence <- function(cdm,
 
 
   concept_id <-
-    cdm$concept |> dplyr::filter("domain_id" == "Condition") |> dplyr::select("concept_id") |> dplyr::distinct() |> dplyr::pull()
+    cdm$concept |> dplyr::filter(.data$domain_id == "Condition") |> dplyr::select("concept_id") |> dplyr::pull() |> unique()
 
   # concept count
   concept_count <- length(concept_id)
@@ -54,8 +62,10 @@ mockConditionOccurrence <- function(cdm,
 
 
   con <-
-    con |> dplyr::bind_rows() |> dplyr::mutate(condition_occurrence_id = dplyr::row_number(),
-                                                condition_type_concept_id = 1) |>
+    con |> dplyr::bind_rows() |> dplyr::mutate(
+      condition_occurrence_id = dplyr::row_number(),
+      condition_type_concept_id = 1
+    ) |>
     dplyr::rename(person_id = "subject_id")
 
   cdm <-

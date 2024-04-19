@@ -22,9 +22,17 @@ mockDrugExposure <- function(cdm,
     set.seed(seed = seed)
   }
 
+  #check if table are empty
+  if (cdm$person |> nrow() == 0 |
+      cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+    cli::cli_abort("person and observation_period table cannot be empty")
+
+  }
+
+
 
   concept_id <-
-    cdm$concept |> dplyr::filter("domain_id" == "Drug") |> dplyr::select("concept_id") |> dplyr::distinct() |> dplyr::pull()
+    cdm$concept |> dplyr::filter(.data$domain_id == "Drug") |> dplyr::select("concept_id") |> dplyr::pull() |> unique()
 
   # concept count
   concept_count <- length(concept_id)

@@ -5,7 +5,7 @@
 \title{It creates a mock database with the vocabulary.}
 \usage{
 mockVocabularyTables(
-  cdm,
+  cdm = mockCdmReference(),
   cdmSource = NULL,
   concept = NULL,
   vocabulary = NULL,
