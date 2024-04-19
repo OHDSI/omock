@@ -39,21 +39,19 @@ mockDeath <- function(cdm,
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  death <- dplyr::tibble(
-    subject_id = sample(
-      x = cdm$person |> dplyr::pull("person_id"),
-      size = numberRows,
-      replace = FALSE
-    )) |>
-    addCohortDates(
-      start = "death_date",
-      end = "death_date",
-      observationPeriod = cdm$observation_period
-    )
+  death <- dplyr::tibble(person_id = sample(
+    x = cdm$person |> dplyr::pull("person_id"),
+    size = numberRows,
+    replace = FALSE
+  )) |> dplyr::left_join(
+    cdm$observation_period |> dplyr::select("person_id", "observation_period_end_date"),
+    by = "person_id"
+  )
+
 
   death <-
     death |> dplyr::mutate(death_type_concept_id = 1) |>
-    dplyr::rename(person_id = "subject_id")
+    dplyr::rename(death_date = "observation_period_end_date")
   #
   cdm <-
     omopgenerics::insertTable(cdm = cdm,
