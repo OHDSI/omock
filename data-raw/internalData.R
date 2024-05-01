@@ -24,6 +24,20 @@ mockVocabulary <- readr::read_csv(
   here::here("data-raw","default", "vocabulary.csv"), show_col_types = FALSE
 )
 
+namesTable <- dplyr::tribble(
+  ~"table_name", ~"start_date_name", ~"end_date_name", ~"concept_id_name", ~"source_concept_id_name",
+  "visit_occurrence", "visit_start_date", "visit_end_date", "visit_concept_id", "visit_source_concept_id",
+  "condition_occurrence", "condition_start_date", "condition_end_date", "condition_concept_id", "condition_source_concept_id",
+  "drug_exposure", "drug_exposure_start_date", "drug_exposure_end_date", "drug_concept_id", "drug_source_concept_id",
+  "procedure_occurrence", "procedure_date", "procedure_date", "procedure_concept_id", "procedure_source_concept_id",
+  "device_exposure", "device_exposure_start_date", "device_exposure_end_date", "device_concept_id", "device_source_concept_id",
+  "measurement", "measurement_date", "measurement_date", "measurement_concept_id", "measurement_source_concept_id",
+  "observation", "observation_date", "observation_date", "observation_concept_id", "observation_source_concept_id",
+  "drug_era", "drug_era_start_date", "drug_era_end_date", "drug_concept_id", NA,
+  "condition_era", "condition_era_start_date", "condition_era_end_date", "condition_concept_id", NA,
+  "specimen", "specimen_date", "specimen_date", "specimen_concept_id", "specimen_source_id"
+)
+
 usethis::use_data(
   mockDrugStrength,
   mockConcept,
@@ -32,6 +46,7 @@ usethis::use_data(
   mockVocabulary,
   mockConceptRelationship,
   mockConceptSynonym,
+  namesTable,
   internal = TRUE,
   overwrite = TRUE
 )
