@@ -155,8 +155,8 @@ getProviders <- function(cdm) {
 }
 getObsTypes <- function(tables) {
   x <- NULL
-  if ("concept" %in% names(cdm)) {
-    x <- cdm[["concept"]] |>
+  if ("concept" %in% names(tables)) {
+    x <- tables[["concept"]] |>
       dplyr::filter(.data$concept_class_id == "Obs Period Type") |>
       dplyr::pull("concept_id") |>
       unique()
