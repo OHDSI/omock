@@ -67,9 +67,11 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   # get observation_period
   tables <- createObservationPeriodTable(dates = dates, tables = tables)
 
-  # summarise concepts
+  # TODO summarise concepts
 
-  # update vocabulary tables
+  # TODO update vocabulary tables
+
+  # TODO (TO CHECK) make sure cohort attributes are used
 
   omopTables <- tables[names(tables) %in% omopgenerics::omopTables()]
   cohortTables <- tables[!names(tables) %in% omopgenerics::omopTables()]
