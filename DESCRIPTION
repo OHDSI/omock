@@ -34,8 +34,7 @@ Imports:
     purrr,
     rlang,
     snakecase,
-    stats,
-    stringr
+    stats
 Suggests: 
     ggplot2,
     knitr,

@@ -228,7 +228,7 @@ summariseObservations <- function(tables) {
 }
 calculateDates <- function(individuals, meanBirthStart, meanStartFirst, meanLastEnd) {
   randomExp <- function(n, rate) {
-    rexp(n = n, rate = rate) |> round() |> as.integer()
+    stats::rexp(n = n, rate = rate) |> round() |> as.integer()
   }
   n <- nrow(individuals)
   individuals |>
