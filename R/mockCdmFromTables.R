@@ -14,44 +14,60 @@
 #' \donttest{
 #' library(omock)
 #' library(dplyr)
-#' cdm <- mockCdmReference()
 #'
-#' cohort <- dplyr::tibble(
-#'cohort_definition_id = c(1, 1, 2, 2, 1, 3, 3, 3, 1, 3),
-#'subject_id = c(1, 4, 2, 3, 5, 5, 4, 3, 3, 1),
-#'cohort_start_date = as.Date(
-#'  c(
-#'    "2020-04-01",
-#'    "2021-06-01",
-#'    "2022-05-22",
-#'    "2010-01-01",
-#'    "2019-08-01",
-#'    "2019-04-07",
-#'    "2021-01-01",
-#'    "2008-02-02",
-#'    "2009-09-09",
-#'    "2021-01-01"
-#'  )
-#'),
-#'cohort_end_date = cohort_start_date)
+#' cohort <- tibble(
+#'   cohort_definition_id = c(1, 1, 2, 2, 1, 3, 3, 3, 1, 3),
+#'   subject_id = c(1, 4, 2, 3, 5, 5, 4, 3, 3, 1),
+#'   cohort_start_date = as.Date(c(
+#'     "2020-04-01", "2021-06-01", "2022-05-22", "2010-01-01", "2019-08-01",
+#'     "2019-04-07", "2021-01-01", "2008-02-02", "2009-09-09", "2021-01-01"
+#'   )),
+#'   cohort_end_date = cohort_start_date
+#' )
 #'
-#' cdm <- cdm |> mockCdmFromTable(cohortTable = list(cohort = cohort))
+#' cdm <- mockCdmFromTables(tables = list(cohort = cohort))
+#'
+#' cdm
+#' cdm$cohort
+#' cdm$person
+#'
 #'}
-mockCdmFromTable <- function(cdm = mockCdmReference(),
-                             cohortTable,
-                             seed = 1) {
-  checkInput(cdm = cdm, cohortTable = cohortTable)
+mockCdmFromTables <- function(cdm = mockCdmReference(),
+                              tables = list(),
+                              seed = 1) {
+  meanBirthStart <- 5*365
+  meanStartFirst <- 2*365
+  meanLastEnd <- 1*365
 
+  # initial checks
+  checkCdm(cdm)
+  assertNumeric(seed, integerish = TRUE, min = 1)
+  tables <- validateTables(tables)
 
-  if (!is.null(cohortTable)) {
+  set.seed(seed = seed)
 
-    for (table in names(table)){
-      checkCohortTable(cohortTable[[table]])
-    }
+  if (length(tables) == 0) return(cdm)
 
-    if (!is.null(seed)) {
-      set.seed(seed = seed)
-    }
+  # append cdm tables to tables
+  tables <- mergeTables(tables, cdm)
+
+  # summarise individuals observation
+  individuals <- summariseObservation(tables)
+
+  # get observation period times and birth dates
+  dates <- getDates(individuals, meanBirthStart, meanStartFirst, meanLastEnd)
+
+  # create person
+  person <- getPersonTable(dates = dates, cdm = cdm)
+
+  # correct end dates based on death
+  dates <- correctDateDeath(dates, cdm)
+
+  # get observation_period
+
+  # summarise concepts
+
+  # warn if person or observation_period tables are already there
 
     # pull unique id from cohort table
     person_id <- cohortTable |> noneNullTable() |> uniqueIdFromTable() |> sort()
@@ -101,12 +117,12 @@ mockCdmFromTable <- function(cdm = mockCdmReference(),
 
 
     cdm <- omopgenerics::insertTable(cdm = cdm,
-                                name ="observation_period",
-                                table = observationPeriod)
+                                     name ="observation_period",
+                                     table = observationPeriod)
 
     cdm <- omopgenerics::insertTable(cdm = cdm,
-                                name ="person",
-                                table = person)
+                                     name ="person",
+                                     table = person)
 
     names(cohortTable) <- snakecase::to_snake_case(names(cohortTable))
 
@@ -140,7 +156,180 @@ mockCdmFromTable <- function(cdm = mockCdmReference(),
 
 }
 
+mergeTables <- function(tables, cdm, call = parent.frame()) {
+  if (nrow(cdm$person) > 0) {
+    cli::cli_abort("person table will be overwritten", call = call)
+  }
+  if (nrow(cdm$observation_period) > 0) {
+    cli::cli_abort("observation_period table will be overwritten", call = call)
+  }
 
+}
+correctIds <- function(x) {
+  if (length(x) == 0) {
+    return(0)
+  } else {
+    return(x)
+  }
+}
+getRaceConcepts <- function(cdm) {
+  x <- NULL
+  if ("concept" %in% names(cdm)) {
+    x <- cdm[["concept"]] |>
+      dplyr::filter(
+        .data$domain_id == "Race" & .data$standard_concept == "S"
+      ) |>
+      dplyr::pull("concept_id") |>
+      unique()
+  }
+  correctIds(x)
+}
+getEthnicityConcepts <- function(cdm) {
+  x <- NULL
+  if ("concept" %in% names(cdm)) {
+    x <- cdm[["concept"]] |>
+      dplyr::filter(
+        .data$domain_id == "Ethnicity" & .data$standard_concept == "S"
+      ) |>
+      dplyr::pull("concept_id") |>
+      unique()
+  }
+  correctIds(x)
+}
+getLocations <- function(cdm) {
+  x <- NULL
+  if ("location" %in% names(cdm)) {
+    x <- cdm[["location"]] |> dplyr::pull("location_id") |> unique()
+  }
+  correctIds(x)
+}
+getProviders <- function(cdm) {
+  x <- NULL
+  if ("provider" %in% names(cdm)) {
+    x <- cdm[["provider"]] |>
+      dplyr::select("provider_id", "care_site_id") |>
+      dplyr::distinct() |>
+      dplyr::mutate("pc_id" = dplyr::row_number())
+  }
+  if (is.null(x) || nrow(x) == 0) {
+    x <- dplyr::tibble("pc_id" = 0L, "provider_id" = 0L, "care_site_id" = 0L)
+  }
+  return(x)
+}
+summariseDates <- function(tables) {
+  individuals <- dplyr::tibble(
+    "person_id" = integer(), "date" = as.Date(character())
+  )
+  for (k in seq_along(tables)) {
+    tableName <- names(tables)[k]
+    personId <- getPersonId(tableName)
+    startDate <- getStartDate(tableName)
+    endDate <- getEndDate(tableName)
+    individuals <- individuals |>
+      dplyr::union_all(
+        tables[[k]] |>
+          dplyr::select(
+            "person_id" = dplyr::all_of(personId),
+            "date" = dplyr::all_of(startDate)
+          )
+      )
+    if (endDate != startDate) {
+      individuals <- individuals |>
+        dplyr::union_all(
+          tables[[k]] |>
+            dplyr::select(
+              "person_id" = dplyr::all_of(personId),
+              "date" = dplyr::all_of(endDate)
+            )
+        )
+    }
+  }
+  individuals <- individuals |>
+    dplyr::group_by(.data$person_id) |>
+    dplyr::summarise(
+      "first_observation" = min(.data$date),
+      "last_observation" = max(.data$date)
+    )
+  return(individuals)
+}
+getPersonId <- function(tableName) {
+  ifelse(tableName %in% namesTable$table_name, "perosn_id", "subject_id")
+}
+getStartDate <- function(tableName) {
+  if (tableName %in% namesTable$table_name) {
+    x <- namesTable$start_date_name[namesTable$table_name == tableName]
+  } else {
+    x <- "cohort_start_date"
+  }
+  return(x)
+}
+getEndDate <- function(tableName) {
+  if (tableName %in% namesTable$table_name) {
+    x <- namesTable$end_date_name[namesTable$table_name == tableName]
+  } else {
+    x <- "cohort_end_date"
+  }
+  return(x)
+}
+getDates <- function(individuals, meanBirthStart, meanStartFirst, meanLastEnd) {
+  randomExp <- function(n, rate) {
+    rexp(n = n, rate = rate) |> round() |> as.integer()
+  }
+  n <- nrow(individuals)
+  individuals |>
+    dplyr::mutate(
+      "birth_start" = randomExp(n = n, rate = 1/meanBirthStart),
+      "start_first" = randomExp(n = n, rate = 1/meanStartFirst),
+      "last_end" = randomExp(n = n, rate = 1/meanLastEnd)
+    ) |>
+    dplyr::mutate(
+      "start_observation" = .data$first_observation - .data$start_first,
+      "end_observation" = .data$last_observation + .data$last_end,
+      "birth_date" = .data$start_observation - .data$birth_start
+    ) |>
+    dplyr::select(
+      "perosn_id", "birth_date", "start_observation", "end_observation"
+    )
+}
+getPersonTable <- function(dates, cdm) {
+  raceConcepts <- getRaceConcepts(cdm)
+  ethnicityConcepts <- getEthnicityConcepts(cdm)
+  locations <- getLocations(cdm)
+  providers <- getProviders(cdm)
+  n <- nrow(dates)
+  dates |>
+    dplyr::select("person_id", "birth_date") |>
+    dplyr::mutate(
+      "gender_concept_id" = sample(x = c(8507, 8532), size = n, replace = TRUE),
+      "year_of_birth" = lubridate::year(.data$birth_date),
+      "month_of_birth" = lubridate::month(.data$birth_date),
+      "day_of_birth" = lubridate::day(.data$birth_date),
+      "birth_datetime" = .data$birth_date,
+      "race_concept_id" = sample(x = raceConcepts, size = n, replace = TRUE),
+      "ethnicity_concept_id" = sample(x = ethnicityConcepts, size = n, replace = TRUE),
+      "location_id" = sample(x = locations, size = n, replace = TRUE),
+      "pc_id" = sample(x = providers$pc_id, size = n, replace = TRUE),
+      "person_source_value" = character(),
+      "gender_source_value" = character(),
+      "gender_source_concept_id" = 0L,
+      "race_source_value" = character(),
+      "race_source_concept_id" = 0L,
+      "ethnicity_source_value" = character(),
+      "ethnicity_source_concept_id" = 0L
+    ) |>
+    dplyr::inner_join(providers, by = "pc_id") |>
+    dplyr::select(-"birth_date", -"pc_id")
+}
+correctDateDeath <- function(dates, cdm) {
+  if ("death" %in% names(cdm)) {
+    dates <- dates |>
+      dplyr::left_join(
+        cdm[["death"]] |>
+          dplyr::select("person_id")
+      )
+  }
+  return(dates)
+}
 
 #function to remove null tibble and extract unique person_id
 uniqueIdFromTable <- function(tibble_list){

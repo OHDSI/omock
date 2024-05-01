@@ -122,16 +122,22 @@ checkNumberRecords <- function(numberRecords, call = parent.frame()) {
 # check cdm
 checkCdm <- function(cdm, tables = NULL, call = parent.env()) {
   if (!isTRUE(inherits(cdm, "cdm_reference"))) {
-    cli::cli_abort("cdm must be a CDMConnector CDM reference object", call = call)
+    cli::cli_abort("cdm must be a `cdm_reference` object", call = call)
+  }
+  if (!"local_cdm" %in% class(cdmSource(cdm))) {
+    cl <- class(cdmSource(cdm))
+    cl <- cl[cl != "cdm_source"]
+    cli::cli_abort(
+      "The cdm_reference has to be a local cdm_reference, it can not be a:
+      `{cl}` source.", call = call
+    )
   }
   if (!is.null(tables)) {
     tables <- tables[!(tables %in% names(cdm))]
     if (length(tables) > 0) {
-      cli::cli_abort(paste0(
-        "tables: ",
-        paste0(tables, collapse = ", "),
-        "are not present in the cdm object"
-      ), call = call)
+      cli::cli_abort(
+        "tables: {tables} {?is/are} not present in the cdm object", call = call
+      )
     }
   }
   invisible(NULL)
@@ -193,7 +199,6 @@ checkgenderSplit <- function(genderSplit, call = parent.frame()) {
 }
 
 # check list
-
 checkCohortTable <- function(cohortTable, call = parent.frame()) {
   assertList(cohortTable,
              length = NULL,
@@ -202,4 +207,18 @@ checkCohortTable <- function(cohortTable, call = parent.frame()) {
              named = FALSE,
              class = NULL,
              call = parent.frame())
+}
+
+# validate tables
+validateTables <- function(tables, call = parent.frame()) {
+  assertList(tables, class = "data.frame", named = TRUE, call = call)
+  # make sure they are tibbles
+  tables <- purrr::map(tables, dplyr::as_tibble)
+
+  # TODO add extra columns if missing or dismiss some tables if they dont have
+  # correct format
+
+  names(tables) <- tolower(names(tables))
+
+  return(tables)
 }
