@@ -2,22 +2,28 @@
 % Please edit documentation in R/mockCdmFromTables.R
 \name{mockCdmFromTables}
 \alias{mockCdmFromTables}
-\title{The goal of this function is to create a mock Cdm reference from user self defined tables.}
+\title{Creates a mock cdm_reference from a preexisting cdm_reference object (it can
+be empty) and a list of tables. It makes sure that all the observations are
+within observation and all individuals are present in person table.}
 \usage{
-mockCdmFromTables(cdm = mockCdmReference(), tables, seed = 1)
+mockCdmFromTables(cdm = mockCdmReference(), tables = list(), seed = NULL)
 }
 \arguments{
-\item{cdm}{Name of the cdm object}
+\item{cdm}{A cdm_reference object}
 
-\item{seed}{random seed}
+\item{tables}{List of named tables. They can be either omop standard tables
+or cohort tables.}
 
-\item{cohortTable}{List of user self defined cohort table}
+\item{seed}{An integer to fix the seed of random numbers. If NULL seed is not
+set.}
 }
 \value{
 a cdm object
 }
 \description{
-The goal of this function is to create a mock Cdm reference from user self defined tables.
+Creates a mock cdm_reference from a preexisting cdm_reference object (it can
+be empty) and a list of tables. It makes sure that all the observations are
+within observation and all individuals are present in person table.
 }
 \examples{
 \donttest{
