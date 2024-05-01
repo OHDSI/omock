@@ -20,7 +20,7 @@ library(dplyr)
 library(lubridate)
 ```
 
-There are times where the user will want to create a mock CDM reference from its own bespoke tables. The mockCdmFromTable() function is designed to facilitates the creation of mock CDM reference from bespoke tables.For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code. 
+There are times where the user will want to create a mock CDM reference from its own bespoke tables. The mockCdmFromTables() function is designed to facilitates the creation of mock CDM reference from bespoke tables.For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code. 
 
 ```{r, warning = FALSE}
 # Define a list of user-defined cohort tables
@@ -40,7 +40,7 @@ cohortTables <- list(
 )
 
 # Create a mock CDM object from the user-defined tables
-cdm <- mockCdmReference() |> mockCdmFromTable(cohortTable = cohortTables)
+cdm <- mockCdmReference() |> mockCdmFromTables(tables = cohortTables)
 
 cdm |> glimpse()
 
