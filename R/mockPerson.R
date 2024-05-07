@@ -18,7 +18,7 @@
 #'   )
 #'}
 #'
-mockPerson <- function(cdm,
+mockPerson <- function(cdm = mockCdmReference(),
                        nPerson = 10,
                        birthRange = as.Date(c("1950-01-01", "2000-12-31")),
                        proportionFemale = 0.5,
