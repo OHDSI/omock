@@ -6,7 +6,7 @@
 \usage{
 mockCohort(
   cdm,
-  tableName = "cohort",
+  name = "cohort",
   numberCohorts = 1,
   cohortName = paste0("cohort_", seq_len(numberCohorts)),
   recordPerson = 1,
@@ -16,7 +16,7 @@ mockCohort(
 \arguments{
 \item{cdm}{the CDM reference into which the synthetic cohort will be added}
 
-\item{tableName}{The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".}
+\item{name}{The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".}
 
 \item{numberCohorts}{The number of different cohorts to create within the table. Defaults to 1.}
 
@@ -39,7 +39,7 @@ cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod() |>
   mockCohort(
-    tableName = "omock_example",
+    name = "omock_example",
     numberCohorts = 2,
     cohortName = c("omock_cohort_1", "omock_cohort_2")
   )

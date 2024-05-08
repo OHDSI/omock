@@ -222,3 +222,14 @@ validateTables <- function(tables, call = parent.frame()) {
 
   return(tables)
 }
+
+#check concept set
+checkConceptSet<- function(conceptSet, call = parent.frame()) {
+  assertNumeric(conceptSet,
+                integerish = TRUE,length = NULL, min = 1, call = call)
+}
+
+# check domain
+checkDomain <- function(domain, call = parent.frame()) {
+  assertCharacter(domain, na = FALSE, call = call)
+}
