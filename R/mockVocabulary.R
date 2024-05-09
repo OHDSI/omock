@@ -1,6 +1,7 @@
 #' It creates a mock database with the vocabulary.
 #'
 #' @param cdm name of the cdm object
+#' @param vocabularySet name of the vocabulary set
 #' @param cdmSource cdm source table.
 #' @param concept Concept table.
 #' @param vocabulary Vocabulary table
@@ -20,8 +21,9 @@
 #'
 
 mockVocabularyTables <- function(cdm = mockCdmReference(),
-                           cdmSource = NULL,
-                              concept = NULL,
+                                 vocabularySet = "mock",
+                                 cdmSource = NULL,
+                                 concept = NULL,
                               vocabulary = NULL,
                               conceptRelationship = NULL,
                               conceptSynonym = NULL,
@@ -48,12 +50,15 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     cli::cli_abort("all the input vocabulary table must be either NULL or is a dataframe")
   }
 
+
+
+
   # fill tables
   for (nam in names(cdmTables)) {
 
     if(is.null(cdmTables[[nam]])){
       tableName <- paste0(
-        "mock",
+        vocabularySet,
         substr(toupper(nam), 1, 1),
         substr(
           nam, 2, nchar(nam)

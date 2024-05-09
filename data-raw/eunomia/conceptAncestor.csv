@@ -1,0 +1,14 @@
+ancestor_concept_id,descendant_concept_id,min_levels_of_separation,max_levels_of_separation
+1,1,1,1
+3,3,1,1
+1,2,1,1
+1,3,1,1
+1,4,2,2
+1,5,2,2
+3,4,1,1
+3,5,1,1
+10,10,1,1
+10,13,1,1
+12,12,1,1
+12,13,1,1
+19,13,1,1

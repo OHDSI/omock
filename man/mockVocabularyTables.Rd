@@ -6,6 +6,7 @@
 \usage{
 mockVocabularyTables(
   cdm = mockCdmReference(),
+  vocabularySet = "mock",
   cdmSource = NULL,
   concept = NULL,
   vocabulary = NULL,
@@ -17,6 +18,8 @@ mockVocabularyTables(
 }
 \arguments{
 \item{cdm}{name of the cdm object}
+
+\item{vocabularySet}{name of the vocabulary set}
 
 \item{cdmSource}{cdm source table.}
 
