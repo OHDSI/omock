@@ -2,7 +2,7 @@
 #' Function to generate synthetic Cohort
 #'
 #' @param cdm the CDM reference into which the synthetic cohort will be added
-#' @param tableName The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
+#' @param name The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
 #' @param numberCohorts The number of different cohorts to create within the table. Defaults to 1.
 #' @param cohortName The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.
 #' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
@@ -16,7 +16,7 @@
 #'   mockPerson(nPerson = 100) |>
 #'   mockObservationPeriod() |>
 #'   mockCohort(
-#'     tableName = "omock_example",
+#'     name = "omock_example",
 #'     numberCohorts = 2,
 #'     cohortName = c("omock_cohort_1", "omock_cohort_2")
 #'   )
@@ -24,7 +24,7 @@
 #' @export
 #'
 mockCohort <- function(cdm,
-                       tableName = "cohort",
+                       name = "cohort",
                        numberCohorts = 1,
                        cohortName = paste0("cohort_", seq_len(numberCohorts)),
                        recordPerson = 1,
@@ -33,7 +33,7 @@ mockCohort <- function(cdm,
   # initial checks
   checkInput(
     cdm = cdm,
-    tableName = tableName,
+    tableName = name,
     numberCohorts = numberCohorts,
     cohortName = cohortName,
     recordPerson = recordPerson,
@@ -127,10 +127,10 @@ mockCohort <- function(cdm,
 
   cdm <-
     omopgenerics::insertTable(cdm = cdm,
-                              name = tableName,
+                              name = name,
                               table = cohort)
-  cdm[[tableName]] <-
-    cdm[[tableName]] |> omopgenerics::newCohortTable(
+  cdm[[name]] <-
+    cdm[[name]] |> omopgenerics::newCohortTable(
       cohortSetRef = cohortSetTable,
       cohortAttritionRef = attr(cohort, "cohort_attrition")
     )

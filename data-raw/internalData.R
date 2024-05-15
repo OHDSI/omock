@@ -1,7 +1,7 @@
 library(dplyr)
 library(here)
 
-# add the mock vocabulary data
+# add the default mock vocabulary data
 mockDrugStrength <- readr::read_csv(
   here::here("data-raw","default", "drugStrength.csv"), show_col_types = FALSE
 )
@@ -23,6 +23,31 @@ mockConceptRelationship <- readr::read_csv(
 mockVocabulary <- readr::read_csv(
   here::here("data-raw","default", "vocabulary.csv"), show_col_types = FALSE
 )
+
+
+# add the default eunomia vocabulary data
+eunomiaDrugStrength <- readr::read_csv(
+  here::here("data-raw","eunomia", "drugStrength.csv"), show_col_types = FALSE
+)
+eunomiaConcept <- readr::read_csv(
+  here::here("data-raw","eunomia","concept.csv"), show_col_types = FALSE
+)
+eunomiaConceptAncestor <- readr::read_csv(
+  here::here("data-raw","eunomia", "conceptAncestor.csv"), show_col_types = FALSE
+)
+eunomiaCdmSource <- readr::read_csv(
+  here::here("data-raw","eunomia", "cdmSource.csv"), show_col_types = FALSE
+)
+eunomiaConceptSynonym <- readr::read_csv(
+  here::here("data-raw","eunomia", "conceptSynonym.csv"), show_col_types = FALSE
+)
+eunomiaConceptRelationship <- readr::read_csv(
+  here::here("data-raw","eunomia", "conceptRelationship.csv"), show_col_types = FALSE
+)
+eunomiaVocabulary <- readr::read_csv(
+  here::here("data-raw","eunomia", "vocabulary.csv"), show_col_types = FALSE
+)
+
 
 namesTable <- dplyr::tribble(
   ~"table_name", ~"start_date_name", ~"end_date_name", ~"concept_id_name", ~"source_concept_id_name",
@@ -46,6 +71,13 @@ usethis::use_data(
   mockVocabulary,
   mockConceptRelationship,
   mockConceptSynonym,
+  eunomiaDrugStrength,
+  eunomiaConcept,
+  eunomiaConceptAncestor,
+  eunomiaCdmSource,
+  eunomiaVocabulary,
+  eunomiaConceptRelationship,
+  eunomiaConceptSynonym,
   namesTable,
   internal = TRUE,
   overwrite = TRUE

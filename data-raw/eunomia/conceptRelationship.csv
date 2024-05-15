@@ -1,0 +1,10 @@
+concept_id_1,concept_id_2,relationship_id,valid_start_date,valid_end_date,invalid_reason
+2,7,Mapped from,NA,NA,NA
+4,8,Mapped from,NA,NA,NA
+10,11,RxNorm has dose form,NA,NA,NA
+3,6,Due to of,NA,NA,NA
+13,14,RxNorm has dose form,NA,NA,NA
+15,16,Subsumes,NA,NA,NA
+16,17,Subsumes,NA,NA,NA
+17,18,Subsumes,NA,NA,NA
+18,3,Maps to,NA,NA,NA

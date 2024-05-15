@@ -1,0 +1,66 @@
+vocabulary_id,vocabulary_name,vocabulary_reference,vocabulary_version,vocabulary_concept_id
+ABMS,Provider Specialty (American Board of Medical Specialties),http://www.abms.org/member-boards/specialty-subspecialty-certificates,mock,45756746
+ATC,WHO Anatomic Therapeutic Chemical Classification,http://www.whocc.no/atc_ddd_index/,mock,44819117
+CDM,OMOP Common DataModel,https://github.com/OHDSI/CommonDataModel,mock,32485
+CMS Place of Service,Place of Service Codes for Professional Claims (CMS),http://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeeSched/downloads//Website_POS_database.pdf,mock,44819110
+Cohort Type,OMOP Cohort Type,OMOP generated,mock,44819234
+Concept Class,OMOP Concept Class,OMOP generated,mock,44819233
+Condition Status,OMOP Condition Status,OMOP generated,mock,32887
+Condition Type,OMOP Condition Occurrence Type,OMOP generated,mock,44819127
+Cost,OMOP Cost,OMOP generated,mock,581457
+Cost Type,OMOP Cost Type,OMOP generated,mock,5029
+CPT4,Current Procedural Terminology version 4 (AMA),http://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html,mock,44819100
+Currency,International Currency Symbol (ISO 4217),http://www.iso.org/iso/home/standards/currency_codes.htm,mock,44819153
+CVX,CDC Vaccine Administered CVX (NCIRD),https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx,mock,581400
+Death Type,OMOP Death Type,OMOP generated,mock,44819135
+Device Type,OMOP Device Type,OMOP generated,mock,44819151
+dm+d,Dictionary of Medicines and Devices (NHS),https://isd.hscic.gov.uk/trud3/user/authenticated/group/0/pack/1/subpack/24/releases,mock,232
+Domain,OMOP Domain,OMOP generated,mock,44819147
+Drug Type,OMOP Drug Exposure Type,OMOP generated,mock,44819126
+Episode,OMOP Episode,OMOP generated,mock,32523
+Ethnicity,OMOP Ethnicity,OMOP generated,mock,44819134
+Gemscript,Gemscript (Resip),FDB UK distribution package,mock,44819144
+Gender,OMOP Gender,OMOP generated,mock,44819108
+HCPCS,Healthcare Common Procedure Coding System (CMS),http://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html,mock,44819101
+HES Specialty,Hospital Episode Statistics Specialty (NHS),http://www.datadictionary.nhs.uk/data_dictionary/attributes/m/main_specialty_code_de.asp?shownav=0,mock,44819145
+ICD10CM,"International Classification of Diseases, Tenth Revision, Clinical Modification (NCHS)",http://www.cdc.gov/nchs/icd/icd10cm.htm,mock,44819098
+ICD9CM,"International Classification of Diseases, Ninth Revision, Clinical Modification, Volume 1 and 2 (NCHS)",http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html,mock,5046
+ICD9Proc,"International Classification of Diseases, Ninth Revision, Clinical Modification, Volume 3 (NCHS)",http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html,mock,44819099
+Korean Revenue Code,Korean Revenue Code,OMOP generated,mock,32724
+LOINC,Logical Observation Identifiers Names and Codes (Regenstrief Institute),http://loinc.org/downloads/loinc,mock,44819102
+Meas Type,OMOP Measurement Type,OMOP generated,mock,44819152
+Medicare Specialty,Medicare provider/supplier specialty codes (CMS),http://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/MedicareProviderSupEnroll/Taxonomy.html,mock,44819138
+Metadata,Metadata,OMOP generated,mock,32675
+NDC,National Drug Code (FDA and manufacturers),"http://www.nlm.nih.gov/research/umls/rxnorm/docs/rxnormfiles.html, http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",mock,44819105
+None,OMOP Standardized Vocabularies,OMOP generated,mock,44819096
+Note Type,OMOP Note Type,OMOP generated,mock,44819146
+NUCC,National Uniform Claim Committee Health Care Provider Taxonomy Code Set (NUCC),http://www.nucc.org/index.php?option=com_content&view=article&id=107&Itemid=132,mock,44819137
+Obs Period Type,OMOP Observation Period Type,OMOP generated,mock,44819149
+Observation Type,OMOP Observation Type,OMOP generated,mock,44819129
+OMOP Extension,OMOP Extension (OHDSI),OMOP generated,mock,32758
+OSM,OpenStreetMap,"https://www.openstreetmap.org/copyright/en, https://wambachers-osm.website/boundaries/",mock,32541
+OXMIS,Oxford Medical Information System (OCHP),"Codes extracted from GPRD database, courtesy of GSK",mock,44819114
+Plan,"Health Plan - contract to administer healthcare transactions by the payer, facilitated by the sponsor",OMOP generated,mock,32471
+Plan Stop Reason,Plan Stop Reason - Reason for termination of the Health Plan,OMOP generated,mock,32474
+Procedure Type,OMOP Procedure Occurrence Type,OMOP generated,mock,44819128
+Provider,OMOP Provider,OMOP generated,mock,32573
+Race,Race and Ethnicity Code Set (USBC),http://www.cdc.gov/nchs/data/dvs/Race_Ethnicity_CodeSet.pdf,mock,44819109
+Read,NHS UK Read Codes Version 2 (HSCIC),http://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html,mock,44819113
+Relationship,OMOP Relationship,OMOP generated,mock,44819235
+Revenue Code,UB04/CMS1450 Revenue Codes (CMS),http://www.mpca.net/?page=ERC_finance,mock,44819133
+RxNorm,RxNorm (NLM),http://www.nlm.nih.gov/research/umls/rxnorm/docs/rxnormfiles.html,mock,44819104
+RxNorm Extension,RxNorm Extension (OHDSI),OMOP generated,mock,252
+SNOMED,Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO),http://www.nlm.nih.gov/research/umls/licensedcontent/umlsknowledgesources.html,mock,44819097
+SOPT,Source of Payment Typology (PHDSC),https://www.nahdo.org/sopt,mock,32473
+SPL,Structured Product Labeling (FDA),http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm,mock,44819140
+Sponsor,Sponsor - institution or individual financing healthcare transactions,OMOP generated,mock,32472
+Type Concept,OMOP Type Concept,OMOP generated,mock,32808
+UB04 Point of Origin,UB04 Claim Source Inpatient Admission Code (CMS),https://www.resdac.org/cms-data/variables/Claim-Source-Inpatient-Admission-Code,mock,32045
+UB04 Pri Typ of Adm,UB04 Claim Inpatient Admission Type Code (CMS),https://www.resdac.org/cms-data/variables/Claim-Inpatient-Admission-Type-Code,mock,32046
+UB04 Pt dis status,UB04 Patient Discharge Status Code (CMS),https://www.resdac.org/cms-data/variables/patient-discharge-status-code,mock,32047
+UB04 Typ bill,UB04 Type of Bill - Institutional (USHIK),https://ushik.ahrq.gov/ViewItemDetails?&system=apcd&itemKey=196987000,mock,32044
+UCUM,Unified Code for Units of Measure (Regenstrief Institute),http://aurora.regenstrief.org/~ucum/ucum.html#section-Alphabetic-Index,mock,44819107
+US Census,United States Census Bureau,https://www.census.gov/geo/maps-data/data/tiger-cart-boundary.html,mock,32570
+Visit,OMOP Visit,OMOP generated,mock,44819119
+Visit Type,OMOP Visit Type,OMOP generated,mock,44819150
+Vocabulary,OMOP Vocabulary,OMOP generated,mock,44819232

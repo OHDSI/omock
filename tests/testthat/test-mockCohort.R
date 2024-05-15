@@ -26,7 +26,7 @@ test_that("mock cohort simple test", {
     mockPerson(nPerson = 100) |>
     mockObservationPeriod() |>
     mockCohort(
-      tableName = "omock_example",
+      name = "omock_example",
       numberCohorts = 2,
       cohortName = c("omock_cohort_1", "omock_cohort_2")
     ))
