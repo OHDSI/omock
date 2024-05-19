@@ -9,9 +9,13 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(omock)
-#' }
+#' library(dplyr)
+#'
+#' cdm <- mockCdmReference() |> addConcept(conceptSet = c(100,200), domain = "Condition")
+#'
+#' cdm$concept |> filter(domain_id == "Condition")
+#'
 addConcept <-  function(cdm,
                         conceptSet,
                         domain = "Condition",
@@ -40,21 +44,21 @@ addConcept <-  function(cdm,
   # generate vocabulary_id
 
   if (domain == "Condition") {
-
-    cdm$concept <- cdm$concept |> dplyr::filter(.data$domain_id != "Condition")
+    cdm$concept <-
+      cdm$concept |> dplyr::filter(.data$domain_id != "Condition")
 
     vocabulary_id = sample("SNOMED", length(conceptSet), replace = T)
-    concept_name = paste0("Condition_",conceptSet)
+    concept_name = paste0("Condition_", conceptSet)
     concept_class_id = sample("Clinical Finding", length(conceptSet), replace = T)
 
   }
 
   if (domain == "Drug") {
-
-    cdm$concept <- cdm$concept |> dplyr::filter(.data$domain_id != "Drug")
+    cdm$concept <-
+      cdm$concept |> dplyr::filter(.data$domain_id != "Drug")
 
     vocabulary_id = sample("RxNorm", length(conceptSet), replace = T)
-    concept_name = paste0("Drug_",conceptSet)
+    concept_name = paste0("Drug_", conceptSet)
     concept_class_id = sample("Drug", length(conceptSet), replace = T)
 
   }
@@ -70,7 +74,7 @@ addConcept <-  function(cdm,
     vocabulary_id	= vocabulary_id,
     standard_concept = "S",
     concept_class_id	= concept_class_id,
-    concept_code	= 1234,
+    concept_code	= as.character(1234),
     valid_start_date	= NA,
     valid_end_date	= NA,
     invalid_reason = NA

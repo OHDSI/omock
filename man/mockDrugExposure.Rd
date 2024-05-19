@@ -20,7 +20,11 @@ A cdm reference with the mock tables
 Function to generate drug exposure table
 }
 \examples{
-\donttest{
 library(omock)
-}
+
+cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
+mockDrugExposure()
+
+cdm$drug_exposure
+
 }

@@ -22,7 +22,11 @@ A cdm reference with the updated concept table
 function to add conceptSet to concept table
 }
 \examples{
-\donttest{
 library(omock)
-}
+library(dplyr)
+
+cdm <- mockCdmReference() |> addConcept(conceptSet = c(100,200), domain = "Condition")
+
+cdm$concept |> filter(domain_id == "Condition")
+
 }

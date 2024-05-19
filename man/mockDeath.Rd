@@ -22,5 +22,12 @@ Function to creat mock death table
 \examples{
 \donttest{
 library(omock)
+
+cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
+mockDeath()
+
+cdm$death
+
+
 }
 }

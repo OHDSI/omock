@@ -1,3 +1,3796 @@
 concept_id,concept_synonym_name,language_concept_id
 2,Arthritis,NA
 3,Osteoarthrosis,NA
+600683,minutes,4180186
+600683,minute (qualifier value),4180186
+600683,min,4180186
+600684,minute 1 (qualifier value),4180186
+600684,min 1,4180186
+601827,Cycles per minute,4180186
+601827,Cycles per minute (qualifier value),4180186
+602301,ampoule-pair (qualifier value),4180186
+602302,SQ-Bet (qualifier value),4180186
+607920,min 0.1,4180186
+607920,minute 0.1 (qualifier value),4180186
+618629,Black Irish (ethnic group),4180186
+703254,scoop (qualifier value),4180186
+759814,Ethnicity unknown,4180186
+759814,Ethnic category unknown,4180186
+759814,Ethnic group unknown (ethnic group),4180186
+763755,Cells per 100 white blood cells,4180186
+763755,Cells per 100 white blood cells (qualifier value),4180186
+763755,Cells/100 WBCs,4180186
+764400,Rwandan franc (qualifier value),4180186
+3557687,New Zealand ethnic group NOS (ethnic group),4180186
+3557980,Other Asian (ethnic group),4180186
+3558014,Other white ethnic group (ethnic group),4180186
+3566536,Drops/min,4180186
+3566536,Drops per minute (qualifier value),4180186
+3661713,Khoikhoi (ethnic group),4180186
+3661939,dose step (qualifier value),4180186
+3661940,SQ-U (qualifier value),4180186
+3661941,SQ-U/ml (qualifier value),4180186
+4000051,Egyptians (ethnic group),4180186
+4002414,Ewe (ethnic group),4180186
+4005076,Finns (ethnic group),4180186
+4012103,Guamians (ethnic group),4180186
+4012612,Coushatta (ethnic group),4180186
+4014099,Aymara (ethnic group),4180186
+4014421,Armenians (ethnic group),4180186
+4017926,Onge (ethnic group),4180186
+4024294,French (ethnic group),4180186
+4027841,Flathead (ethnic group),4180186
+4028336,Malays (ethnic group),4180186
+4028346,Tanganyikans (ethnic group),4180186
+4030302,South Asian AND/OR Australian aborigine (ethnic group),4180186
+4030411,Caucasoid,4180186
+4030411,Caucasian (ethnic group),4180186
+4030735,Tutsi (ethnic group),4180186
+4031845,Danes (ethnic group),4180186
+4032635,Greeks (ethnic group),4180186
+4033391,Welsh (ethnic group),4180186
+4034654,Batutsi (ethnic group),4180186
+4035165,United States Black,4180186
+4035165,African American (ethnic group),4180186
+4036536,Kenyans (ethnic group),4180186
+4037633,Unit of dietary equivalents (qualifier value),4180186
+4037634,Unit of dietary exchange (qualifier value),4180186
+4037635,Unit of dietary protein exchange (qualifier value),4180186
+4037636,2g protein exchanges/meal (qualifier value),4180186
+4037637,10g carbohydrate exchanges/meal (qualifier value),4180186
+4037638,Joule/feed,4180186
+4037638,Joule/feed (qualifier value),4180186
+4037638,joule/feed,4180186
+4037639,megajoule/kilogram body weight,4180186
+4037639,Megajoule/kilogram body weight,4180186
+4037639,Megajoule/kilogram body weight (qualifier value),4180186
+4037640,Microgram/feed (qualifier value),4180186
+4037640,microgram/feed,4180186
+4037640,Microgram/feed,4180186
+4037641,liters per meal,4180186
+4037641,Liter/meal (qualifier value),4180186
+4037641,litres per meal,4180186
+4037641,Litre/meal,4180186
+4037641,Liter/meal,4180186
+4037642,Litre/kilogram body weight,4180186
+4037642,litres per kg body weight,4180186
+4037642,Liter/kilogram body weight,4180186
+4037642,Liter/kilogram body weight (qualifier value),4180186
+4037642,liters per kg body weight,4180186
+4037643,Milliliter/kilogram body weight (qualifier value),4180186
+4037643,Milliliter/kilogram body weight,4180186
+4037643,Millilitre/kilogram body weight,4180186
+4037643,milliliter/kilogram body weight,4180186
+4037643,millilitre/kilogram body weight,4180186
+4037644,Ounce/day,4180186
+4037644,Ounce/day (qualifier value),4180186
+4037645,ounce/feed,4180186
+4037645,Ounce/feed,4180186
+4037645,Ounce/feed (qualifier value),4180186
+4037646,pints per 24 hours,4180186
+4037646,Pints/24 hours,4180186
+4037646,Pints/24 hours (qualifier value),4180186
+4037647,Fluid ounce/24 hours (qualifier value),4180186
+4037647,Fluid ounce/24 hours,4180186
+4037648,Fluid ounce/meal,4180186
+4037648,Fluid ounces per meal,4180186
+4037648,Fluid ounce/meal (qualifier value),4180186
+4037649,bottles/feed (qualifier value),4180186
+4037650,mugs/day (qualifier value),4180186
+4037651,alcohol units/day (qualifier value),4180186
+4037652,large slices/day (qualifier value),4180186
+4037653,Small slices/day (qualifier value),4180186
+4037654,packets/24h (qualifier value),4180186
+4037655,packets/meal (qualifier value),4180186
+4037656,scoops per meal,4180186
+4037656,scoops/meal (qualifier value),4180186
+4037657,Small slices/meal (qualifier value),4180186
+4037797,Gray,4180186
+4037797,gray,4180186
+4037797,Gray (qualifier value),4180186
+4037798,Gray/hour,4180186
+4037798,gray/hour,4180186
+4037798,Gray/hour (qualifier value),4180186
+4037799,R/hour,4180186
+4037799,roentgen/hour (qualifier value),4180186
+4037800,Centigray/hour,4180186
+4037800,centigray/hour,4180186
+4037800,Centigray/hour (qualifier value),4180186
+4037801,Microgray/minute,4180186
+4037801,Microgray/minute (qualifier value),4180186
+4037802,Millimeters of aluminum,4180186
+4037802,Millimeters of aluminum (qualifier value),4180186
+4037802,Millimetres of aluminium,4180186
+4038004,Unit of dietetics and nutrition (qualifier value),4180186
+4038005,mg alpha-tocopherol equivalents/day (qualifier value),4180186
+4038006,Micrograms retinol equivalents/day,4180186
+4038006,Micrograms retinol equivalents/day (qualifier value),4180186
+4038007,2g protein exchanges/kg body weight (qualifier value),4180186
+4038008,Unit of dietary carbohydrate exchange (qualifier value),4180186
+4038009,10g carbohydrate exchanges/day (qualifier value),4180186
+4038010,4 millimole potassium exchanges/day (qualifier value),4180186
+4038011,4 millimole potassium exchanges/meal (qualifier value),4180186
+4038012,Unit of dietary energy measurement (qualifier value),4180186
+4038013,joule/milliliter,4180186
+4038013,joule/millilitre,4180186
+4038013,Joule/milliliter (qualifier value),4180186
+4038013,Joule/milliliter,4180186
+4038014,Kilocalorie/24 hours (qualifier value),4180186
+4038014,Kilocalorie/24 hours,4180186
+4038015,Megajoule/day,4180186
+4038015,Megajoule/day (qualifier value),4180186
+4038016,Kilocalorie/feed,4180186
+4038016,Kilocalorie/feed (qualifier value),4180186
+4038016,kilocalorie/feed,4180186
+4038017,Megajoule/feed (qualifier value),4180186
+4038017,Megajoule/feed,4180186
+4038017,megajoule/feed,4180186
+4038018,Joule/kilogram body weight,4180186
+4038018,Joule/kilogram body weight (qualifier value),4180186
+4038019,International unit/24 hours,4180186
+4038019,International unit/24 hours (qualifier value),4180186
+4038020,Gram/kilogram body weight (qualifier value),4180186
+4038020,gram/kilogram body weight,4180186
+4038020,Gram/kilogram body weight,4180186
+4038021,Microgram/kilogram body weight (qualifier value),4180186
+4038021,microgram/kg body weight,4180186
+4038021,Microgram/kilogram body weight,4180186
+4038022,Gram/meal,4180186
+4038022,Gram/meal (qualifier value),4180186
+4038022,gram/meal,4180186
+4038158,Milligram/meal (qualifier value),4180186
+4038158,Milligram/meal,4180186
+4038159,Microgram/meal (qualifier value),4180186
+4038159,Microgram/meal,4180186
+4038159,microgram/meal,4180186
+4038160,Milliliter/feed (qualifier value),4180186
+4038160,milliliters per feed,4180186
+4038160,Milliliter/feed,4180186
+4038160,Millilitre/feed,4180186
+4038160,millilitres per feed,4180186
+4038161,millilitre/meal,4180186
+4038161,Millilitre/meal,4180186
+4038161,Milliliter/meal,4180186
+4038161,Milliliter/meal (qualifier value),4180186
+4038161,milliliter/meal,4180186
+4038162,Ounce/24 hours (qualifier value),4180186
+4038162,Ounce/24 hours,4180186
+4038163,Ounce/meal (qualifier value),4180186
+4038163,Ounce/meal,4180186
+4038163,ounces per meal,4180186
+4038164,pints/feed (qualifier value),4180186
+4038165,fluid ounce/feed,4180186
+4038165,Fluid ounce/feed,4180186
+4038165,Fluid ounce/feed (qualifier value),4180186
+4038166,pints/meal (qualifier value),4180186
+4038166,pints per meal,4180186
+4038167,cups/day (qualifier value),4180186
+4038168,teaspoons/day (qualifier value),4180186
+4038169,tablespoons/meal (qualifier value),4180186
+4038170,Non-standard dietary quantity (qualifier value),4180186
+4038171,packets/day (qualifier value),4180186
+4038173,scoops/day (qualifier value),4180186
+4038173,scoops per day,4180186
+4038174,large pots/day (qualifier value),4180186
+4038175,millimole/kilogram body weight,4180186
+4038175,Millimole/kilogram body weight,4180186
+4038175,Millimole/kilogram body weight (qualifier value),4180186
+4038176,Micromole/kilogram body weight (qualifier value),4180186
+4038176,Micromole/kilogram body weight,4180186
+4038177,scoops/feed (qualifier value),4180186
+4038187,kilovolt,4180186
+4038187,kV (qualifier value),4180186
+4038189,rad (qualifier value),4180186
+4038189,radiation absorbed dose,4180186
+4038189,RAD - radiation absorbed dose,4180186
+4038190,rad/minute (qualifier value),4180186
+4038191,ret (qualifier value),4180186
+4038192,centigray,4180186
+4038192,Centigray,4180186
+4038192,Centigray (qualifier value),4180186
+4039902,Minutes/day (qualifier value),4180186
+4039902,Minutes/day,4180186
+4040611,mg alpha-tocopherol equivalents/kg body weight (qualifier value),4180186
+4040612,nicotinic acid equivalents/day (qualifier value),4180186
+4040613,nicotinic acid equivalents/kg body weight (qualifier value),4180186
+4040614,Micrograms retinol equivalents/kilogram body weight,4180186
+4040614,Micrograms retinol equivalents/kilogram body weight (qualifier value),4180186
+4040615,2g protein exchanges/day (qualifier value),4180186
+4040616,6g protein exchanges/day (qualifier value),4180186
+4040617,6g protein exchanges/kg body weight (qualifier value),4180186
+4040749,7g protein exchanges/kg body weight (qualifier value),4180186
+4040750,10g carbohydrate exchanges/kg body weight (qualifier value),4180186
+4040751,4 millimole potassium exchanges/kg body weight (qualifier value),4180186
+4040752,Megajoule/24 hours,4180186
+4040752,Megajoule/24 hours (qualifier value),4180186
+4040753,Unit of dietary mass measurement (qualifier value),4180186
+4040754,Gram/feed (qualifier value),4180186
+4040754,Gram/feed,4180186
+4040755,Unit of dietary volume measurement (qualifier value),4180186
+4040756,Liter/feed,4180186
+4040756,liters per feed,4180186
+4040756,Litre/feed,4180186
+4040756,litres per feed,4180186
+4040756,Liter/feed (qualifier value),4180186
+4040757,Fluid ounce/day,4180186
+4040757,Fluid ounce/day (qualifier value),4180186
+4040757,fl oz/day (qualifier value),4180186
+4040758,bottles/24h (qualifier value),4180186
+4040759,bottles/meal (qualifier value),4180186
+4040760,portions/day (qualifier value),4180186
+4040761,packets/feed (qualifier value),4180186
+4040762,large slices/meal (qualifier value),4180186
+4040773,Gray/minute,4180186
+4040773,gray/minute,4180186
+4040773,Gray/minute (qualifier value),4180186
+4040774,Megabecquerel (qualifier value),4180186
+4040774,Megabecquerel,4180186
+4040775,microgray,4180186
+4040775,Microgray (qualifier value),4180186
+4040775,Microgray,4180186
+4040776,Centigray/minute,4180186
+4040776,Centigray/minute (qualifier value),4180186
+4040776,centigray/minute,4180186
+4040778,Milligram radium equivalent,4180186
+4040778,Milligram radium equivalent (qualifier value),4180186
+4040779,Millimeters of copper,4180186
+4040779,Millimeters of copper (qualifier value),4180186
+4040779,Millimetres of copper,4180186
+4040780,Millimetres of lead,4180186
+4040780,Millimeters of lead (qualifier value),4180186
+4040780,Millimeters of lead,4180186
+4041297,Minutes/week (qualifier value),4180186
+4041297,Minutes/week,4180186
+4041297,minutes/week,4180186
+4041298,Ounce/week,4180186
+4041298,Ounce/week (qualifier value),4180186
+4041299,bags/week (qualifier value),4180186
+4041831,degrees/second (qualifier value),4180186
+4041833,W/cm2,4180186
+4041833,watt/centimetre squared,4180186
+4041833,Watt/square centimetre,4180186
+4041833,Watt/square centimeter,4180186
+4041833,watt/centimeter squared,4180186
+4041833,Watt/square centimeter (qualifier value),4180186
+4041834,pps - pulses per second,4180186
+4041834,pulses/second (qualifier value),4180186
+4041837,times/year (qualifier value),4180186
+4041838,hours/day (qualifier value),4180186
+4041838,hours per day,4180186
+4041839,% proof,4180186
+4041839,Percentage proof (qualifier value),4180186
+4041839,percent proof,4180186
+4044562,Gigahertz (qualifier value),4180186
+4044562,Gigahertz (GHz),4180186
+4044562,gigahertz,4180186
+4044562,Gigahertz,4180186
+4044564,milliwatt,4180186
+4044564,Milliwatt (qualifier value),4180186
+4044564,Milliwatt,4180186
+4044566,days/week (qualifier value),4180186
+4044566,days per week,4180186
+4044567,days/month (qualifier value),4180186
+4044567,days per month,4180186
+4044568,days/year (qualifier value),4180186
+4044570,Gram/week,4180186
+4044570,Gram/week (qualifier value),4180186
+4044572,International unit/kilogram body weight,4180186
+4044572,International unit/kilogram body weight (qualifier value),4180186
+4044574,Ounce/month (qualifier value),4180186
+4044574,Ounce/month,4180186
+4045113,Milliequivalents/kg body weight,4180186
+4045113,Milliequivalents/kilogram body weight (qualifier value),4180186
+4045113,Milliequivalents/kilogram body weight,4180186
+4045113,milliequivalents/kg body weight,4180186
+4045114,Retinol equivalents (qualifier value),4180186
+4045115,7g protein exchanges/day (qualifier value),4180186
+4045116,6g protein exchanges/meal (qualifier value),4180186
+4045117,7g protein exchanges/meal (qualifier value),4180186
+4045118,10g carbohydrate exchanges/in-between meal snack (qualifier value),4180186
+4045119,Unit of dietary potassium exchange (qualifier value),4180186
+4045120,Kilocalorie/milliliter,4180186
+4045120,kilocalorie/millilitre,4180186
+4045120,Kilocalorie/milliliter (qualifier value),4180186
+4045121,Megajoule/hour,4180186
+4045121,Megajoule/hour (qualifier value),4180186
+4045121,megajoule/hour,4180186
+4045122,Kilocalorie/kilogram body weight (qualifier value),4180186
+4045122,Kilocalorie/kilogram body weight,4180186
+4045123,international units per feed (qualifier value),4180186
+4045123,international units per feed,4180186
+4045123,international units/feed,4180186
+4045123,international unit/feed,4180186
+4045124,milligram/feed,4180186
+4045124,Milligram/feed,4180186
+4045124,Milligram/feed (qualifier value),4180186
+4045125,Milligram/kilogram body weight,4180186
+4045125,Milligram/kilogram body weight (qualifier value),4180186
+4045125,milligram/kg body weight,4180186
+4045126,pints per day,4180186
+4045126,pints/day (qualifier value),4180186
+4045127,bottles/day (qualifier value),4180186
+4045128,glasses/day (qualifier value),4180186
+4045129,tablespoons/day (qualifier value),4180186
+4045130,teaspoons/meal (qualifier value),4180186
+4045131,Alcohol units (qualifier value),4180186
+4045132,alcohol units/week (qualifier value),4180186
+4045132,Alcohol units per week,4180186
+4045133,Non-standard dietary quantity per unit time (qualifier value),4180186
+4045134,scoops/24h (qualifier value),4180186
+4045135,Small pots/day (qualifier value),4180186
+4045136,UPW - unit/week,4180186
+4045136,Unit/week,4180186
+4045136,Unit/week (qualifier value),4180186
+4045136,unit/week,4180186
+4045137,Non-standard dietary quantity per meal (qualifier value),4180186
+4045281,Unit of radiotherapy (qualifier value),4180186
+4045282,megavolt,4180186
+4045282,MV - Megavolt,4180186
+4045282,MV (qualifier value),4180186
+4045283,mega electronvolt,4180186
+4045283,mega electronvolt (qualifier value),4180186
+4045284,R/minute,4180186
+4045284,roentgen/minute (qualifier value),4180186
+4045285,microgray/hour,4180186
+4045285,Microgray/hour (qualifier value),4180186
+4045285,Microgray/hour,4180186
+4047133,Megahertz (MHz),4180186
+4047133,Megahertz (qualifier value),4180186
+4047133,megahertz,4180186
+4047133,Megahertz,4180186
+4047135,kilohertz,4180186
+4047135,Kilohertz (qualifier value),4180186
+4047135,Kilohertz,4180186
+4047139,times/month (qualifier value),4180186
+4047141,hours/week (qualifier value),4180186
+4047141,hours per week,4180186
+4047142,Gram/month (qualifier value),4180186
+4047142,Gram/month,4180186
+4048709,Kapingas (ethnic group),4180186
+4050100,Aleuts (ethnic group),4180186
+4051279,Race: West indian (ethnic group),4180186
+4053167,Polynesians (ethnic group),4180186
+4053172,Melanesians (ethnic group),4180186
+4053816,Tamils (ethnic group),4180186
+4057568,Black African (ethnic group),4180186
+4063377,Norwegians (ethnic group),4180186
+4065367,Hawaiians (ethnic group),4180186
+4068834,Javanese (ethnic group),4180186
+4069284,Lacandon (ethnic group),4180186
+4071025,Madagascans (ethnic group),4180186
+4073535,Papuans (ethnic group),4180186
+4074191,weeks/month (qualifier value),4180186
+4074191,weeks per month,4180186
+4074192,pounds (sterling) per month (qualifier value),4180186
+4074193,pounds (sterling) per week (qualifier value),4180186
+4074613,pounds (sterling) per day (qualifier value),4180186
+4075818,pounds (sterling) per annum (qualifier value),4180186
+4076626,weeks/year (qualifier value),4180186
+4076627,pounds (sterling) per hour (qualifier value),4180186
+4076901,Black Arab (ethnic group),4180186
+4077358,Black Iranian (ethnic group),4180186
+4077735,Saipanese (ethnic group),4180186
+4078122,Black North African (ethnic group),4180186
+4078123,Black East African Asian (ethnic group),4180186
+4078124,Black Indo-Caribbean (ethnic group),4180186
+4078979,Platelets/liter,4180186
+4078979,platelets/litre,4180186
+4078979,Platelets/liter (qualifier value),4180186
+4079131,dyne/s/cm5 (qualifier value),4180186
+4079132,gram metre,4180186
+4079132,Gram.meter (qualifier value),4180186
+4079132,gram meter,4180186
+4079132,Gram.metre,4180186
+4079132,Gram.meter,4180186
+4079451,Millilitre/beat,4180186
+4079451,Milliliter/beat,4180186
+4079451,Milliliter/beat (qualifier value),4180186
+4080869,Ampere (qualifier value),4180186
+4080869,ampere,4180186
+4080869,amps,4180186
+4080869,Ampere,4180186
+4081192,Percentage of total failed (qualifier value),4180186
+4081192,% of total failed,4180186
+4081192,percent of total failed,4180186
+4081677,newton (qualifier value),4180186
+4082174,gm-m/m2,4180186
+4082174,Gram-meter/square meter,4180186
+4082174,Gram-meter per metre squared,4180186
+4082174,Gram metre per metre squared,4180186
+4082174,Gram metre per square metre,4180186
+4082174,Gram-meter per meter squared,4180186
+4082174,Gram-meter/square metre,4180186
+4082174,Gram-meter/square meter (qualifier value),4180186
+4082174,Gram meter per square meter,4180186
+4082174,Gram meter per meter squared,4180186
+4082175,Milliliter/beat/square meter (qualifier value),4180186
+4082175,Millilitre/beat/square meter,4180186
+4082175,Milliliter/beat/square meter,4180186
+4082175,Millilitre/beat/square metre,4180186
+4082924,square metre,4180186
+4082924,m2,4180186
+4082924,Square meter,4180186
+4082924,square meters,4180186
+4082924,square metres,4180186
+4082924,Square meter (qualifier value),4180186
+4083974,Counts per second (qualifier value),4180186
+4083974,Counts per second,4180186
+4083976,Non-International System of Units unit of volume (qualifier value),4180186
+4083976,Non-International System of Units unit of volume,4180186
+4083977,Mole/minute (qualifier value),4180186
+4083977,Mole/minute,4180186
+4083978,Non-International System of Units unit of frequency,4180186
+4083978,Non-International System of Units unit of frequency (qualifier value),4180186
+4083979,yard/second,4180186
+4083979,Yard/second,4180186
+4083979,Yard/second (qualifier value),4180186
+4084119,Moles per unit time (qualifier value),4180186
+4084121,Unit of viscosity (qualifier value),4180186
+4084447,Unit of platelet analysis (qualifier value),4180186
+4084448,Unit of blood corpuscle analysis (qualifier value),4180186
+4084449,Unit of protein analysis (qualifier value),4180186
+4084450,Kilointernational unit per unit volume,4180186
+4084450,kilointernational units per unit volume,4180186
+4084450,Kilointernational unit per unit volume (qualifier value),4180186
+4084452,Unit of hormone and enzyme activity (qualifier value),4180186
+4084453,osmoles per unit mass (qualifier value),4180186
+4084454,equivalents per unit volume (qualifier value),4180186
+4084455,%w/v,4180186
+4084455,Weight/volume ratio (qualifier value),4180186
+4084455,Weight/volume ratio,4180186
+4084456,Volume/volume ratio,4180186
+4084456,Volume/volume ratio (qualifier value),4180186
+4084456,%v/v,4180186
+4084457,International System of Units-derived unit of area,4180186
+4084457,International System of Units-derived unit of area (qualifier value),4180186
+4084458,Non-International System of Units unit of area (qualifier value),4180186
+4084458,Non-International System of Units unit of area,4180186
+4084459,yd2,4180186
+4084459,Square yard,4180186
+4084459,Square yard (qualifier value),4180186
+4084460,Unit of physiological rate (qualifier value),4180186
+4084461,Volume per unit time per unit area (qualifier value),4180186
+4084578,International System of Units units of energy per unit time,4180186
+4084578,International System of Units units of energy per unit time (qualifier value),4180186
+4084579,Calories per unit time (qualifier value),4180186
+4084580,international unit/0.1mL,4180186
+4084580,International unit/0.1milliliter (qualifier value),4180186
+4084580,International unit/0.1milliliter,4180186
+4084580,International unit/0.1millilitre,4180186
+4084584,Unit of antibody assay (qualifier value),4180186
+4084593,Unit of currency (qualifier value),4180186
+4084618,pence (qualifier value),4180186
+4085095,Unit of angular velocity (qualifier value),4180186
+4085322,Oceanian (ethnic group),4180186
+4085483,Black Indian sub-continent (ethnic group),4180186
+4085489,Niuean (ethnic group),4180186
+4086062,British thermal unit/hour (qualifier value),4180186
+4086062,British thermal unit/hour,4180186
+4086063,Unit of acceleration (qualifier value),4180186
+4086539,Millicurie,4180186
+4086539,Millicurie (qualifier value),4180186
+4086539,millicurie,4180186
+4086540,Picoliter,4180186
+4086540,Picolitre,4180186
+4086540,Picoliter (qualifier value),4180186
+4086541,fluid ounce (qualifier value),4180186
+4086541,fluid ounce,4180186
+4086542,cubic foot (qualifier value),4180186
+4086542,cubic foot,4180186
+4086543,Mole/hour (qualifier value),4180186
+4086543,Mole/hour,4180186
+4086544,Gram/hour,4180186
+4086544,g/hr,4180186
+4086544,Gram/hour (qualifier value),4180186
+4086544,gm/hr,4180186
+4086545,Mole/hour/milliliter (qualifier value),4180186
+4086545,mole/hour/millilitre,4180186
+4086545,Mole/hour/milliliter,4180186
+4086546,International System of Units-derived unit of linear velocity,4180186
+4086546,International System of Units (SI)-derived unit of linear velocity,4180186
+4086546,International System of Units-derived unit of linear velocity (qualifier value),4180186
+4086547,Becquerel (qualifier value),4180186
+4086547,Becquerel,4180186
+4086566,Unit of radiation dose rate (qualifier value),4180186
+4086567,Millisievert (qualifier value),4180186
+4086567,Millisievert,4180186
+4086567,millisievert,4180186
+4086568,lx,4180186
+4086568,lux (qualifier value),4180186
+4086570,International System of Units-derived unit of catalytic concentration,4180186
+4086570,International System of Units-derived unit of catalytic concentration (qualifier value),4180186
+4086571,Non-International System of Units unit of force (qualifier value),4180186
+4086571,Non-International System of Units unit of force,4180186
+4086691,Unit of biological and biochemical measurement (qualifier value),4180186
+4086702,Unit of dry weight tissue analysis (qualifier value),4180186
+4086703,Unit of microbial assay (qualifier value),4180186
+4086704,Unit of blood analysis (qualifier value),4180186
+4086705,Unit of erythrocyte analysis (qualifier value),4180186
+4086706,Unit of semen analysis (qualifier value),4180186
+4086707,International units per unit volume,4180186
+4086707,international units per unit volume,4180186
+4086707,International units (IU) per unit volume,4180186
+4086707,International units per unit volume (qualifier value),4180186
+4086708,International units (IU) per unit time,4180186
+4086708,International units per unit time (qualifier value),4180186
+4086708,International units per unit time,4180186
+4086711,Volume per unit volume (qualifier value),4180186
+4086712,Denominators of time (qualifier value),4180186
+4086715,Units per unit volume (qualifier value),4180186
+4086716,osmoles per unit volume (qualifier value),4180186
+4086717,Square inch (qualifier value),4180186
+4086717,in2,4180186
+4086717,Square inch,4180186
+4086718,kilowatt,4180186
+4086718,Kilowatt,4180186
+4086718,Kilowatt (qualifier value),4180186
+4086719,Unit of whole blood analysis (qualifier value),4180186
+4086720,Moles per unit time per unit mass (qualifier value),4180186
+4086722,Unit of cardiothoracic assessment (qualifier value),4180186
+4086728,Dye units of enzyme or hormone activity (qualifier value),4180186
+4086863,Parts per billion (qualifier value),4180186
+4086863,parts per billion,4180186
+4086863,Parts per billion,4180186
+4086864,Unit of radioactivity (qualifier value),4180186
+4086865,cubic yard (qualifier value),4180186
+4086865,yard,4180186
+4086865,cubic yard,4180186
+4086866,Gram/minute (qualifier value),4180186
+4086866,Gram/minute,4180186
+4086867,Non-International System of Units unit of linear velocity (qualifier value),4180186
+4086867,Non-International System of Units unit of linear velocity,4180186
+4086868,Inch/second (qualifier value),4180186
+4086868,Inch/second,4180186
+4086868,inch/second,4180186
+4086869,Non-International System of Units unit of radionuclide source activity,4180186
+4086869,Non-International System of Units unit of radionuclide source activity (qualifier value),4180186
+4086891,Unit of electrical potential difference (qualifier value),4180186
+4086892,Unit of electrical current (qualifier value),4180186
+4086893,Unit of electrical resistance (qualifier value),4180186
+4086894,Sievert (qualifier value),4180186
+4086894,Sievert,4180186
+4087018,radiation dose equivalent,4180186
+4087018,Radiation equivalent man,4180186
+4087018,Radiation equivalent man (qualifier value),4180186
+4087018,Radiation dose equivalent,4180186
+4087018,radiation equivalent man,4180186
+4087019,Unit of photometry and optics (qualifier value),4180186
+4087020,candela (qualifier value),4180186
+4087020,cd,4180186
+4087021,Unit of linear velocity (qualifier value),4180186
+4087022,Molarity,4180186
+4087022,moles per unit volume (qualifier value),4180186
+4087024,moles per unit mass (qualifier value),4180186
+4087025,Mass per unit mass (qualifier value),4180186
+4087026,International System of Units unit of enzyme catalysis (qualifier value),4180186
+4087026,International System of Units unit of enzyme catalysis,4180186
+4087027,International System of Units units of mass per unit time,4180186
+4087027,International System of Units units of mass per unit time (qualifier value),4180186
+4087028,International System of Units unit of pressure (qualifier value),4180186
+4087028,International System of Units unit of pressure,4180186
+4087029,Non-International System of Units unit of pressure (qualifier value),4180186
+4087029,Non-International System of Units unit of pressure,4180186
+4087031,Unit of force (qualifier value),4180186
+4087032,angstrom (qualifier value),4180186
+4087032,angstroms,4180186
+4087037,Unit of blood globulin analysis (qualifier value),4180186
+4087322,Mongol (ethnic group),4180186
+4087917,Black Caribbean (ethnic group),4180186
+4087926,New Zealand ethnic groups (ethnic group),4180186
+4087928,Cook Island MÄori (ethnic group),4180186
+4087928,Cook Island Maori,4180186
+4087930,South East Asian (ethnic group),4180186
+4087931,Other Asian (ethnic group),4180186
+4087932,New Zealand ethnic group NOS (ethnic group),4180186
+4090368,Estonians (ethnic group),4180186
+4090388,White - ethnic group (ethnic group),4180186
+4090388,White,4180186
+4090389,Black British (ethnic group),4180186
+4090521,New Zealand European (ethnic group),4180186
+4090521,Pakeha,4180186
+4091010,"Black, other, non-mixed origin (ethnic group)",4180186
+4091012,Black - other Asian (ethnic group),4180186
+4091013,"Black - other, mixed (ethnic group)",4180186
+4091016,Indian (East Indian) (ethnic group),4180186
+4091017,Pakistani (ethnic group),4180186
+4091018,Bangladeshi (ethnic group),4180186
+4091022,New Zealand Maori,4180186
+4091022,New Zealand MÄori (ethnic group),4180186
+4091023,Tokelauan (ethnic group),4180186
+4091023,Tokelau,4180186
+4092681,Xavante (ethnic group),4180186
+4093769,English (ethnic group),4180186
+4095109,South Asian Aborigine (ethnic group),4180186
+4097690,Tristan da Cunhans (ethnic group),4180186
+4098866,Hututu (ethnic group),4180186
+4099457,Paez (ethnic group),4180186
+4100470,Iraqi (ethnic group),4180186
+4100645,Ainu (ethnic group),4180186
+4102303,Bhutanese (ethnic group),4180186
+4102599,Poles (ethnic group),4180186
+4102622,Czech (ethnic group),4180186
+4103076,Easter Islanders (ethnic group),4180186
+4103243,Siamese (ethnic group),4180186
+4104765,Unit of white blood cell analysis (qualifier value),4180186
+4104767,milliinternational unit per unit volume,4180186
+4104767,milliinternational unit per unit volume (qualifier value),4180186
+4104768,Microinternational units per unit volume (qualifier value),4180186
+4104768,Microinternational units per unit volume,4180186
+4104773,General unit of biological and biochemical measurement (qualifier value),4180186
+4104774,Osmolarities (qualifier value),4180186
+4104775,ft2,4180186
+4104775,Square foot,4180186
+4104775,Square foot (qualifier value),4180186
+4104776,acre (qualifier value),4180186
+4104777,International System of Units unit of power (qualifier value),4180186
+4104777,International System of Units unit of power,4180186
+4104778,Non-International System of Units unit of power (qualifier value),4180186
+4104778,Non-International System of Units unit of power,4180186
+4104779,Units per unit time (qualifier value),4180186
+4104780,equivalents per unit time (qualifier value),4180186
+4104781,Volume per unit time per unit mass (qualifier value),4180186
+4104782,Mass per unit time per unit mass (qualifier value),4180186
+4104783,Moles per unit time per unit area (qualifier value),4180186
+4104784,Mass per unit time per unit area (qualifier value),4180186
+4105289,Unit of periodicity (qualifier value),4180186
+4105435,Unit of income and expenditure (qualifier value),4180186
+4105438,Unit of proportional time (qualifier value),4180186
+4105439,Unit of anthropometric measurement (qualifier value),4180186
+4105563,pounds sterling (qualifier value),4180186
+4106347,Unit of motion (qualifier value),4180186
+4106348,International System of Units-derived unit of acceleration,4180186
+4106348,International System of Units-derived unit of acceleration (qualifier value),4180186
+4106349,Foot/second squared,4180186
+4106349,foot/second squared,4180186
+4106349,Foot/second squared (qualifier value),4180186
+4106673,Non-International System of Units unit of acceleration (qualifier value),4180186
+4106673,Non-International System of Units unit of acceleration,4180186
+4106674,Unit of density (qualifier value),4180186
+4106675,Grams per cubic centimeter (qualifier value),4180186
+4106675,Grams per cubic centimetre,4180186
+4106675,Grams per cubic centimeter,4180186
+4106675,gram/cubic centimeter,4180186
+4106675,gram/cubic centimetre,4180186
+4107006,Unit of fractional measurement (qualifier value),4180186
+4107007,curie,4180186
+4107007,Curie,4180186
+4107007,Curie (qualifier value),4180186
+4107008,Microcurie,4180186
+4107008,Microcurie (qualifier value),4180186
+4107008,microcurie,4180186
+4107009,nanocurie,4180186
+4107009,Nanocurie,4180186
+4107009,Nanocurie (qualifier value),4180186
+4107010,Nanoliter,4180186
+4107010,Nanolitre,4180186
+4107010,Nanoliter (qualifier value),4180186
+4107011,International System of Units (SI)-derived unit of volume,4180186
+4107011,International System of Units-derived unit of volume,4180186
+4107011,International System of Units-derived unit of volume (qualifier value),4180186
+4107012,pt,4180186
+4107012,pint (qualifier value),4180186
+4107013,gallon,4180186
+4107013,gallon (qualifier value),4180186
+4107014,cubic inch (qualifier value),4180186
+4107014,cubic inch,4180186
+4107016,International System of Units unit of frequency,4180186
+4107016,International System of Units unit of frequency (qualifier value),4180186
+4107017,Feet/second,4180186
+4107017,feet per second,4180186
+4107017,Feet/second (qualifier value),4180186
+4107018,knot (qualifier value),4180186
+4107019,International System of Units unit of radionuclide source activity,4180186
+4107019,International System of Units unit of radionuclide source activity (qualifier value),4180186
+4107020,ohm (qualifier value),4180186
+4107022,Kilobecquerel,4180186
+4107022,Kilobecquerel (qualifier value),4180186
+4107178,electronvolt (qualifier value),4180186
+4107178,electronvolt,4180186
+4107179,International System of Units units of volume per unit time (qualifier value),4180186
+4107179,International System of Units units of volume per unit time,4180186
+4107180,International System of Units unit of force,4180186
+4107180,International System of Units unit of force (qualifier value),4180186
+4107181,centistokes,4180186
+4107181,centistokes (qualifier value),4180186
+4107182,Unit of creatinine analysis (qualifier value),4180186
+4107194,Unit of wet weight tissue analysis (qualifier value),4180186
+4107195,Unit of blood factor analysis (qualifier value),4180186
+4107196,Unit of cell and cast assay (qualifier value),4180186
+4107197,Unit of faecal analysis,4180186
+4107197,Unit of fecal analysis (qualifier value),4180186
+4107199,international units per unit mass,4180186
+4107199,International units per unit mass,4180186
+4107199,International units per unit mass (qualifier value),4180186
+4107200,milliinternational units per unit mass,4180186
+4107200,milliinternational units per unit mass (qualifier value),4180186
+4107203,Unit denominators (qualifier value),4180186
+4107205,Molarities (qualifier value),4180186
+4107327,Moles per unit time per unit volume (qualifier value),4180186
+4107328,Unit of physiological status and assessment (qualifier value),4180186
+4107781,Unit of finance (qualifier value),4180186
+4107782,Photometric and radiometric quantities (qualifier value),4180186
+4107858,horsepower (qualifier value),4180186
+4107859,British thermal unit (qualifier value),4180186
+4107859,British thermal unit,4180186
+4107860,meter/second squared,4180186
+4107860,metre/second squared,4180186
+4107860,Metre/second squared,4180186
+4107860,Meter/second squared,4180186
+4107860,Meter/second squared (qualifier value),4180186
+4109669,Unit of electrical charge (qualifier value),4180186
+4109670,millicoulomb (qualifier value),4180186
+4109670,mC,4180186
+4112118,per hour (qualifier value),4180186
+4112118,per hour,4180186
+4112118,/h,4180186
+4112993,coulomb (qualifier value),4180186
+4113338,ug/1000kcal (qualifier value),4180186
+4113338,microgram/1000 kilocalorie,4180186
+4113339,% energy intake from fat,4180186
+4113339,Percentage energy intake from fat (qualifier value),4180186
+4113339,percent energy intake from fat,4180186
+4115964,Microgram/gram protein (qualifier value),4180186
+4115964,Microgram/gram protein,4180186
+4115967,International System of Units unit of mass per calorific quantity (qualifier value),4180186
+4115967,International System of Units unit of mass per calorific quantity,4180186
+4116118,per minute (qualifier value),4180186
+4116118,per minute,4180186
+4116118,/min,4180186
+4116125,Percentage daily total food energy intake (qualifier value),4180186
+4116125,% daily total food energy intake,4180186
+4116125,percent daily total food energy intake,4180186
+4116129,% energy intake from protein,4180186
+4116129,Percentage energy intake from protein (qualifier value),4180186
+4116129,percent energy intake from protein,4180186
+4116130,% energy intake from carbohydrate,4180186
+4116130,Percentage energy intake from carbohydrate (qualifier value),4180186
+4116130,percent energy intake from carbohydrate,4180186
+4116131,Percentage energy intake from alcohol (qualifier value),4180186
+4116131,% energy intake from alcohol,4180186
+4116131,percent energy intake from alcohol,4180186
+4117636,femtomole/24 hours,4180186
+4117636,Femtomole/24 hours,4180186
+4117636,Femtomole/24 hours (qualifier value),4180186
+4117637,Liter/hour,4180186
+4117637,Liter/hour (qualifier value),4180186
+4117637,Litre/hour,4180186
+4117638,Milliequivalent/24 hours,4180186
+4117638,Milliequivalent per 24 hours,4180186
+4117638,Milliequivalent/24 hours (qualifier value),4180186
+4117638,mEq/24 hr,4180186
+4117638,milliequivalent/day,4180186
+4117639,Attomole/platelet (qualifier value),4180186
+4117639,attomole/platelet,4180186
+4117639,Attomole/platelet,4180186
+4117640,casts/low power field (qualifier value),4180186
+4117640,casts/low power field,4180186
+4117641,cells/liter,4180186
+4117641,cells/litre,4180186
+4117641,cells/liter (qualifier value),4180186
+4117642,cells/microliter,4180186
+4117642,cells/microliter (qualifier value),4180186
+4117642,cells/microlitre,4180186
+4117642,cells/microL,4180186
+4117642,cell/microlitre,4180186
+4117643,Colony-forming units/milliliter,4180186
+4117643,Colony-forming units/milliliter (qualifier value),4180186
+4117643,colony-forming units/millilitre,4180186
+4117644,Dye units/liter,4180186
+4117644,Dye units/liter (qualifier value),4180186
+4117644,Dye units/litre,4180186
+4117645,Ercs/microL,4180186
+4117645,Erythrocytes/microliter,4180186
+4117645,Erythrocytes/microlitre,4180186
+4117645,Erythrocytes/microliter (qualifier value),4180186
+4117646,gram hemoglobin/mole hemoglobin,4180186
+4117646,Gram hemoglobin/mole hemoglobin,4180186
+4117646,gram haemoglobin/mole haemoglobin,4180186
+4117646,Gram hemoglobin/mole hemoglobin (qualifier value),4180186
+4117647,GPLU,4180186
+4117647,Immunoglobulin G phospholipid unit/milliliter (qualifier value),4180186
+4117647,Immunoglobulin G phospholipid unit/millilitre,4180186
+4117647,Immunoglobulin G phospholipid unit/milliliter,4180186
+4117648,International unit/stool (qualifier value),4180186
+4117648,International unit/stool,4180186
+4117649,International unit/hour,4180186
+4117649,International unit/hour (qualifier value),4180186
+4117650,IU/mmol creat,4180186
+4117650,international unit/millimole creatinine,4180186
+4117650,International unit per millimole of creatinine (qualifier value),4180186
+4117651,micromol/g creat,4180186
+4117651,micromole/gram creatinine,4180186
+4117651,umol/g creat,4180186
+4117651,Micromole per gram of creatinine (qualifier value),4180186
+4117652,Micromole/milliliter erythrocytes,4180186
+4117652,Micromole/milliliter erythrocytes (qualifier value),4180186
+4117652,micromole/millilitre erythrocytes,4180186
+4117652,micromol/mL Ercs,4180186
+4117653,Micromole per mole of creatinine (qualifier value),4180186
+4117653,micromol/mol creat,4180186
+4117653,micromole/mole creatinine,4180186
+4117653,micromol/mol creatinine,4180186
+4117653,umol/mol creat,4180186
+4117654,Milligram/kilogram stool,4180186
+4117654,Milligram/kilogram stool (qualifier value),4180186
+4117655,Millimole/gram dry weight tissue (qualifier value),4180186
+4117655,Millimole/gram dry weight tissue,4180186
+4117656,milliinternational unit/mole hemoglobin,4180186
+4117656,milliinternational unit/mole haemoglobin,4180186
+4117656,milliinternational unit/mole hemoglobin (qualifier value),4180186
+4117657,nanomole/millimole creatinine,4180186
+4117657,Nanomole per millimole of creatinine (qualifier value),4180186
+4117657,nmol/mmol creat,4180186
+4117658,Unit/day (qualifier value),4180186
+4117658,U/d,4180186
+4117658,unit/day,4180186
+4117658,Unit/day,4180186
+4117659,Microunit/milliliter,4180186
+4117659,microU/mL,4180186
+4117659,microunit/milliliter,4180186
+4117659,microunit/millilitre,4180186
+4117659,Microunit/milliliter (qualifier value),4180186
+4117660,Milliunit/litre,4180186
+4117660,Milliunit/liter (qualifier value),4180186
+4117660,milliunit/litre,4180186
+4117660,Milliunit/liter,4180186
+4117660,milliunit/liter,4180186
+4117661,Erythrocytes/liter (qualifier value),4180186
+4117661,red blood cell/liter,4180186
+4117661,red blood cell/litre,4180186
+4117661,Erythrocytes/litre,4180186
+4117661,Erythrocytes/liter,4180186
+4117661,RBC/L,4180186
+4117662,Liter/minute/kilogram,4180186
+4117662,Liter/minute/kilogram (qualifier value),4180186
+4117662,Litre/minute/kilogram,4180186
+4117663,Picomole/hour/milliliter (qualifier value),4180186
+4117663,picomole/hour/milliliter,4180186
+4117663,picomole/hour/millilitre,4180186
+4117663,Picomole/hour/milliliter,4180186
+4117664,micromol/h/g Hb,4180186
+4117664,Micromole/hour/gram hemoglobin (qualifier value),4180186
+4117664,micromole/hour/gram haemoglobin,4180186
+4117664,Micromole/hour/gram hemoglobin,4180186
+4117665,Micromole/day/kilogram,4180186
+4117665,Micromole/day/kilogram (qualifier value),4180186
+4117666,Milligram/day/kilogram,4180186
+4117666,Milligram/day/kilogram (qualifier value),4180186
+4117666,milligram/day/kilogram,4180186
+4117667,Millilitre/second/square metre,4180186
+4117667,Milliliter/second/square meter (qualifier value),4180186
+4117667,milliliter/second/meter squared,4180186
+4117667,millilitre/second/metre squared,4180186
+4117667,Milliliter/second/square meter,4180186
+4117668,Nanomole/hour/milligram (qualifier value),4180186
+4117668,nanomole/hour/milligram,4180186
+4117668,Nanomole/hour/milligram,4180186
+4117669,nmol/h/mg creat,4180186
+4117669,Nanomole per hour per milligram of creatinine (qualifier value),4180186
+4117669,nanomole/hour/milligram creatinine,4180186
+4117780,Nanomole/minute/milliliter,4180186
+4117780,nanomole/minute/millilitre,4180186
+4117780,Nanomole/minute/milliliter (qualifier value),4180186
+4117781,Mole/second,4180186
+4117781,Mole/second (qualifier value),4180186
+4117782,Milliliter/second,4180186
+4117782,millilitre/second,4180186
+4117782,centimetres cubed/second,4180186
+4117782,Millilitre/second,4180186
+4117782,centimeters cubed/second,4180186
+4117782,cm3/s,4180186
+4117782,milliliter/second,4180186
+4117782,Milliliter/second (qualifier value),4180186
+4117783,Liter/second (qualifier value),4180186
+4117783,Liter/second,4180186
+4117783,Litre/second,4180186
+4117784,milliinternational unit (qualifier value),4180186
+4117784,milliinternational unit,4180186
+4117786,milliinternational unit/millilitre,4180186
+4117786,milliinternational unit/milliliter,4180186
+4117786,milliinternational unit/milliliter (qualifier value),4180186
+4117787,international units per kilogram (qualifier value),4180186
+4117787,international units per kilogram,4180186
+4117787,international unit/kilogram,4180186
+4117788,Bar - pressure (qualifier value),4180186
+4117789,Pounds/square inch,4180186
+4117789,pounds/square inch,4180186
+4117789,Pounds/square inch (qualifier value),4180186
+4117789,psi,4180186
+4117790,Unit of area (qualifier value),4180186
+4117791,per 10 minutes (qualifier value),4180186
+4117791,/10 minutes,4180186
+4117791,per 10 minutes,4180186
+4117792,per forty,4180186
+4117792,per 40,4180186
+4117792,per forty (qualifier value),4180186
+4117793,per day (qualifier value),4180186
+4117793,per day,4180186
+4117794,per month (qualifier value),4180186
+4117794,per month,4180186
+4117795,centipoise (qualifier value),4180186
+4117795,centipoise,4180186
+4117795,cP - centipoise,4180186
+4117796,Joules/hour,4180186
+4117796,Joules/hour (qualifier value),4180186
+4117797,kilocalories/litre oxygen consumed/day,4180186
+4117797,Kilocalories/liter oxygen consumed/day (qualifier value),4180186
+4117798,Kilojoule/hour (qualifier value),4180186
+4117798,Kilojoule/hour,4180186
+4117798,kilojoules/hour,4180186
+4117799,Kilopascals/liter/second (qualifier value),4180186
+4117799,kilopascals/litre/second,4180186
+4117799,Kilopascals/liter/second,4180186
+4117800,Litre/centimetre of water,4180186
+4117800,litre/centimetre of water,4180186
+4117800,Liter/centimeter of water (qualifier value),4180186
+4117800,Liter/centimeter of water,4180186
+4117800,liter/centimeter of water,4180186
+4117801,Nanomole/24 hours,4180186
+4117801,Nanomole/24 hours (qualifier value),4180186
+4117802,Femtomole/day (qualifier value),4180186
+4117802,femtomole/day,4180186
+4117802,Femtomole/day,4180186
+4117803,Litre/day,4180186
+4117803,Liter/day (qualifier value),4180186
+4117803,Liter/day,4180186
+4117804,Liter/24 hours (qualifier value),4180186
+4117804,liter/24 hours,4180186
+4117804,Litre/24 hours,4180186
+4117804,Liter/24 hours,4180186
+4117805,millilitre/day,4180186
+4117805,Milliliter/day (qualifier value),4180186
+4117805,Millilitre/day,4180186
+4117805,milliliter/day,4180186
+4117805,Milliliter/day,4180186
+4117806,milliequivalent/litre,4180186
+4117806,Milliequivalent/liter (qualifier value),4180186
+4117806,Milliequivalent/liter,4180186
+4117807,Osmole/liter,4180186
+4117807,osmole/litre,4180186
+4117807,Osmole/liter (qualifier value),4180186
+4117807,osmolar,4180186
+4117808,casts/microliter (qualifier value),4180186
+4117808,casts/microliter,4180186
+4117808,casts/microlitre,4180186
+4117809,femtogram/platelet,4180186
+4117809,Femtogram/platelet (qualifier value),4180186
+4117809,Femtogram/platelet,4180186
+4117810,femtomole/macrophage,4180186
+4117810,fmol/macrophage (qualifier value),4180186
+4117811,g nitrogen/day,4180186
+4117811,gram nitrogen/day (qualifier value),4180186
+4117812,g/m3,4180186
+4117812,gram/cubic metre,4180186
+4117812,gram/cubic meter,4180186
+4117812,g/kL (qualifier value),4180186
+4117813,International unit/milliliter erythrocytes (qualifier value),4180186
+4117813,International unit/millilitre erythrocytes,4180186
+4117813,International unit/milliliter erythrocytes,4180186
+4117813,Unit/mL RBC,4180186
+4117814,International unit per mole of creatinine (qualifier value),4180186
+4117814,IU/mol creat,4180186
+4117814,international unit/mole creatinine,4180186
+4117815,Kilointernational unit/gram protein (qualifier value),4180186
+4117815,Kilointernational unit/gram protein,4180186
+4117816,Kilointernational unit/liter erythrocytes (qualifier value),4180186
+4117816,Kilointernational unit/liter erythrocytes,4180186
+4117816,Kilointernational unit/litre erythrocytes,4180186
+4117817,kilointernational unit/mole creatinine,4180186
+4117817,Kilointernational unit per mole of creatinine (qualifier value),4180186
+4117817,kIU/mol creat,4180186
+4117818,microg/g creat,4180186
+4117818,microgram/gram creatinine,4180186
+4117818,ug/g creat,4180186
+4117818,Microgram per gram of creatinine (qualifier value),4180186
+4117819,ug/mg creat,4180186
+4117819,microg/mg creat,4180186
+4117819,Microgram per milligram of creatinine (qualifier value),4180186
+4117819,microgram/milligram creatinine,4180186
+4117820,micromol/g Hb,4180186
+4117820,Micromole/gram hemoglobin (qualifier value),4180186
+4117820,Micromole/gram hemoglobin,4180186
+4117820,micromole/gram haemoglobin,4180186
+4117821,Milligram/gram hemoglobin,4180186
+4117821,Milligram/gram haemoglobin,4180186
+4117821,Milligram/gram hemoglobin (qualifier value),4180186
+4117821,milligram/gram hemoglobin,4180186
+4117822,Milligram/kilogram wet weight tissue (qualifier value),4180186
+4117822,Milligram/kilogram wet weight tissue,4180186
+4117824,mmol/mol creat,4180186
+4117824,millimole/mole creatinine,4180186
+4117824,Millimole per mole of creatinine (qualifier value),4180186
+4117825,Picogram/cell (qualifier value),4180186
+4117825,Picogram/cell,4180186
+4117826,Micromole/hour/liter,4180186
+4117826,micromole/hour/litre,4180186
+4117826,Micromole/hour/liter (qualifier value),4180186
+4117827,Micromole/hour/milliliter (qualifier value),4180186
+4117827,micromole/hour/millilitre,4180186
+4117827,Micromole/hour/milliliter,4180186
+4117828,Micromole/hour/milliliter whole blood (qualifier value),4180186
+4117828,micromol/h/mL whole blood,4180186
+4117828,micromole/hour/millilitre whole blood,4180186
+4117828,Micromole/hour/milliliter whole blood,4180186
+4117829,micromol/min/g Hb,4180186
+4117829,Micromole/minute/gram hemoglobin (qualifier value),4180186
+4117829,micromole/minute/gram haemoglobin,4180186
+4117829,Micromole/minute/gram hemoglobin,4180186
+4117830,Micromole/minute/milliliter,4180186
+4117830,Micromole/minute/milliliter (qualifier value),4180186
+4117830,micromole/minute/millilitre,4180186
+4117831,millilitre/minute/metre squared,4180186
+4117831,Milliliter/minute/square meter (qualifier value),4180186
+4117831,milliliter/minute/meter squared,4180186
+4117831,Milliliter/minute/square meter,4180186
+4117831,Millilitre/minute/square metre,4180186
+4117832,Nanomole/day/square metre,4180186
+4117832,nanomole/day/meter squared,4180186
+4117832,Nanomole/day/square meter (qualifier value),4180186
+4117832,nanomole/day/metre squared,4180186
+4117832,Nanomole/day/square meter,4180186
+4117833,BPM - breaths per minute,4180186
+4117833,Breaths/minute,4180186
+4117833,breaths per minute,4180186
+4117833,Breaths/minute (qualifier value),4180186
+4117834,Nanomole/second (qualifier value),4180186
+4117834,Nanomole/second,4180186
+4117835,Femtomole/second,4180186
+4117835,Femtomole/second (qualifier value),4180186
+4117835,femtomole/second,4180186
+4117836,Milliliter/hour (qualifier value),4180186
+4117836,Milliliter/hour,4180186
+4117836,Millilitre/hour,4180186
+4117838,microIU,4180186
+4117838,Microinternational unit,4180186
+4117838,Microinternational unit (qualifier value),4180186
+4117839,international unit/milliliter (qualifier value),4180186
+4117839,international unit/milliliter,4180186
+4117839,international unit/millilitre,4180186
+4117840,Microinternational unit/milliliter (qualifier value),4180186
+4117840,microIU/mL,4180186
+4117840,Microinternational unit/milliliter,4180186
+4117840,Microinternational unit/millilitre,4180186
+4117841,Fraction of total barometric pressure (qualifier value),4180186
+4117967,Millilitre/24 hours,4180186
+4117967,milliliter/24 hours,4180186
+4117967,millilitre/24 hours,4180186
+4117967,Milliliter/24 hours,4180186
+4117967,Millilitre/24 hours (qualifier value),4180186
+4117968,milliosmolar,4180186
+4117968,Milliosmole/liter (qualifier value),4180186
+4117968,milliosmole/litre,4180186
+4117968,Milliosmole/liter,4180186
+4117969,Osmole/kilogram,4180186
+4117969,Osmole/kilogram (qualifier value),4180186
+4117970,Arbitrary unit per litre,4180186
+4117970,AU/L,4180186
+4117970,Arbitrary unit/litre,4180186
+4117970,Arbitrary unit per liter,4180186
+4117970,Arbitrary unit per liter (qualifier value),4180186
+4117971,attomole/erythrocyte,4180186
+4117971,Attomole/erythrocyte,4180186
+4117971,Attomole/erythrocyte (qualifier value),4180186
+4117972,Cells per low power field,4180186
+4117972,Cells per low power field (qualifier value),4180186
+4117972,cells/low power field,4180186
+4117973,per 30 minutes,4180186
+4117973,/30 minutes,4180186
+4117973,per 30 minutes (qualifier value),4180186
+4117974,per week (qualifier value),4180186
+4117974,per week,4180186
+4117975,per year,4180186
+4117975,per year (qualifier value),4180186
+4117976,dioptres +,4180186
+4117976,Diopters + (qualifier value),4180186
+4117977,joules/square centimeter,4180186
+4117977,Joules/square centimeter (qualifier value),4180186
+4117977,joules/square centimetre,4180186
+4117977,Joules/square centimeter,4180186
+4117989,Kilogram/square meter,4180186
+4117989,kg/m2,4180186
+4117989,kilogram/metre squared,4180186
+4117989,Kilogram/square meter (qualifier value),4180186
+4117989,kg/sq.m,4180186
+4117989,Kilogram/square metre,4180186
+4117989,kilogram/meter squared,4180186
+4117990,Immunoglobulin M phospholipid unit/millilitre,4180186
+4117990,Immunoglobulin M phospholipid unit/milliliter,4180186
+4117990,MPLU,4180186
+4117990,Immunoglobulin M phospholipid unit/milliliter (qualifier value),4180186
+4117991,International unit per gram of creatinine (qualifier value),4180186
+4117991,IU/g creat,4180186
+4117991,international unit/gram creatinine,4180186
+4117992,microgram/decilitre erythrocytes,4180186
+4117992,Microgram/deciliter erythrocytes,4180186
+4117992,Microgram/decilitre erythrocytes,4180186
+4117992,microg/dL Ercs,4180186
+4117992,microgram/deciliter erythrocytes,4180186
+4117992,Microgram/deciliter erythrocytes (qualifier value),4180186
+4117993,microg/g dry weight tissue,4180186
+4117993,Microgram/gram dry weight tissue (qualifier value),4180186
+4117993,microgram/gram dry weight tissue,4180186
+4117993,Microgram/gram dry weight tissue,4180186
+4117994,Micromole/ejaculate,4180186
+4117994,Micromole/ejaculate (qualifier value),4180186
+4117995,Mole/mole hemoglobin (qualifier value),4180186
+4117995,mole/mole hemoglobin,4180186
+4117995,Mole/mole hemoglobin,4180186
+4117995,mole/mole haemoglobin,4180186
+4117996,Nanomole/liter erythrocytes (qualifier value),4180186
+4117996,nanomole/litre erythrocytes,4180186
+4117996,Nanomole/liter erythrocytes,4180186
+4117997,organisms/millilitre,4180186
+4117997,Organisms/milliliter (qualifier value),4180186
+4117997,Organisms/milliliter,4180186
+4117997,org/mL,4180186
+4117998,organisms/high power field,4180186
+4117998,organisms/high power field (qualifier value),4180186
+4117999,Picomole/number of cells (qualifier value),4180186
+4117999,Picomole/number of cells,4180186
+4117999,picomole/number of cells,4180186
+4118000,Unit/liter (qualifier value),4180186
+4118000,unit/litre,4180186
+4118000,Unit/liter,4180186
+4118001,Unit/hour (qualifier value),4180186
+4118001,unit/hour,4180186
+4118001,U/h,4180186
+4118001,Unit/hour,4180186
+4118002,Units factor VIIIc inhibitor/mL (qualifier value),4180186
+4118002,Units factor VIIIc inhibitor/millilitre,4180186
+4118002,Units factor VIIIc inhibitor/milliliter,4180186
+4118003,Microgram/day/square meter,4180186
+4118003,microgram/day/meter squared,4180186
+4118003,Microgram/day/square meter (qualifier value),4180186
+4118003,microgram/day/metre squared,4180186
+4118004,mole/day/kilogram,4180186
+4118004,Mole/day/kilogram (qualifier value),4180186
+4118004,Mole/day/kilogram,4180186
+4118005,nmol/h/mg prot (qualifier value),4180186
+4118005,nanomole/hour/milligram protein,4180186
+4118006,Nanomole/hour/milliliter,4180186
+4118006,Nanomole/hour/milliliter (qualifier value),4180186
+4118006,nanomole/hour/millilitre,4180186
+4118123,Unit of rate (qualifier value),4180186
+4118124,Beats/minute,4180186
+4118124,BPM - beats per minute,4180186
+4118124,beats per minute,4180186
+4118124,Beats/minute (qualifier value),4180186
+4118125,Centimetre/second,4180186
+4118125,centimetre/second,4180186
+4118125,centimeter/second,4180186
+4118125,Centimeter/second,4180186
+4118125,Centimeter/second (qualifier value),4180186
+4118126,millimetre/hour,4180186
+4118126,Millimeter/hour,4180186
+4118126,Millimetre/hour,4180186
+4118126,Millimeter/hour (qualifier value),4180186
+4118126,millimeter/hour,4180186
+4118127,Millimetre/second,4180186
+4118127,millimetre/second,4180186
+4118127,Millimeter/second (qualifier value),4180186
+4118127,Millimeter/second,4180186
+4118127,millimeter/second,4180186
+4118128,Kilointernational unit,4180186
+4118128,Kilointernational unit (qualifier value),4180186
+4118133,International unit/liter,4180186
+4118133,International unit/litre,4180186
+4118133,International unit/liter (qualifier value),4180186
+4118134,International unit/day,4180186
+4118134,International unit/day (qualifier value),4180186
+4118135,kg force,4180186
+4118135,kilogram-force,4180186
+4118135,Kilogram-force (qualifier value),4180186
+4118135,Kilogram-force,4180186
+4118136,N/sq. m,4180186
+4118136,newton/square meter,4180186
+4118136,N/m2,4180186
+4118136,newton/square metre,4180186
+4118136,Pascal (qualifier value),4180186
+4118136,Pascal,4180186
+4118137,Kilopascal (qualifier value),4180186
+4118137,Kilopascal,4180186
+4118137,kilopascal,4180186
+4118138,Centimeter of water (qualifier value),4180186
+4118138,Centimetre of water,4180186
+4118138,centimeter of water,4180186
+4118138,centimetre of water,4180186
+4118138,Centimeter of water,4180186
+4118139,Millimeter of water,4180186
+4118139,millimetre of water,4180186
+4118139,Millimeter of water (qualifier value),4180186
+4118139,millimeter of water,4180186
+4118139,Millimetre of water,4180186
+4118140,Square centimeter,4180186
+4118140,cm2,4180186
+4118140,Square centimeter (qualifier value),4180186
+4118140,square centimeters,4180186
+4118140,square centimetre,4180186
+4118140,square centimetres,4180186
+4118140,square cm,4180186
+4118141,Unit of frequency (qualifier value),4180186
+4118142,Hertz,4180186
+4118142,Hertz (qualifier value),4180186
+4118142,cycles/s,4180186
+4118142,hertz,4180186
+4118142,cycles/second,4180186
+4118143,/24 hours,4180186
+4118143,per 24 hours (qualifier value),4180186
+4118143,per 24 hours,4180186
+4118144,per ejaculate,4180186
+4118144,per ejaculate (qualifier value),4180186
+4118145,per millilitre,4180186
+4118145,per milliliter,4180186
+4118145,per milliliter (qualifier value),4180186
+4118146,Centimeter of water/liter/second,4180186
+4118146,Centimeter of water/liter/second (qualifier value),4180186
+4118146,centimetre of water/litre/second,4180186
+4118147,decibel hearing level (qualifier value),4180186
+4118147,decibel hearing level,4180186
+4118148,decibel sound perception level,4180186
+4118148,decibel sound perception level (qualifier value),4180186
+4118150,Kilojoule/day,4180186
+4118150,kilojoules/day,4180186
+4118150,Kilojoule/day (qualifier value),4180186
+4118151,Kilojoules/liter oxygen consumed/day (qualifier value),4180186
+4118151,kilojoules/litre oxygen consumed/day,4180186
+4118152,Liter/kilopascal,4180186
+4118152,Liter/kilopascal (qualifier value),4180186
+4118152,liter/kilopascal,4180186
+4118152,Litre/kilopascal,4180186
+4118152,litre/kilopascal,4180186
+4118153,Liter/second/kilopascal,4180186
+4118153,litre/second/kilopascal,4180186
+4118153,Litre/second/kilopascal,4180186
+4118153,Liter/second/kilopascal (qualifier value),4180186
+4118153,liter/second/kilopascal,4180186
+4118154,Liter/square metre/minute,4180186
+4118154,Liter/square meter/minute (qualifier value),4180186
+4118154,Liter/square meter/minute,4180186
+4118154,litre/metre squared/minute,4180186
+4118154,liter/meter squared/minute,4180186
+4118155,Milliliter/minute,4180186
+4118155,Milliliter/minute (qualifier value),4180186
+4118155,Millilitre/minute,4180186
+4118156,Millilitre/decilitre,4180186
+4118156,Milliliter/deciliter (qualifier value),4180186
+4118156,Milliliter/deciliter,4180186
+4118157,Milliequivalent/minute,4180186
+4118157,Milliequivalent/minute (qualifier value),4180186
+4118159,Milliosmole/kilogram,4180186
+4118159,Milliosmole/kilogram (qualifier value),4180186
+4118160,Casts per high power field,4180186
+4118160,Casts per high power field (qualifier value),4180186
+4118160,casts/high power field,4180186
+4118161,cells/high power field,4180186
+4118161,cells/high power field (qualifier value),4180186
+4118162,cells/unit area (qualifier value),4180186
+4118163,Colony-forming units/gram (qualifier value),4180186
+4118163,Colony-forming units/gram,4180186
+4118164,colony-forming units/litre,4180186
+4118164,Colony-forming units/liter,4180186
+4118164,Colony-forming units/liter (qualifier value),4180186
+4118164,colony-forming units/liter,4180186
+4118165,Dye units/h,4180186
+4118165,Dye units/hour (qualifier value),4180186
+4118166,Femtomole/leukocyte (qualifier value),4180186
+4118166,femtomole/leucocyte,4180186
+4118167,gram hemoglobin/deciliter erythrocytes,4180186
+4118167,Gram hemoglobin/deciliter erythrocytes,4180186
+4118167,gram haemoglobin/decilitre erythrocytes,4180186
+4118167,Gram haemoglobin/decilitre erythrocytes,4180186
+4118167,Gram hemoglobin/deciliter erythrocytes (qualifier value),4180186
+4118168,g/L haemoglobin binding capacity,4180186
+4118168,gram/litre haemoglobin binding capacity,4180186
+4118168,Gram/liter hemoglobin binding capacity,4180186
+4118168,Gram/liter hemoglobin binding capacity (qualifier value),4180186
+4118169,International unit/gram hemoglobin,4180186
+4118169,International unit/gram hemoglobin (qualifier value),4180186
+4118169,Unit/gm Hb,4180186
+4118169,International unit/gram haemoglobin,4180186
+4118169,IU/g haemoglobin,4180186
+4118169,IU/g hemoglobin,4180186
+4118170,Non-International System of Units unit of concentration (qualifier value),4180186
+4118170,Non-International System of Units unit of concentration,4180186
+4118171,Kilointernational unit/mole hemoglobin,4180186
+4118171,Kilointernational unit/mole haemoglobin,4180186
+4118171,Kilointernational unit/mole hemoglobin (qualifier value),4180186
+4118172,Microgram/gram stool,4180186
+4118172,microg/g stool,4180186
+4118172,Microgram/gram stool (qualifier value),4180186
+4118173,Micromole/gram dry weight tissue (qualifier value),4180186
+4118173,micromol/g dry weight tissue,4180186
+4118173,Micromole/gram dry weight tissue,4180186
+4118174,Micromole/gram wet weight tissue,4180186
+4118174,Micromole/gram wet weight tissue (qualifier value),4180186
+4118175,micromole/mole haemoglobin,4180186
+4118175,Micromole/mole hemoglobin,4180186
+4118175,Micromole/mole hemoglobin (qualifier value),4180186
+4118175,micromol/mol Hb,4180186
+4118176,Microinternational unit/erythrocyte,4180186
+4118176,microIU/Erc,4180186
+4118176,Microinternational unit/erythrocyte (qualifier value),4180186
+4118177,microIU/g prot,4180186
+4118177,Microinternational unit/gram protein (qualifier value),4180186
+4118177,Microinternational unit/gram protein,4180186
+4118178,milligram/gram creatinine,4180186
+4118178,mg/g creat,4180186
+4118178,Milligram per gram of creatinine (qualifier value),4180186
+4118179,Milligram/gram dry weight tissue,4180186
+4118179,Milligram/gram dry weight tissue (qualifier value),4180186
+4118302,milligram/dL haptoglobin,4180186
+4118302,Milligram/deciliter haptoglobin,4180186
+4118302,Milligram/decilitre haptoglobin,4180186
+4118302,Milligram/deciliter haptoglobin (qualifier value),4180186
+4118303,Millimole/liter erythrocytes,4180186
+4118303,millimole/litre erythrocytes,4180186
+4118303,Millimole/liter erythrocytes (qualifier value),4180186
+4118304,Nanogram/gram wet weight tissue,4180186
+4118304,Nanogram/gram wet weight tissue (qualifier value),4180186
+4118305,unit/mL,4180186
+4118305,Unit/milliliter (qualifier value),4180186
+4118305,Unit/milliliter,4180186
+4118305,unit/millilitre,4180186
+4118305,unit/ml,4180186
+4118306,Kilounit/liter (qualifier value),4180186
+4118306,kilounit/litre,4180186
+4118306,Kilounit/liter,4180186
+4118307,Milliunit/milliliter (qualifier value),4180186
+4118307,Milliunit/millilitre,4180186
+4118307,milliunit/millilitre,4180186
+4118307,Milliunit/milliliter,4180186
+4118308,Sperms/milliliter,4180186
+4118308,Sperms/mL (qualifier value),4180186
+4118308,Sperms/millilitre,4180186
+4118309,Units heparin/millilitre plasma,4180186
+4118309,Units heparin/milliliter plasma,4180186
+4118309,Units heparin/mL plasma (qualifier value),4180186
+4118311,Milliliter/minute/kilogram (qualifier value),4180186
+4118311,Milliliter/minute/kilogram,4180186
+4118311,Millilitre/minute/kilogram,4180186
+4118312,nanomole/minute/milligram hemoglobin,4180186
+4118312,Nanomole/minute/milligram hemoglobin,4180186
+4118312,Nanomole/minute/milligram hemoglobin (qualifier value),4180186
+4118312,nanomole/minute/milligram haemoglobin,4180186
+4118312,Nanomole/minute/milligram haemoglobin,4180186
+4118313,Liter/minute (qualifier value),4180186
+4118313,litre/minute,4180186
+4118313,liter/minute,4180186
+4118313,Liter/minute,4180186
+4118313,Litre/minute,4180186
+4118314,International unit measurement (qualifier value),4180186
+4118315,international unit,4180186
+4118315,international units,4180186
+4118315,international unit (qualifier value),4180186
+4118318,Kilointernational unit/liter (qualifier value),4180186
+4118318,Kilointernational unit/liter,4180186
+4118318,kilointernational unit/litre,4180186
+4118318,Kilointernational unit/litre,4180186
+4118319,milliinternational unit/liter,4180186
+4118319,milliinternational unit/liter (qualifier value),4180186
+4118319,milliinternational unit/litre,4180186
+4118320,milliinternational unit/kilogram,4180186
+4118320,milliinternational unit/kilogram (qualifier value),4180186
+4118321,Unit of pressure (qualifier value),4180186
+4118322,pound-force,4180186
+4118322,Pound-force,4180186
+4118322,Pound-force (qualifier value),4180186
+4118323,millimeter of mercury,4180186
+4118323,millimetre of mercury,4180186
+4118323,Millimeter of mercury,4180186
+4118323,Millimeter of mercury (qualifier value),4180186
+4118323,Millimetre of mercury,4180186
+4118324,per 12 hours,4180186
+4118324,/12 hours,4180186
+4118324,per 12 hours (qualifier value),4180186
+4118325,per high power field,4180186
+4118325,per high power field (qualifier value),4180186
+4118326,per period (qualifier value),4180186
+4118326,per period,4180186
+4118327,decibel,4180186
+4118327,decibel (qualifier value),4180186
+4118328,degrees of arc (qualifier value),4180186
+4118328,degrees - angular,4180186
+4118329,Diopters (qualifier value),4180186
+4118329,dioptres,4180186
+4118330,Diopters - (qualifier value),4180186
+4118330,dioptres -,4180186
+4118331,prism diopters (qualifier value),4180186
+4118331,prism dioptres,4180186
+4118332,Foot (qualifier value),4180186
+4118332,feet,4180186
+4118332,Foot,4180186
+4118333,finger widths (qualifier value),4180186
+4118334,Gram-force,4180186
+4118334,Gram-force (qualifier value),4180186
+4118335,Joules/day,4180186
+4118335,Joules/day (qualifier value),4180186
+4118336,Kilocalorie/day,4180186
+4118336,Kilocalorie/day (qualifier value),4180186
+4118337,Kilocalorie/hour,4180186
+4118337,Kilocalorie/hour (qualifier value),4180186
+4119669,Kilometer (qualifier value),4180186
+4119669,kilometre,4180186
+4119669,Kilometer,4180186
+4119670,tons (qualifier value),4180186
+4119670,tons,4180186
+4119671,Millisecond (qualifier value),4180186
+4119671,ms - millisecond,4180186
+4119671,Millisecond,4180186
+4119672,Microsecond (qualifier value),4180186
+4119672,Microsecond,4180186
+4119673,yr,4180186
+4119673,year (qualifier value),4180186
+4119673,years,4180186
+4119674,International System of Units unit of temperature (qualifier value),4180186
+4119674,International System of Units unit of temperature,4180186
+4119675,oF,4180186
+4119675,Degrees Fahrenheit,4180186
+4119675,Degrees Fahrenheit (qualifier value),4180186
+4119676,Unit of amount of substance (qualifier value),4180186
+4119677,millimole,4180186
+4119677,millimole (qualifier value),4180186
+4119678,nanomole,4180186
+4119678,nanomole (qualifier value),4180186
+4119679,Non-International System of Units unit of amount of substance,4180186
+4119679,Non-International System of Units unit of amount of substance (qualifier value),4180186
+4119680,cfu - colony-forming unit,4180186
+4119680,colony-forming unit (qualifier value),4180186
+4119681,counts (qualifier value),4180186
+4119682,Fractional activity,4180186
+4119682,Fraction of total activity (qualifier value),4180186
+4119683,Fraction of total haemoglobin,4180186
+4119683,Fraction of total Hb (qualifier value),4180186
+4119683,Fraction of total hemoglobin,4180186
+4119705,Admiralty Islanders (ethnic group),4180186
+4120385,gram/1000 kilocalorie,4180186
+4120385,Gram/1000 kilocalorie (qualifier value),4180186
+4120385,Gram/1000 kilocalorie,4180186
+4120386,milligram/1000 kilocalorie,4180186
+4120386,Milligram/1000 kilocalorie,4180186
+4120386,Milligram/1000 kilocalorie (qualifier value),4180186
+4120599,/s,4180186
+4120599,per second,4180186
+4120599,per second (qualifier value),4180186
+4120712,Optical density (OD) units,4180186
+4120712,Optical density units,4180186
+4120712,Optical density units (qualifier value),4180186
+4120712,optical density units,4180186
+4120713,Percentage normal (qualifier value),4180186
+4120713,% normal,4180186
+4120713,percent normal,4180186
+4120714,Percentage normal forms (qualifier value),4180186
+4120714,% normal forms,4180186
+4120714,percent normal forms,4180186
+4120715,% of total,4180186
+4120715,Percentage of total (qualifier value),4180186
+4120715,% total,4180186
+4120715,percent of total,4180186
+4120716,% positive cells,4180186
+4120716,Percentage positive cells (qualifier value),4180186
+4120716,percent positive cells,4180186
+4120717,Percentage release (qualifier value),4180186
+4120717,% release,4180186
+4120717,percent release,4180186
+4120718,Unit of volume (qualifier value),4180186
+4120719,Microliter (qualifier value),4180186
+4120719,cubic millimeter,4180186
+4120719,cubic millimetre,4180186
+4120719,Microliter,4180186
+4120719,microlitre,4180186
+4120719,mm3,4180186
+4120720,Nanokatal,4180186
+4120720,Nanokatal (qualifier value),4180186
+4120721,Joules,4180186
+4120721,Joule (qualifier value),4180186
+4120722,Gram/liter,4180186
+4120722,Gram/liter (qualifier value),4180186
+4120722,Micrograms per microlitre,4180186
+4120722,gram/litre,4180186
+4120722,Micrograms per microliter,4180186
+4120722,mcg/mcL,4180186
+4120723,nanogram/litre,4180186
+4120723,Nanogram/liter (qualifier value),4180186
+4120723,Nanogram/liter,4180186
+4120724,Nanogram/milliliter,4180186
+4120724,nanogram/millilitre,4180186
+4120724,Nanogram/milliliter (qualifier value),4180186
+4120724,nanogram/ml,4180186
+4120725,Picogram/milliliter (qualifier value),4180186
+4120725,Picogram/milliliter,4180186
+4120725,picogram/millilitre,4180186
+4120726,Micromole/liter (qualifier value),4180186
+4120726,micromole/litre,4180186
+4120726,uM,4180186
+4120726,Micromole/liter,4180186
+4120726,micromolar,4180186
+4120727,micromole/decilitre,4180186
+4120727,Micromole/deciliter (qualifier value),4180186
+4120727,Micromole/deciliter,4180186
+4120728,Gram/24 hours (qualifier value),4180186
+4120728,Gram/24 hours,4180186
+4120729,Kilogram/24 hours (qualifier value),4180186
+4120729,Kilogram/24 hours,4180186
+4120730,mg/hr,4180186
+4120730,Milligram/hour,4180186
+4120730,Milligram/hour (qualifier value),4180186
+4120731,Milligram/day,4180186
+4120731,Milligram/day (qualifier value),4180186
+4120733,millimole/minute,4180186
+4120733,Millimole/minute,4180186
+4120733,Millimole/minute (qualifier value),4180186
+4120734,Nanomole/hour,4180186
+4120734,Nanomole/hour (qualifier value),4180186
+4120846,Milligram/exchange,4180186
+4120846,Milligram/exchange (qualifier value),4180186
+4120846,milligram/exchange,4180186
+4120848,times/day (qualifier value),4180186
+4120849,times/night (qualifier value),4180186
+4120850,watt (qualifier value),4180186
+4120850,W - watt,4180186
+4121007,Seconds (qualifier value),4180186
+4121007,Second - unit,4180186
+4121007,s,4180186
+4121344,atmosphere (qualifier value),4180186
+4121344,atm,4180186
+4121359,micron,4180186
+4121359,Micrometer (qualifier value),4180186
+4121359,micrometre,4180186
+4121359,Micrometer,4180186
+4121360,inches,4180186
+4121360,Inch,4180186
+4121360,Inch (qualifier value),4180186
+4121361,Mile,4180186
+4121361,Mile (qualifier value),4180186
+4121362,Unit of mass (qualifier value),4180186
+4121363,nanogram (qualifier value),4180186
+4121363,nanogram,4180186
+4121364,picogram (qualifier value),4180186
+4121364,picogram,4180186
+4121365,femtogram (qualifier value),4180186
+4121365,femtogram,4180186
+4121366,Unit of time (qualifier value),4180186
+4121367,Non-International System of Units unit of time (qualifier value),4180186
+4121367,Non-International System of Units unit of time,4180186
+4121368,h - hour,4180186
+4121368,hour (qualifier value),4180186
+4121368,hours,4180186
+4121368,hr,4180186
+4121369,day (qualifier value),4180186
+4121369,days,4180186
+4121369,d - day,4180186
+4121370,wk,4180186
+4121370,weeks,4180186
+4121370,week (qualifier value),4180186
+4121371,Unit of temperature (qualifier value),4180186
+4121372,Non-International System of Units unit of temperature,4180186
+4121372,Non-International System of Units unit of temperature (qualifier value),4180186
+4121373,equivalent - unit,4180186
+4121373,equivalent,4180186
+4121373,equivalent - unit (qualifier value),4180186
+4121374,microequivalent,4180186
+4121374,microequivalent (qualifier value),4180186
+4121376,Dye test units (qualifier value),4180186
+4121377,% activity,4180186
+4121377,Percentage activity (qualifier value),4180186
+4121377,percent activity,4180186
+4121378,% aggregation,4180186
+4121378,Percentage aggregation (qualifier value),4180186
+4121378,percent aggregation,4180186
+4121379,Percentage of total cardiac output (qualifier value),4180186
+4121379,% of total cardiac output,4180186
+4121379,percent total cardiac output,4180186
+4121380,% of total activity,4180186
+4121380,Percentage of total activity (qualifier value),4180186
+4121380,percent of total activity,4180186
+4121381,% uptake,4180186
+4121381,Percentage uptake (qualifier value),4180186
+4121381,percent uptake,4180186
+4121382,Arbitrary unit (qualifier value),4180186
+4121382,AU,4180186
+4121383,Liter (qualifier value),4180186
+4121383,Liter,4180186
+4121383,Litre,4180186
+4121383,litre,4180186
+4121384,Femtoliter,4180186
+4121384,Femtolitre,4180186
+4121384,Femtoliter (qualifier value),4180186
+4121385,Katal,4180186
+4121385,Katal (qualifier value),4180186
+4121386,Microkatal,4180186
+4121386,Microkatal (qualifier value),4180186
+4121386,microkat,4180186
+4121387,Picokatal (qualifier value),4180186
+4121387,Picokatal,4180186
+4121388,Femtokatal (qualifier value),4180186
+4121388,Femtokatal,4180186
+4121389,Attokatal (qualifier value),4180186
+4121389,Attokatal,4180186
+4121390,Unit of energy (qualifier value),4180186
+4121391,megajoules,4180186
+4121391,megajoule,4180186
+4121391,megajoule (qualifier value),4180186
+4121392,kilojoule (qualifier value),4180186
+4121392,kilojoule,4180186
+4121392,kilojoules,4180186
+4121393,calories,4180186
+4121393,calorie (qualifier value),4180186
+4121393,calorie,4180186
+4121394,kilocalorie,4180186
+4121394,kilocalorie (qualifier value),4180186
+4121394,kilocalories,4180186
+4121395,Gram/decilitre,4180186
+4121395,Gram/deciliter,4180186
+4121395,Gram/deciliter (qualifier value),4180186
+4121396,milligram/decilitre,4180186
+4121396,Milligram/deciliter,4180186
+4121396,Milligram/decilitre,4180186
+4121396,Milligram/deciliter (qualifier value),4180186
+4121397,Microgram/deciliter (qualifier value),4180186
+4121397,Microgram/decilitre,4180186
+4121397,Microgram/deciliter,4180186
+4121398,Microgram/kilogram (qualifier value),4180186
+4121398,microg/kg,4180186
+4121398,mcg/kg,4180186
+4121398,Microgram/kilogram,4180186
+4121399,Picogram/liter,4180186
+4121399,Picogram/liter (qualifier value),4180186
+4121399,picogram/litre,4180186
+4121400,Picogram/deciliter (qualifier value),4180186
+4121400,picogram/decilitre,4180186
+4121400,Picogram/deciliter,4180186
+4121401,Femtogram/liter (qualifier value),4180186
+4121401,Femtogram/liter,4180186
+4121401,femtogram/litre,4180186
+4121402,millimole/litre,4180186
+4121402,Millimole/liter,4180186
+4121402,Millimole/liter (qualifier value),4180186
+4121402,mM,4180186
+4121402,millimolar,4180186
+4121402,mmol/litre,4180186
+4121403,Micromole/gram,4180186
+4121403,Micromole/gram (qualifier value),4180186
+4121403,micromol/g,4180186
+4121404,Nanomole/kilogram,4180186
+4121404,Nanomole/kilogram (qualifier value),4180186
+4121405,Femtomole per millilitre,4180186
+4121405,picomole/liter,4180186
+4121405,picomole/litre,4180186
+4121405,fmol/mL,4180186
+4121405,picomolar,4180186
+4121405,Femtomole per milliliter,4180186
+4121405,Picomole/liter (qualifier value),4180186
+4121405,Picomole/liter,4180186
+4121405,pM,4180186
+4121406,Femtomole/kilogram (qualifier value),4180186
+4121406,Femtomole/kilogram,4180186
+4121406,femtomole/kilogram,4180186
+4121407,Katal/liter,4180186
+4121407,Katal/liter (qualifier value),4180186
+4121407,katal/litre,4180186
+4121408,Nanomole/gram (qualifier value),4180186
+4121408,Nanomole/gram,4180186
+4121485,Unit of electrical inductance (qualifier value),4180186
+4121486,Unit of genetic analysis (qualifier value),4180186
+4121487,kilobase pairs (qualifier value),4180186
+4121487,kbp,4180186
+4121488,Revolutions per minute (qualifier value),4180186
+4121488,revolutions per minute,4180186
+4121488,Revolutions per minute,4180186
+4121489,weber (qualifier value),4180186
+4121489,Wb,4180186
+4121524,ug/hr,4180186
+4121524,Microgram/hour (qualifier value),4180186
+4121524,Microgram/hour,4180186
+4121524,mcg/hr,4180186
+4121524,microgram/hour,4180186
+4121525,Microgram/day,4180186
+4121525,Microgram/day (qualifier value),4180186
+4121526,Millimole/day,4180186
+4121526,Millimole/day (qualifier value),4180186
+4121526,millimole/day,4180186
+4121527,Micromole/hour,4180186
+4121527,Micromole/hour (qualifier value),4180186
+4121528,Micromole/day (qualifier value),4180186
+4121528,Micromole/day,4180186
+4122376,International System of Units unit of length (qualifier value),4180186
+4122376,International System of Units unit of length,4180186
+4122377,m,4180186
+4122377,metre,4180186
+4122377,meter (qualifier value),4180186
+4122378,centimetre,4180186
+4122378,Centimeter,4180186
+4122378,Centimeter (qualifier value),4180186
+4122379,millimetre,4180186
+4122379,Millimeter (qualifier value),4180186
+4122379,Millimeter,4180186
+4122380,Non-International System of Units unit of length,4180186
+4122380,Non-International System of Units unit of length (qualifier value),4180186
+4122381,Yard (qualifier value),4180186
+4122381,Yard,4180186
+4122381,yards,4180186
+4122382,International System of Units unit of mass,4180186
+4122382,International System of Units unit of mass (qualifier value),4180186
+4122383,kilogram,4180186
+4122383,kilogram (qualifier value),4180186
+4122384,milligram,4180186
+4122384,milligram (qualifier value),4180186
+4122385,microgram,4180186
+4122385,ug,4180186
+4122385,microgram (qualifier value),4180186
+4122386,ounces,4180186
+4122386,ounces (qualifier value),4180186
+4122386,ounce,4180186
+4122387,stones - unit (qualifier value),4180186
+4122388,International System of Units unit of time (qualifier value),4180186
+4122388,International System of Units unit of time,4180186
+4122389,Nanosecond (qualifier value),4180186
+4122389,Nanosecond,4180186
+4122390,minute,4180186
+4122390,min (qualifier value),4180186
+4122390,minutes,4180186
+4122391,clockface hours (qualifier value),4180186
+4122392,months,4180186
+4122392,month (qualifier value),4180186
+4122393,Degrees Celsius (qualifier value),4180186
+4122393,Degrees Celsius,4180186
+4122394,International System of Units unit of amount of substance (qualifier value),4180186
+4122394,International System of Units unit of amount of substance,4180186
+4122395,mole - unit (qualifier value),4180186
+4122395,mole - unit,4180186
+4122396,micromol,4180186
+4122396,micromole,4180186
+4122396,micromole (qualifier value),4180186
+4122397,Bethesda units (qualifier value),4180186
+4122398,milliequivalent,4180186
+4122398,milliequivalent (qualifier value),4180186
+4122399,osmole (qualifier value),4180186
+4122399,osmole,4180186
+4122400,Fraction of total (qualifier value),4180186
+4122401,Percentage fetal cells (qualifier value),4180186
+4122401,% fetal cells,4180186
+4122401,Percentage foetal cells,4180186
+4122401,percent fetal cells,4180186
+4122402,Percentage abnormal forms (qualifier value),4180186
+4122402,% abnormal forms,4180186
+4122402,percent abnormal forms,4180186
+4122403,Percentage oxyhaemoglobin,4180186
+4122403,Percentage oxyhemoglobin (qualifier value),4180186
+4122403,% oxyhemoglobin,4180186
+4122403,% oxyhaemoglobin,4180186
+4122403,percent oxyhaemoglobin,4180186
+4122403,percent oxyhemoglobin,4180186
+4122404,Percentage of total respiratory cycle (qualifier value),4180186
+4122404,% of total respiratory cycle,4180186
+4122404,percent of total respiratory cycle,4180186
+4122406,Percentage of total protein (qualifier value),4180186
+4122406,% of total protein,4180186
+4122406,percent of total protein,4180186
+4122407,% nitrogen/L,4180186
+4122407,Percentage nitrogen/L (qualifier value),4180186
+4122407,% N2/L,4180186
+4122408,Decilitre,4180186
+4122408,Deciliter (qualifier value),4180186
+4122408,Deciliter,4180186
+4122409,Centiliter (qualifier value),4180186
+4122409,centilitre,4180186
+4122409,Centiliter,4180186
+4122410,Milliliter,4180186
+4122410,Milliliter (qualifier value),4180186
+4122410,Millilitre,4180186
+4122410,cc,4180186
+4122410,cm3,4180186
+4122411,Millikatal (qualifier value),4180186
+4122411,Millikatal,4180186
+4122412,Non-International System of Units unit of energy (qualifier value),4180186
+4122412,Non-International System of Units unit of energy,4180186
+4122413,Unit of concentration (qualifier value),4180186
+4122414,Milligram/liter (qualifier value),4180186
+4122414,Milligram/liter,4180186
+4122414,milligram/litre,4180186
+4122415,microgram/litre,4180186
+4122415,Microgram/liter (qualifier value),4180186
+4122415,Microgram/liter,4180186
+4122416,Microgram/gram,4180186
+4122416,Microgram/gram (qualifier value),4180186
+4122416,microg/g,4180186
+4122416,microgram/g,4180186
+4122417,Nanogram/deciliter,4180186
+4122417,Nanogram/deciliter (qualifier value),4180186
+4122417,Nanogram/decilitre,4180186
+4122418,Femtogram/milliliter,4180186
+4122418,femtogram/millilitre,4180186
+4122418,Femtogram/milliliter (qualifier value),4180186
+4122495,Katal/kilogram,4180186
+4122495,Katal/kilogram (qualifier value),4180186
+4122496,Femtokatal/liter (qualifier value),4180186
+4122496,Femtokatal/liter,4180186
+4122496,femtokatal/litre,4180186
+4122497,Femtokatal/kilogram (qualifier value),4180186
+4122497,Femtokatal/kilogram,4180186
+4122498,Millimole/kilogram (qualifier value),4180186
+4122498,Millimole/kilogram,4180186
+4122499,micromol/kg,4180186
+4122499,Micromole/kilogram,4180186
+4122499,Micromole/kilogram (qualifier value),4180186
+4122500,Kilogram/day,4180186
+4122500,Kilogram/day (qualifier value),4180186
+4122501,Milligram/minute (qualifier value),4180186
+4122501,Milligram/minute,4180186
+4122501,milligram/minute,4180186
+4122502,Milligrams/24 hours (qualifier value),4180186
+4122502,Milligrams/24 hours,4180186
+4122502,mg/24 hours,4180186
+4122503,Mole/24 hours,4180186
+4122503,Mole/24 hours (qualifier value),4180186
+4122504,Millimole/hour,4180186
+4122504,millimole/hour,4180186
+4122504,Millimole/hour (qualifier value),4180186
+4122505,Millimole/exchange (qualifier value),4180186
+4122505,millimole/exchange,4180186
+4122505,Millimole/exchange,4180186
+4122506,millijoule/centimeter squared,4180186
+4122506,millijoule/centimetre squared,4180186
+4122506,Millijoule/square centimeter (qualifier value),4180186
+4122506,Millijoule/square centimetre,4180186
+4122506,Millijoule/square centimeter,4180186
+4122507,Millilitre/second/100 millilitres of tissue,4180186
+4122507,Milliliter/second/100 milliliters of tissue (qualifier value),4180186
+4122507,Milliliter/second/100 milliliters of tissue,4180186
+4122508,millimole/minute/kilopascal,4180186
+4122508,Millimole/minute/kilopascal (qualifier value),4180186
+4122508,Millimole/minute/kilopascal,4180186
+4122509,times/hour (qualifier value),4180186
+4122510,Wood units (qualifier value),4180186
+4123517,Millimeters of mercury/milliliter/second,4180186
+4123517,millimetres of mercury/millilitre/second,4180186
+4123517,Millimeters of mercury/milliliter/second (qualifier value),4180186
+4123518,millimetres of mercury/metre squared,4180186
+4123518,Millimeter of mercury/square meter,4180186
+4123518,millimeters of mercury/meter squared,4180186
+4123518,Millimeter of mercury/square meter (qualifier value),4180186
+4123518,Millimetre of mercury/square metre,4180186
+4123519,Erythrocytes/100 millilitres/second,4180186
+4123519,Erythrocytes/100 milliliters/second (qualifier value),4180186
+4123519,Erythrocytes/100 milliliters/second,4180186
+4123520,Pascal/centimeter cubed/second,4180186
+4123520,pascal/centimeter cubed/second,4180186
+4123520,pascal/centimetre cubed/second,4180186
+4123520,Pa/cm3/s,4180186
+4123520,Pascal/centimeter cubed/second (qualifier value),4180186
+4123521,times/week (qualifier value),4180186
+4123537,Percentage energy intake (qualifier value),4180186
+4123537,% energy intake,4180186
+4123537,percent energy intake,4180186
+4124419,Unit of length (qualifier value),4180186
+4124420,Decimeter (qualifier value),4180186
+4124420,decimetre,4180186
+4124420,Decimeter,4180186
+4124421,nanometre,4180186
+4124421,Nanometer (qualifier value),4180186
+4124421,Nanometer,4180186
+4124422,gram (qualifier value),4180186
+4124422,gram,4180186
+4124423,Non-International System of Units unit of mass,4180186
+4124423,Non-International System of Units unit of mass (qualifier value),4180186
+4124424,tonnes,4180186
+4124424,tonne (qualifier value),4180186
+4124425,pound,4180186
+4124425,pounds,4180186
+4124425,pounds (qualifier value),4180186
+4124426,kelvin,4180186
+4124426,K - kelvin,4180186
+4124426,Degrees Kelvin (qualifier value),4180186
+4124426,Degrees Kelvin,4180186
+4124427,picomole (qualifier value),4180186
+4124427,picomole,4180186
+4124428,femtomole (qualifier value),4180186
+4124428,femtomole,4180186
+4124429,attomole,4180186
+4124429,attomole (qualifier value),4180186
+4124430,milliosmole,4180186
+4124430,milliosmole (qualifier value),4180186
+4124431,parts per million,4180186
+4124431,Parts per million (qualifier value),4180186
+4124431,Parts per million,4180186
+4124432,Counts per minute (qualifier value),4180186
+4124432,Counts per minute,4180186
+4124433,colonies (qualifier value),4180186
+4124434,Fraction of total protein (qualifier value),4180186
+4124435,Percentage aggregation per second (qualifier value),4180186
+4124435,percent aggregation per second,4180186
+4124436,Percentage erythrocytes (qualifier value),4180186
+4124436,% red blood cells,4180186
+4124436,percent erythrocytes,4180186
+4124436,percent red blood cells,4180186
+4124437,% suppression,4180186
+4124437,Percentage suppression (qualifier value),4180186
+4124437,percent suppression,4180186
+4124438,% total hemoglobin,4180186
+4124438,Percentage total haemoglobin,4180186
+4124438,Percentage total hemoglobin (qualifier value),4180186
+4124438,percent of total haemoglobin,4180186
+4124438,% total haemoglobin,4180186
+4124438,percent of total hemoglobin,4180186
+4124440,Units of blood (qualifier value),4180186
+4124441,International System of Units unit of catalytic amount (qualifier value),4180186
+4124441,International System of Units unit of catalytic amount,4180186
+4124441,International System of Units (SI) unit of catalytic amount,4180186
+4124442,International System of Units unit of energy (qualifier value),4180186
+4124442,International System of Units unit of energy,4180186
+4124443,International System of Units (SI)-derived unit of concentration,4180186
+4124443,International System of Units-derived unit of concentration (qualifier value),4180186
+4124443,International System of Units-derived unit of concentration,4180186
+4124444,Milligram/milliliter (qualifier value),4180186
+4124444,milligram/millilitre,4180186
+4124444,Milligram/milliliter,4180186
+4124445,Microgram/milliliter,4180186
+4124445,microgram/mL,4180186
+4124445,Microgram/milliliter (qualifier value),4180186
+4124445,microgram/millilitre,4180186
+4124445,microgram/ml,4180186
+4124446,Mole/liter,4180186
+4124446,mmol/mL,4180186
+4124446,mole/litre,4180186
+4124446,Millimoles/milliliter,4180186
+4124446,Molar,4180186
+4124446,M - Molar,4180186
+4124446,Mole/liter (qualifier value),4180186
+4124447,Nanomole/liter,4180186
+4124447,Nanomole/liter (qualifier value),4180186
+4124447,nanomolar,4180186
+4124447,nanomole/litre,4180186
+4124447,nM,4180186
+4124448,femtomolar,4180186
+4124448,Femtomole/liter (qualifier value),4180186
+4124448,fM,4180186
+4124448,femtomole/litre,4180186
+4124448,Femtomole/liter,4180186
+4124449,Gram/day (qualifier value),4180186
+4124449,Gram/day,4180186
+4124450,mcg/min,4180186
+4124450,Microgram/minute (qualifier value),4180186
+4124450,Microgram/minute,4180186
+4124451,Microgram/24 hours,4180186
+4124451,Microgram/24 hours (qualifier value),4180186
+4124451,microgram/24 hours,4180186
+4124452,Mole/day (qualifier value),4180186
+4124452,Mole/day,4180186
+4124453,Millimole/24 hours (qualifier value),4180186
+4124453,millimole/24 hours,4180186
+4124453,Millimole/24 hours,4180186
+4124454,Micromole/24 hours (qualifier value),4180186
+4124454,Micromole/24 hours,4180186
+4124455,nanomole/day,4180186
+4124455,nmol/day (qualifier value),4180186
+4125041,dalton,4180186
+4125041,dalton (qualifier value),4180186
+4125042,farad (qualifier value),4180186
+4125043,kilobase (qualifier value),4180186
+4125044,Unit of magnetic flux (qualifier value),4180186
+4125713,Milliequivalent/exchange,4180186
+4125713,milliequivalent/exchange,4180186
+4125713,Milliequivalent/exchange (qualifier value),4180186
+4125714,Milliliters of fetal blood cells,4180186
+4125714,Milliliters fetal blood cells (qualifier value),4180186
+4125714,mL foetal blood cells,4180186
+4125714,Milliliters fetal blood cells,4180186
+4125714,millilitres of foetal blood cells,4180186
+4125715,millimetres of mercury/litre/second,4180186
+4125715,Millimeters of mercury/liter/second (qualifier value),4180186
+4125715,Millimeters of mercury/liter/second,4180186
+4125716,seconds of arc (qualifier value),4180186
+4127493,milliohm (qualifier value),4180186
+4127999,Mass per unit molar quantity (qualifier value),4180186
+4128093,henry (qualifier value),4180186
+4128094,centimorgan (qualifier value),4180186
+4129501,Milligram/millimole,4180186
+4129501,Milligram/millimole (qualifier value),4180186
+4129906,mA (qualifier value),4180186
+4129906,milliamp,4180186
+4129906,milliampere,4180186
+4130398,millivolt,4180186
+4130398,mV (qualifier value),4180186
+4130399,volt,4180186
+4130399,V - volt (qualifier value),4180186
+4135806,Italians (ethnic group),4180186
+4136468,Ethnic background (finding),4180186
+4136786,Unit of electrical capacitance (qualifier value),4180186
+4136787,Morgan (qualifier value),4180186
+4136788,torr (qualifier value),4180186
+4137363,Blister,4180186
+4137363,Blister - unit of product usage (qualifier value),4180186
+4137363,blister,4180186
+4137381,Nanogram/meter2/min,4180186
+4137381,ng/m2/min,4180186
+4137381,Nanogram/square meter/minute (qualifier value),4180186
+4137387,Julian date (qualifier value),4180186
+4137484,Millimeter of mercury.milliliter.beats/minute (qualifier value),4180186
+4137484,Millimetre of mercury.millilitre.beats/minute,4180186
+4137484,Millimeter of mercury.milliliter.beats/minute,4180186
+4137536,Millimole/millimole (qualifier value),4180186
+4137536,mmol/mmol,4180186
+4137597,Dyaks (ethnic group),4180186
+4138072,Georgians (ethnic group),4180186
+4138470,Trillion/mL,4180186
+4138470,Trillion/milliliter (qualifier value),4180186
+4139672,mU/kg,4180186
+4139672,munit/kg,4180186
+4139672,Milliunit/kilogram (qualifier value),4180186
+4139838,U/mmol creatinine,4180186
+4139838,Unit/millimole creatinine (qualifier value),4180186
+4139924,Bloods (ethnic group),4180186
+4140008,Microvolt (qualifier value),4180186
+4140008,McV,4180186
+4140158,Milliliter/square meter/day (qualifier value),4180186
+4140158,mL/m2/day,4180186
+4140469,unit/gm Hb,4180186
+4140469,Unit/gram hemoglobin (qualifier value),4180186
+4140469,Unit/gram haemoglobin,4180186
+4140692,Pueblo (ethnic group),4180186
+4140904,mL/m2/hr,4180186
+4140904,Milliliter/square meter/hour (qualifier value),4180186
+4141208,International unit/deciliter,4180186
+4141208,International unit/deciliter (qualifier value),4180186
+4141208,International unit/decilitre,4180186
+4141208,International unit per decilitre,4180186
+4141208,International unit per deciliter,4180186
+4141219,Sachet - unit of product usage (qualifier value),4180186
+4141219,Sachet,4180186
+4141370,ug/mmol creatinine,4180186
+4141370,Microgram/millimole creatinine (qualifier value),4180186
+4141462,Trukese (ethnic group),4180186
+4141959,Mcohm,4180186
+4141959,Microhm (qualifier value),4180186
+4141967,ng/m2/day,4180186
+4141967,Nanogram/square meter/day (qualifier value),4180186
+4141967,Nanogram/meter2/day,4180186
+4142114,Disk - unit of product usage,4180186
+4142114,Disc - unit of product usage (qualifier value),4180186
+4142114,Disc,4180186
+4142114,Disk,4180186
+4142114,disc,4180186
+4142119,Percent sodium chloride (qualifier value),4180186
+4142119,% NaCl,4180186
+4142577,Microgram elastase/gram (qualifier value),4180186
+4142577,ugE1/g,4180186
+4142732,mg %,4180186
+4142732,Milligram percent (qualifier value),4180186
+4142939,% of total body surface,4180186
+4142939,Percentage of total body surface (qualifier value),4180186
+4142939,percent of total body surface,4180186
+4143089,Milliunit/day (qualifier value),4180186
+4143089,mU/day,4180186
+4143089,munit/day,4180186
+4143406,JDN,4180186
+4143406,Julian day number (qualifier value),4180186
+4143546,Gregorian calendar date (qualifier value),4180186
+4144377,Chinese (ethnic group),4180186
+4144440,Dual dose sachet - unit of product usage (qualifier value),4180186
+4144440,Dual dose sachet,4180186
+4144440,dual dose sachet,4180186
+4144442,Unit of calendar time (qualifier value),4180186
+4145762,New Caledonians (ethnic group),4180186
+4145840,Million/mL,4180186
+4145840,Million/milliliter (qualifier value),4180186
+4145854,Nanogram/square meter/hour (qualifier value),4180186
+4145854,Nanogram/meter2/hour,4180186
+4145854,ng/m2/hr,4180186
+4146151,Micromole/millimole (qualifier value),4180186
+4146151,mcmol/mmol,4180186
+4146151,umol/mmol,4180186
+4148384,Utes (ethnic group),4180186
+4150611,Centimeter/day (qualifier value),4180186
+4150611,Centimeter/day,4180186
+4150611,Centimetre/day,4180186
+4151081,Radiation half-value thickness unit (qualifier value),4180186
+4151193,Nicotinic acid equivalents (qualifier value),4180186
+4151194,Unit of calorific content (qualifier value),4180186
+4151195,International units per unit event,4180186
+4151195,International units (IU) per unit event,4180186
+4151195,international units per unit event,4180186
+4151195,International units per unit event (qualifier value),4180186
+4151228,Non-SI unit of volume per feed (qualifier value),4180186
+4151231,International System of Units unit of mass per unit body weight (qualifier value),4180186
+4151231,International System of Units unit of mass per unit body weight,4180186
+4151576,Black N African/Arab/Iranian (ethnic group),4180186
+4151577,Black East African Asian/Indo-Caribbean (ethnic group),4180186
+4151776,Black Caribbean and White (ethnic group),4180186
+4151977,Energy per unit body weight (qualifier value),4180186
+4151995,International System of Units unit of volume per feed,4180186
+4151995,International System of Units unit of volume per feed (qualifier value),4180186
+4151996,International System of Units unit of volume per meal (qualifier value),4180186
+4151996,International System of Units unit of volume per meal,4180186
+4151999,Non-International System of Units unit of mass per unit time (qualifier value),4180186
+4151999,Non-International System of Units unit of mass per unit time,4180186
+4152000,International System of Units (SI) unit of mass per meal (qualifier value),4180186
+4152000,International System of Units (SI) unit of mass per meal,4180186
+4152001,Non-International System of Units unit of mass per feed (qualifier value),4180186
+4152001,Non-International System of Units unit of mass per feed,4180186
+4152004,Molar quantity per unit body weight (qualifier value),4180186
+4152153,Unit of radiation dose (qualifier value),4180186
+4152157,Alpha-tocopherol equivalents (qualifier value),4180186
+4152298,Non-standard dietary quantity per feed (qualifier value),4180186
+4152301,Non-International System of Units unit of volume per meal (qualifier value),4180186
+4152301,Non-International System of Units unit of volume per meal,4180186
+4152302,International System of Units unit of volume per unit body weight,4180186
+4152302,International System of Units unit of volume per unit body weight (qualifier value),4180186
+4152303,International System of Units unit of mass per feed,4180186
+4152303,International System of Units unit of mass per feed (qualifier value),4180186
+4152514,Unit of velocity (qualifier value),4180186
+4152515,Unit of electrical measurement (qualifier value),4180186
+4152781,Spaniards (ethnic group),4180186
+4152781,Spanish,4180186
+4152832,Black Caribbean/West India/Guyana,4180186
+4152832,Black Caribbean/West India/Guyana (ethnic group),4180186
+4153094,Unit of United States of America currency,4180186
+4153094,Unit of United States of America currency (qualifier value),4180186
+4153095,dollar (qualifier value),4180186
+4153158,Black African and White (ethnic group),4180186
+4154154,roentgen (qualifier value),4180186
+4154154,R - roentgen,4180186
+4154287,Non-International System of Units unit of volume per unit time,4180186
+4154287,Non-International System of Units unit of volume per unit time (qualifier value),4180186
+4154288,dyne (qualifier value),4180186
+4154289,Non-International System of Units unit of mass per meal (qualifier value),4180186
+4154289,Non-International System of Units unit of mass per meal,4180186
+4154604,Unit of United Kingdom currency (qualifier value),4180186
+4155103,Non-International System of Units unit of concentration part 2 (qualifier value),4180186
+4155103,Non-International System of Units unit of concentration part 2,4180186
+4155301,Ethnic group (ethnic group),4180186
+4155301,Ethnic category,4180186
+4155841,cent (qualifier value),4180186
+4156070,% gradient,4180186
+4156070,Percentage gradient (qualifier value),4180186
+4156070,percent gradient,4180186
+4156071,Unit of power (qualifier value),4180186
+4156072,Nanogram/microliter,4180186
+4156072,Nanogram/microlitre,4180186
+4156072,Nanogram/microliter (qualifier value),4180186
+4156072,ng/microL,4180186
+4156073,Non-International System of Units unit of concentration part 1 (qualifier value),4180186
+4156073,Non-International System of Units unit of concentration part 1,4180186
+4156176,International System of Units-derived unit of rate (qualifier value),4180186
+4156176,International System of Units-derived unit of rate,4180186
+4156177,miles per hour,4180186
+4156177,Miles per hour (qualifier value),4180186
+4156177,Miles per hour,4180186
+4156212,Non-SI-derived unit of rate (qualifier value),4180186
+4156213,Kilometer/hour (qualifier value),4180186
+4156213,Kilometer/hour,4180186
+4156213,kilometer/hour,4180186
+4156213,Kilometre/hour,4180186
+4156213,kilometre/hour,4180186
+4158501,Unit of energy expenditure (qualifier value),4180186
+4158502,Unit of optical lens power (qualifier value),4180186
+4158503,Unit of angular measurement (qualifier value),4180186
+4158504,meter/second,4180186
+4158504,metre/second,4180186
+4158504,Metre/second,4180186
+4158504,Meter/second,4180186
+4158504,Meter/second (qualifier value),4180186
+4158505,Unit of acoustic measurement (qualifier value),4180186
+4158506,Complex SI-derived unit of rate (qualifier value),4180186
+4163527,Basques (ethnic group),4180186
+4164631,DD - disc diameter,4180186
+4164631,Disc diameter (qualifier value),4180186
+4165388,Mozambiquans (ethnic group),4180186
+4166715,Nanolitre/mL,4180186
+4166715,Nanoliter per milliliter,4180186
+4166715,Nanoliter/milliliter,4180186
+4166715,Nanolitre per millilitre,4180186
+4166715,Nanolitre/millilitre,4180186
+4166715,Nanoliter/milliliter (qualifier value),4180186
+4166715,nanolitre/ml,4180186
+4166898,Angiotensin converting enzyme unit (qualifier value),4180186
+4166898,Angiotensin converting enzyme unit,4180186
+4167026,Nanogram per day (qualifier value),4180186
+4167026,Nanogram per 24 hours,4180186
+4167026,Nanogram per day,4180186
+4167026,ng/24 hr,4180186
+4167221,Megabecquerel per milliliter,4180186
+4167221,Megabecquerel per millilitre,4180186
+4167221,Megabecquerel/milliliter (qualifier value),4180186
+4167221,Megabecquerel/milliliter,4180186
+4167397,Kallikrein inactivator unit/mL,4180186
+4167397,Kallikrein inhibitory unit per milliliter (qualifier value),4180186
+4167397,Kallikrein inhibitory unit per milliliter,4180186
+4167397,Kallikrein inhibitory unit per millilitre,4180186
+4167397,Kallikrein inactivator unit/ml,4180186
+4167398,Dollars per hour (qualifier value),4180186
+4167398,Dollars per hour,4180186
+4167520,Solomon Islanders (ethnic group),4180186
+4167621,Bulgarian (ethnic group),4180186
+4167854,Percentage hemolysis (qualifier value),4180186
+4167854,Percentage haemolysis,4180186
+4167854,% hemolysis,4180186
+4167854,Percent haemolysis,4180186
+4167854,% haemolysis,4180186
+4167854,Percent hemolysis,4180186
+4167875,Unit/10(10) cells (qualifier value),4180186
+4167884,munit/g Hb,4180186
+4167884,Milliunits per gram hemoglobin,4180186
+4167884,Milliunits per gram haemoglobin,4180186
+4167884,Milliunits per gram hemoglobin (qualifier value),4180186
+4167886,kit,4180186
+4167886,Kit,4180186
+4167886,Kit - unit of product usage (qualifier value),4180186
+4167886,Kits,4180186
+4168344,Milliliter/gram,4180186
+4168344,Milliliter/gram (qualifier value),4180186
+4168344,L/kg,4180186
+4168344,Litre per kilogram,4180186
+4168344,Millilitre/gram,4180186
+4168344,Milliliter per gram,4180186
+4168344,Millilitre per gram,4180186
+4168344,Liter per kilogram,4180186
+4168344,ml/gram,4180186
+4168357,Arbitrary unit of immunoglobulin M isotype for phosphatidylserine antigen (qualifier value),4180186
+4168357,Arbitrary unit of IgM isotype for phosphatidylserine antigen,4180186
+4168357,Arbitrary unit of immunoglobulin M isotype for phosphatidylserine antigen,4180186
+4168508,Centimetre per second per second,4180186
+4168508,Centimeter per second per second,4180186
+4168508,Centimeter per second per second (qualifier value),4180186
+4169109,Milliunits per gram protein (qualifier value),4180186
+4169109,Milliunits per gram protein,4180186
+4169109,munit/g protein,4180186
+4169114,Percentage negative control (qualifier value),4180186
+4169114,% negative control,4180186
+4169114,Percent negative control,4180186
+4169284,Microliter/milliliter,4180186
+4169284,Microlitre per millilitre,4180186
+4169284,Microlitre/mL,4180186
+4169284,Microliter per milliliter,4180186
+4169284,Microliter/milliliter (qualifier value),4180186
+4169284,microlitre/ml,4180186
+4169303,Unit of radioactivity per unit volume (qualifier value),4180186
+4169399,Bogobos (ethnic group),4180186
+4169432,% index,4180186
+4169432,Percentage index (qualifier value),4180186
+4169432,Percent index,4180186
+4169452,Dollars per week (qualifier value),4180186
+4169452,Dollars per week,4180186
+4169604,Microequivalents/liter (qualifier value),4180186
+4169604,Microequivalents/litre,4180186
+4169604,Microequivalents/liter,4180186
+4169789,Unit/gram protein,4180186
+4169789,International unit/gram protein,4180186
+4169789,International unit/gram protein (qualifier value),4180186
+4169789,Unit/gm prot,4180186
+4170060,Yapese (ethnic group),4180186
+4170079,Electrophoresis band (qualifier value),4180186
+4170093,Microgram per centimeter squared,4180186
+4170093,Microgram/centimeter2 (qualifier value),4180186
+4170093,Microgram per centimetre squared,4180186
+4170093,Microgram/square cm,4180186
+4170093,mcg/cm2,4180186
+4170093,Microgram/centimeter2,4180186
+4170093,micrograms/square cm,4180186
+4170104,kiloBecquerel/milliliter,4180186
+4170104,Kilobecquerel per milliliter,4180186
+4170104,kiloBecquerel/milliliter (qualifier value),4180186
+4170104,Kilobecquerel per millilitre,4180186
+4170239,% bound,4180186
+4170239,Percentage bound (qualifier value),4180186
+4170239,Percent bound,4180186
+4170243,Milligram per specimen,4180186
+4170243,Milligram per specimen (qualifier value),4180186
+4170243,mg/specimen,4180186
+4170258,Milligram/kilogram/day (qualifier value),4180186
+4170258,Milligram/kilogram/day,4180186
+4170372,Seminole (ethnic group),4180186
+4170408,Milliliters per minute per surface area (qualifier value),4180186
+4170408,mL/min/surface area,4180186
+4170408,Milliliters per minute per surface area,4180186
+4170408,Millilitres per minute per surface area,4180186
+4170419,Milligrams per millimole creatinine,4180186
+4170419,mg/mmol creatinine,4180186
+4170419,Milligrams per millimole creatinine (qualifier value),4180186
+4170749,g/g creatinine,4180186
+4170749,Grams per gram of creatinine,4180186
+4170749,Grams per gram of creatinine (qualifier value),4180186
+4170769,Packets,4180186
+4170769,Packet,4180186
+4170769,Packet - unit of product usage (qualifier value),4180186
+4171063,Dollars per minute,4180186
+4171063,Dollars per minute (qualifier value),4180186
+4171072,ng/g,4180186
+4171072,Nanogram/gram,4180186
+4171072,Nanogram per gram (qualifier value),4180186
+4171072,Nanogram per gram,4180186
+4171181,Gilbertese (ethnic group),4180186
+4171221,Arbitrary unit of IgG isotype for phospholipid antigen,4180186
+4171221,Arbitrary unit of immunoglobulin G isotype for phospholipid antigen,4180186
+4171221,Arbitrary unit of immunoglobulin G isotype for phospholipid antigen (qualifier value),4180186
+4171235,Grams per specimen,4180186
+4171235,Grams per specimen (qualifier value),4180186
+4171236,/uL,4180186
+4171236,Per microliter,4180186
+4171236,Per microlitre,4180186
+4171236,Per microliter (qualifier value),4180186
+4171561,Dollars per year (qualifier value),4180186
+4171561,Dollars per year,4180186
+4172319,Nanomoles per second per liter,4180186
+4172319,Nanomoles per second per litre,4180186
+4172319,Nanomoles per second per liter (qualifier value),4180186
+4172323,Micrograms nitrogen per deciliter,4180186
+4172323,Micrograms nitrogen per decilitre,4180186
+4172323,Micrograms nitrogen per deciliter (qualifier value),4180186
+4173823,square millimetres,4180186
+4173823,Square millimeter (qualifier value),4180186
+4173823,square millimetre,4180186
+4173823,Square millimeter,4180186
+4173823,mm2,4180186
+4173823,square millimeters,4180186
+4174916,% of total lost,4180186
+4174916,Percentage of total lost (qualifier value),4180186
+4174916,percent of total lost,4180186
+4175829,Andamanese (ethnic group),4180186
+4176018,Cup,4180186
+4176018,Cup - unit of product usage (qualifier value),4180186
+4176018,cup,4180186
+4176621,Capsule - unit of product usage (qualifier value),4180186
+4176621,Capsule,4180186
+4176621,capsule,4180186
+4177986,Implant - unit of product usage (qualifier value),4180186
+4178142,Congolese (ethnic group),4180186
+4178323,Tablet,4180186
+4178323,Tablet - unit of product usage (qualifier value),4180186
+4178323,tablet,4180186
+4178796,lozenge,4180186
+4178796,Lozenge,4180186
+4178796,Lozenge - unit of product usage (qualifier value),4180186
+4178921,Insert,4180186
+4178921,Insert - unit of product usage (qualifier value),4180186
+4178921,insert,4180186
+4180120,can,4180186
+4180120,Can - unit of product usage (qualifier value),4180186
+4180120,Can,4180186
+4180571,Kirghiz (ethnic group),4180186
+4180729,Marathas (ethnic group),4180186
+4181295,Bag - unit of product usage (qualifier value),4180186
+4181295,Bag,4180186
+4181295,bag,4180186
+4182121,Cuna (ethnic group),4180186
+4183595,Australian Aborigines (ethnic group),4180186
+4184962,Afro-Caribbean (ethnic group),4180186
+4184966,American Indian or Alaska native (racial group),4180186
+4184984,Asian or Pacific islander (racial group),4180186
+4185154,Caucasian (racial group),4180186
+4185154,Caucasoid race,4180186
+4185154,Race: White,4180186
+4185154,Caucasian race,4180186
+4185155,"White, not of hispanic origin",4180186
+4185155,"Caucasian, not of hispanic origin (racial group)",4180186
+4185330,Deciliter/hour (qualifier value),4180186
+4185330,Deciliter/hour,4180186
+4185330,Decilitre/hour,4180186
+4185330,Deciliter per hour,4180186
+4185330,Decilitre per hour,4180186
+4185580,Dieguenos (ethnic group),4180186
+4185605,EU/24hr,4180186
+4185605,Ehrlich units/24hr,4180186
+4185605,Ehrlich units/24 hours (qualifier value),4180186
+4185605,Ehrlich units per 24 hours,4180186
+4185610,Enzyme immunoassay unit,4180186
+4185610,Enzyme immunoassay unit (qualifier value),4180186
+4185610,Unit of enzyme immunoassay,4180186
+4185612,Equivalents per unit mass per unit time (qualifier value),4180186
+4185776,Gram meter per beat,4180186
+4185776,Gram-meter/beat (qualifier value),4180186
+4185776,Gram-meter/beat,4180186
+4185776,Gram meter/beat,4180186
+4185776,Gram metre per beat,4180186
+4185777,Gram/meter2 (qualifier value),4180186
+4185777,Gram per meter squared,4180186
+4185777,Gram per square metre,4180186
+4185777,Gram per metre squared,4180186
+4185777,Gram per square meter,4180186
+4185777,Gram per meter2,4180186
+4185777,Gram/meter2,4180186
+4185920,Indian (racial group),4180186
+4185926,International unit per metre squared,4180186
+4185926,International unit/square metre,4180186
+4185926,International unit per meter squared,4180186
+4185926,International unit/square meter,4180186
+4185926,International units per square meter (qualifier value),4180186
+4185926,International units per square meter,4180186
+4185926,International units per square metre,4180186
+4185926,International unit per square metre,4180186
+4185926,International unit per square meter,4180186
+4185934,International units per unit area (qualifier value),4180186
+4185934,International units (IU) per unit area,4180186
+4185934,International units per unit area,4180186
+4185935,Japanese (ethnic group),4180186
+4185937,Kilodalton,4180186
+4185937,Kilodalton (qualifier value),4180186
+4186050,Ampule - unit of product usage (qualifier value),4180186
+4186050,Ampoule,4180186
+4186050,Ampoule - unit of product usage,4180186
+4186050,Ampule,4180186
+4186050,ampoule,4180186
+4186109,Application - unit of product usage (qualifier value),4180186
+4186109,Application,4180186
+4186259,ug/kg/day,4180186
+4186259,Microgram/kilogram/day,4180186
+4186259,Microgram per kilogram per day,4180186
+4186259,Microgram/kilogram/day (qualifier value),4180186
+4186260,Microgram per milligram,4180186
+4186260,ug/mg,4180186
+4186260,Microgram/milligram (qualifier value),4180186
+4186260,Microgram/milligram,4180186
+4186261,Micromole/millilitre,4180186
+4186261,Micromole/milliliter (qualifier value),4180186
+4186261,umol/mL,4180186
+4186261,Micromole per millilitre,4180186
+4186261,Micromole/milliliter,4180186
+4186261,Micromole per milliliter,4180186
+4186261,micromol/ml,4180186
+4186262,uU,4180186
+4186262,Microunit (qualifier value),4180186
+4186262,mcunit,4180186
+4186262,mcU,4180186
+4186266,Milliequivalent/kilogram/minute,4180186
+4186266,Milliequivalents/kilogram/minute (qualifier value),4180186
+4186266,Milliequivalents per kilogram per minute,4180186
+4186266,Milliequivalents/kilogram/minute,4180186
+4186267,Milliequivalents per milliliter,4180186
+4186267,Milliequivalents/milliliter,4180186
+4186267,Milliequivalents per millilitre,4180186
+4186267,Milliequivalents/milliliter (qualifier value),4180186
+4186268,Millimole/kilogram/hour (qualifier value),4180186
+4186268,Millimole/kilogram/hour,4180186
+4186268,Millimole per kilogram per hour,4180186
+4186269,Millimole per square metre,4180186
+4186269,Millimole per metre squared,4180186
+4186269,Millimole per square meter,4180186
+4186269,Millimole per meter squared,4180186
+4186269,Millimole/meter squared,4180186
+4186269,Millimole/meter2,4180186
+4186269,Millimole/square metre,4180186
+4186269,Millimole/square meter (qualifier value),4180186
+4186269,Millimole/square meter,4180186
+4186270,munit,4180186
+4186270,Milliunit (qualifier value),4180186
+4186270,Milliunit,4180186
+4186272,Moles per unit mass per unit time (qualifier value),4180186
+4186273,Moles per unit mole (qualifier value),4180186
+4186399,Nanomole/millimole,4180186
+4186399,nM/mM,4180186
+4186399,Nanomole per millimole,4180186
+4186399,Nanomole/millimole (qualifier value),4180186
+4186402,National surgical quality improvement programme defined race unknown,4180186
+4186402,National surgical quality improvement program defined race unknown (racial group),4180186
+4186453,Mexican Indians (ethnic group),4180186
+4186562,Pacing beats per minute,4180186
+4186562,pbpm,4180186
+4186562,Pacing beats/minute (qualifier value),4180186
+4186705,Australian aborigine (racial group),4180186
+4186705,Australoid race,4180186
+4186705,Australian race,4180186
+4186875,Cases,4180186
+4186875,Cases of unit dose,4180186
+4186875,Case,4180186
+4186875,Case - unit of product usage (qualifier value),4180186
+4186875,Case unit dose,4180186
+4186877,Cast,4180186
+4186877,Casts (qualifier value),4180186
+4187196,Per low power field (qualifier value),4180186
+4187196,/LPF,4180186
+4187343,Puff,4180186
+4187343,Puff - unit of product usage (qualifier value),4180186
+4187343,Puffs,4180186
+4187747,Afro-Caucasian (ethnic group),4180186
+4187883,Ehrlich units/millilitre,4180186
+4187883,EU/mL,4180186
+4187883,Ehrlich units/milliliter (qualifier value),4180186
+4187883,Ehrlich units per millilitre,4180186
+4187883,Ehrlich units per milliliter,4180186
+4187883,Ehrlich units/mL,4180186
+4188159,Hispanic (racial group),4180186
+4188161,"Hispanic, color unknown (racial group)",4180186
+4188161,"Hispanic, colour unknown",4180186
+4188315,Scoops,4180186
+4188315,Scoop,4180186
+4188315,Scoop - unit of product usage (qualifier value),4180186
+4188315,Scoopful,4180186
+4188571,Tablespoonful - unit of product usage (qualifier value),4180186
+4188571,Tablespoonful,4180186
+4188571,Tbsp,4180186
+4188571,Tablespoon,4180186
+4188571,Tablespoon - unit of product usage,4180186
+4188594,Unit of mass concentration (qualifier value),4180186
+4188672,Unit of volume per unit area (qualifier value),4180186
+4188673,Unit/gram,4180186
+4188673,Unit/gram (qualifier value),4180186
+4188673,Unit/gm,4180186
+4188673,Unit per gram,4180186
+4188673,unit/gram,4180186
+4188674,Unit per square meter,4180186
+4188674,Unit per square metre,4180186
+4188674,Unit per metre squared,4180186
+4188674,Unit per meter2,4180186
+4188674,Unit per meter squared,4180186
+4188674,Unit/meter2 (qualifier value),4180186
+4188674,unit/m2,4180186
+4188674,Unit/meter2,4180186
+4188676,Units per unit mass (qualifier value),4180186
+4189167,Ehrlich unit (qualifier value),4180186
+4189167,EU - Ehrlich unit,4180186
+4189337,Mass per unit volume per unit time (qualifier value),4180186
+4189474,Melanesian (ethnic group),4180186
+4189474,Melanesian-Papuan,4180186
+4189492,MilliCuries per kilogram,4180186
+4189492,MilliCuries/kilogram (qualifier value),4180186
+4189492,MilliCuries/kilogram,4180186
+4189493,Milliequivalents/kilogram/hour,4180186
+4189493,Milliequivalents/kilogram/hour (qualifier value),4180186
+4189493,Milliequivalents per kilogram per hour,4180186
+4189493,Milliequivalent/kilogram/hour,4180186
+4189494,Milliequivalents per meter squared,4180186
+4189494,Milliequivalents per square metre,4180186
+4189494,Milliequivalents per square meter,4180186
+4189494,Milliequivalents per metre squared,4180186
+4189494,Milliequivalents/meter2,4180186
+4189494,Milliequivalents per meter2,4180186
+4189494,Milliequivalents/meter2 (qualifier value),4180186
+4189495,Millilitre per metre squared,4180186
+4189495,Milliliter/meter2,4180186
+4189495,Millilitre per square metre,4180186
+4189495,Milliliter per meter2,4180186
+4189495,Milliliter/meter2 (qualifier value),4180186
+4189495,Milliliter per square meter,4180186
+4189495,Millilitre per metre2,4180186
+4189495,Millilitre/metre2,4180186
+4189495,Milliliter per meter squared,4180186
+4189497,Milliunit per gram,4180186
+4189497,Milliunit/gram (qualifier value),4180186
+4189497,munit/gm,4180186
+4189497,Milliunit/gram,4180186
+4189498,Milliunit/minute (qualifier value),4180186
+4189498,Milliunit per minute,4180186
+4189498,Milliunit/minute,4180186
+4189498,munit/min,4180186
+4189512,Nanograms per millilitre per hour,4180186
+4189512,Nanograms per milliliter per hour,4180186
+4189512,Nanograms/milliliter/hour (qualifier value),4180186
+4189512,Nanograms/milliliter/hour,4180186
+4189785,Oriental (ethnic group),4180186
+4190115,Euros,4180186
+4190115,Euro (qualifier value),4180186
+4190380,Grams/5 hours (qualifier value),4180186
+4190380,Grams per 5 hours,4180186
+4190380,gm/5hr,4180186
+4190380,Grams/5 hours,4180186
+4190391,"Hispanic, black (racial group)",4180186
+4190392,"Hispanic, white (racial group)",4180186
+4190513,International unit/kilogram/hour (qualifier value),4180186
+4190513,International unit per kilogram per hour,4180186
+4190513,International unit/kilogram/hour,4180186
+4190517,International units (IU) per unit mass per unit time,4180186
+4190517,International units per unit mass per unit time (qualifier value),4180186
+4190517,International units per unit mass per unit time,4180186
+4190519,Kilogram-meter/square meter (qualifier value),4180186
+4190519,Kilogram-meter per meter squared,4180186
+4190519,Kilogram-meter per metre squared,4180186
+4190519,Kilogram-meter/square meter,4180186
+4190519,Kilogram-meter/square metre,4180186
+4190519,Kilogram-meter per square meter,4180186
+4190519,Kilogram-meter per square metre,4180186
+4190629,Percentage unit (qualifier value),4180186
+4190758,Race not stated (racial group),4180186
+4192497,Toba (ethnic group),4180186
+4194076,Quechua (ethnic group),4180186
+4195322,Turks (ethnic group),4180186
+4195705,Aztec (ethnic group),4180186
+4196428,White British (ethnic group),4180186
+4197588,Coulomb/kilogram,4180186
+4197588,coulomb/kilogram,4180186
+4197588,Coulomb/kilogram (qualifier value),4180186
+4198417,Senoi (ethnic group),4180186
+4198993,Hottentot (ethnic group),4180186
+4199011,Oriental Jews (ethnic group),4180186
+4199819,Other white ethnic group (ethnic group),4180186
+4199940,Other Asian ethnic group (ethnic group),4180186
+4201594,Serbs (ethnic group),4180186
+4201928,White Irish (ethnic group),4180186
+4201929,Black,4180186
+4201929,Black - ethnic group (ethnic group),4180186
+4201937,Asian - ethnic group (ethnic group),4180186
+4201938,Irish traveller (ethnic group),4180186
+4202555,Other black ethnic group (ethnic group),4180186
+4203120,Black West Indian (ethnic group),4180186
+4205380,Black Guyana (ethnic group),4180186
+4208468,Drops per minute (qualifier value),4180186
+4208468,Drops/min,4180186
+4208468,Drops/minute,4180186
+4210116,Vietnamese (ethnic group),4180186
+4210186,Inca (ethnic group),4180186
+4210302,Belgians (ethnic group),4180186
+4211218,Black,4180186
+4211218,African race (racial group),4180186
+4211218,Negroid,4180186
+4211331,Amerindian race,4180186
+4211331,American Indian race (racial group),4180186
+4211352,AUC,4180186
+4211352,Area under the curve (qualifier value),4180186
+4211353,Asian race (racial group),4180186
+4211480,"Black, not of hispanic origin (racial group)",4180186
+4211671,Copies per millilitre,4180186
+4211671,Copies per milliliter,4180186
+4211671,Copy per millilitre,4180186
+4211671,Copy per milliliter,4180186
+4211671,Copies/milliliter,4180186
+4211671,Copies/milliliter (qualifier value),4180186
+4211849,Chenchu (ethnic group),4180186
+4212088,Navaho (ethnic group),4180186
+4212194,Mass per unit area per unit time (qualifier value),4180186
+4212196,Megabase,4180186
+4212196,Megabase (qualifier value),4180186
+4212208,Milligram-meter per beat,4180186
+4212208,Milligram-meter/beat (qualifier value),4180186
+4212208,Milligram-meter/beat,4180186
+4212214,Micromole/mole (qualifier value),4180186
+4212214,umol/mol,4180186
+4212214,Micromole per mole,4180186
+4212214,Micromole/mole,4180186
+4212217,Milliequivalents/deciliter,4180186
+4212217,Milliequivalents/deciliter (qualifier value),4180186
+4212217,Milliequivalents per deciliter,4180186
+4212217,Milliequivalents per decilitre,4180186
+4212218,Milliequivalents per kilogram per day,4180186
+4212218,Milliequivalent/kilogram/day,4180186
+4212218,Milliequivalents/kilogram/day,4180186
+4212218,Milliequivalents/kilogram/day (qualifier value),4180186
+4212220,Milligram/meter2/hour (qualifier value),4180186
+4212220,Milligram per metre squared per hour,4180186
+4212220,Milligram per square metre per hour,4180186
+4212220,Milligram per meter2 per hour,4180186
+4212220,Milligram per meter squared per hour,4180186
+4212220,Milligram/meter2/hour,4180186
+4212220,Milligram per square meter per hour,4180186
+4212221,Milliinternational units/hour,4180186
+4212221,Milliinternational units per hour,4180186
+4212221,Milliinternational units/hour (qualifier value),4180186
+4212222,Millilitre/centimetre of water,4180186
+4212222,Milliliter/centimeter of water (qualifier value),4180186
+4212222,Milliliter/centimeter of water,4180186
+4212222,Milliliter per centimeter of water,4180186
+4212222,Millilitre per centimetre of water,4180186
+4212223,Millimole/kilogram/day,4180186
+4212223,Millimole per kilogram per day,4180186
+4212223,Millimole/kilogram/day (qualifier value),4180186
+4212311,Mixed racial group (racial group),4180186
+4212321,Nanomole per milliliter,4180186
+4212321,Nanomole /milliliter,4180186
+4212321,Nanomole per millilitre,4180186
+4212321,Nanomole/milliliter,4180186
+4212321,nM/mL,4180186
+4212321,Nanomole/milliliter (qualifier value),4180186
+4212702,Teaspoonful,4180186
+4212702,Tsp,4180186
+4212702,Teaspoon,4180186
+4212702,Teaspoonful - unit of product usage (qualifier value),4180186
+4212702,Teaspoonful - unit of product usage,4180186
+4212718,Unit of radioactivity per unit mass (qualifier value),4180186
+4212719,Unit of urobilinogen analysis (qualifier value),4180186
+4212719,Unit of urobilinogen measurement,4180186
+4212720,Unit/2 hours,4180186
+4212720,Unit/2hr,4180186
+4212720,Unit/2 hours (qualifier value),4180186
+4212720,Units per 2 hours,4180186
+4212721,Unit per kilogram,4180186
+4212721,Unit/kilogram (qualifier value),4180186
+4212721,Unit/kilogram,4180186
+4212721,unit/kg,4180186
+4212722,Unit/kilogram/hour,4180186
+4212722,Unit per kilogram per hour,4180186
+4212722,Unit/kilogram/hour (qualifier value),4180186
+4212722,Unit/kg/hr,4180186
+4212723,Units per unit mass per unit time (qualifier value),4180186
+4212864,Deciliter per day,4180186
+4212864,Deciliter/day (qualifier value),4180186
+4212864,Decilitre/day,4180186
+4212864,Decilitre per day,4180186
+4212864,Deciliter/day,4180186
+4212865,Deciliter per minute,4180186
+4212865,Deciliter/minute (qualifier value),4180186
+4212865,Deciliter/minute,4180186
+4212865,Decilitre/minute,4180186
+4212865,Decilitre per minute,4180186
+4212976,Endotoxin units per milliliter (qualifier value),4180186
+4212976,Endotoxin units/milliliter,4180186
+4212976,Endotoxin units/millilitre,4180186
+4212976,Endotoxin units per milliliter,4180186
+4212976,Endotoxin units per millilitre,4180186
+4212983,Equivalents per unit area (qualifier value),4180186
+4212990,European (ethnic group),4180186
+4213116,Gram per kilogram per day,4180186
+4213116,Gram/kilogram/day (qualifier value),4180186
+4213116,Grams per kilogram per day,4180186
+4213116,Gram/kilogram/day,4180186
+4213166,Mg/m2 (qualifier value),4180186
+4213463,Portuguese (ethnic group),4180186
+4214326,Gram meter per beat per meter squared,4180186
+4214326,Gram-meter/beat/meter2,4180186
+4214326,Gram metre per beat per square metre,4180186
+4214326,Gram-meter/beat/meter2 (qualifier value),4180186
+4214326,Gram metre per beat per metre squared,4180186
+4214326,Gram meter per beat per square meter,4180186
+4214326,Gram-meter/beat/square meter,4180186
+4214326,Gram-meter/beat/square metre,4180186
+4214326,Gram-meter/beat/meter squared,4180186
+4214517,International unit per minute,4180186
+4214517,International unit/minute,4180186
+4214517,International unit/minute (qualifier value),4180186
+4214527,Kilogram metre,4180186
+4214527,Kilogram meter,4180186
+4214527,Kilogram-meter (qualifier value),4180186
+4214527,Kilogram-meter,4180186
+4214528,Kilogram/hour (qualifier value),4180186
+4214528,Kilogram per hour,4180186
+4214528,Kilogram/hour,4180186
+4214529,Kilogram/minute (qualifier value),4180186
+4214529,Kilogram/minute,4180186
+4214529,Kilogram per minute,4180186
+4214645,Milliequivalents per hour,4180186
+4214645,Milliequivalents/hour (qualifier value),4180186
+4214645,Milliequivalents/hour,4180186
+4214646,Milligram per square metre per day,4180186
+4214646,Milligram per metre squared per day,4180186
+4214646,Milligram per meter squared per day,4180186
+4214646,Milligram per meter2 per day,4180186
+4214646,Milligram/meter2/day,4180186
+4214646,Milligram per square meter per day,4180186
+4214646,Milligram/meter2/day (qualifier value),4180186
+4214647,Millilitre per kilogram per day,4180186
+4214647,Millilitre/kilogram/day,4180186
+4214647,Milliliter/kilogram/day (qualifier value),4180186
+4214647,Milliliter/kilogram/day,4180186
+4214647,Milliliter per kilogram per day,4180186
+4214648,Millilitre per kilogram per hour,4180186
+4214648,Millilitre/kilogram/hour,4180186
+4214648,Milliliter per kilogram per hour,4180186
+4214648,Milliliter/kilogram/hour,4180186
+4214648,Milliliter/kilogram/hour (qualifier value),4180186
+4214649,Millimole per deciliter (qualifier value),4180186
+4214649,Millimole per decilitre,4180186
+4214649,Millimole/deciliter,4180186
+4214649,Millimole per deciliter,4180186
+4214650,Million units per square metre,4180186
+4214650,Million units per square meter,4180186
+4214650,Million units/meter squared (qualifier value),4180186
+4214650,Million units/meter2,4180186
+4214650,Million units per metre squared,4180186
+4214650,Million units/square metre,4180186
+4214650,Million units per meter squared,4180186
+4214650,Million units/square meter,4180186
+4214650,Million units/meter squared,4180186
+4214650,Million units per meter2,4180186
+4214651,Moles per unit area (qualifier value),4180186
+4214665,nM/dL,4180186
+4214665,Nanomole/deciliter,4180186
+4214665,Nanomole/decilitre,4180186
+4214665,Nanomole per decilitre,4180186
+4214665,Nanomole/deciliter (qualifier value),4180186
+4214665,Nanomole per deciliter,4180186
+4214687,Gender unknown (finding),4180186
+4214735,Xosa (ethnic group),4180186
+4215220,Tuberculin unit (qualifier value),4180186
+4215220,Tuberculin unit,4180186
+4215220,Tuberculin units,4180186
+4215220,tuberculin unit,4180186
+4215227,Unit of atomic mass (qualifier value),4180186
+4215228,Unit of viral analysis (qualifier value),4180186
+4215229,unit/kg/min,4180186
+4215229,Unit/kilogram/minute (qualifier value),4180186
+4215229,Unit/kilogram/minute,4180186
+4215229,Unit per kilogram per minute,4180186
+4215230,Units per unit area (qualifier value),4180186
+4215271,Gender unspecified (finding),4180186
+4215810,Chippewa (ethnic group),4180186
+4216026,West Africans (ethnic group),4180186
+4216036,Todas (ethnic group),4180186
+4216137,Picomole/gram,4180186
+4216137,Picomole per gram,4180186
+4216137,pmol/gm,4180186
+4216137,Picomole/gram (qualifier value),4180186
+4216292,Racial group (racial group),4180186
+4216433,Caroline Islanders (ethnic group),4180186
+4216519,Pakistani (Urduspeakers) (ethnic group),4180186
+4216818,Swedes (ethnic group),4180186
+4217467,Pehuenches (ethnic group),4180186
+4217600,Naiars (ethnic group),4180186
+4218288,Hobe (ethnic group),4180186
+4218447,Brazilian Indians (ethnic group),4180186
+4218668,Unit of compliance (qualifier value),4180186
+4218669,Unit of European Union currency (qualifier value),4180186
+4218669,Unit of EU currency,4180186
+4218671,unit/dL,4180186
+4218671,Unit/deciliter (qualifier value),4180186
+4218671,Unit/deciliter,4180186
+4218671,Unit per deciliter,4180186
+4218671,Unit per decilitre,4180186
+4218672,Unit/kilogram/day (qualifier value),4180186
+4218672,Unit per kilogram per day,4180186
+4218672,Unit/kilogram/day,4180186
+4218672,Unit/kg/day,4180186
+4218673,Unit/minute (qualifier value),4180186
+4218673,Units per minute,4180186
+4218673,Unit/min,4180186
+4218673,Unit/minute,4180186
+4218674,Unknown racial group (racial group),4180186
+4218803,vial,4180186
+4218803,Vial,4180186
+4218803,Vials,4180186
+4218803,Vial - unit of product usage (qualifier value),4180186
+4218803,Vil,4180186
+4218805,Volume per unit mass per unit time (qualifier value),4180186
+4218957,Kikuyu (ethnic group),4180186
+4219475,Shona (ethnic group),4180186
+4219735,Bantu (ethnic group),4180186
+4221071,Buriats (ethnic group),4180186
+4221073,Gypsy,4180186
+4221073,Gypsies (ethnic group),4180186
+4221462,Apostilb (qualifier value),4180186
+4221856,Irula (ethnic group),4180186
+4222837,Footcandle (qualifier value),4180186
+4223319,Milligram/metre2,4180186
+4223319,Milligram/meter2,4180186
+4223319,mg/sq.m,4180186
+4223319,Milligram/square meter (qualifier value),4180186
+4223319,Milligram/square metre,4180186
+4223319,Milligram/square meter,4180186
+4223755,Imperial gallon (qualifier value),4180186
+4224069,Swab - unit of product usage (qualifier value),4180186
+4224069,Swabs,4180186
+4224069,Swab,4180186
+4224069,swab,4180186
+4224556,Troland (qualifier value),4180186
+4224736,Microgram/kilogram/day,4180186
+4224736,Microgram/kilogram/day (qualifier value),4180186
+4224736,ug/kg/day,4180186
+4225662,Dropperful,4180186
+4225662,Dropperful - unit of product usage (qualifier value),4180186
+4226094,Glassful,4180186
+4226094,Glassful - unit of product usage (qualifier value),4180186
+4226150,Microgram/kilogram/hour,4180186
+4226150,Microgram/kilogram/hour (qualifier value),4180186
+4226151,Milligram/kilogram/hour (qualifier value),4180186
+4226151,Milligram/kilogram/hour,4180186
+4226152,Milligram/kilogram/minute,4180186
+4226152,Milligram/kilogram/minute (qualifier value),4180186
+4226153,Grams per kilogram per minute,4180186
+4226153,Grams/kilogram/minute,4180186
+4226153,Grams per kilogram per minute (qualifier value),4180186
+4226153,gm/kg/min,4180186
+4226259,Inhalation,4180186
+4226259,Inhalation - unit of product usage (qualifier value),4180186
+4226921,Pads,4180186
+4226921,Pad - unit of product usage (qualifier value),4180186
+4226921,Pad,4180186
+4226921,pad,4180186
+4227799,United States of America gallon (qualifier value),4180186
+4227799,United States of America gallon,4180186
+4227847,Drop - unit of product usage (qualifier value),4180186
+4227847,Drop,4180186
+4227847,Drops,4180186
+4227847,Gtts,4180186
+4228069,Abyssinians (Amharas) (ethnic group),4180186
+4228325,Nanogram/kilogram/minute,4180186
+4228325,Nanogram/kilogram/minute (qualifier value),4180186
+4228326,Nanogram per kilogram per hour,4180186
+4228326,Nanogram/kilogram/hour,4180186
+4228326,Nanogram/kilogram/hour (qualifier value),4180186
+4228602,Million units/day (qualifier value),4180186
+4228602,Million units/day,4180186
+4229453,Sudanese (ethnic group),4180186
+4229603,Nigerians (ethnic group),4180186
+4230598,microgram/ meter squared,4180186
+4230598,Microgram/square meter (qualifier value),4180186
+4230598,Microgram/square meter,4180186
+4230598,microgram/ metre squared,4180186
+4230598,Microgram/square metre,4180186
+4230598,ug/m2,4180186
+4231129,Alacaluf (ethnic group),4180186
+4231242,"Surgically transgendered transsexual, female-to-male (finding)",4180186
+4231846,Arabs (ethnic group),4180186
+4233459,Grams/kilogram/hour,4180186
+4233459,Grams per kilogram per hour,4180186
+4233459,gm/kg/hr,4180186
+4233459,Gram per kilogram per hour (qualifier value),4180186
+4233459,Gram per kilogram per hour,4180186
+4233496,Ghashgai (ethnic group),4180186
+4234343,Palauans (ethnic group),4180186
+4234363,Surgically transgendered transsexual (finding),4180186
+4235089,Kilogram/liter,4180186
+4235089,Kilogram/liter (qualifier value),4180186
+4235089,Kilogram/litre,4180186
+4235090,International units per gram,4180186
+4235090,International units per gram (qualifier value),4180186
+4235433,Tatars (ethnic group),4180186
+4235464,Oraons (ethnic group),4180186
+4236027,Gambians (ethnic group),4180186
+4237214,New Britons (ethnic group),4180186
+4240299,Liberians (ethnic group),4180186
+4240732,Barundi (ethnic group),4180186
+4241969,Syrians (ethnic group),4180186
+4242388,Athabascans (ethnic group),4180186
+4243164,Koreans (ethnic group),4180186
+4244365,Senegalese (ethnic group),4180186
+4244972,Kilogram/cubic metre,4180186
+4244972,Kilogram/cubic meter (qualifier value),4180186
+4244972,Kilogram/cubic meter,4180186
+4244973,Decigram,4180186
+4244973,Decigram (qualifier value),4180186
+4244975,Per cubic millimeter,4180186
+4244975,Per cubic millimeter (qualifier value),4180186
+4244975,per cubic millimetre,4180186
+4244976,Gram/milliliter (qualifier value),4180186
+4244976,Gram/millilitre,4180186
+4244976,Gram/milliliter,4180186
+4244977,Unit/2 hours,4180186
+4244977,Unit/2 hours (qualifier value),4180186
+4244979,MU,4180186
+4244979,Million unit (qualifier value),4180186
+4245024,Ibo (ethnic group),4180186
+4245254,one half day,4180186
+4245254,1/2day (qualifier value),4180186
+4245255,Milligram/kilogram,4180186
+4245255,Milligram/kilogram (qualifier value),4180186
+4245256,Gram/kilogram,4180186
+4245256,Gram/kilogram (qualifier value),4180186
+4245713,Cubic meter/second (qualifier value),4180186
+4245713,Cubic meter/second,4180186
+4245713,Cubic metre/second,4180186
+4245756,Marshallese (ethnic group),4180186
+4246815,Gram/actuation,4180186
+4246815,Gram/actuation (qualifier value),4180186
+4246828,International unit/milligram,4180186
+4246828,International unit/milligram (qualifier value),4180186
+4246829,Megainternational unit (qualifier value),4180186
+4246829,mega unit,4180186
+4246830,Milligram/gram,4180186
+4246830,Milligram/gram (qualifier value),4180186
+4246831,Milligram/milligram (qualifier value),4180186
+4246831,Milligram/milligram,4180186
+4246832,Micrograms/72 hours (qualifier value),4180186
+4246832,Micrograms/72 hours,4180186
+4246832,microgram/72 hours,4180186
+4247162,Ellice Islanders (ethnic group),4180186
+4248713,Icelanders (ethnic group),4180186
+4249154,Caingang (ethnic group),4180186
+4249883,Maori,4180186
+4249883,MÄori (ethnic group),4180186
+4250319,Melanuans (ethnic group),4180186
+4251434,"Surgically transgendered transsexual, male-to-female (finding)",4180186
+4251760,Apache (ethnic group),4180186
+4252057,milligrams/16 hours,4180186
+4252057,Milligrams/16 hours,4180186
+4252057,Milligrams/16 hours (qualifier value),4180186
+4252057,mg/16 hours,4180186
+4252058,Milligrams/72 hours,4180186
+4252058,Milligrams/72 hours (qualifier value),4180186
+4252058,mg/72 hours,4180186
+4255052,Dose,4180186
+4255052,Unit dose (qualifier value),4180186
+4255053,Unit of drug administration (qualifier value),4180186
+4255054,Microgram/actuation (qualifier value),4180186
+4255054,Microgram/actuation,4180186
+4255054,microgram/actuation,4180186
+4255055,Milligram/actuation (qualifier value),4180186
+4255055,Milligram/actuation,4180186
+4255056,Unit/actuation (qualifier value),4180186
+4255690,Kallikrein inactivator unit (qualifier value),4180186
+4255690,Kallikrein inactivator unit - KIU,4180186
+4262177,Ethnic groups,4180186
+4262177,Ethnic group finding (finding),4180186
+4262177,Ethnicity,4180186
+4262464,Cubic metre,4180186
+4262464,Cubic meter,4180186
+4262464,Cubic meter (qualifier value),4180186
+4262465,kilogram/sec,4180186
+4262465,Kilogram/second,4180186
+4262465,Kilogram/second (qualifier value),4180186
+4262466,Square decimeter (qualifier value),4180186
+4262466,square decimetre,4180186
+4262466,Square decimeter,4180186
+4262467,Gram/square meter,4180186
+4262467,Gram/square meter (qualifier value),4180186
+4262467,Gram/square metre,4180186
+4262468,Microgram/kilogram/minute,4180186
+4262468,Microgram/kilogram/minute (qualifier value),4180186
+4262470,Volume per unit mass (qualifier value),4180186
+4263311,Badagas (ethnic group),4180186
+4263713,Somalis (ethnic group),4180186
+4264197,Bruneians (ethnic group),4180186
+4265731,Percentage diameter reduction (qualifier value),4180186
+4265731,% diameter reduction,4180186
+4265731,Percent diameter reduction,4180186
+4267217,Slovak (ethnic group),4180186
+4268432,White Scottish (ethnic group),4180186
+4268433,Other white British ethnic group (ethnic group),4180186
+4268709,Gender finding (finding),4180186
+4269914,Venezuelan Indians (ethnic group),4180186
+4269942,Maya (ethnic group),4180186
+4270899,Choco (ethnic group),4180186
+4270900,Taiwanese (ethnic group),4180186
+4273384,Hungarian (ethnic group),4180186
+4273538,New Hebrideans (ethnic group),4180186
+4274415,Finding of ethnicity / related nationality data,4180186
+4274415,Finding of ethnicity / related nationality data (finding),4180186
+4276043,Indians (Hindi-speaking) (ethnic group),4180186
+4277901,Blackfeet (ethnic group),4180186
+4279480,Huasteco (ethnic group),4180186
+4281687,Amerind (ethnic group),4180186
+4282477,Lapps (ethnic group),4180186
+4283366,Msutu (ethnic group),4180186
+4283895,Micronesians (ethnic group),4180186
+4285116,Austrians (ethnic group),4180186
+4287492,% area reduction,4180186
+4287492,Percentage area reduction (qualifier value),4180186
+4287492,Percent area reduction,4180186
+4288402,Centigram,4180186
+4288402,Centigram (qualifier value),4180186
+4288403,Cubic millimeter,4180186
+4288403,Cubic millimeter (qualifier value),4180186
+4288403,cubic millimetre,4180186
+4288404,Unit/cubic meter (qualifier value),4180186
+4288404,Unit per cubic meter,4180186
+4288404,Unit/cubic metre,4180186
+4288404,Unit per cubic metre,4180186
+4288404,unit/m3,4180186
+4288404,Unit per meter cubed,4180186
+4288404,Unit/cubic meter,4180186
+4288404,Unit per metre cubed,4180186
+4288405,Mass per unit area (qualifier value),4180186
+4288406,Mcg/m2 (qualifier value),4180186
+4288407,Milliequivalent/kilogram (qualifier value),4180186
+4288407,Milliequivalent/kilogram,4180186
+4288408,microlitre/g,4180186
+4288408,microliter/g,4180186
+4288408,mL/kg (qualifier value),4180186
+4289159,Irani (ethnic group),4180186
+4292111,Fulani (ethnic group),4180186
+4292272,Ghanaians (ethnic group),4180186
+4295144,Yanomama (ethnic group),4180186
+4296018,Filipinos (ethnic group),4180186
+4296606,Ugandans (ethnic group),4180186
+4296997,Zulu (ethnic group),4180186
+4297319,Germans (ethnic group),4180186
+4297790,Swiss (ethnic group),4180186
+4297991,Huichol (ethnic group),4180186
+4298426,Kwakiutl (ethnic group),4180186
+4298833,Atacamenos (ethnic group),4180186
+4301306,Bororo (ethnic group),4180186
+4302051,% deficient,4180186
+4302051,Percentage deficient (qualifier value),4180186
+4302051,Percent deficient,4180186
+4302059,Milligrams haemoglobin per gram,4180186
+4302059,mg Hb/g,4180186
+4302059,Milligrams hemoglobin per gram,4180186
+4302059,Milligrams hemoglobin per gram (qualifier value),4180186
+4302078,Nanomoles bone collagen equivalents,4180186
+4302078,Nanomoles bone collagen equivalents (qualifier value),4180186
+4302203,Milligram per centimeter squared,4180186
+4302203,Milligram/centimeter2,4180186
+4302203,Milligram per centimetre squared,4180186
+4302203,Milligram/centimeter2 (qualifier value),4180186
+4302203,Milligram/centimetre2,4180186
+4302205,Percentage excreted (qualifier value),4180186
+4302205,% excreted,4180186
+4302205,Percent excreted,4180186
+4302353,Total/mechanical (qualifier value),4180186
+4302353,Total/mechanical,4180186
+4302361,Arbitrary unit/milliliter,4180186
+4302361,Arbitrary unit/mL,4180186
+4302361,Arbitrary unit per milliliter,4180186
+4302361,Arbitrary unit per milliliter (qualifier value),4180186
+4302361,Arbitrary unit/millilitre,4180186
+4302361,Arbitrary unit per millilitre,4180186
+4302500,Millilitre/millilitre,4180186
+4302500,Millilitre per millilitre,4180186
+4302500,Milliliter per milliliter,4180186
+4302500,Milliliter/milliliter,4180186
+4302500,Milliliter/milliliter (qualifier value),4180186
+4302502,mcg/gm Hb,4180186
+4302502,Micrograms per gram haemoglobin,4180186
+4302502,Micrograms per gram hemoglobin,4180186
+4302502,Micrograms per gram hemoglobin (qualifier value),4180186
+4302653,Disintegrations per minute (qualifier value),4180186
+4302653,Disintegrations per minute,4180186
+4302782,Dollars per second,4180186
+4302782,Dollars per second (qualifier value),4180186
+4302813,Log base 10,4180186
+4302813,Log base 10 (qualifier value),4180186
+4302939,Arbitrary unit of immunoglobulin A isotype for phosphatidylserine antibody (qualifier value),4180186
+4302939,Arbitrary unit of immunoglobulin A isotype for phosphatidylserine antibody,4180186
+4302939,Arbitrary unit of IgA isotype for phosphatidylserine antibody,4180186
+4303089,Percentage volume (qualifier value),4180186
+4303089,% volume,4180186
+4303089,Percent volume,4180186
+4303093,Unit of antigen assay (qualifier value),4180186
+4303103,N - index of refraction,4180186
+4303103,Index of refraction (qualifier value),4180186
+4303259,Kilocalories per kilogram per day (qualifier value),4180186
+4303259,Kilocalories per kilogram per day,4180186
+4303259,Kilocalories/kilogram/day,4180186
+4303374,Thousands/microliter,4180186
+4303374,x10(3)/microliter,4180186
+4303374,Thousands/microlitre,4180186
+4303374,x10(3)/microlitre,4180186
+4303374,thou/mcL,4180186
+4303374,x10(3)/microliter (qualifier value),4180186
+4303374,Thousands/mcL,4180186
+4303381,Microgram equivalents per milliliter,4180186
+4303381,Microgram equivalents per millilitre,4180186
+4303381,Microgram equivalents per milliliter (qualifier value),4180186
+4303407,Unit of mathematical analysis (qualifier value),4180186
+4303540,Non-International System of Units unit of energy per mass per time,4180186
+4303540,Non-International System of Units unit of energy per mass per time (qualifier value),4180186
+4303648,Log international units per milliliter,4180186
+4303648,Log international units per milliliter (qualifier value),4180186
+4303648,Log international units per millilitre,4180186
+4303654,Thousands/mcL,4180186
+4303654,Thousands/microliter,4180186
+4303654,Thousands/microliter (qualifier value),4180186
+4303654,Thousands/microlitre,4180186
+4303660,Gigabecquerel/milliliter (qualifier value),4180186
+4303660,Gigabecquerel per milliliter,4180186
+4303660,Gigabecquerel/milliliter,4180186
+4303660,Gigabecquerel per millilitre,4180186
+4303660,Gigabecquerel/millilitre,4180186
+4303686,Arbitrary unit of immunoglobulin M isotype for phospholipid antigen,4180186
+4303686,Arbitrary unit of immunoglobulin M isotype for phospholipid antigen (qualifier value),4180186
+4303686,Arbitrary unit of IgM isotype for phospholipid antigen,4180186
+4303959,Dollars per month (qualifier value),4180186
+4303959,Dollars per month,4180186
+4303978,Nanomoles per milligram creatinine,4180186
+4303978,nmol/mg creatinine,4180186
+4303978,Nanomoles per milligram creatinine (qualifier value),4180186
+4304247,x10(6)/microliter (qualifier value),4180186
+4304247,x10(6)/microlitre,4180186
+4304247,x10(6)/microliter,4180186
+4304262,Micrograms thyroxine per deciliter,4180186
+4304262,ug T4/dL,4180186
+4304262,Micrograms thyroxine per decilitre,4180186
+4304262,Micrograms thyroxine per deciliter (qualifier value),4180186
+4304402,Nanomoles per deciliter of glomerular filtrate,4180186
+4304402,Nanomoles per deciliter of glomerular filtrate (qualifier value),4180186
+4304402,Nanomoles per decilitre of glomerular filtrate,4180186
+4304413,Gibbs energy,4180186
+4304413,Gibbs free energy (qualifier value),4180186
+4304416,Unit/mg,4180186
+4304416,Unit/milligram (qualifier value),4180186
+4304416,Unit/milligram,4180186
+4304416,Unit per milligram,4180186
+4304416,unit/mg,4180186
+4304429,mmol/specimen,4180186
+4304429,Millimole per specimen (qualifier value),4180186
+4304429,Millimole per specimen,4180186
+4304542,Tongan (ethnic group),4180186
+4304553,umol/gm/yr,4180186
+4304553,Micromoles per gram per year,4180186
+4304553,Micromoles per gram per year (qualifier value),4180186
+4304564,Delta optical density (qualifier value),4180186
+4304564,Delta optical density,4180186
+4304572,Unit/centimeter2,4180186
+4304572,Unit/square cm,4180186
+4304572,Unit per square cm,4180186
+4304572,Unit/cm2,4180186
+4304572,Unit per square centimetre,4180186
+4304572,Unit per square centimeter,4180186
+4304572,Unit/centimeter2 (qualifier value),4180186
+4304572,Unit/centimetre2,4180186
+4304572,unit/square cm,4180186
+4304574,Sprays,4180186
+4304574,Spray,4180186
+4304574,Spray - unit of product usage (qualifier value),4180186
+4304586,Multiple of the median (qualifier value),4180186
+4304586,Multiple of the median,4180186
+4304718,Milligrams per decilitre erythrocytes,4180186
+4304718,Milligrams per deciliter erythrocytes (qualifier value),4180186
+4304718,Milligrams per deciliter erythrocytes,4180186
+4304718,mg/dL Ercs,4180186
+4304727,Arbitrary unit of immunoglobulin A isotype for phospholipid antigen per milliliter (qualifier value),4180186
+4304727,Arbitrary unit of IgA isotype for phospholipid antigen per milliliter,4180186
+4304727,Arbitrary unit of immunoglobulin A isotype for phospholipid antigen per milliliter,4180186
+4304727,Arbitrary unit of IgA isotype for phospholipid antigen per millilitre,4180186
+4304727,Arbitrary unit of IgA isotype for phospholipid antigen/mL,4180186
+4304727,Arbitrary unit of immunoglobulin A isotype for phospholipid antigen per millilitre,4180186
+4304885,Unit/10(10) (qualifier value),4180186
+4304908,Kilocalories/kilogram/hour,4180186
+4304908,Kilocalories per kilogram per hour,4180186
+4304908,Kilocalories per kilogram per hour (qualifier value),4180186
+4305035,Milliosmoles per kilogram H2O,4180186
+4305035,Milliosmoles per kilogram H2O (qualifier value),4180186
+4305035,mosmol/kg H2O,4180186
+4305035,Milliosmoles per kilogram water,4180186
+4305036,Microgram per specimen (qualifier value),4180186
+4305036,Microgram per specimen,4180186
+4305036,ug/specimen,4180186
+4305058,Unit of bone density (qualifier value),4180186
+4305370,Box - unit of product usage (qualifier value),4180186
+4305370,Box,4180186
+4305370,Boxes,4180186
+4305388,Tubes,4180186
+4305388,Tube,4180186
+4305388,Tube - unit of product usage (qualifier value),4180186
+4305388,tube,4180186
+4305534,Units of concentraion for glomerular filtrate (qualifier value),4180186
+4305548,Bottles,4180186
+4305548,Bottle,4180186
+4305548,Bottle - unit of product usage (qualifier value),4180186
+4305548,bottle,4180186
+4305560,% live,4180186
+4305560,Percentage live (qualifier value),4180186
+4305560,Percent live,4180186
+4305595,Black Jews (ethnic group),4180186
+4305688,Millimole per kilogram per minute (qualifier value),4180186
+4305688,Millimole per kilogramme per minute,4180186
+4305688,Millimole/kilogram/minute,4180186
+4305688,Millimole per kilogram per minute,4180186
+4305691,Dollars per unit (qualifier value),4180186
+4305691,Dollars per unit,4180186
+4305706,% precipitation,4180186
+4305706,Percentage precipitation (qualifier value),4180186
+4305706,Percent precipitation,4180186
+4305825,Dollars per day,4180186
+4305825,Dollars per day (qualifier value),4180186
+4305828,Nanogram per kilogram,4180186
+4305828,Nanogram/kilogram,4180186
+4305828,Nanogram per kilogram (qualifier value),4180186
+4305855,Bases,4180186
+4305855,Base,4180186
+4305855,Base - unit of product usage (qualifier value),4180186
+4306003,Gigabecquerel,4180186
+4306003,Gigabecquerel (qualifier value),4180186
+4306184,Percentage inhibition (qualifier value),4180186
+4306184,Percent inhibition,4180186
+4306184,% inhibition,4180186
+4306671,Patch,4180186
+4306671,Patches,4180186
+4306671,Patch - unit of product usage (qualifier value),4180186
+4306671,patch,4180186
+4307864,Nanogram/square meter (qualifier value),4180186
+4307864,Nanogram/square meter,4180186
+4307864,Nanogram/square metre,4180186
+4308112,Thais (ethnic group),4180186
+4308638,Nanogram/minute,4180186
+4308638,Nanogram/minute (qualifier value),4180186
+4308638,Nanogram per minute,4180186
+4308897,Luo (ethnic group),4180186
+4309093,Arbitrary unit of IgA isotype for phosphatidylserine antibody/milliliter,4180186
+4309093,Arbitrary unit of IgA isotype for phosphatidylserine antibody/millilitre,4180186
+4309093,Arbitrary unit of immunoglobulin A isotype for phosphatidylserine antibody/millilitre,4180186
+4309093,Arbitrary unit of immunoglobulin A isotype for phosphatidylserine antibody/milliliter (qualifier value),4180186
+4309093,Arbitrary unit of immunoglobulin A isotype for phosphatidylserine antibody/milliliter,4180186
+4309511,Russians (ethnic group),4180186
+4309789,Bushmen (ethnic group),4180186
+4309952,Eskimo (ethnic group),4180186
+4310842,munit/kg/day,4180186
+4310842,Milliunit/kilogram/day,4180186
+4310842,Milliunit/kilogram/day (qualifier value),4180186
+4310842,Milliunit per kilogram per day,4180186
+4310862,Nanogram/hour (qualifier value),4180186
+4310862,Nanogram per hour,4180186
+4310862,Nanogram/hour,4180186
+4311157,Milliliter/kilogram/minute,4180186
+4311157,Milliliter/kilogram/minute (qualifier value),4180186
+4311157,Millilitre per kilogram per minute,4180186
+4311157,Milliliter per kilogram per minute,4180186
+4311157,Millilitre/kilogram/minute,4180186
+4311309,Arbitrary unit of IgM isotype for phosphatidylserine antigen/milliliter,4180186
+4311309,Arbitrary unit of immunoglobulin M isotype for phosphatidylserine antigen/milliliter (qualifier value),4180186
+4311309,Arbitrary unit of immunoglobulin M isotype for phosphatidylserine antigen/milliliter,4180186
+4311309,Arbitrary unit of IgM isotype for phosphatidylserine antigen/millilitre,4180186
+4311309,Arbitrary unit of immunoglobulin M isotype for phosphatidylserine antigen/millilitre,4180186
+4312905,munit/kg/hr,4180186
+4312905,Milliunit/kilogram/hour (qualifier value),4180186
+4312905,Milliunit per kilogram per hour,4180186
+4312905,Milliunit/kilogram/hour,4180186
+4313587,Samoan (ethnic group),4180186
+4313630,Milliunit per kilogram per minute,4180186
+4313630,Milliunit/kilogram/minute (qualifier value),4180186
+4313630,Milliunit/kilogram/minute,4180186
+4313630,munit/kg/min,4180186
+4313773,Nanogram/kilogram/day (qualifier value),4180186
+4313773,Nanogram/kilogram/day,4180186
+4313773,Nanogram per kilogram per day,4180186
+4314164,Milliunit/hour,4180186
+4314164,Milliunit/hour (qualifier value),4180186
+4314164,Milliunit per hour,4180186
+4314164,munit/hr,4180186
+4317261,Dutch (ethnic group),4180186
+4317523,Shoshone (ethnic group),4180186
+4318647,Indonesians (ethnic group),4180186
+4321400,Fijian (ethnic group),4180186
+4323501,bar,4180186
+4323501,Bar,4180186
+4323501,Bar - unit of product usage (qualifier value),4180186
+4323551,Pygmies (ethnic group),4180186
+4324753,Pellet,4180186
+4324753,Pellet - unit of product usage (qualifier value),4180186
+4325374,Equivalents per unit mass (qualifier value),4180186
+4326197,Gum,4180186
+4326197,Gum - unit of product usage (qualifier value),4180186
+4326331,Suppository,4180186
+4326331,Suppository - unit of product usage (qualifier value),4180186
+4326331,suppository,4180186
+4326740,Labradors (ethnic group),4180186
+4327102,Sponge,4180186
+4327102,Sponge - unit of product usage (qualifier value),4180186
+4327656,Mapuche (ethnic group),4180186
+4337671,Nez PercÃ© (ethnic group),4180186
+4337671,Nez Perce,4180186
+35624217,unit (qualifier value),4180186
+35624217,Unit (qualifier value),4180186
+35624671,Unit of measure (qualifier value),4180186
+35625962,Million units per hour,4180186
+35625962,Million units per hour (qualifier value),4180186
+35626040,Million units per minute,4180186
+35626040,Million units per minute (qualifier value),4180186
+35626197,Million units per kilogram,4180186
+35626197,Million units per kilogram (qualifier value),4180186
+35626198,Milligram phenytoin sodium equivalents per kilogram (qualifier value),4180186
+35626198,Milligram phenytoin sodium equivalents per kilogramme,4180186
+35626198,Milligram phenytoin sodium equivalents per kilogram,4180186
+36675593,Non-binary gender (finding),4180186
+36676448,Change in Gibbs energy,4180186
+36676448,Delta G (qualifier value),4180186
+36676448,Change of Gibbs free energy,4180186
+36685921,cell/ml (qualifier value),4180186
+36712829,Transgender,4180186
+36712829,Transgender identity (finding),4180186
+36713937,Czech Roma (ethnic group),4180186
+36713938,Romanian Roma (ethnic group),4180186
+36713939,Slovak Roma (ethnic group),4180186
+36713940,Hungarian Roma (ethnic group),4180186
+36713941,Polish Roma (ethnic group),4180186
+36717066,Bulgarian Roma (ethnic group),4180186
+36717683,Roma (ethnic group),4180186
+36717683,Roma ethnic group,4180186
+37103740,leech (qualifier value),4180186
+37103741,teragenome copies (qualifier value),4180186
+37103742,teragenome copies/ml (qualifier value),4180186
+37103743,pouch (qualifier value),4180186
+37111523,Fibrinogen equivalent unit (qualifier value),4180186
+37111523,FEU - Fibrinogen equivalent unit,4180186
+37111524,D-dimer unit (qualifier value),4180186
+37111524,DDU - D-dimer unit,4180186
+37116277,Unit of presentation (unit of presentation),4180186
+37116278,Tablet (unit of presentation),4180186
+37116279,Capsule (unit of presentation),4180186
+37116309,Applicator (unit of presentation),4180186
+37116310,Actuation (unit of presentation),4180186
+37116311,Barrel (unit of presentation),4180186
+37116312,Blister (unit of presentation),4180186
+37116313,Block (unit of presentation),4180186
+37116314,Bottle (unit of presentation),4180186
+37116315,Cartridge (unit of presentation),4180186
+37116316,Chewing gum (unit of presentation),4180186
+37116317,Container (unit of presentation),4180186
+37116318,Cylinder (unit of presentation),4180186
+37116319,Dressing (unit of presentation),4180186
+37116320,Drop (unit of presentation),4180186
+37116321,Film (unit of presentation),4180186
+37116322,Implant (unit of presentation),4180186
+37116323,Inhaler (unit of presentation),4180186
+37116324,Insert (unit of presentation),4180186
+37116325,Jar (unit of presentation),4180186
+37116326,Lozenge (unit of presentation),4180186
+37116327,Lyophilisate (unit of presentation),4180186
+37116328,Matrix (unit of presentation),4180186
+37116329,Pad (unit of presentation),4180186
+37116330,Pastille (unit of presentation),4180186
+37116331,Patch (unit of presentation),4180186
+37116332,Pen (unit of presentation),4180186
+37116333,Pessary (unit of presentation),4180186
+37116334,Pillule (unit of presentation),4180186
+37116335,Pipette (unit of presentation),4180186
+37116336,Plaster (unit of presentation),4180186
+37116337,Plug (unit of presentation),4180186
+37116338,Sachet (unit of presentation),4180186
+37116339,Sponge (unit of presentation),4180186
+37116340,Spoonful (unit of presentation),4180186
+37116341,Stick (unit of presentation),4180186
+37116342,Straw (unit of presentation),4180186
+37116343,Strip (unit of presentation),4180186
+37116344,Suppository (unit of presentation),4180186
+37116345,Syringe (unit of presentation),4180186
+37116346,Tampon (unit of presentation),4180186
+37116347,Thread (unit of presentation),4180186
+37116348,Tube (unit of presentation),4180186
+37116349,Vessel (unit of presentation),4180186
+37116350,Vial (unit of presentation),4180186
+37116384,Ukrainian (ethnic group),4180186
+37116650,Canadian (ethnic group),4180186
+37117742,Ampule (unit of presentation),4180186
+37117742,Ampoule,4180186
+37117743,Bag (unit of presentation),4180186
+37117744,Cachet (unit of presentation),4180186
+37118590,Cup (unit of presentation),4180186
+37118591,Pouch (unit of presentation),4180186
+37118592,System (unit of presentation),4180186
+37209073,million plaque forming units (qualifier value),4180186
+37209074,million plaque forming units/ml (qualifier value),4180186
+37209075,plaque forming units (qualifier value),4180186
+37209076,plaque forming units/ml (qualifier value),4180186
+37303838,tera vector genome (qualifier value),4180186
+37303839,vector genome (qualifier value),4180186
+37310248,tera vector genome/ml (qualifier value),4180186
+37310249,vector genome/ml (qualifier value),4180186
+37310250,elastomeric device/ml (qualifier value),4180186
+37310251,billion vector genome (qualifier value),4180186
+37310252,billion vector genome/ml (qualifier value),4180186
+37310253,elastomeric device (qualifier value),4180186
+37311157,Serving (qualifier value),4180186
+37394011,Ethnicity not stated (finding),4180186
+40319840,Race: Japanese (finding),4180186
+40481063,Weight/weight ratio,4180186
+40481063,Weight/weight ratio (qualifier value),4180186
+40483304,Romanian (ethnic group),4180186
+40567223,u/kg (qualifier value),4180186
+42532299,cell/square cm (qualifier value),4180186
+42535662,Litre per minute per metre squared,4180186
+42535662,L/min/m2,4180186
+42535662,Liter per minute per meter squared (qualifier value),4180186
+42535662,Liter per minute per square meter,4180186
+42535662,Litre per minute per square metre,4180186
+42536269,Scandinavian (ethnic group),4180186
+43021231,milliampere,4180186
+43021231,Milliampere,4180186
+43021231,Milliampere (qualifier value),4180186
+43021231,milliamp,4180186
+43021232,kV - kilovolt,4180186
+43021232,kilovolt (qualifier value),4180186
+43021233,millivolt (qualifier value),4180186
+43021233,mV - millivolt,4180186
+43021234,MV - megavolt,4180186
+43021234,megavolt (qualifier value),4180186
+43021235,volt (qualifier value),4180186
+43021235,V - volt,4180186
+44777641,picomol per gram hemoglobin,4180186
+44777642,picomol per hour and milligram of hemoglobin,4180186
+44777643,picomol per kilogram,4180186
+44782527,Microgram per litre fibrinogen equivalent unit,4180186
+44782527,Microgram per liter fibrinogen equivalent unit (qualifier value),4180186
+44782527,mcg/L FEU,4180186
+44783454,Unit of haemostatic measurement,4180186
+44783454,Unit of hemostatic measurement (qualifier value),4180186
+44783455,Microgram per litre D-dimer unit,4180186
+44783455,mcg/L D-DU,4180186
+44783455,Microgram per liter D-dimer unit (qualifier value),4180186
+44783456,Nanogram per millilitre fibrinogen equivalent unit,4180186
+44783456,ng/mL FEU,4180186
+44783456,Nanogram per milliliter fibrinogen equivalent unit (qualifier value),4180186
+44783458,Nanograms per milliliter D-dimer unit,4180186
+44783458,Nanograms per milliliter D-dimer unit (qualifier value),4180186
+44783458,ng/mL D-DU,4180186
+44783458,Nanogram per millilitre D-dimer unit,4180186
+44783461,Milligram per liter fibrinogen equivalent unit (qualifier value),4180186
+44783461,Milligram per litre fibrinogen equivalent unit,4180186
+44783461,mg/L FEU,4180186
+44783463,Milligram per liter D-dimer unit (qualifier value),4180186
+44783463,Milligram per litre D-dimer unit,4180186
+44783463,mg/L D-DU,4180186
+44783470,Micrograms per milliliter fibrinogen equivalent unit,4180186
+44783470,Microgram per millilitre fibrinogen equivalent unit,4180186
+44783470,mcg/mL FEU,4180186
+44783470,Micrograms per milliliter fibrinogen equivalent unit (qualifier value),4180186
+44783472,mcg/mL D-DU,4180186
+44783472,Microgram per millilitre D-dimer unit,4180186
+44783472,Microgram per milliliter D-dimer unit (qualifier value),4180186
+44783988,Ehrlich units/deciliter,4180186
+44783988,EU/dL,4180186
+44783988,Ehrlich units per deciliter (qualifier value),4180186
+44783988,Ehrlich units per decilitre,4180186
+44784127,Microgram/2 hours,4180186
+44784127,Microgram/2 hours (qualifier value),4180186
+44787809,Caribbean - ethnic category 2001 census (finding),4180186
+44787836,Indian or British Indian - ethnic category 2001 census (finding),4180186
+44787837,English - ethnic category 2001 census (finding),4180186
+44787838,Black and White - ethnic category 2001 census (finding),4180186
+44787839,Sinhalese - ethnic category 2001 census (finding),4180186
+44787840,Black British - ethnic category 2001 census (finding),4180186
+44787843,Hindu - ethnic category 2001 census (finding),4180186
+44788087,Turkish - ethnic category 2001 census (finding),4180186
+44791722,Yemeni (ethnic group),4180186
+44802388,White British - ethnic category 2001 census (finding),4180186
+44802389,White Irish - ethnic category 2001 census (finding),4180186
+44802458,5 millilitre medicine spoonful - unit of product usage (qualifier value),4180186
+44802458,5ml spoonful,4180186
+44803976,Nepali (ethnic group),4180186
+44809722,Sri Lankan - ethnic category 2001 census (finding),4180186
+44810769,Irish Traveller - ethnic category 2001 census (finding),4180186
+44810776,Traveller - ethnic category 2001 census (finding),4180186
+44810783,Gypsy/Romany - ethnic category 2001 census (finding),4180186
+44810791,Polish - ethnic category 2001 census (finding),4180186
+44810801,Baltic States (Estonian or Latvian or Lithuanian) - ethnic category 2001 census (finding),4180186
+44810868,Commonwealth of (Russian) Independent States - ethnic category 2001 census (finding),4180186
+44810877,Albanian - ethnic category 2001 census (finding),4180186
+44810884,Serbian - ethnic category 2001 census (finding),4180186
+44810892,Jewish - ethnic category 2001 census (finding),4180186
+44810983,Iranian - ethnic category 2001 census (finding),4180186
+44810987,South and Central American - ethnic category 2001 census (finding),4180186
+44810988,Muslim - ethnic category 2001 census (finding),4180186
+44811500,Ethnic category - 2001 census (finding),4180186
+44811501,British or mixed British - ethnic category 2001 census (finding),4180186
+44811502,Other White background - ethnic category 2001 census (finding),4180186
+44811503,White and Black Caribbean - ethnic category 2001 census (finding),4180186
+44811504,White and Black African - ethnic category 2001 census (finding),4180186
+44811505,White and Asian - ethnic category 2001 census (finding),4180186
+44811569,Other Mixed background - ethnic category 2001 census (finding),4180186
+44811570,Pakistani or British Pakistani - ethnic category 2001 census (finding),4180186
+44811571,Bangladeshi or British Bangladeshi - ethnic category 2001 census (finding),4180186
+44811572,Other Asian background - ethnic category 2001 census (finding),4180186
+44811573,African - ethnic category 2001 census (finding),4180186
+44811574,Other Black background - ethnic category 2001 census (finding),4180186
+44811575,Chinese - ethnic category 2001 census (finding),4180186
+44811576,Other - ethnic category 2001 census (finding),4180186
+44811644,Ethnic category not stated - 2001 census (finding),4180186
+44811645,Scottish - ethnic category 2001 census (finding),4180186
+44811646,Welsh - ethnic category 2001 census (finding),4180186
+44811647,Northern Irish - ethnic category 2001 census (finding),4180186
+44811648,Cornish - ethnic category 2001 census (finding),4180186
+44811649,Black and Asian - ethnic category 2001 census (finding),4180186
+44811652,Ulster Scots - ethnic category 2001 census (finding),4180186
+44811653,Greek - ethnic category 2001 census (finding),4180186
+44811654,Greek Cypriot - ethnic category 2001 census (finding),4180186
+44811655,Italian - ethnic category 2001 census (finding),4180186
+44811713,Asian and Chinese - ethnic category 2001 census (finding),4180186
+44811714,Other Mixed or Mixed unspecified - ethnic category 2001 census (finding),4180186
+44811715,Mixed Asian - ethnic category 2001 census (finding),4180186
+44811716,Punjabi - ethnic category 2001 census (finding),4180186
+44811717,Kashmiri - ethnic category 2001 census (finding),4180186
+44811718,East African Asian - ethnic category 2001 census (finding),4180186
+44811719,Tamil - ethnic category 2001 census (finding),4180186
+44811720,British Asian - ethnic category 2001 census (finding),4180186
+44811722,Kosovan - ethnic category 2001 census (finding),4180186
+44811723,Bosnian - ethnic category 2001 census (finding),4180186
+44811724,Croatian - ethnic category 2001 census (finding),4180186
+44811726,Other republics which made up the former Yugoslavia - ethnic category 2001 census (finding),4180186
+44811727,Mixed Irish and other White - ethnic category 2001 census (finding),4180186
+44811728,Other mixed White - ethnic category 2001 census (finding),4180186
+44811784,Caribbean Asian - ethnic category 2001 census (finding),4180186
+44811785,Other Asian or Asian unspecified - ethnic category 2001 census (finding),4180186
+44811786,Somali - ethnic category 2001 census (finding),4180186
+44811787,Mixed Black - ethnic category 2001 census (finding),4180186
+44811788,Nigerian - ethnic category 2001 census (finding),4180186
+44811789,Other Black or Black unspecified - ethnic category 2001 census (finding),4180186
+44811790,Vietnamese - ethnic category 2001 census (finding),4180186
+44811791,Other White European or European unspecified or Mixed European - ethnic category 2001 census (finding),4180186
+44811792,Other White or White unspecified - ethnic category 2001 census (finding),4180186
+44811793,North African - ethnic category 2001 census (finding),4180186
+44811794,"Middle Eastern (excluding Israeli, Iranian and Arab) - ethnic category 2001 census (finding)",4180186
+44811795,Israeli - ethnic category 2001 census (finding),4180186
+44811796,Kurdish - ethnic category 2001 census (finding),4180186
+44811801,Moroccan - ethnic category 2001 census (finding),4180186
+44811845,Japanese - ethnic category 2001 census (finding),4180186
+44811846,Filipino - ethnic category 2001 census (finding),4180186
+44811847,Malaysian - ethnic category 2001 census (finding),4180186
+44811848,Cypriot (part not stated) - ethnic category 2001 census (finding),4180186
+44811850,Latin American - ethnic category 2001 census (finding),4180186
+44811851,Multi-ethnic islands: Mauritian or Seychellois or Maldivian or St Helena - ethnic category 2001 census (finding),4180186
+44811852,Buddhist - ethnic category 2001 census (finding),4180186
+44811853,Sikh - ethnic category 2001 census (finding),4180186
+44813997,Arab - ethnic category 2001 census (finding),4180186
+44814057,Irish - ethnic category 2001 census (finding),4180186
+44814066,Black and Chinese - ethnic category 2001 census (finding),4180186
+44814067,Chinese and White - ethnic category 2001 census (finding),4180186
+44814068,Turkish Cypriot - ethnic category 2001 census (finding),4180186
+44814113,Any other group - ethnic category 2001 census (finding),4180186
+45756913,component (qualifier value),4180186
+45756914,mega unit/millilitre,4180186
+45756914,mega u/ml (qualifier value),4180186
+45756915,g/dose (qualifier value),4180186
+45756916,mg/dose (qualifier value),4180186
+45756917,microgram/dose (qualifier value),4180186
+45756918,unit/dose (qualifier value),4180186
+45756919,application (qualifier value),4180186
+45756920,g/application (qualifier value),4180186
+45756921,mg/application (qualifier value),4180186
+45756922,tuberculin units/ML (qualifier value),4180186
+45756923,cigarette (qualifier value),4180186
+45756924,gram/gram (qualifier value),4180186
+45756925,month supply (qualifier value),4180186
+45756926,week supply (qualifier value),4180186
+45756927,SQ-T (qualifier value),4180186
+45756928,HEP,4180186
+45756928,Histamine Equivalent in Prick testing (qualifier value),4180186
+45756929,Cell (qualifier value),4180186
+45756933,drop (qualifier value),4180186
+45756934,unit/drop (qualifier value),4180186
+45756935,No value - unit of measure (qualifier value),4180186
+45756936,%w/w (qualifier value),4180186
+45756937,%v/w (qualifier value),4180186
+45756938,ml/l (qualifier value),4180186
+45756939,molar (qualifier value),4180186
+45756941,mmol/ml (qualifier value),4180186
+45756943,baguette (qualifier value),4180186
+45756944,carton (qualifier value),4180186
+45756945,cartridge (qualifier value),4180186
+45756946,cycle (qualifier value),4180186
+45756947,cylinder (qualifier value),4180186
+45756948,dose (qualifier value),4180186
+45756949,lancet (qualifier value),4180186
+45756950,loaf (qualifier value),4180186
+45756951,multipack (qualifier value),4180186
+45756952,nebule (qualifier value),4180186
+45756953,needle (qualifier value),4180186
+45756954,pack (qualifier value),4180186
+45756955,pastille (qualifier value),4180186
+45756956,pessary (qualifier value),4180186
+45756957,pre-filled disposable injection (qualifier value),4180186
+45756958,device (qualifier value),4180186
+45756959,roll (qualifier value),4180186
+45756960,sachet (qualifier value),4180186
+45756961,stocking (qualifier value),4180186
+45756962,strip (qualifier value),4180186
+45756963,syringe (qualifier value),4180186
+45756965,catheter (qualifier value),4180186
+45756966,dressing (qualifier value),4180186
+45756967,suture (qualifier value),4180186
+45756968,truss (qualifier value),4180186
+45756969,plaster (qualifier value),4180186
+45756970,applicator (qualifier value),4180186
+45756971,pot (qualifier value),4180186
+45756972,pizza base (qualifier value),4180186
+45756973,piece (qualifier value),4180186
+45756974,glove (qualifier value),4180186
+45756975,pillule (qualifier value),4180186
+45756976,actuation (qualifier value),4180186
+45756977,spoonful (qualifier value),4180186
+45756978,Enema - unit of product usage (qualifier value),4180186
+45756978,enema,4180186
+45756979,mg/square cm (qualifier value),4180186
+45756980,container (qualifier value),4180186
+45756981,microlitre/g (qualifier value),4180186
+45756982,larva (qualifier value),4180186
+45756984,generator (qualifier value),4180186
+45756986,bandage (qualifier value),4180186
+45756987,straw (qualifier value),4180186
+45757007,enema (qualifier value),4180186
+45757506,Applicator - unit of product usage (qualifier value),4180186
+45757506,Applicator,4180186
+45757509,Applicatorful,4180186
+45757509,Applicatorful - unit of product usage (qualifier value),4180186
+45757510,Squirt,4180186
+45757510,Squirt - unit of product usage (qualifier value),4180186
+45757512,Strip - unit of product usage (qualifier value),4180186
+45757512,Strip,4180186
+45757513,Package - unit of product usage (qualifier value),4180186
+45757513,Package,4180186
+45757514,Stick,4180186
+45757514,Stick - unit of product usage (qualifier value),4180186
+45757515,Wafer - unit of product usage (qualifier value),4180186
+45757515,Wafer,4180186
+45757516,Milligray,4180186
+45757516,Milligray (qualifier value),4180186
+45757548,Milligram of phenytoin sodium equivalents (qualifier value),4180186
+45757552,Logarithmic copies per millilitre,4180186
+45757552,Logarithmic copies per milliliter (qualifier value),4180186
+45757552,Logarithmic copies per milliliter,4180186
+45757634,Kilodyne per square centimeter (qualifier value),4180186
+45757634,kdyn/cm2,4180186
+45757634,Kilodyne per square centimetre,4180186
+45757636,Arbitrary unit of immunoglobulin A isotype for phospholipid antigen (qualifier value),4180186
+45757636,Arbitrary unit of IgA isotype for phospholipid antigen,4180186
+45757636,Biologic activity of anticardiolipin IgA,4180186
+45757636,IgA anticardiolipin unit,4180186
+45757636,Arbitrary unit of immunoglobulin A isotype for phospholipid antigen,4180186
+45757637,Pump - unit of product usage (qualifier value),4180186
+45763928,Vaginal suppository - unit of product usage (qualifier value),4180186
+45763929,Pastille - unit of product usage (qualifier value),4180186
+45763930,Prefilled syringe - unit of product usage (qualifier value),4180186
+45763931,Tampon - unit of product usage,4180186
+45763931,Tampon - unit of product usage (qualifier value),4180186
+45763932,Dressing - unit of product usage (qualifier value),4180186
+45763933,Sublingual tablet - unit of product usage (qualifier value),4180186
+45763934,Rectal capsule - unit of product usage (qualifier value),4180186
+45763935,Rectal tablet - unit of product usage (qualifier value),4180186
+45763936,Vaginal tablet - unit of product usage (qualifier value),4180186
+45763937,Vaginal capsule - unit of product usage (qualifier value),4180186
+45766034,Masculine gender (finding),4180186
+45766034,Male gender,4180186
+45766035,Feminine gender (finding),4180186
+45766035,Female gender,4180186
+45767086,Punjabi (ethnic group),4180186
+45767087,Orang asli (ethnic group),4180186
+45767088,Melanau (ethnic group),4180186
+45767089,Murut (ethnic group),4180186
+45767090,Bidayuh (ethnic group),4180186
+45767091,Iban (ethnic group),4180186
+45770930,Bethesda units/millilitre,4180186
+45770930,Bethesda units/milliliter (qualifier value),4180186
+45771425,Kadazan (ethnic group),4180186
+45771426,Bajau (ethnic group),4180186
+45890995,Million unit per liter,4180186
+46270335,Lymphocytes per microlitre,4180186
+46270335,Lymphocytes per microliter,4180186
+46270335,Lymphocytes per microliter (qualifier value),4180186
+46270335,Lymph/uL,4180186
+46270336,Thousand unit (qualifier value),4180186
+46270346,Ten unit (qualifier value),4180186
+46270463,times/morning (qualifier value),4180186
+46270463,times per morning,4180186
+46273486,White blood cells per high power field (qualifier value),4180186
+46273486,WBC/HPF,4180186
+46274038,Red blood cells per high power field (qualifier value),4180186
+46274038,RBC/HPF,4180186
+46285820,Ethnic category - 2011 census (finding),4180186
+46285821,Ethnic category - 2011 census England and Wales (finding),4180186
+46285822,Ethnic category - 2011 census Northern Ireland (finding),4180186
+46285823,Ethnic category - 2011 census Scotland (finding),4180186
+46285824,White: Irish - England and Wales ethnic category 2011 census (finding),4180186
+46285825,White: Gypsy or Irish Traveller - England and Wales ethnic category 2011 census (finding),4180186
+46285826,White: any other White background - England and Wales ethnic category 2011 census (finding),4180186
+46285827,Mixed multiple ethnic groups: White and Black Caribbean - England and Wales ethnic category 2011 census (finding),4180186
+46285828,Mixed multiple ethnic groups: White and Black African - England and Wales ethnic category 2011 census (finding),4180186
+46285829,Mixed multiple ethnic groups: White and Asian - England and Wales ethnic category 2011 census (finding),4180186
+46285830,Mixed multiple ethnic groups: any other Mixed or multiple ethnic background - England and Wales ethnic category 2011 census (finding),4180186
+46285831,Asian or Asian British: Indian - England and Wales ethnic category 2011 census (finding),4180186
+46285832,Asian or Asian British: Pakistani - England and Wales ethnic category 2011 census (finding),4180186
+46285833,Asian or Asian British: Bangladeshi - England and Wales ethnic category 2011 census (finding),4180186
+46285834,Asian or Asian British: Chinese - England and Wales ethnic category 2011 census (finding),4180186
+46285835,Asian or Asian British: any other Asian background - England and Wales ethnic category 2011 census (finding),4180186
+46285836,Black or African or Caribbean or Black British: Caribbean - England and Wales ethnic category 2011 census (finding),4180186
+46285837,Black or African or Caribbean or Black British: other Black or African or Caribbean background - England and Wales ethnic category 2011 census (finding),4180186
+46285838,Other ethnic group: Arab - England and Wales ethnic category 2011 census (finding),4180186
+46285839,Other ethnic group: any other ethnic group - England and Wales ethnic category 2011 census (finding),4180186
+46285861,White - Northern Ireland ethnic category 2011 census (finding),4180186
+46285862,Mixed multiple ethnic groups: White and Black Caribbean - Northern Ireland ethnic category 2011 census (finding),4180186
+46285863,Mixed multiple ethnic groups: White and Black African - Northern Ireland ethnic category 2011 census (finding),4180186
+46285864,Mixed multiple ethnic groups: White and Asian - Northern Ireland ethnic category 2011 census (finding),4180186
+46285871,Asian or Asian British: Indian - Northern Ireland ethnic category 2011 census (finding),4180186
+46285877,Asian or Asian British: Pakistani - Northern Ireland ethnic category 2011 census (finding),4180186
+46285878,Asian or Asian British: Bangladeshi - Northern Ireland ethnic category 2011 census (finding),4180186
+46285879,Asian or Asian British: Chinese - Northern Ireland ethnic category 2011 census (finding),4180186
+46285880,Asian or Asian British: any other Asian background - Northern Ireland ethnic category 2011 census (finding),4180186
+46285881,Black or African or Caribbean or Black British: African - Northern Ireland ethnic category 2011 census (finding),4180186
+46285882,Black or African or Caribbean or Black British: Caribbean - Northern Ireland ethnic category 2011 census (finding),4180186
+46285883,Black or African or Caribbean or Black British: other Black or African or Caribbean background - Northern Ireland ethnic category 2011 census (finding),4180186
+46285884,Other ethnic group: Arab - Northern Ireland ethnic category 2011 census (finding),4180186
+46285885,White: Scottish - Scotland ethnic category 2011 census (finding),4180186
+46285886,White: other British - Scotland ethnic category 2011 census (finding),4180186
+46285887,White: Irish - Scotland ethnic category 2011 census (finding),4180186
+46285888,White: Gypsy or Irish Traveller - Scotland ethnic category 2011 census (finding),4180186
+46285890,White: Polish - Scotland ethnic category 2011 census (finding),4180186
+46285891,White: any other White ethnic group - Scotland ethnic category 2011 census (finding),4180186
+46285892,Mixed or multiple ethnic groups: any Mixed or multiple ethnic group - Scotland ethnic category 2011 census (finding),4180186
+46285893,"Asian or Asian Scottish or Asian British: Pakistani, Pakistani Scottish or Pakistani British - Scotland ethnic category 2011 census (finding)",4180186
+46285894,"Asian or Asian Scottish or Asian British: Indian, Indian Scottish or Indian British - Scotland ethnic category 2011 census (finding)",4180186
+46285896,"Asian or Asian Scottish or Asian British: Bangladeshi, Bangladeshi Scottish or Bangladeshi British - Scotland ethnic category 2011 census (finding)",4180186
+46285897,Asian or Asian Scottish or Asian British: Chinese - Scotland ethnic category 2011 census (finding),4180186
+46285898,"African: African, African Scottish or African British - Scotland ethnic category 2011 census (finding)",4180186
+46285899,African: any other African - Scotland ethnic category 2011 census (finding),4180186
+46285900,"Caribbean or Black: Black, Black Scottish or Black British - Scotland ethnic category 2011 census (finding)",4180186
+46285901,Caribbean or Black: any other Black or Caribbean group - Scotland ethnic category 2011 census (finding),4180186
+46285902,"Other ethnic group: Arab, Arab Scottish or Arab British - Scotland ethnic category 2011 census (finding)",4180186
+46285903,Other ethnic group: any other ethnic group - Scotland ethnic category 2011 census (finding),4180186
+46286810,White: English or Welsh or Scottish or Northern Irish or British - England and Wales ethnic category 2011 census (finding),4180186
+46286811,Black or African or Caribbean or Black British: African - England and Wales ethnic category 2011 census (finding),4180186
+46286814,Irish Traveller - Northern Ireland ethnic category 2011 census (finding),4180186
+46286815,Mixed multiple ethnic groups: any other Mixed or multiple ethnic background - Northern Ireland ethnic category 2011 census (finding),4180186
+46286816,Other ethnic group: any other ethnic group - Northern Ireland ethnic category 2011 census (finding),4180186
+46286818,"Caribbean or Black: Caribbean, Caribbean Scottish or Caribbean British - Scotland ethnic category 2011 census (finding)",4180186
+46287260,Asian or Asian Scottish or Asian British: any other Asian group - Scotland ethnic category 2011 census (finding),4180186
