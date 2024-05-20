@@ -15,9 +15,12 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(omock)
-#' }
+#'
+#' cdm <- mockCdmReference() |> mockVocabularyTables(vocabularySet = "mock")
+#'
+#' names(cdm)
+#'
 #'
 
 mockVocabularyTables <- function(cdm = mockCdmReference(),

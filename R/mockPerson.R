@@ -12,10 +12,11 @@
 #' @examples
 #' \donttest{
 #' library(omock)
-#' cdm <- mockCdmReference() |>
-#'   mockPerson(n = 100,
-#'              birthRange = as.Date(c("1930-01-01", "2022-01-01"))
-#'   )
+#' cdm <- mockPerson(cdm = mockCdmReference(),nPerson = 10)
+#'
+#' cdm$person
+#'
+#'
 #'}
 #'
 mockPerson <- function(cdm = mockCdmReference(),

@@ -42,8 +42,11 @@ A cdm reference with the vocabulary mock tables
 It creates a mock database with the vocabulary.
 }
 \examples{
-\donttest{
 library(omock)
-}
+
+cdm <- mockCdmReference() |> mockVocabularyTables(vocabularySet = "mock")
+
+names(cdm)
+
 
 }

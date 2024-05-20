@@ -8,9 +8,13 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(omock)
-#' }
+#'
+#' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
+#' mockDrugExposure()
+#'
+#' cdm$drug_exposure
+#'
 mockDrugExposure <- function(cdm,
                              recordPerson = 1,
                              seed = 1) {

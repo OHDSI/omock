@@ -10,6 +10,13 @@
 #' @examples
 #' \donttest{
 #' library(omock)
+#'
+#' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
+#' mockDeath()
+#'
+#' cdm$death
+#'
+#'
 #' }
 mockDeath <- function(cdm,
                       recordPerson = 1,

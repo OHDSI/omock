@@ -10,7 +10,6 @@
 #'
 #' @return A cdm reference with the mock tables
 #' @examples
-#' \donttest{
 #' library(omock)
 #' cdm <- mockCdmReference() |>
 #'   mockPerson(nPerson = 100) |>
@@ -20,7 +19,8 @@
 #'     numberCohorts = 2,
 #'     cohortName = c("omock_cohort_1", "omock_cohort_2")
 #'   )
-#'}
+#'
+#'   cdm
 #' @export
 #'
 mockCohort <- function(cdm,

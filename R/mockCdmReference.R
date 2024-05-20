@@ -8,13 +8,12 @@
 #' @return an empty cdm object
 #'
 #' @examples
-#' \donttest{
 #' library(omock)
+#'
 #' cdm <- mockCdmReference()
 #'
 #' cdm
 #'
-#' }
 #' @export
 
 mockCdmReference <- function(cdmName = "mock database",

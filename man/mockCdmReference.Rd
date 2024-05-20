@@ -18,11 +18,10 @@ an empty cdm object
 Function to create empty cdm reference for mock database
 }
 \examples{
-\donttest{
 library(omock)
+
 cdm <- mockCdmReference()
 
 cdm
 
-}
 }
