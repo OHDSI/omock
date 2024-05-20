@@ -22,7 +22,7 @@ Description: Creates mock data for testing and package development for the
     implementation, enabling users to effortlessly include only the
     necessary tables for their testing needs.
 License: Apache License (>= 2)
-URL: https://oxford-pharmacoepi.github.io/omock/
+URL: https://oxford-pharmacoepi.github.io/omock/, https://github.com/oxford-pharmacoepi/omock
 Depends: 
     R (>= 2.10)
 Imports: 
@@ -45,3 +45,4 @@ VignetteBuilder:
 Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.3.1
+BugReports: https://github.com/oxford-pharmacoepi/omock/issues
