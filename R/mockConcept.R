@@ -1,4 +1,4 @@
-#' function to add conceptSet to concept table
+#' function to add mockconcept et to concept table
 #'
 #' @param cdm Name of the cdm object
 #' @param conceptSet conceptset as a vector
@@ -12,11 +12,11 @@
 #' library(omock)
 #' library(dplyr)
 #'
-#' cdm <- mockCdmReference() |> addConcept(conceptSet = c(100,200), domain = "Condition")
+#' cdm <- mockCdmReference() |> mockConcept(conceptSet = c(100,200), domain = "Condition")
 #'
 #' cdm$concept |> filter(domain_id == "Condition")
 #'
-addConcept <-  function(cdm,
+mockConcept <-  function(cdm,
                         conceptSet,
                         domain = "Condition",
                         seed = 1) {

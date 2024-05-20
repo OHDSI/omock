@@ -5,7 +5,7 @@
 #' @param seed A random seed to ensure reproducibility of the generated data.
 #'
 #' @return A cdm reference with the mock tables
-#' @export
+#' @noRd
 #'
 #' @examples
 #' library(omock)
