@@ -12,11 +12,11 @@
 #' library(omock)
 #' library(dplyr)
 #'
-#' cdm <- mockCdmReference() |> mockConcept(conceptSet = c(100,200), domain = "Condition")
+#' cdm <- mockCdmReference() |> mockConcepts(conceptSet = c(100,200), domain = "Condition")
 #'
 #' cdm$concept |> filter(domain_id == "Condition")
 #'
-mockConcept <-  function(cdm,
+mockConcepts <-  function(cdm,
                         conceptSet,
                         domain = "Condition",
                         seed = 1) {
