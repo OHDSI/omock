@@ -31,9 +31,6 @@
     <loc>https://oxford-pharmacoepi.github.io/omock/news/index.html</loc>
   </url>
   <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/addConcept.html</loc>
-  </url>
-  <url>
     <loc>https://oxford-pharmacoepi.github.io/omock/reference/index.html</loc>
   </url>
   <url>
@@ -46,6 +43,9 @@
     <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCohort.html</loc>
   </url>
   <url>
+    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConcepts.html</loc>
+  </url>
+  <url>
     <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConditionOccurrence.html</loc>
   </url>
   <url>
@@ -53,6 +53,12 @@
   </url>
   <url>
     <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockDrugExposure.html</loc>
+  </url>
+  <url>
+    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockMeasurement.html</loc>
+  </url>
+  <url>
+    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservation.html</loc>
   </url>
   <url>
     <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservationPeriod.html</loc>
