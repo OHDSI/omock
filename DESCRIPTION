@@ -2,7 +2,7 @@ Type: Package
 Package: omock
 Title: Creation of Mock Observational Medical Outcomes Partnership Common
     Data Model
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9517-8834")),
