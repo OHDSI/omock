@@ -17,7 +17,7 @@
 #' cdm$concept |> filter(domain_id == "Condition")
 #'
 mockConcepts <-  function(cdm,
-                        conceptSet,
+                        conceptSet = c(2020),
                         domain = "Condition",
                         seed = 1) {
 
@@ -33,20 +33,26 @@ mockConcepts <-  function(cdm,
   }
 
 
-  if (!domain %in% c("Condition", "Drug")) {
-    cli::cli_abort("domain must be either Condition or Drug")
+  if (!domain %in% c("Condition", "Drug", "Measurement", "Observation")) {
+    cli::cli_abort("This function only supports concept in the Condtion, Drug, Measurement and Observation domain.")
   }
   #check if concept table is empty
   if (cdm$concept |> nrow() == 0) {
     cli::cli_abort("concept table must exist and cannot be empty")
   }
 
+  countConcept <- cdm$concept |> dplyr::filter(concept_id %in% conceptSet) |> dplyr::tally() |> dplyr::pull()
+
+  if (countConcept > 0) {
+    cli::cli_warn("The concept ID you are adding already exists in the concept table. This will overwrite the existing entry.")
+
+  }
+
+  cdm$concept <- cdm$concept |> dplyr::filter(!concept_id %in% conceptSet)
+
   # generate vocabulary_id
 
   if (domain == "Condition") {
-    cdm$concept <-
-      cdm$concept |> dplyr::filter(.data$domain_id != "Condition")
-
     vocabulary_id = sample("SNOMED", length(conceptSet), replace = T)
     concept_name = paste0("Condition_", conceptSet)
     concept_class_id = sample("Clinical Finding", length(conceptSet), replace = T)
@@ -54,12 +60,23 @@ mockConcepts <-  function(cdm,
   }
 
   if (domain == "Drug") {
-    cdm$concept <-
-      cdm$concept |> dplyr::filter(.data$domain_id != "Drug")
-
     vocabulary_id = sample("RxNorm", length(conceptSet), replace = T)
     concept_name = paste0("Drug_", conceptSet)
     concept_class_id = sample("Drug", length(conceptSet), replace = T)
+
+  }
+
+  if (domain == "Measurement") {
+    vocabulary_id = sample("RxNorm", length(conceptSet), replace = T)
+    concept_name = paste0("Measurement_", conceptSet)
+    concept_class_id = sample("Measurement", length(conceptSet), replace = T)
+
+  }
+
+  if (domain == "Observation") {
+    vocabulary_id = sample("LOINC", length(conceptSet), replace = T)
+    concept_name = paste0("Observation_", conceptSet)
+    concept_class_id = sample("Observation", length(conceptSet), replace = T)
 
   }
   # generate domain_id
