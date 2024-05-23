@@ -1,21 +1,37 @@
-#' Function to generate condition occurrence table
+#' Generates a mock condition occurrence table and integrates it into an existing CDM object.
 #'
-#' @param cdm the CDM reference into which the synthetic cohort will be added
-#' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
-#' @param seed A random seed to ensure reproducibility of the generated data.
+#' This function simulates condition occurrences for individuals within a specified cohort. It helps create
+#' a realistic dataset by generating condition records for each person, based on the number of records specified per person.
+#' The generated data are aligned with the existing observation periods to ensure that all conditions are recorded within valid observation windows.
 #'
-#' @return A cdm reference with the mock tables
+#' @param cdm A `cdm_reference` object that should already include 'person', 'observation_period', and 'concept' tables.
+#'            This object is the base CDM structure where the condition occurrence data will be added.
+#'            It is essential that these tables are not empty as they provide the necessary context for generating condition data.
+#'
+#' @param recordPerson An integer specifying the expected number of condition records to generate per person.
+#'                     This parameter allows the simulation of varying frequencies of condition occurrences among individuals in the cohort,
+#'                     reflecting the variability seen in real-world medical data.
+#'
+#' @param seed An optional integer used to set the seed for random number generation, ensuring reproducibility of the generated data.
+#'             If provided, it allows the function to produce the same results each time it is run with the same inputs.
+#'             If 'NULL', the seed is not set, resulting in different outputs on each run.
+#'
+#' @return Returns the modified `cdm` object with the new 'condition_occurrence' table added. This table includes the simulated
+#'         condition data for each person, ensuring that each record is within the valid observation periods and linked to the correct
+#'         individuals in the 'person' table.
+#'
 #' @export
 #'
 #' @examples
 #' \donttest{
 #' library(omock)
 #'
+#' # Create a mock CDM reference and add condition occurrences
 #' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-#' mockConditionOccurrence()
+#'       mockConditionOccurrence(recordPerson = 2)
 #'
-#' cdm$condition_occurrence
-#'
+#' # View the generated condition occurrence data
+#' print(cdm$condition_occurrence)
 #' }
 mockConditionOccurrence <- function(cdm,
                                     recordPerson = 1,

@@ -2,26 +2,36 @@
 % Please edit documentation in R/mockCdmReference.R
 \name{mockCdmReference}
 \alias{mockCdmReference}
-\title{Function to create empty cdm reference for mock database}
+\title{Creates an empty CDM (Common Data Model) reference for a mock database.}
 \usage{
 mockCdmReference(cdmName = "mock database", vocabularySet = "mock")
 }
 \arguments{
-\item{cdmName}{name of the mock cdm object}
+\item{cdmName}{A character string specifying the name of the CDM object to be created.
+This name can be used to identify the CDM object within a larger simulation
+or testing framework. Default is "mock database".}
 
-\item{vocabularySet}{name of the vocabulary set}
+\item{vocabularySet}{A character string that specifies the name of the vocabulary set to be used
+in creating the vocabulary tables for the CDM. This allows for the customization
+of the vocabulary to match specific testing scenarios. Default is "mock".}
 }
 \value{
-an empty cdm object
+Returns a CDM object that is initially empty but includes mock vocabulary tables.
+        The object structure is compliant with OMOP CDM standards, making it suitable for further
+        population with mock data like person, visit, and observation records.
 }
 \description{
-Function to create empty cdm reference for mock database
+This function initializes an empty CDM reference with a specified name and populates it
+with mock vocabulary tables based on the provided vocabulary set. It is particularly useful
+for setting up a simulated environment for testing and development purposes within the OMOP CDM framework.
 }
 \examples{
 library(omock)
 
+# Create a new empty mock CDM reference
 cdm <- mockCdmReference()
 
-cdm
+# Display the structure of the newly created CDM
+print(cdm)
 
 }

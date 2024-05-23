@@ -1,20 +1,34 @@
-#' Function to generate drug exposure table
+#' Generates a mock drug exposure table and integrates it into an existing CDM object.
 #'
-#' @param cdm the CDM reference into which the synthetic cohort will be added
-#' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
-#' @param seed A random seed to ensure reproducibility of the generated data.
+#' This function simulates drug exposure records for individuals within a specified cohort. It creates a realistic dataset by generating drug exposure records based on the specified number of records per person. Each drug exposure record is correctly associated with an individual within valid observation periods, ensuring the integrity of the data.
 #'
-#' @return A cdm reference with the mock tables
+#' @param cdm A `cdm_reference` object that must already include 'person' and 'observation_period' tables.
+#'            This object serves as the base CDM structure where the drug exposure data will be added.
+#'            The 'person' and 'observation_period' tables must be populated as they are necessary for generating accurate drug exposure records.
+#'
+#' @param recordPerson An integer specifying the expected number of drug exposure records to generate per person.
+#'                     This parameter allows for the simulation of varying drug usage frequencies among individuals in the cohort,
+#'                     reflecting real-world variability in medication administration.
+#'
+#' @param seed An optional integer used to set the seed for random number generation, ensuring reproducibility of the generated data.
+#'             If provided, this seed enables the function to produce consistent results each time it is run with the same inputs.
+#'             If 'NULL', the seed is not set, which can lead to different outputs on each run.
+#'
+#' @return Returns the modified `cdm` object with the new 'drug_exposure' table added. This table includes the simulated
+#'         drug exposure data for each person, ensuring that each record is correctly linked to individuals in the 'person' table
+#'         and falls within valid observation periods.
+#'
 #' @export
 #'
 #' @examples
 #' library(omock)
 #'
+#' # Create a mock CDM reference and add drug exposure records
 #' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-#' mockDrugExposure()
+#'       mockDrugExposure(recordPerson = 3)
 #'
-#' cdm$drug_exposure
-#'
+#' # View the generated drug exposure data
+#' print(cdm$drug_exposure)
 mockDrugExposure <- function(cdm,
                              recordPerson = 1,
                              seed = 1) {

@@ -1,14 +1,15 @@
-
-#' Function to generate synthetic Cohort
+#' Generate Synthetic Cohort
 #'
-#' @param cdm the CDM reference into which the synthetic cohort will be added
-#' @param name The name of the table within the CDM where the cohort data will be stored. Defaults to "cohort".
-#' @param numberCohorts The number of different cohorts to create within the table. Defaults to 1.
-#' @param cohortName The name(s) of the cohorts to be created. This can be a single name or a vector of names if multiple cohorts are being created. Defaults to generating names based on a sequence.
-#' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
-#' @param seed A random seed to ensure reproducibility of the generated data.
+#' This function generates synthetic cohort data and adds it to a given CDM (Common Data Model) reference. It allows for creating multiple cohorts with specified properties and simulates the frequency of observations for individuals.
 #'
-#' @return A cdm reference with the mock tables
+#' @param cdm A CDM reference object where the synthetic cohort data will be stored. This object should already include necessary tables such as `person` and `observation_period`.
+#' @param name A string specifying the name of the table within the CDM where the cohort data will be stored. Defaults to "cohort". This name will be used to reference the new table in the CDM.
+#' @param numberCohorts An integer specifying the number of different cohorts to create within the table. Defaults to 1. This parameter allows for the creation of multiple cohorts, each with a unique identifier.
+#' @param cohortName A character vector specifying the names of the cohorts to be created. If not provided, default names based on a sequence (e.g., "cohort_1", "cohort_2", ...) will be generated. The length of this vector must match the value of `numberCohorts`. This parameter provides meaningful names for each cohort.
+#' @param recordPerson An integer or a vector of integers specifying the expected number of records per person within each cohort. If a single integer is provided, it applies to all cohorts. If a vector is provided, its length must match the value of `numberCohorts`. This parameter helps simulate the frequency of observations for individuals in each cohort, allowing for realistic variability in data.
+#' @param seed An integer specifying the random seed for reproducibility of the generated data. Setting a seed ensures that the same synthetic data can be generated again, facilitating consistent results across different runs.
+#'
+#' @return A CDM reference object with the mock cohort tables added. The new table will contain synthetic data representing the specified cohorts, each with its own set of observation records.
 #' @examples
 #' library(omock)
 #' cdm <- mockCdmReference() |>
@@ -20,7 +21,7 @@
 #'     cohortName = c("omock_cohort_1", "omock_cohort_2")
 #'   )
 #'
-#'   cdm
+#' cdm
 #' @export
 #'
 mockCohort <- function(cdm,
