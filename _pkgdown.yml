@@ -3,19 +3,23 @@ template:
   bootstrap: 5
 
 reference:
-- subtitle: Mock Cdm Initialization
-  desc: This group includes functions that initialize the foundational structures required for the mock CDM environment
-- contents:
-  - matches("mockCdmReference|mockCdmFromTables")
-- subtitle: Mock table Creation
-  desc: These functions are focused on adding mock data tables based on the initialized CDM structure
-- contents:
-  - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation")
-- subtitle: Vocabulary Tables Creation
-  desc: This group includes functions that set up vocabulary tables
-- contents:
-  - matches("mockVocabularyTables|mockConcepts")
-  - subtitle: Cohort Tables Creation
-  desc: These functions are focused on adding mock cohort tables based on the initialized CDM structure
-- contents:
-  - 'mockCohort'
+  - title: "Mock CDM Initialization"
+    desc: "This group includes functions that initialize the foundational structures required for the mock CDM environment."
+    contents:
+      - matches("mockCdmReference|mockCdmFromTables")
+
+  - title: "Mock Table Creation"
+    desc: "These functions are focused on adding mock data tables based on the initialized CDM structure."
+    contents:
+      - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation")
+
+  - title: "Vocabulary Tables Creation"
+    desc: "This group includes functions that set up vocabulary tables."
+    contents:
+      - matches("mockVocabularyTables|mockConcepts")
+
+  - title: "Cohort Tables Creation"
+    desc: "These functions are focused on adding mock cohort tables based on the initialized CDM structure."
+    contents:
+      - matches("mockCohort")
+
