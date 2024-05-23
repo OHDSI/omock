@@ -11,11 +11,11 @@ reference:
   desc: These functions are focused on adding mock data tables based on the initialized CDM structure.
 - contents:
   - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation")
-- subtitle: Vocabulary Tables
+- subtitle: Vocabulary Tables Creation
   desc: This group includes functions that set up vocabulary tables, which are essential for standardizing the data entries in various CDM tables.
 - contents:
   - matches("mockVocabularyTables|mockConcepts")
-  - subtitle: Cohort Tables
+  - subtitle: Cohort Tables Creation
   desc: These functions are focused on adding mock cohort tables based on the initialized CDM structure.
 - contents:
-  - matches("mockCohort")
+  - "mockCohort"
