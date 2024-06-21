@@ -13,9 +13,9 @@ Creates mock data for testing and package development for the Observational Medi
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://oxford-pharmacoepi.github.io/omock/}
-  \item \url{https://github.com/oxford-pharmacoepi/omock}
-  \item Report bugs at \url{https://github.com/oxford-pharmacoepi/omock/issues}
+  \item \url{https://ohdsi.github.io/omock/}
+  \item \url{https://github.com/ohdsi/omock}
+  \item Report bugs at \url{https://github.com/ohdsi/omock/issues}
 }
 
 }
