@@ -21,7 +21,7 @@ You can install the development version of omock using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ohdsi/omock")
+devtools::install_github("OHDSI/omock")
 ```
 
 ## Example
