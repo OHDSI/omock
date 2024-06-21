@@ -41,7 +41,7 @@ The generated data are aligned with the existing observation periods to ensure t
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/oxford-pharmacoepi/omock/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/ohdsi/omock/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -54,7 +54,7 @@ The generated data are aligned with the existing observation periods to ensure t
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Generates a mock condition occurrence table and integrates it into an existing CDM object.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/oxford-pharmacoepi/omock/blob/HEAD/R/mockConditionOccurrence.R" class="external-link"><code>R/mockConditionOccurrence.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/HEAD/R/mockConditionOccurrence.R" class="external-link"><code>R/mockConditionOccurrence.R</code></a></small>
       <div class="d-none name"><code>mockConditionOccurrence.Rd</code></div>
     </div>
 
@@ -101,7 +101,7 @@ If 'NULL', the seed is not set, resulting in different outputs on each run.</p><
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://oxford-pharmacoepi.github.io/omock/">omock</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/" class="external-link">omock</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create a mock CDM reference and add condition occurrences</span></span></span>
 <span class="r-in"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="mockCdmReference.html">mockCdmReference</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="mockPerson.html">mockPerson</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
