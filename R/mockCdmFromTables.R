@@ -98,16 +98,16 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
 mergeTables <- function(tables, cdm, call = parent.frame()) {
   if (nrow(cdm$person) > 0) {
-    cli::cli_warn("!" = "person table will be overwritten", call = call)
+    cli::cli_warn(c("!" = "person table will be overwritten", call = call))
     cdm[["person"]] <- NULL
   }
   if (nrow(cdm$observation_period) > 0) {
-    cli::cli_warn("!" = "observation_period table will be overwritten", call = call)
+    cli::cli_warn(c("!" = "observation_period table will be overwritten", call = call))
     cdm[["observation_period"]] <- NULL
   }
   for (nm in names(cdm)) {
     if (nm %in% names(tables)) {
-      cli::cli_warn("!" = "{nm} table will be overwritten", call = call)
+      cli::cli_warn(c("!" = "{nm} table will be overwritten", call = call))
     } else {
       tables[[nm]] <- cdm[[nm]]
     }

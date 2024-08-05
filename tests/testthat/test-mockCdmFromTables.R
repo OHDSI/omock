@@ -62,4 +62,37 @@ test_that("check cdm object get created", {
   expect_true(attributes(cdm$marker_cohort)$cohort_set |> dplyr::tally()>0)
   expect_true(attributes(cdm$index_cohort)$cohort_set |> dplyr::tally()>0)
 
+
+  expect_no_error(omock::mockCdmFromTables(tables = list(
+    observation_period = dplyr::tibble(
+      observation_period_id = as.integer(1:8),
+      person_id = c(1, 1, 1, 2, 2, 3, 3, 4) |> as.integer(),
+      observation_period_start_date = as.Date(
+        c(
+          "2020-03-01",
+          "2020-03-25",
+          "2020-04-25",
+          "2020-08-10",
+          "2020-03-10",
+          "2020-03-01",
+          "2020-04-10",
+          "2020-03-10"
+        )
+      ),
+      observation_period_end_date = as.Date(
+        c(
+          "2020-03-20",
+          "2020-03-30",
+          "2020-08-15",
+          "2020-12-31",
+          "2020-03-27",
+          "2020-03-09",
+          "2020-05-08",
+          "2020-12-10"
+        )
+      )
+    )
+  )))
+
+
 })
