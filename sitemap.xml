@@ -1,78 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/404.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/articles/a01_Creating_synthetic_clinical_tables.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/articles/a02_Creating_synthetic_cohorts.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/articles/a03_Creating_a_synthetic_vocabulary.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/articles/a04_Building_a_bespoke_mock_cdm.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/index.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCdmFromTables.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCdmReference.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCohort.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConcepts.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConditionOccurrence.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockDeath.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockDrugExposure.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockMeasurement.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservation.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservationPeriod.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockPerson.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/mockVocabularyTables.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/omock-package.html</loc>
-  </url>
-  <url>
-    <loc>https://oxford-pharmacoepi.github.io/omock/reference/reexports.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/404.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/LICENSE.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/articles/a01_Creating_synthetic_clinical_tables.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/articles/a02_Creating_synthetic_cohorts.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/articles/a03_Creating_a_synthetic_vocabulary.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/articles/a04_Building_a_bespoke_mock_cdm.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/articles/index.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/authors.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/index.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/news/index.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/index.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCdmFromTables.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCdmReference.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockCohort.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConcepts.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockConditionOccurrence.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockDeath.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockDrugExposure.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockMeasurement.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservation.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockObservationPeriod.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockPerson.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/mockVocabularyTables.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/omock-package.html</loc></url>
+<url><loc>https://oxford-pharmacoepi.github.io/omock/reference/reexports.html</loc></url>
 </urlset>
+
