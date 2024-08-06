@@ -31,8 +31,10 @@ This function simulates measurement records for individuals within a specified c
 library(omock)
 
 # Create a mock CDM reference and add measurement records
-cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-      mockMeasurement(recordPerson = 5)
+cdm <- mockCdmReference() |>
+  mockPerson() |>
+  mockObservationPeriod() |>
+  mockMeasurement(recordPerson = 5)
 
 # View the generated measurement data
 print(cdm$measurement)

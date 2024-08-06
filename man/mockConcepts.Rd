@@ -7,35 +7,44 @@
 mockConcepts(cdm, conceptSet, domain = "Condition", seed = 1)
 }
 \arguments{
-\item{cdm}{A CDM object that represents a common data model containing at least a concept table.
-This object will be modified in-place to include the new or updated concept entries.}
+\item{cdm}{A CDM object that represents a common data model containing at
+least a concept table.This object will be modified in-place to
+include the new or updated concept entries.}
 
-\item{conceptSet}{A numeric vector of concept IDs to be added or updated in the concept table.
-These IDs should be unique within the context of the provided domain to avoid unintended
+\item{conceptSet}{A numeric vector of concept IDs to be added or updated in
+the concept table.These IDs should be unique within the
+context of the provided domain to avoid unintended
 overwriting unless that is the intended effect.}
 
-\item{domain}{A character string specifying the domain of the concepts being added.
-Only accepts "Condition", "Drug", "Measurement", or "Observation".
-This defines under which category the concepts fall and affects which vocabulary is used for them.}
+\item{domain}{A character string specifying the domain of the concepts being
+added.Only accepts "Condition", "Drug", "Measurement", or
+"Observation". This defines under which category the concepts
+fall and affects which vocabulary is used for them.}
 
-\item{seed}{An optional integer value used to set the random seed for generating reproducible concept attributes
-like `vocabulary_id` and `concept_class_id`. Useful for testing or when consistent output is required.}
+\item{seed}{An optional integer value used to set the random seed for
+generating reproducible concept attributes like `vocabulary_id`
+and `concept_class_id`. Useful for testing or when consistent
+output is required.}
 }
 \value{
-Returns the modified CDM object with the updated concept table reflecting the newly added concepts.
-        The function directly modifies the provided CDM object.
+Returns the modified CDM object with the updated concept table
+        reflecting the newly added concepts.The function directly modifies
+        the provided CDM object.
 }
 \description{
-This function inserts new concept entries into a specified domain within the concept table of a CDM object.
-It supports four domains: Condition, Drug, Measurement, and Observation. Existing entries with the same concept
-IDs will be overwritten, so caution should be used when adding data to prevent unintended data loss.
+This function inserts new concept entries into a specified domain within
+the concept table of a CDM object.It supports four domains: Condition, Drug,
+Measurement, and Observation. Existing entries with the same concept IDs
+will be overwritten, so caution should be used when adding data to prevent
+unintended data loss.
 }
 \examples{
 library(omock)
 library(dplyr)
 
 # Create a mock CDM reference and add concepts in the 'Condition' domain
-cdm <- mockCdmReference() |> mockConcepts(conceptSet = c(100, 200), domain = "Condition")
+cdm <- mockCdmReference() |> mockConcepts(
+conceptSet = c(100, 200), domain = "Condition")
 
 # View the updated concept entries for the 'Condition' domain
 cdm$concept |> filter(domain_id == "Condition")

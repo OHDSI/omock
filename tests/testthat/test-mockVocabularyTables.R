@@ -1,6 +1,4 @@
 test_that("test default table", {
-
-
   cdm <- omock::mockCdmReference() |> omock::mockVocabularyTables()
 
   expect_no_error(omock::mockCdmReference() |> omock::mockVocabularyTables())
@@ -18,13 +16,9 @@ test_that("test default table", {
       "drug_strength"
     )
   ))
-
 })
 
 test_that("test user defined table", {
-
-
-
   # vocab tables
   concept <- data.frame(
     concept_id = 1:19,
@@ -49,8 +43,10 @@ test_that("test user defined table", {
       "OA",
       "Other ingredient"
     ),
-    domain_id = c(rep("Condition", 8), "Observation", rep("Drug", 5),
-                  rep("Condition", 4), "Drug"),
+    domain_id = c(
+      rep("Condition", 8), "Observation", rep("Drug", 5),
+      rep("Condition", 4), "Drug"
+    ),
     vocabulary_id = c(
       rep("SNOMED", 6),
       rep("Read", 2),
@@ -71,7 +67,7 @@ test_that("test user defined table", {
       "Observation", "Ingredient", "Dose Form",
       "ATC 1st", "Drug", "Dose Form",
       "ICD10 Chapter", "ICD10 SubChapter",
-      "ICD Code","ICD Code", "Ingredient"
+      "ICD Code", "ICD Code", "Ingredient"
     ),
     concept_code = "1234",
     valid_start_date = NA,
@@ -102,8 +98,8 @@ test_that("test user defined table", {
       concept_id = 3L,
       concept_synonym_name = "Osteoarthrosis"
     )
-  )%>%
-    dplyr::mutate(language_concept_id  = NA)
+  ) %>%
+    dplyr::mutate(language_concept_id = NA)
   conceptRelationship <- dplyr::bind_rows(
     data.frame(
       concept_id_1 = 2L,
@@ -116,9 +112,11 @@ test_that("test user defined table", {
       relationship_id = "Mapped from"
     )
   ) %>%
-    dplyr::mutate(valid_start_date = NA,
-                  valid_end_date = NA,
-                  invalid_reason = NA)
+    dplyr::mutate(
+      valid_start_date = NA,
+      valid_end_date = NA,
+      invalid_reason = NA
+    )
   vocabulary <- dplyr::bind_rows(
     data.frame(
       vocabulary_id = "SNOMED",
@@ -154,7 +152,7 @@ test_that("test user defined table", {
 
   cdmSource <- dplyr::as_tibble(
     data.frame(
-      cdm_source_name  = "mock",
+      cdm_source_name = "mock",
       cdm_source_abbreviation = NA,
       cdm_holder = NA,
       source_description = NA,
@@ -163,18 +161,20 @@ test_that("test user defined table", {
       source_release_date = NA,
       cdm_release_date = NA,
       cdm_version = "5.3",
-      vocabulary_version  = NA
+      vocabulary_version = NA
     )
   )
 
 
-  cdm <- omock::mockCdmReference() |> omock::mockVocabularyTables(cdmSource = cdmSource,
-                                                                  concept = concept,
-                                                                  vocabulary = vocabulary,
-                                                                  conceptRelationship = conceptRelationship,
-                                                                  conceptSynonym = conceptSynonym,
-                                                                  conceptAncestor = conceptAncestor,
-                                                                  drugStrength = drugStrength)
+  cdm <- omock::mockCdmReference() |> omock::mockVocabularyTables(
+    cdmSource = cdmSource,
+    concept = concept,
+    vocabulary = vocabulary,
+    conceptRelationship = conceptRelationship,
+    conceptSynonym = conceptSynonym,
+    conceptAncestor = conceptAncestor,
+    drugStrength = drugStrength
+  )
 
   expect_true(all(
     names(cdm) %in% c(
@@ -196,5 +196,4 @@ test_that("test user defined table", {
   expect_true(all(cdm$concept_relationship$relationship_id == conceptRelationship$relationship_id))
   expect_true(all(cdm$concept_ancestor$descendant_concept_id == conceptAncestor$descendant_concept_id))
   expect_true(all(cdm$drug_strength$drug_concept_id == drugStrength$drug_concept_id))
-
 })

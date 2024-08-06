@@ -24,38 +24,45 @@
 #' library(omock)
 #'
 #' # Create a mock CDM reference and add observation records
-#' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-#'       mockObservation(recordPerson = 3)
+#' cdm <- mockCdmReference() |>
+#'   mockPerson() |>
+#'   mockObservationPeriod() |>
+#'   mockObservation(recordPerson = 3)
 #'
 #' # View the generated observation data
 #' print(cdm$observation)
 mockObservation <- function(cdm,
-                                recordPerson = 1,
-                                seed = 1) {
-  checkInput(cdm = cdm,
-             recordPerson = recordPerson,
-             seed = seed)
+                            recordPerson = 1,
+                            seed = 1) {
+  checkInput(
+    cdm = cdm,
+    recordPerson = recordPerson,
+    seed = seed
+  )
 
   if (!is.null(seed)) {
     set.seed(seed = seed)
   }
 
-  #check if table are empty
+  # check if table are empty
   if (cdm$person |> nrow() == 0 |
-      cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+    cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
     cli::cli_abort("person and observation_period table cannot be empty")
-
   }
 
 
 
   concept_id <-
-    cdm$concept |> dplyr::filter(.data$domain_id == "Observation") |> dplyr::select("concept_id") |> dplyr::pull() |> unique()
+    cdm$concept |>
+    dplyr::filter(.data$domain_id == "Observation") |>
+    dplyr::select("concept_id") |>
+    dplyr::pull() |>
+    unique()
 
   # concept count
   concept_count <- length(concept_id)
 
-  #number of rows per concept_id
+  # number of rows per concept_id
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
@@ -80,16 +87,24 @@ mockObservation <- function(cdm,
 
 
   observation <-
-    observation |> dplyr::bind_rows() |> dplyr::mutate(observation_id = dplyr::row_number(),
-                                                 observation_type_concept_id = 1) |>
-    dplyr::rename(person_id = "subject_id",
-                  observation_date = "observation_start_date") |> dplyr::select(-"observation_end_date")
+    observation |>
+    dplyr::bind_rows() |>
+    dplyr::mutate(
+      observation_id = dplyr::row_number(),
+      observation_type_concept_id = 1
+    ) |>
+    dplyr::rename(
+      person_id = "subject_id",
+      observation_date = "observation_start_date"
+    ) |>
+    dplyr::select(-"observation_end_date")
 
   cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = "observation",
-                              table = observation)
+    omopgenerics::insertTable(
+      cdm = cdm,
+      name = "observation",
+      table = observation
+    )
 
   return(cdm)
-
 }

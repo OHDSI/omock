@@ -10,38 +10,45 @@
 #' @examples
 #' library(omock)
 #'
-#' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-#' mockVisitOccurrence()
+#' cdm <- mockCdmReference() |>
+#'   mockPerson() |>
+#'   mockObservationPeriod() |>
+#'   mockVisitOccurrence()
 #'
 #' cdm$visit_occurrence
 #'
 mockVisitOccurrence <- function(cdm,
-                             recordPerson = 1,
-                             seed = 1) {
-  checkInput(cdm = cdm,
-             recordPerson = recordPerson,
-             seed = seed)
+                                recordPerson = 1,
+                                seed = 1) {
+  checkInput(
+    cdm = cdm,
+    recordPerson = recordPerson,
+    seed = seed
+  )
 
   if (!is.null(seed)) {
     set.seed(seed = seed)
   }
 
-  #check if table are empty
+  # check if table are empty
   if (cdm$person |> nrow() == 0 |
-      cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+    cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
     cli::cli_abort("person and observation_period table cannot be empty")
-
   }
 
 
 
   concept_id <-
-    cdm$concept |> dplyr::filter(.data$domain_id == "Visit") |> dplyr::select("concept_id") |> dplyr::pull() |> unique()
+    cdm$concept |>
+    dplyr::filter(.data$domain_id == "Visit") |>
+    dplyr::select("concept_id") |>
+    dplyr::pull() |>
+    unique()
 
   # concept count
   concept_count <- length(concept_id)
 
-  #number of rows per concept_id
+  # number of rows per concept_id
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
@@ -66,15 +73,20 @@ mockVisitOccurrence <- function(cdm,
 
 
   visit <-
-    visit |> dplyr::bind_rows() |> dplyr::mutate(visit_occurrence_id = dplyr::row_number(),
-                                                visit_type_concept_id = 1) |>
+    visit |>
+    dplyr::bind_rows() |>
+    dplyr::mutate(
+      visit_occurrence_id = dplyr::row_number(),
+      visit_type_concept_id = 1
+    ) |>
     dplyr::rename(person_id = "subject_id")
 
   cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = "visit_occurrence",
-                              table = visit)
+    omopgenerics::insertTable(
+      cdm = cdm,
+      name = "visit_occurrence",
+      table = visit
+    )
 
   return(cdm)
-
 }

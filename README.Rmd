@@ -46,26 +46,26 @@ library(dplyr)
 We first start by making an empty cdm reference. This includes the person and observation tables (as they are required) but they are currently empty.
 ```{r}
 cdm <- emptyCdmReference(cdmName = "mock")
-cdm$person %>% 
+cdm$person %>%
   glimpse()
-cdm$observation_period %>% 
+cdm$observation_period %>%
   glimpse()
 ```
 
 Once we have have our empty cdm reference, we can quickly add a person table with a specific number of individuals.
 ```{r}
-cdm <- cdm %>% 
+cdm <- cdm %>%
   omock::mockPerson(nPerson = 1000)
 
-cdm$person %>% 
+cdm$person %>%
   glimpse()
 ```
 
 We can then fill in the observation period table for these individuals.
 ```{r}
-cdm <- cdm %>% 
+cdm <- cdm %>%
   omock::mockObservationPeriod()
 
-cdm$observation_period %>% 
+cdm$observation_period %>%
   glimpse()
 ```
