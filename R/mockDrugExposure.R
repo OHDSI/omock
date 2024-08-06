@@ -24,38 +24,45 @@
 #' library(omock)
 #'
 #' # Create a mock CDM reference and add drug exposure records
-#' cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-#'       mockDrugExposure(recordPerson = 3)
+#' cdm <- mockCdmReference() |>
+#'   mockPerson() |>
+#'   mockObservationPeriod() |>
+#'   mockDrugExposure(recordPerson = 3)
 #'
 #' # View the generated drug exposure data
 #' print(cdm$drug_exposure)
 mockDrugExposure <- function(cdm,
                              recordPerson = 1,
                              seed = 1) {
-  checkInput(cdm = cdm,
-             recordPerson = recordPerson,
-             seed = seed)
+  checkInput(
+    cdm = cdm,
+    recordPerson = recordPerson,
+    seed = seed
+  )
 
   if (!is.null(seed)) {
     set.seed(seed = seed)
   }
 
-  #check if table are empty
+  # check if table are empty
   if (cdm$person |> nrow() == 0 |
-      cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+    cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
     cli::cli_abort("person and observation_period table cannot be empty")
-
   }
 
 
 
   concept_id <-
-    cdm$concept |> dplyr::filter(.data$domain_id == "Drug") |> dplyr::select("concept_id") |> dplyr::pull() |> unique()
+    cdm$concept |>
+    dplyr::filter(.data$domain_id == "Drug") |>
+    dplyr::select("concept_id") |>
+    dplyr::pull() |>
+    unique()
 
   # concept count
   concept_count <- length(concept_id)
 
-  #number of rows per concept_id
+  # number of rows per concept_id
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
@@ -80,15 +87,20 @@ mockDrugExposure <- function(cdm,
 
 
   drug <-
-    drug |> dplyr::bind_rows() |> dplyr::mutate(drug_exposure_id = dplyr::row_number(),
-                                                drug_type_concept_id = 1) |>
+    drug |>
+    dplyr::bind_rows() |>
+    dplyr::mutate(
+      drug_exposure_id = dplyr::row_number(),
+      drug_type_concept_id = 1
+    ) |>
     dplyr::rename(person_id = "subject_id")
 
   cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = "drug_exposure",
-                              table = drug)
+    omopgenerics::insertTable(
+      cdm = cdm,
+      name = "drug_exposure",
+      table = drug
+    )
 
   return(cdm)
-
 }

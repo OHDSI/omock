@@ -28,14 +28,14 @@ cohortTables <- list(
   cohort1 = tibble(
     subject_id = 1:10,
     cohort_definition_id = rep(1, 10),
-    cohort_start_date = as.Date('2020-01-01') + 1:10,
-    cohort_end_date = as.Date('2020-01-01') + 11:20
+    cohort_start_date = as.Date("2020-01-01") + 1:10,
+    cohort_end_date = as.Date("2020-01-01") + 11:20
   ),
   cohort2 = tibble(
     subject_id = 11:20,
     cohort_definition_id = rep(2, 10),
-    cohort_start_date = as.Date('2020-02-01') + 1:10,
-    cohort_end_date = as.Date('2020-02-01') + 11:20
+    cohort_start_date = as.Date("2020-02-01") + 1:10,
+    cohort_end_date = as.Date("2020-02-01") + 11:20
   )
 )
 
@@ -43,6 +43,5 @@ cohortTables <- list(
 cdm <- mockCdmReference() |> mockCdmFromTables(tables = cohortTables)
 
 cdm |> glimpse()
-
 ```
 

@@ -1,5 +1,3 @@
-
-
 #' Assert if an object is a character and fulfill certain conditions.
 #'
 #' @param x To check.
@@ -477,7 +475,7 @@ assertDate <- function(x,
                        call = parent.frame()) {
   # create error message
   errorMessage <- paste0(substitute(x), " must be an object of class Date.")
-  if (! class(x) %in% "Date") {
+  if (!class(x) %in% "Date") {
     cli::cli_abort(errorMessage, call = call)
   }
   errorMessage <- paste0(substitute(x), " must have length = ", length)

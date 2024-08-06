@@ -25,13 +25,11 @@
 #'
 #' # View the generated observation period data
 #' print(cdm$observation_period)
-
 mockObservationPeriod <- function(cdm,
                                   seed = 1) {
   checkInput(cdm = cdm)
   if (nrow(cdm$observation_period) == 0 &
-      nrow(cdm$person) != 0) {
-
+    nrow(cdm$person) != 0) {
     if (!is.null(seed)) {
       set.seed(seed = seed)
     }
@@ -52,17 +50,22 @@ mockObservationPeriod <- function(cdm,
         )
       )) |>
       dplyr::select(!c("year_of_birth1", "month_of_birth1", "day_of_birth1")) |>
-      dplyr::select(dob) |> dplyr::pull()
+      dplyr::select(dob) |>
+      dplyr::pull()
 
 
-    #generate observation date from dob
-    observationDate <- obsDate(dob = dob, max = max(as.Date("2020-01-01"),
-                                                    max(as.Date(dob))))
+    # generate observation date from dob
+    observationDate <- obsDate(dob = dob, max = max(
+      as.Date("2020-01-01"),
+      max(as.Date(dob))
+    ))
 
-    person_id <- cdm$person |> dplyr::select(person_id) |> dplyr::pull()
+    person_id <- cdm$person |>
+      dplyr::select(person_id) |>
+      dplyr::pull()
 
-    #define observation period table
-    observationPeriod = dplyr::tibble(
+    # define observation period table
+    observationPeriod <- dplyr::tibble(
       observation_period_id = person_id,
       person_id = person_id,
       observation_period_start_date = as.Date(observationDate[[1]]),
@@ -73,11 +76,11 @@ mockObservationPeriod <- function(cdm,
       observationPeriod |> dplyr::mutate(period_type_concept_id = NA)
 
     cdm <-
-      omopgenerics::insertTable(cdm = cdm,
-                                name = "observation_period",
-                                table = observationPeriod)
-
-
+      omopgenerics::insertTable(
+        cdm = cdm,
+        name = "observation_period",
+        table = observationPeriod
+      )
   }
 
   return(cdm)
@@ -86,17 +89,21 @@ mockObservationPeriod <- function(cdm,
 
 
 
-#function to generate mock observational period date from a list of dob
+# function to generate mock observational period date from a list of dob
 obsDate <- function(dob = dob, max = "2020-01-01") {
   # Initialise vector for output
   start <- rep(as.Date(NA), length(dob))
   end <- rep(as.Date(NA), length(dob))
-  #generate obs start and end date
+  # generate obs start and end date
   for (i in seq_along(dob)) {
-    start[i] <- sample(seq(as.Date(dob[i]), as.Date(max), by =
-                             "day"), 1)
-    end[i] <- sample(seq(as.Date(start[i]), as.Date(max), by =
-                           "day"), 1)
+    start[i] <- sample(seq(as.Date(dob[i]), as.Date(max),
+      by =
+        "day"
+    ), 1)
+    end[i] <- sample(seq(as.Date(start[i]), as.Date(max),
+      by =
+        "day"
+    ), 1)
   }
   list(start, end)
 }

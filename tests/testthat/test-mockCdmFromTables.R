@@ -54,13 +54,13 @@ test_that("check cdm object get created", {
   )
 
   cdm <- omock::emptyCdmReference(cdmName = "mock") |>
-    omock::mockCdmFromTables(tables = list(index_cohort = indexCohort,marker_cohort = markerCohort))
+    omock::mockCdmFromTables(tables = list(index_cohort = indexCohort, marker_cohort = markerCohort))
 
   expect_no_error(cdm$marker_cohort)
   expect_no_error(cdm$index_cohort)
 
-  expect_true(attributes(cdm$marker_cohort)$cohort_set |> dplyr::tally()>0)
-  expect_true(attributes(cdm$index_cohort)$cohort_set |> dplyr::tally()>0)
+  expect_true(attributes(cdm$marker_cohort)$cohort_set |> dplyr::tally() > 0)
+  expect_true(attributes(cdm$index_cohort)$cohort_set |> dplyr::tally() > 0)
 
 
   expect_no_error(omock::mockCdmFromTables(tables = list(
@@ -93,6 +93,4 @@ test_that("check cdm object get created", {
       )
     )
   )))
-
-
 })

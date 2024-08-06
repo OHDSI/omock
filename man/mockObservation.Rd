@@ -31,8 +31,10 @@ This function simulates observation records for individuals within a specified c
 library(omock)
 
 # Create a mock CDM reference and add observation records
-cdm <- mockCdmReference() |> mockPerson() |> mockObservationPeriod() |>
-      mockObservation(recordPerson = 3)
+cdm <- mockCdmReference() |>
+  mockPerson() |>
+  mockObservationPeriod() |>
+  mockObservation(recordPerson = 3)
 
 # View the generated observation data
 print(cdm$observation)

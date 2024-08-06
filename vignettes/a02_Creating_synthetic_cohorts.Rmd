@@ -28,7 +28,6 @@ The mockCohort() function has several different arguments to help user to tailor
 The example provided in the vignette demonstrates how to use the mockCohort function within a pipeline that includes generating a mock CDM reference, adding mock persons, and observation periods before finally adding the mock cohorts. This showcases a typical workflow for setting up a synthetic CDM with multiple components for testing or analysis.
 
 ```{r}
-
 cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod() |>
@@ -39,5 +38,4 @@ cdm <- mockCdmReference() |>
   )
 
 cdm
-
 ```

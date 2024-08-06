@@ -129,21 +129,23 @@ checkCdm <- function(cdm, tables = NULL, call = parent.env()) {
     cl <- cl[cl != "cdm_source"]
     cli::cli_abort(
       "The cdm_reference has to be a local cdm_reference, it can not be a:
-      `{cl}` source.", call = call
+      `{cl}` source.",
+      call = call
     )
   }
   if (!is.null(tables)) {
     tables <- tables[!(tables %in% names(cdm))]
     if (length(tables) > 0) {
       cli::cli_abort(
-        "tables: {tables} {?is/are} not present in the cdm object", call = call
+        "tables: {tables} {?is/are} not present in the cdm object",
+        call = call
       )
     }
   }
   invisible(NULL)
 }
 
-#check cdm cohort
+# check cdm cohort
 
 checkCohort <- function(string, call = parent.frame()) {
   assertCharacter(string, na = TRUE, call = call)
@@ -158,13 +160,12 @@ checknPerson <- function(nPerson, call = parent.frame()) {
 checkbirthRange <- function(birthRange, call = parent.frame()) {
   assertDate(birthRange, length = 2, call = call)
 
-  if(birthRange[1] >= birthRange[2]){
+  if (birthRange[1] >= birthRange[2]) {
     cli::cli_abort("max date must be greater than min date ", call = call)
   }
-
 }
 
-#check table name
+# check table name
 checktableName <- function(tableName, call = parent.frame()) {
   assertCharacter(tableName, na = FALSE, call = call)
 }
@@ -172,22 +173,23 @@ checktableName <- function(tableName, call = parent.frame()) {
 # check recordPerson
 checkrecordPerson <- function(recordPerson, call = parent.frame()) {
   assertNumeric(recordPerson,
-                integerish = FALSE, length = NULL, min = 0.01, call = call)
-
+    integerish = FALSE, length = NULL, min = 0.01, call = call
+  )
 }
 
 # check numberCohorts
 checknumberCohorts <- function(numberCohorts, call = parent.frame()) {
   assertNumeric(numberCohorts,
-                integerish = TRUE,length = NULL, min = 1, call = call)
+    integerish = TRUE, length = NULL, min = 1, call = call
+  )
 }
 
-#check cohortName
+# check cohortName
 checkcohortName <- function(cohortName, call = parent.frame()) {
   assertCharacter(cohortName, na = FALSE, call = call)
 }
 
-#check cohort
+# check cohort
 checkcohort <- function(cohortName, call = parent.frame()) {
   assertTibble(cohortName, null = FALSE, call = call)
 }
@@ -195,18 +197,20 @@ checkcohort <- function(cohortName, call = parent.frame()) {
 # check genderSplit
 checkgenderSplit <- function(genderSplit, call = parent.frame()) {
   assertNumeric(genderSplit,
-                integerish = FALSE,length = NULL, min = 0,max = 1, call = call)
+    integerish = FALSE, length = NULL, min = 0, max = 1, call = call
+  )
 }
 
 # check list
 checkCohortTable <- function(cohortTable, call = parent.frame()) {
   assertList(cohortTable,
-             length = NULL,
-             na = FALSE,
-             null = FALSE,
-             named = FALSE,
-             class = NULL,
-             call = parent.frame())
+    length = NULL,
+    na = FALSE,
+    null = FALSE,
+    named = FALSE,
+    class = NULL,
+    call = parent.frame()
+  )
 }
 
 # validate tables
@@ -223,10 +227,11 @@ validateTables <- function(tables, call = parent.frame()) {
   return(tables)
 }
 
-#check concept set
-checkConceptSet<- function(conceptSet, call = parent.frame()) {
+# check concept set
+checkConceptSet <- function(conceptSet, call = parent.frame()) {
   assertNumeric(conceptSet,
-                integerish = TRUE,length = NULL, min = 1, call = call)
+    integerish = TRUE, length = NULL, min = 1, call = call
+  )
 }
 
 # check domain

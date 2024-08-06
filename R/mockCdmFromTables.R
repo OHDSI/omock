@@ -48,9 +48,9 @@
 mockCdmFromTables <- function(cdm = mockCdmReference(),
                               tables = list(),
                               seed = NULL) {
-  meanBirthStart <- 5*365
-  meanStartFirst <- 2*365
-  meanLastEnd <- 1*365
+  meanBirthStart <- 5 * 365
+  meanStartFirst <- 2 * 365
+  meanLastEnd <- 1 * 365
 
   # initial checks
   checkCdm(cdm)
@@ -59,7 +59,9 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   if (!is.null(seed)) set.seed(seed = seed)
 
-  if (length(tables) == 0) return(cdm)
+  if (length(tables) == 0) {
+    return(cdm)
+  }
 
   # append cdm tables to tables
   tables <- mergeTables(tables, cdm)
@@ -93,7 +95,6 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   )
 
   return(cdm)
-
 }
 
 mergeTables <- function(tables, cdm, call = parent.frame()) {
@@ -148,7 +149,9 @@ getEthnicityConcepts <- function(cdm) {
 getLocations <- function(cdm) {
   x <- NULL
   if ("location" %in% names(cdm)) {
-    x <- cdm[["location"]] |> dplyr::pull("location_id") |> unique()
+    x <- cdm[["location"]] |>
+      dplyr::pull("location_id") |>
+      unique()
   }
   correctIds(x)
 }
@@ -240,14 +243,16 @@ summariseObservations <- function(tables) {
 }
 calculateDates <- function(individuals, meanBirthStart, meanStartFirst, meanLastEnd) {
   randomExp <- function(n, rate) {
-    stats::rexp(n = n, rate = rate) |> round() |> as.integer()
+    stats::rexp(n = n, rate = rate) |>
+      round() |>
+      as.integer()
   }
   n <- nrow(individuals)
   individuals |>
     dplyr::mutate(
-      "birth_start" = randomExp(n = n, rate = 1/meanBirthStart),
-      "start_first" = randomExp(n = n, rate = 1/meanStartFirst),
-      "last_end" = randomExp(n = n, rate = 1/meanLastEnd)
+      "birth_start" = randomExp(n = n, rate = 1 / meanBirthStart),
+      "start_first" = randomExp(n = n, rate = 1 / meanStartFirst),
+      "last_end" = randomExp(n = n, rate = 1 / meanLastEnd)
     ) |>
     dplyr::mutate(
       "start_observation" = .data$first_observation - .data$start_first,

@@ -45,11 +45,11 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  vocabularySet = "mock",
                                  cdmSource = NULL,
                                  concept = NULL,
-                              vocabulary = NULL,
-                              conceptRelationship = NULL,
-                              conceptSynonym = NULL,
-                              conceptAncestor = NULL,
-                              drugStrength = NULL) {
+                                 vocabulary = NULL,
+                                 conceptRelationship = NULL,
+                                 conceptSynonym = NULL,
+                                 conceptAncestor = NULL,
+                                 drugStrength = NULL) {
   #
   # create the list of tables
   cdmTables <- list(
@@ -64,8 +64,9 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
 
   # Function to check if all elements in the list are NULL
   check_table <- function(x) {
-    all(sapply(x, function(data)
-      is.null(data) || is.data.frame(data)))
+    all(sapply(x, function(data) {
+      is.null(data) || is.data.frame(data)
+    }))
   }
   if (!isTRUE(check_table(cdmTables))) {
     cli::cli_abort("all the input vocabulary table must be either NULL or is a dataframe")
@@ -76,8 +77,7 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
 
   # fill tables
   for (nam in names(cdmTables)) {
-
-    if(is.null(cdmTables[[nam]])){
+    if (is.null(cdmTables[[nam]])) {
       tableName <- paste0(
         vocabularySet,
         substr(toupper(nam), 1, 1),
@@ -93,16 +93,13 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
 
 
   for (nam in names(cdmTables)) {
-
-
-  cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = nam,
-                              table = cdmTables[[nam]])
+    cdm <-
+      omopgenerics::insertTable(
+        cdm = cdm,
+        name = nam,
+        table = cdmTables[[nam]]
+      )
   }
 
   return(cdm)
 }
-
-
-
