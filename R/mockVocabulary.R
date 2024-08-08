@@ -62,6 +62,10 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     drugStrength = drugStrength
   )
 
+  if(!vocabularySet %in% c("mock", "eunomia")) {
+    cli::cli_abort("vocabularySet must be either mock or eunomia.")
+  }
+
   # Function to check if all elements in the list are NULL
   check_table <- function(x) {
     all(sapply(x, function(data) {
@@ -69,7 +73,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     }))
   }
   if (!isTRUE(check_table(cdmTables))) {
-    cli::cli_abort("all the input vocabulary table must be either NULL or is a dataframe")
+    cli::cli_abort(
+      "all the input vocabulary table must be either NULL or is a dataframe")
   }
 
 
