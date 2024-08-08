@@ -89,6 +89,7 @@ mockCohort <- function(cdm,
   rows_to_keep <- sum(numberRows / 1.2)
 
 
+
   # generate cohort table
   cohort <- list()
   if (length(numberRows) == 1) {
@@ -193,12 +194,15 @@ addCohortDates <-
         dplyr::mutate(dplyr::across(
           dplyr::all_of(cols), ~ .x / .data$cum_sum)) |>
         dplyr::select(-"cum_sum")
+
+      if(nrow(observationPeriod)>0){
       observationPeriod <- observationPeriod |>
         dplyr::mutate(rand = stats::runif(dplyr::n())) |>
         dplyr::group_by(.data$person_id) |>
         dplyr::filter(.data$rand == min(.data$rand)) |>
         dplyr::ungroup() |>
         dplyr::select(-"rand")
+      }
       x <- x |>
         dplyr::inner_join(
           observationPeriod |>
