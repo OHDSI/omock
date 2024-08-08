@@ -69,7 +69,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     }))
   }
   if (!isTRUE(check_table(cdmTables))) {
-    cli::cli_abort("all the input vocabulary table must be either NULL or is a dataframe")
+    cli::cli_abort(
+      "all the input vocabulary table must be either NULL or is a dataframe")
   }
 
 

@@ -53,8 +53,10 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   meanLastEnd <- 1 * 365
 
   # initial checks
-  checkCdm(cdm)
-  assertNumeric(seed, integerish = TRUE, min = 1, length = 1, null = TRUE)
+  omopgenerics::validateCdmArgument(cdm = cdm)
+  omopgenerics::assertNumeric(seed,integerish = TRUE, min = 1,
+                              length = 1, null = TRUE)
+
   tables <- validateTables(tables)
 
   if (!is.null(seed)) set.seed(seed = seed)
