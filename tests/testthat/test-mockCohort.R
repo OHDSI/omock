@@ -28,4 +28,10 @@ test_that("mock cohort simple test", {
       numberCohorts = 2,
       cohortName = c("omock_cohort_1", "omock_cohort_2")
     ))
+
+  expect_no_warning(omock::mockPerson(nPerson = 10) |>
+                      omock::mockCohort(name = "cohort"))
+
+
+
 })
