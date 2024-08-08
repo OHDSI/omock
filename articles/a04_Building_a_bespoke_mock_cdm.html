@@ -96,6 +96,10 @@ mockCdmFromTable() functions in a few lines of code.</p>
 <span></span>
 <span><span class="co"># Create a mock CDM object from the user-defined tables</span></span>
 <span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmReference.html">mockCdmReference</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/mockCdmFromTables.html">mockCdmFromTables</a></span><span class="op">(</span>tables <span class="op">=</span> <span class="va">cohortTables</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> cohort columns will be reordered to macth the expected order:</span></span>
+<span><span class="co">#&gt;   cohort_definition_id, subject_id, cohort_start_date, and cohort_end_date.</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> cohort columns will be reordered to macth the expected order:</span></span>
+<span><span class="co">#&gt;   cohort_definition_id, subject_id, cohort_start_date, and cohort_end_date.</span></span>
 <span></span>
 <span><span class="va">cdm</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; A cdm reference of mock database with 11 tables: person, observation_period, cdm_source, concept, vocabulary, concept_relationship, concept_synonym, concept_ancestor, drug_strength, cohort1, and cohort2.</span></span></code></pre></div>
