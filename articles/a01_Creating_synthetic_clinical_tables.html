@@ -94,12 +94,12 @@ person and observation period table for 1000 people.</p>
 <span><span class="co">#&gt; Rows: 1,000</span></span>
 <span><span class="co">#&gt; Columns: 7</span></span>
 <span><span class="co">#&gt; $ person_id            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15…</span></span>
-<span><span class="co">#&gt; $ gender_concept_id    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 8507, 8532, 8532, 8532, 8507, 8507, 8532, 8532, 8…</span></span>
-<span><span class="co">#&gt; $ year_of_birth        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1997, 1963, 1986, 1978, 1973, 1961, 1986, 1981, 1…</span></span>
-<span><span class="co">#&gt; $ month_of_birth       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 8, 1, 3, 11, 3, 2, 12, 9, 7, 6, 1, 10, 1, 3, 7, 1…</span></span>
-<span><span class="co">#&gt; $ day_of_birth         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 22, 27, 10, 8, 2, 1, 16, 5, 23, 2, 17, 13, 24, 20…</span></span>
-<span><span class="co">#&gt; $ race_concept_id      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
-<span><span class="co">#&gt; $ ethnicity_concept_id <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
+<span><span class="co">#&gt; $ gender_concept_id    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 8507, 8532, 8532, 8532, 8507, 8507, 8532, 8532, 8…</span></span>
+<span><span class="co">#&gt; $ year_of_birth        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1997, 1963, 1986, 1978, 1973, 1961, 1986, 1981, 1…</span></span>
+<span><span class="co">#&gt; $ month_of_birth       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 8, 1, 3, 11, 3, 2, 12, 9, 7, 6, 1, 10, 1, 3, 7, 1…</span></span>
+<span><span class="co">#&gt; $ day_of_birth         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 22, 27, 10, 8, 2, 1, 16, 5, 23, 2, 17, 13, 24, 20…</span></span>
+<span><span class="co">#&gt; $ race_concept_id      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
+<span><span class="co">#&gt; $ ethnicity_concept_id <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
 <span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">observation_period</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,000</span></span>
@@ -108,7 +108,7 @@ person and observation period table for 1000 people.</p>
 <span><span class="co">#&gt; $ person_id                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
 <span><span class="co">#&gt; $ observation_period_start_date <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2000-06-03, 1999-04-05, 2015-01-15, 198…</span></span>
 <span><span class="co">#&gt; $ observation_period_end_date   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2013-06-29, 2003-06-15, 2015-10-11, 201…</span></span>
-<span><span class="co">#&gt; $ period_type_concept_id        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span></code></pre></div>
+<span><span class="co">#&gt; $ period_type_concept_id        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span></code></pre></div>
 <p>We can add further requirements around the population we create. For
 example we can require that they were born between 1960 and 1980 like
 so.</p>
