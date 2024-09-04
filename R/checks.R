@@ -171,7 +171,7 @@ checknPerson <- function(nPerson, call = parent.frame()) {
 
 # check birthRange
 checkbirthRange <- function(birthRange, call = parent.frame()) {
-  assertDate(birthRange, length = 2, call = call)
+  omopgenerics::assertDate(birthRange, length = 2, call = call)
 
   if (birthRange[1] >= birthRange[2]) {
     cli::cli_abort("max date must be greater than min date ", call = call)
