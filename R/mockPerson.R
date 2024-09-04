@@ -76,17 +76,18 @@ mockPerson <- function(cdm = mockCdmReference(),
 
     person <- dplyr::tibble(
       person_id = person_id,
-      gender_concept_id = gender,
-      year_of_birth = as.numeric(lubridate::year(dob)),
-      month_of_birth = as.numeric(lubridate::month(dob)),
-      day_of_birth = as.numeric(lubridate::day(dob))
+      gender_concept_id = as.integer(gender),
+      year_of_birth = as.integer(lubridate::year(dob)),
+      month_of_birth = as.integer(lubridate::month(dob)),
+      day_of_birth = as.integer(lubridate::day(dob))
     )
     person <- person |>
       dplyr::mutate(
-        race_concept_id = NA,
-        ethnicity_concept_id = NA
+        race_concept_id = as.integer(NA),
+        ethnicity_concept_id = as.integer(NA)
       ) |>
       addOtherColumns(tableName = "person")
+
 
 
     cdm <-
