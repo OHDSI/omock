@@ -9,6 +9,11 @@ test_that("check mockDeath", {
 
   cdm <- cdm |> mockDeath(recordPerson = 1)
 
+  expect_true(all(
+    omopgenerics::omopColumns("death") %in%
+      colnames(cdm$death)
+  ))
+
   expect_true(cdm$death |> dplyr::tally() |> dplyr::pull() ==
     cdm$person |>
       dplyr::tally() |>

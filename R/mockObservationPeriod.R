@@ -73,7 +73,8 @@ mockObservationPeriod <- function(cdm,
     )
 
     observationPeriod <-
-      observationPeriod |> dplyr::mutate(period_type_concept_id = NA)
+      observationPeriod |> dplyr::mutate(period_type_concept_id = NA) |>
+      addOtherColumns(tableName = "observation_period")
 
     cdm <-
       omopgenerics::insertTable(

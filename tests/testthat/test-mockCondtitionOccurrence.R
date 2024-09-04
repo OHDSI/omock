@@ -8,6 +8,11 @@ test_that("test mock condition occurrence", {
 
   cdm <- cdm |> mockConditionOccurrence()
 
+  expect_true(all(
+    omopgenerics::omopColumns("condition_occurrence") %in%
+      colnames(cdm$condition_occurrence)
+  ))
+
   concept_id <-
     cdm$concept |>
     dplyr::filter(.data$domain_id == "Condition") |>

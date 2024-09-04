@@ -85,7 +85,8 @@ mockPerson <- function(cdm = mockCdmReference(),
       dplyr::mutate(
         race_concept_id = NA,
         ethnicity_concept_id = NA
-      )
+      ) |>
+      addOtherColumns(tableName = "person")
 
 
     cdm <-

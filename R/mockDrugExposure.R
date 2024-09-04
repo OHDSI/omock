@@ -93,7 +93,8 @@ mockDrugExposure <- function(cdm,
       drug_exposure_id = dplyr::row_number(),
       drug_type_concept_id = 1
     ) |>
-    dplyr::rename(person_id = "subject_id")
+    dplyr::rename(person_id = "subject_id") |>
+    addOtherColumns(tableName = "drug_exposure")
 
   cdm <-
     omopgenerics::insertTable(

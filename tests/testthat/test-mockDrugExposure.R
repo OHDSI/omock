@@ -8,6 +8,11 @@ test_that("test mock drug exposure", {
 
   cdm <- cdm |> mockDrugExposure()
 
+  expect_true(all(
+    omopgenerics::omopColumns("drug_exposure") %in%
+      colnames(cdm$drug_exposure)
+  ))
+
   concept_id <-
     cdm$concept |>
     dplyr::filter(.data$domain_id == "Drug") |>
