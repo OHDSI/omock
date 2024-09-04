@@ -10,12 +10,12 @@ test_that("mockPerson", {
   expect_true(cdm$person |> dplyr::distinct(person_id) |> dplyr::tally()
     |> dplyr::pull(n) == 1000)
   expect_true(cdm$person |> dplyr::tally() |> dplyr::pull(n) == 1000)
-  expect_true(all(colnames(cdm$person) %in%
-    c(
-      "person_id", "gender_concept_id", "year_of_birth",
-      "month_of_birth", "day_of_birth", "race_concept_id",
-      "ethnicity_concept_id"
-    )))
+
+  expect_true(all(
+    omopgenerics::omopColumns("person") %in%
+      colnames(cdm$person)
+  ))
+
   expect_equal(
     class(cdm$person),
     c("omop_table", "cdm_table", "tbl_df", "tbl", "data.frame")

@@ -107,7 +107,8 @@ mockConditionOccurrence <- function(cdm,
       condition_occurrence_id = dplyr::row_number(),
       condition_type_concept_id = 1
     ) |>
-    dplyr::rename(person_id = "subject_id")
+    dplyr::rename(person_id = "subject_id") |>
+    addOtherColumns(tableName = "condition_occurrence")
 
   cdm <-
     omopgenerics::insertTable(

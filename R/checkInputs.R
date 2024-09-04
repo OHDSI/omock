@@ -184,3 +184,22 @@ addArgument <- function(functions, exclude = character()) {
     }) |>
     dplyr::bind_rows()
 }
+
+
+#' Add other columns to omop cdm tables
+#'
+#' @noRd
+#'
+addOtherColumns <- function(table, tableName) {
+
+  colToAdd <-
+    base::setdiff(omopgenerics::omopColumns(tableName, onlyRequired = FALSE),
+                  colnames(table))
+
+  for (col in colToAdd) {
+    table[[col]] <- NA
+  }
+
+  return(table)
+
+}

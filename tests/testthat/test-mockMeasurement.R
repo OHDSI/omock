@@ -6,7 +6,14 @@ test_that("mock Measurement", {
 
   expect_no_error(cdm |> mockMeasurement())
 
+
+
   cdm <- cdm |> mockMeasurement()
+
+  expect_true(all(
+    omopgenerics::omopColumns("measurement") %in%
+      colnames(cdm$measurement)
+  ))
 
   concept_id <-
     cdm$concept |>
@@ -19,10 +26,10 @@ test_that("mock Measurement", {
   concept_count <- length(concept_id)
 
   expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10)
+                10)
 
   cdm <- cdm |> mockMeasurement(recordPerson = 2)
 
   expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10 * 2)
+                10 * 2)
 })

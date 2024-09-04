@@ -15,6 +15,11 @@ test_that("mock observation", {
     dplyr::pull() |>
     unique()
 
+  expect_true(all(
+    omopgenerics::omopColumns("observation") %in%
+      colnames(cdm$observation)
+  ))
+
   # concept count
   concept_count <- length(concept_id)
 

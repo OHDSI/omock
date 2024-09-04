@@ -97,7 +97,8 @@ mockObservation <- function(cdm,
       person_id = "subject_id",
       observation_date = "observation_start_date"
     ) |>
-    dplyr::select(-"observation_end_date")
+    dplyr::select(-"observation_end_date") |>
+    addOtherColumns(tableName = "observation")
 
   cdm <-
     omopgenerics::insertTable(
