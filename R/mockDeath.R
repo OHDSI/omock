@@ -89,7 +89,8 @@ mockDeath <- function(cdm,
     death |>
     dplyr::mutate(death_type_concept_id = 1) |>
     dplyr::rename(death_date = "observation_period_end_date") |>
-    addOtherColumns(tableName = "death")
+    addOtherColumns(tableName = "death") |>
+    correctCdmFormat(tableName = "death")
   #
   cdm <-
     omopgenerics::insertTable(

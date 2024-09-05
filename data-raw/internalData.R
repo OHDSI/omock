@@ -62,6 +62,10 @@ eunomiaVocabulary <- readr::read_csv(
   show_col_types = FALSE
 )
 
+cdmTable <-  readr::read_csv(
+  here::here("data-raw", "table", "OMOP_CDMv5.3_Field_Level.csv"),
+  show_col_types = FALSE
+)
 
 namesTable <- dplyr::tribble(
   ~"table_name",
@@ -137,6 +141,7 @@ usethis::use_data(
   eunomiaConceptRelationship,
   eunomiaConceptSynonym,
   namesTable,
+  cdmTable,
   internal = TRUE,
   overwrite = TRUE
 )

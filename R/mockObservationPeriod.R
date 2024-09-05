@@ -74,7 +74,8 @@ mockObservationPeriod <- function(cdm,
 
     observationPeriod <-
       observationPeriod |> dplyr::mutate(period_type_concept_id = as.integer(NA)) |>
-    addOtherColumns(tableName = "observation_period")
+      addOtherColumns(tableName = "observation_period") |>
+      correctCdmFormat(tableName = "observation_period")
 
 
     cdm <-
