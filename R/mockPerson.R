@@ -86,7 +86,8 @@ mockPerson <- function(cdm = mockCdmReference(),
         race_concept_id = as.integer(NA),
         ethnicity_concept_id = as.integer(NA)
       ) |>
-      addOtherColumns(tableName = "person")
+      addOtherColumns(tableName = "person") |>
+      correctCdmFormat(tableName = "person")
 
 
 

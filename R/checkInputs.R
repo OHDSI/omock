@@ -203,3 +203,46 @@ addOtherColumns <- function(table, tableName) {
   return(table)
 
 }
+
+#' Format columns of omop table to correct format
+#'
+#' @noRd
+#'
+correctCdmFormat <- function(table, tableName) {
+  formatTable <- cdmTable |> dplyr::filter(.data$cdmTableName == tableName)
+
+  for (i in 1:nrow(formatTable)) {
+    colName <- formatTable$cdmFieldName[i]
+    colType <- formatTable$cdmDatatype[i]
+
+    if (colName %in% colnames(table)) {
+      if (colType == "integer") {
+        table[[colName]] <- as.integer(table[[colName]])
+      }
+
+      if (colType == "date") {
+        table[[colName]] <- as.Date(table[[colName]])
+
+      }
+
+      if (colType == "datetime") {
+        table[[colName]] <-
+          as.POSIXct(table[[colName]], format = "%Y-%m-%d %H:%M:%S")
+      }
+
+      if (colType == "float") {
+        table[[colName]] <- as.numeric(table[[colName]])
+      }
+
+      if (grepl("varchar", colType)) {
+        table[[colName]] <- as.character(table[[colName]])
+      }
+
+    }
+
+  }
+
+  return(table)
+
+
+}

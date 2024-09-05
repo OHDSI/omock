@@ -25,30 +25,30 @@ library(ggplot2)
 
 Now, in three lines of code, we can create a cdm reference with a person and observation period table for 1000 people.
 ```{r}
-cdm <- emptyCdmReference(cdmName = "synthetic cdm") %>%
-  mockPerson(nPerson = 1000) %>%
+cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
+  mockPerson(nPerson = 1000) |>
   mockObservationPeriod()
 
 cdm
 
-cdm$person %>% glimpse()
+cdm$person |> glimpse()
 
-cdm$observation_period %>% glimpse()
+cdm$observation_period |> glimpse()
 ```
 
 We can add further requirements around the population we create. For example we can require that they were born between 1960 and 1980 like so.
 ```{r}
-cdm <- emptyCdmReference(cdmName = "synthetic cdm") %>%
+cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
   mockPerson(
     nPerson = 1000,
     birthRange = as.Date(c("1960-01-01", "1980-12-31"))
-  ) %>%
+  ) |>
   mockObservationPeriod()
 ```
 
 ```{r}
-cdm$person %>%
-  collect() %>%
+cdm$person |>
+  collect() |>
   ggplot() +
   geom_histogram(aes(as.integer(year_of_birth)),
     binwidth = 1, colour = "grey"

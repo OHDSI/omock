@@ -98,7 +98,8 @@ mockMeasurement <- function(cdm,
       measurement_date = "measurement_start_date"
     ) |>
     dplyr::select(-"measurement_end_date") |>
-    addOtherColumns(tableName = "measurement")
+    addOtherColumns(tableName = "measurement") |>
+    correctCdmFormat(tableName = "measurement")
 
   cdm <-
     omopgenerics::insertTable(
