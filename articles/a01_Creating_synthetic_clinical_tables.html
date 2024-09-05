@@ -78,8 +78,8 @@ specified by the user.</p>
 <p>Now, in three lines of code, we can create a cdm reference with a
 person and observation period table for 1000 people.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu-dev.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"synthetic cdm"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="../reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu-dev.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"synthetic cdm"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cdm</span></span>
@@ -90,7 +90,7 @@ person and observation period table for 1000 people.</p>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">achilles tables:</span> -</span></span>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">other tables:</span> -</span></span>
 <span></span>
-<span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,000</span></span>
 <span><span class="co">#&gt; Columns: 18</span></span>
 <span><span class="co">#&gt; $ person_id                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,…</span></span>
@@ -100,19 +100,19 @@ person and observation period table for 1000 people.</p>
 <span><span class="co">#&gt; $ day_of_birth                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 22, 27, 10, 8, 2, 1, 16, 5, 23, 2, 17, 13,…</span></span>
 <span><span class="co">#&gt; $ race_concept_id             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ ethnicity_concept_id        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ birth_datetime              <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ location_id                 <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ provider_id                 <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ care_site_id                <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ person_source_value         <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ gender_source_value         <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ gender_source_concept_id    <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ race_source_value           <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ race_source_concept_id      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ ethnicity_source_value      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
-<span><span class="co">#&gt; $ ethnicity_source_concept_id <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ birth_datetime              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
+<span><span class="co">#&gt; $ location_id                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ provider_id                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ care_site_id                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ person_source_value         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ gender_source_value         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ gender_source_concept_id    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ race_source_value           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ race_source_concept_id      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ ethnicity_source_value      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ ethnicity_source_concept_id <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span></span>
-<span><span class="va">cdm</span><span class="op">$</span><span class="va">observation_period</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">observation_period</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 1,000</span></span>
 <span><span class="co">#&gt; Columns: 5</span></span>
 <span><span class="co">#&gt; $ observation_period_id         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
@@ -124,15 +124,15 @@ person and observation period table for 1000 people.</p>
 example we can require that they were born between 1960 and 1980 like
 so.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu-dev.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"synthetic cdm"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu-dev.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"synthetic cdm"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/mockPerson.html">mockPerson</a></span><span class="op">(</span></span>
 <span>    nPerson <span class="op">=</span> <span class="fl">1000</span>,</span>
 <span>    birthRange <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1960-01-01"</span>, <span class="st">"1980-12-31"</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">collect</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html" class="external-link">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="va">year_of_birth</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    binwidth <span class="op">=</span> <span class="fl">1</span>, colour <span class="op">=</span> <span class="st">"grey"</span></span>
