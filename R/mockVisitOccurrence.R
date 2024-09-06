@@ -31,9 +31,11 @@ mockVisitOccurrence <- function(cdm,
   }
 
   # check if table are empty
-  if (cdm$person |> nrow() == 0 ||
-      cdm$observation_period |> nrow() == 0 || is.null(cdm$concept)) {
-    cli::cli_abort("person and observation_period table cannot be empty")
+  if (cdm$person |> nrow() == 0 &&
+      cdm$observation_period |> nrow() == 0 && is.null(cdm$concept) &&
+      cdm$condition_occurrence |> nrow() == 0) {
+    cli::cli_abort("person, observation_period and
+                   condition_occurrence table cannot be empty")
   }
 
 
@@ -70,6 +72,13 @@ mockVisitOccurrence <- function(cdm,
         observationPeriod = cdm$observation_period
       )
   }
+
+  # vist_type_id <- cdm$concept |>
+  #   dplyr::filter(.data$vocabulary_id == "Visit") |>
+  #   dplyr::select(concept_id) |>
+  #   dplyr::pull()
+  #
+  # visit_id <- sample(vist_type_id,)
 
 
   visit <-

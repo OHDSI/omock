@@ -3244,3 +3244,5 @@ concept_id,concept_name,domain_id,vocabulary_id,standard_concept,concept_class_i
 9202,Outpatient Visit,Visit,Visit,Visit,S,OP,01/01/1970,31/12/2099,NA
 9203,Emergency Room Visit,Visit,Visit,Visit,S,ER,01/01/1970,31/12/2099,NA
 3020630,Protein serum/plasma,Measurement,LOINC,Lab Test,S,2885-2,01/01/1970,31/12/2099,NA
+4336464,Coronary artery bypass graft,Procedure,SNOMED,Procedure,S,232717009,01/01/1970,31/12/2099,NA
+4295880,Intramuscular injection,Procedure,SNOMED,Procedure,S,76601001,01/01/1970,31/12/2099,NA
