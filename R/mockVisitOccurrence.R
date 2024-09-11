@@ -31,7 +31,9 @@ mockVisitOccurrence <- function(cdm,
   }
 
   if (length(tableName) == 0) {
-    cli::cli_abort("Your cdm object don't contain clinical tables with visit_occurrence_id.")
+    cli::cli_warn("Your cdm object don't contain clinical tables with visit_occurrence_id.")
+
+    return(cdm)
   }
 
   visit <- dplyr::tibble()

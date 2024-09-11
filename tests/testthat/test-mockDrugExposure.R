@@ -40,6 +40,8 @@ test_that("test mock drug exposure", {
   expect_true(!is.null(cdm$drug_exposure |>
                          dplyr::pull(visit_occurrence_id)))
 
+  expect_warning(omock::mockCdmReference() |> mockVisitOccurrence())
+
 
 })
 
