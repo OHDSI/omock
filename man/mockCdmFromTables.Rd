@@ -15,9 +15,6 @@ Each table should be named according to its intended table name in the CDM struc
 \item{seed}{An optional integer that sets the seed for random number generation used in creating mock data entries.
 Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
 If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.}
-
-\item{cdm}{A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
-This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.}
 }
 \value{
 Returns the updated `cdm` object with all the new tables added and integrated, ensuring consistency

@@ -5,9 +5,6 @@
 #' periods and that all individual records are consistent with the entries in the person table. This is useful for
 #' creating reliable and realistic healthcare data simulations for development and testing within the OMOP CDM framework.
 #'
-#' @param cdm A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
-#'            This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.
-#'
 #' @param tables A named list of data frames representing additional tables to be integrated into the CDM.
 #'               These tables can include both standard OMOP tables such as 'drug_exposure' or 'condition_occurrence',
 #'               as well as cohort-specific tables that are not part of the standard OMOP model but are necessary for specific analyses.
