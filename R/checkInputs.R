@@ -246,3 +246,31 @@ correctCdmFormat <- function(table, tableName) {
 
 
 }
+
+#' get occurrence information from cdm table
+#'
+#' @noRd
+#'
+getOccurrence <- function(cdm, tableName, start, end) {
+
+  dataTable <- cdm[[tableName]] |>
+    dplyr::select("person_id", start, end) |>
+    dplyr::group_by() |>
+    dplyr::rename(visit_start_date = start,
+                  visit_end_date = end)
+
+  return(dataTable)
+}
+
+
+#' get column start date
+#'
+#' @noRd
+#'
+startDateColumn <- function(tableName) {
+  if (tableName %in% namesTable$table_name) {
+    return(namesTable$start_date_name[namesTable$table_name == tableName])
+  } else {
+    return("cohort_start_date")
+  }
+}

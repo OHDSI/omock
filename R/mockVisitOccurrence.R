@@ -1,28 +1,18 @@
 #' Function to generate visit occurrence table
 #'
 #' @param cdm the CDM reference into which the  mock visit occurrence table will be added
-#' @param recordPerson The expected number of records per person within each cohort. This can help simulate the frequency of observations for individuals in the cohort.
 #' @param seed A random seed to ensure reproducibility of the generated data.
 #'
-#' @return A cdm reference with the mock tables
-#' @noRd
+#' @return A cdm reference with the visit_occurrence tables added
+#' @export
 #'
 #' @examples
 #' library(omock)
 #'
-#' cdm <- mockCdmReference() |>
-#'   mockPerson() |>
-#'   mockObservationPeriod() |>
-#'   mockVisitOccurrence()
-#'
-#' cdm$visit_occurrence
-#'
 mockVisitOccurrence <- function(cdm,
-                                recordPerson = 1,
-                                seed = 1) {
+                                seed = NULL) {
   checkInput(
     cdm = cdm,
-    recordPerson = recordPerson,
     seed = seed
   )
 
@@ -30,65 +20,51 @@ mockVisitOccurrence <- function(cdm,
     set.seed(seed = seed)
   }
 
-  # check if table are empty
-  if (cdm$person |> nrow() == 0 &&
-      cdm$observation_period |> nrow() == 0 && is.null(cdm$concept) &&
-      cdm$condition_occurrence |> nrow() == 0) {
-    cli::cli_abort("person, observation_period and
-                   condition_occurrence table cannot be empty")
+
+  # check for table with persion_id or vist_occurrence_id
+  tableName <- c()
+  for (tab in names(cdm)) {
+    if (all(c("person_id", "visit_occurrence_id") %in% colnames(cdm[[tab]]))) {
+      tableName <-
+        c(tableName, tab)
+    }
   }
 
-
-
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(.data$domain_id == "Visit") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
-
-  # concept count
-  concept_count <- length(concept_id)
-
-  # number of rows per concept_id
-  numberRows <-
-    recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
-
-  visit <- list()
-
-  for (i in seq_along(concept_id)) {
-    num <- numberRows
-    visit[[i]] <- dplyr::tibble(
-      visit_concept_id = concept_id[i],
-      subject_id = sample(
-        x = cdm$person |> dplyr::pull("person_id"),
-        size = num,
-        replace = TRUE
-      )
-    ) |>
-      addCohortDates(
-        start = "visit_start_date",
-        end = "visit_end_date",
-        observationPeriod = cdm$observation_period
-      )
+  if (length(tableName) == 0) {
+    cli::cli_abort("Your cdm object don't contain clinical tables with visit_occurrence_id.")
   }
 
-  # vist_type_id <- cdm$concept |>
-  #   dplyr::filter(.data$vocabulary_id == "Visit") |>
-  #   dplyr::select(concept_id) |>
-  #   dplyr::pull()
-  #
-  # visit_id <- sample(vist_type_id,)
+  visit <- dplyr::tibble()
+#create visit occurrence table
+  for (tab in tableName) {
+    startDate <- startDateColumn(tab)
 
+    table <-  cdm[[tab]] |>
+      dplyr::select(
+        "person_id",
+        "visit_start_date" = dplyr::all_of(startDate),
+        "visit_end_date" = dplyr::all_of(startDate)
+      )
 
-  visit <-
-    visit |>
-    dplyr::bind_rows() |>
+    visit <- visit |>
+      rbind(table) |>
+      dplyr::distinct()
+
+  }
+
+  vist_type_id <- cdm$concept |>
+    dplyr::filter(.data$vocabulary_id == "Visit") |>
+    dplyr::select(.data$concept_id) |>
+    dplyr::pull()
+
+  visit <- visit |>
     dplyr::mutate(
-      visit_occurrence_id = dplyr::row_number(),
-      visit_type_concept_id = 1
-    ) |>
-    dplyr::rename(person_id = "subject_id")
+    visit_occurrence_id = dplyr::row_number(),
+    "visit_concept_id" := !!sample(vist_type_id, nrow(visit), replace = TRUE),
+    visit_type_concept_id = .data$visit_concept_id
+  )|>
+    addOtherColumns(tableName = "visit_occurrence") |>
+    correctCdmFormat(tableName = "visit_occurrence")
 
   cdm <-
     omopgenerics::insertTable(
@@ -96,6 +72,25 @@ mockVisitOccurrence <- function(cdm,
       name = "visit_occurrence",
       table = visit
     )
+#add visit_occurrence detail to clinical table
+  for (tab in tableName) {
+    startDate <- startDateColumn(tab)
+
+    cdm[[tab]] <-  cdm[[tab]] |>
+      dplyr::select(!"visit_occurrence_id") |>
+      dplyr::inner_join(
+        cdm$visit_occurrence |>
+          dplyr::select(
+            "person_id",
+            !!startDate := "visit_start_date",
+            "visit_occurrence_id"
+          ),
+        by = c("person_id", startDate)
+      )
+
+  }
 
   return(cdm)
 }
+
+
