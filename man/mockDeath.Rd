@@ -4,7 +4,7 @@
 \alias{mockDeath}
 \title{Generates a mock death table and integrates it into an existing CDM object.}
 \usage{
-mockDeath(cdm, recordPerson = 1, seed = 1)
+mockDeath(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that must already include 'person' and

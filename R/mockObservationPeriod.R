@@ -26,7 +26,7 @@
 #' # View the generated observation period data
 #' print(cdm$observation_period)
 mockObservationPeriod <- function(cdm,
-                                  seed = 1) {
+                                  seed = NULL) {
   checkInput(cdm = cdm)
   if (nrow(cdm$observation_period) == 0 &
     nrow(cdm$person) != 0) {

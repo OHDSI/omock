@@ -4,7 +4,7 @@
 \alias{mockObservationPeriod}
 \title{Generates a mock observation period table and integrates it into an existing CDM object.}
 \usage{
-mockObservationPeriod(cdm, seed = 1)
+mockObservationPeriod(cdm, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that must include a 'person' table with valid dates of birth.

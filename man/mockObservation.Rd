@@ -4,7 +4,7 @@
 \alias{mockObservation}
 \title{Generates a mock observation table and integrates it into an existing CDM object.}
 \usage{
-mockObservation(cdm, recordPerson = 1, seed = 1)
+mockObservation(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that must already include 'person', 'observation_period', and 'concept' tables.

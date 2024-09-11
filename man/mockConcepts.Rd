@@ -4,7 +4,7 @@
 \alias{mockConcepts}
 \title{Adds mock concept data to a concept table within a Common Data Model (CDM) object.}
 \usage{
-mockConcepts(cdm, conceptSet, domain = "Condition", seed = 1)
+mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 }
 \arguments{
 \item{cdm}{A CDM object that represents a common data model containing at

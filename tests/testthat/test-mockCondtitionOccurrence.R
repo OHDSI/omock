@@ -1,12 +1,12 @@
 test_that("test mock condition occurrence", {
   cdm <-
-    omock::mockPerson() |>
-    omock::mockObservationPeriod() |>
+    omock::mockPerson(seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
     omock::mockVocabularyTables()
 
-  expect_no_error(cdm |> mockConditionOccurrence())
+  expect_no_error(cdm |> mockConditionOccurrence(seed = 1))
 
-  cdm <- cdm |> mockConditionOccurrence()
+  cdm <- cdm |> mockConditionOccurrence(seed = 1)
 
   expect_true(all(
     omopgenerics::omopColumns("condition_occurrence") %in%
@@ -26,7 +26,7 @@ test_that("test mock condition occurrence", {
   expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
     10)
 
-  cdm <- cdm |> mockConditionOccurrence(recordPerson = 2)
+  cdm <- cdm |> mockConditionOccurrence(recordPerson = 2,seed = 1)
 
   expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)

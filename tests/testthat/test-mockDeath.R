@@ -1,13 +1,13 @@
 test_that("check mockDeath", {
   cdm <-
-    omock::mockPerson() |>
-    omock::mockObservationPeriod() |>
+    omock::mockPerson(seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
     omock::mockVocabularyTables()
 
-  expect_no_error(cdm |> mockDeath())
-  expect_error(cdm |> mockDeath(recordPerson = 2))
+  expect_no_error(cdm |> mockDeath(seed = 1))
+  expect_error(cdm |> mockDeath(recordPerson = 2,seed = 1))
 
-  cdm <- cdm |> mockDeath(recordPerson = 1)
+  cdm <- cdm |> mockDeath(recordPerson = 1,seed = 1)
 
   expect_true(all(
     omopgenerics::omopColumns("death") %in%
@@ -26,7 +26,7 @@ test_that("check mockDeath", {
       dplyr::pull())
   )
 
-  cdm2 <- cdm |> mockDeath(recordPerson = 0.1)
+  cdm2 <- cdm |> mockDeath(recordPerson = 0.1,seed = 1)
 
   expect_true(all(cdm2$death |> dplyr::tally() |> dplyr::pull() ==
     cdm2$person |>

@@ -3,9 +3,10 @@ test_that("mockObservationPeriod", {
     cdm <- emptyCdmReference(cdmName = "test") |>
       mockPerson(
         nPerson = 1000,
-        birthRange = as.Date(c("1990-01-01", "2000-01-01"))
+        birthRange = as.Date(c("1990-01-01", "2000-01-01")),
+        seed = 1
       ) |>
-      mockObservationPeriod()
+      mockObservationPeriod(seed = 1)
   )
   expect_true(all(colnames(cdm$observation_period) %in%
     c(
