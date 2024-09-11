@@ -53,8 +53,7 @@ test_that("check cdm object get created", {
     cohort_end_date = cohort_start_date
   )
 
-  cdm <- omock::emptyCdmReference(cdmName = "mock") |>
-    omock::mockCdmFromTables(tables = list(index_cohort = indexCohort, marker_cohort = markerCohort))
+  cdm <- omock::mockCdmFromTables(tables = list(index_cohort = indexCohort, marker_cohort = markerCohort))
 
   expect_no_error(cdm$marker_cohort)
   expect_no_error(cdm$index_cohort)

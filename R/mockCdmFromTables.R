@@ -39,21 +39,21 @@
 #' )
 #'
 #' # Generate a mock CDM from preexisting CDM structure and cohort table
-#' cdm <- mockCdmFromTables(cdm = mockCdmReference(), tables = list(cohort = cohort))
+#' cdm <- mockCdmFromTables(tables = list(cohort = cohort))
 #'
 #' # Access the newly integrated cohort table and the standard person table in the CDM
 #' print(cdm$cohort)
 #' print(cdm$person)
 #' }
-mockCdmFromTables <- function(cdm = mockCdmReference(),
-                              tables = list(),
+mockCdmFromTables <- function(tables = list(),
                               seed = NULL) {
+
+  cdm = mockCdmReference()
   meanBirthStart <- 5 * 365
   meanStartFirst <- 2 * 365
   meanLastEnd <- 1 * 365
 
   # initial checks
-  omopgenerics::validateCdmArgument(cdm = cdm)
   omopgenerics::assertNumeric(seed,integerish = TRUE, min = 1,
                               length = 1, null = TRUE)
 
