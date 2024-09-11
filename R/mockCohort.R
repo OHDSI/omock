@@ -51,7 +51,7 @@ mockCohort <- function(cdm,
                        numberCohorts = 1,
                        cohortName = paste0("cohort_", seq_len(numberCohorts)),
                        recordPerson = 1,
-                       seed = NULL) {
+                       seed = 1) {
   # initial checks
   checkInput(
     cdm = cdm,
@@ -159,7 +159,7 @@ mockCohort <- function(cdm,
     cohort <- purrr::map(
       cohort_id,
       \(x) cohort |>
-        dplyr::filter(cohort_definition_id == x) |>
+        dplyr::filter("cohort_definition_id" == x) |>
         dplyr::slice(1:numberRows[x])
     ) |> dplyr::bind_rows()
   }
