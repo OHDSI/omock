@@ -85,7 +85,7 @@ mockCohort <- function(cdm,
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  numberRows <- numberRows * 1.2
+  numberRows <- (numberRows * 1.2) |> round()
   rows_to_keep <- sum(numberRows / 1.2)
 
 
@@ -146,18 +146,29 @@ mockCohort <- function(cdm,
     dplyr::ungroup() |>
     dplyr::select(-"next_observation") |>
     stats::na.omit() |>
-    dplyr::distinct() |>
-    dplyr::slice(1:rows_to_keep)
+    dplyr::distinct()
 
+#correct cohort count
+  if(nrow(cohort) > 0) {
+    cohort_id <- cohort |>
+      dplyr::pull("cohort_definition_id") |>
+      unique() |> as.integer()
 
+    numberRows <- (numberRows / 1.2) |> round()
 
+    cohort <- purrr::map(
+      cohort_id,
+      \(x) cohort |>
+        dplyr::filter(cohort_definition_id == x) |>
+        dplyr::slice(1:numberRows[x])
+    ) |> dplyr::bind_rows()
+  }
   # generate cohort set table
 
   cohortName <- snakecase::to_snake_case(cohortName)
 
   cohortSetTable <- dplyr::tibble(cohort_definition_id = cohortId,
                                   cohort_name = cohortName)
-
   # create class
 
   cdm <-

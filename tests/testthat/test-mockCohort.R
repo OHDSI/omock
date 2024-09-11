@@ -35,3 +35,21 @@ test_that("mock cohort simple test", {
 
 
 })
+
+test_that("cohort count", {
+  cdm <- omock::emptyCdmReference(cdmName = "mock") |>
+    omock::mockPerson(nPerson = 100) |>
+    omock::mockObservationPeriod() |>
+    omock::mockCohort(recordPerson = 1,
+                      numberCohorts = 3,
+                      seed = 1)
+
+  expect_true(all(
+    cdm$cohort |>
+      dplyr::group_by(cohort_definition_id) |>
+      dplyr::tally() |>
+      dplyr::pull(n) == c(100, 100, 100)
+  ))
+
+})
+
