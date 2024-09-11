@@ -18,7 +18,7 @@ test_that("mock cohort simple test", {
     omock::mockObservationPeriod() |>
     omock::mockCohort(recordPerson = 2)
 
-  testthat::expect_true(cdm$cohort |> dplyr::tally() == 200)
+  expect_true(cdm$cohort |> dplyr::tally() == 200)
 
   expect_no_error(mockCdmReference() |>
     mockPerson(nPerson = 100) |>

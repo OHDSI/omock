@@ -159,7 +159,7 @@ mockCohort <- function(cdm,
     cohort <- purrr::map(
       cohort_id,
       \(x) cohort |>
-        dplyr::filter("cohort_definition_id" == x) |>
+        dplyr::filter(.data$cohort_definition_id == x) |>
         dplyr::slice(1:numberRows[x])
     ) |> dplyr::bind_rows()
   }
