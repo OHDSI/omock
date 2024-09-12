@@ -30,4 +30,19 @@ test_that("test mock drug exposure", {
 
   expect_true(cdm$drug_exposure |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
+
+  #add visit details
+
+  cdm <- cdm |> mockVisitOccurrence()
+
+  expect_no_error(cdm |> mockVisitOccurrence())
+
+  expect_true(!is.null(cdm$drug_exposure |>
+                         dplyr::pull(visit_occurrence_id)))
+
+  expect_warning(omock::mockCdmReference() |> mockVisitOccurrence())
+
+
 })
+
+
