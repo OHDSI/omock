@@ -10,7 +10,7 @@ mockCohort(
   numberCohorts = 1,
   cohortName = paste0("cohort_", seq_len(numberCohorts)),
   recordPerson = 1,
-  seed = 1
+  seed = NULL
 )
 }
 \arguments{
