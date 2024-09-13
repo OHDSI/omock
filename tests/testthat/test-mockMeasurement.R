@@ -33,3 +33,21 @@ test_that("mock Measurement", {
   expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
                 10 * 2)
 })
+
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockMeasurement(seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockMeasurement()
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockMeasurement(seed = 1)
+
+  expect_error(expect_equal(cdm1$measurement, cdm2$measurement))
+  expect_equal(cdm1$measurement, cdm3$measurement)
+
+})
