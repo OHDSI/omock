@@ -246,3 +246,14 @@ correctCdmFormat <- function(table, tableName) {
 
 
 }
+#' get column start date
+#'
+#' @noRd
+#'
+startDateColumn <- function(tableName) {
+  if (tableName %in% namesTable$table_name) {
+    return(namesTable$start_date_name[namesTable$table_name == tableName])
+  } else {
+    return("cohort_start_date")
+  }
+}

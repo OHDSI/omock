@@ -11,7 +11,7 @@ reference:
   - title: "Mock Table Creation"
     desc: "These functions are focused on adding mock data tables based on the initialized CDM structure."
     contents:
-      - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation|mockProcedureOccurrence")
+      - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation|mockProcedureOccurrence|mockVisitOccurrence")
 
   - title: "Vocabulary Tables Creation"
     desc: "This group includes functions that set up vocabulary tables."
