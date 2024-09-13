@@ -31,3 +31,22 @@ test_that("test mock condition occurrence", {
   expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
 })
+
+
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence(seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence()
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence(seed = 1)
+
+  expect_error(expect_equal(cdm1$condition_occurrence, cdm2$condition_occurrence))
+  expect_equal(cdm1$condition_occurrence, cdm3$condition_occurrence)
+
+})

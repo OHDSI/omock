@@ -4,7 +4,7 @@
 \alias{mockProcedureOccurrence}
 \title{Generates a mock procedure occurrence table and integrates it into an existing CDM object.}
 \usage{
-mockProcedureOccurrence(cdm, recordPerson = 1, seed = 1)
+mockProcedureOccurrence(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that should already include 'person',

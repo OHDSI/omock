@@ -45,7 +45,7 @@
 mockConcepts <- function(cdm,
                          conceptSet,
                          domain = "Condition",
-                         seed = 1) {
+                         seed = NULL) {
   # initial checks
   checkInput(
     cdm = cdm,

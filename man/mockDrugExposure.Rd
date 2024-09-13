@@ -4,7 +4,7 @@
 \alias{mockDrugExposure}
 \title{Generates a mock drug exposure table and integrates it into an existing CDM object.}
 \usage{
-mockDrugExposure(cdm, recordPerson = 1, seed = 1)
+mockDrugExposure(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that must already include 'person' and 'observation_period' tables.

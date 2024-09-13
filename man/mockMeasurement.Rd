@@ -4,7 +4,7 @@
 \alias{mockMeasurement}
 \title{Generates a mock measurement table and integrates it into an existing CDM object.}
 \usage{
-mockMeasurement(cdm, recordPerson = 1, seed = 1)
+mockMeasurement(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that must already include 'person' and 'observation_period' tables.

@@ -4,7 +4,7 @@
 \alias{mockConditionOccurrence}
 \title{Generates a mock condition occurrence table and integrates it into an existing CDM object.}
 \usage{
-mockConditionOccurrence(cdm, recordPerson = 1, seed = 1)
+mockConditionOccurrence(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object that should already include 'person',

@@ -40,3 +40,21 @@ test_that("check mockDeath", {
       dplyr::pull())
   )
 })
+
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDeath(seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDeath()
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDeath(seed = 1)
+
+  expect_error(expect_equal(cdm1$death, cdm2$death))
+  expect_equal(cdm1$death, cdm3$death)
+
+})

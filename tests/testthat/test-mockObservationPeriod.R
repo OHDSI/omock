@@ -3,7 +3,8 @@ test_that("mockObservationPeriod", {
     cdm <- emptyCdmReference(cdmName = "test") |>
       mockPerson(
         nPerson = 1000,
-        birthRange = as.Date(c("1990-01-01", "2000-01-01"))
+        birthRange = as.Date(c("1990-01-01", "2000-01-01")),
+        seed = 1
       ) |>
       mockObservationPeriod()
   )
@@ -22,4 +23,19 @@ test_that("mockObservationPeriod", {
     cdm$observation_period$observation_period_end_date))
   expect_true(all(cdm$observation_period$observation_period_id ==
     cdm$observation_period$person_id))
+})
+
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod()
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1)
+
+  expect_error(expect_equal(cdm1$observation_period, cdm2$observation_period))
+  expect_equal(cdm1$observation_period, cdm3$observation_period)
+
 })

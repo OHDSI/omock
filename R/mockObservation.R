@@ -33,7 +33,7 @@
 #' print(cdm$observation)
 mockObservation <- function(cdm,
                             recordPerson = 1,
-                            seed = 1) {
+                            seed = NULL) {
   checkInput(
     cdm = cdm,
     recordPerson = recordPerson,

@@ -84,3 +84,15 @@ test_that("mockPerson test gender split", {
   expect_true(cdm$person |> dplyr::filter(gender_concept_id == 8507) |>
     dplyr::tally() |> dplyr::pull() == 0)
 })
+
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10)
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1)
+
+  expect_error(expect_equal(cdm1$person, cdm2$person))
+  expect_equal(cdm1$person, cdm3$person)
+
+})

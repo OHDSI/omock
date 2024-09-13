@@ -45,4 +45,21 @@ test_that("test mock drug exposure", {
 
 })
 
+test_that("seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDrugExposure(seed = 1)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDrugExposure()
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockDrugExposure(seed = 1)
+
+  expect_error(expect_equal(cdm1$drug_exposure, cdm2$drug_exposure))
+  expect_equal(cdm1$drug_exposure, cdm3$drug_exposure)
+
+})
 

@@ -1,14 +1,15 @@
 test_that("stress test", {
-  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 100) |>
+
+  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 100, ) |>
     omock::mockObservationPeriod() |> omock::mockCohort())
 
-  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 1000) |>
+  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 1000, ) |>
     omock::mockObservationPeriod() |> omock::mockCohort())
 
-  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 10000) |>
+  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 10000, ) |>
     omock::mockObservationPeriod() |> omock::mockCohort())
 
-  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 20000) |>
+  testthat::expect_no_error(omock::emptyCdmReference(cdmName = "mock") |> omock::mockPerson(nPerson = 20000, ) |>
     omock::mockObservationPeriod() |> omock::mockCohort())
 })
 
@@ -21,7 +22,7 @@ test_that("mock cohort simple test", {
   expect_true(cdm$cohort |> dplyr::tally() == 200)
 
   expect_no_error(mockCdmReference() |>
-    mockPerson(nPerson = 100) |>
+    mockPerson(nPerson = 100, ) |>
     mockObservationPeriod() |>
     mockCohort(
       name = "omock_example",
@@ -32,7 +33,24 @@ test_that("mock cohort simple test", {
   expect_no_warning(omock::mockPerson(nPerson = 10) |>
                       omock::mockCohort(name = "cohort"))
 
+})
 
+
+test_that("mock cohort seed test", {
+  cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockCohort(name = "cohort", seed = 2)
+
+  cdm2 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockCohort(name = "cohort")
+
+  cdm3 <- omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockCohort(name = "cohort", seed = 2)
+
+  expect_error(expect_equal(cdm1$cohort, cdm2$cohort))
+  expect_equal(cdm1$cohort, cdm3$cohort)
 
 })
 
