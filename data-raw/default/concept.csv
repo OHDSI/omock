@@ -1,23 +1,4 @@
 concept_id,concept_name,domain_id,vocabulary_id,standard_concept,concept_class_id,concept_code,valid_start_date,valid_end_date,invalid_reason
-1,Musculoskeletal disorder,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-2,Osteoarthrosis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-3,Arthritis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-4,Osteoarthritis of knee,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-5,Osteoarthritis of hip,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-6,Osteonecrosis,Condition,SNOMED,S,Clinical Finding,1234,NA,NA,NA
-7,Degenerative arthropathy,Condition,Read,NA,Diagnosis,1234,NA,NA,NA
-8,Knee osteoarthritis,Condition,Read,NA,Diagnosis,1234,NA,NA,NA
-9,H/O osteoarthritis,Observation,LOINC,S,Observation,1234,NA,NA,NA
-10,Adalimumab,Drug,RxNorm,S,Ingredient,1234,NA,NA,NA
-11,Injection,Drug,OMOP,NA,Dose Form,1234,NA,NA,NA
-12,ALIMENTARY TRACT AND METABOLISM,Drug,ATC,NA,ATC 1st,1234,NA,NA,NA
-13,Descendant drug,Drug,RxNorm,S,Drug,1234,NA,NA,NA
-14,Injectable,Drug,OMOP,NA,Dose Form,1234,NA,NA,NA
-15,Diseases of the musculoskeletal system and connective tissue,Condition,ICD10,NA,ICD10 Chapter,1234,NA,NA,NA
-16,Arthropathies,Condition,ICD10,NA,ICD10 SubChapter,1234,NA,NA,NA
-17,Arthritis,Condition,ICD10,NA,ICD Code,1234,NA,NA,NA
-18,OA,Condition,ICD10,NA,ICD Code,1234,NA,NA,NA
-19,Other ingredient,Drug,RxNorm,S,Ingredient,1234,NA,NA,NA
 38003563,Hispanic or Latino,Ethnicity,Ethnicity,Ethnicity,S,Hispanic,01/01/1970,31/12/2099,NA
 38003564,Not Hispanic or Latino,Ethnicity,Ethnicity,Ethnicity,S,Not Hispanic,01/01/1970,31/12/2099,NA
 8507,MALE,Gender,Gender,Gender,S,M,01/01/1970,31/12/2099,NA
@@ -3243,6 +3224,139 @@ concept_id,concept_name,domain_id,vocabulary_id,standard_concept,concept_class_i
 9201,Inpatient Visit,Visit,Visit,Visit,S,IP,01/01/1970,31/12/2099,NA
 9202,Outpatient Visit,Visit,Visit,Visit,S,OP,01/01/1970,31/12/2099,NA
 9203,Emergency Room Visit,Visit,Visit,Visit,S,ER,01/01/1970,31/12/2099,NA
-3020630,Protein serum/plasma,Measurement,LOINC,Lab Test,S,2885-2,01/01/1970,31/12/2099,NA
-4336464,Coronary artery bypass graft,Procedure,SNOMED,Procedure,S,232717009,01/01/1970,31/12/2099,NA
-4295880,Intramuscular injection,Procedure,SNOMED,Procedure,S,76601001,01/01/1970,31/12/2099,NA
+194152,Renal agenesis and dysgenesis,Condition,SNOMED,Clinical Finding,S,204938007,37287,73050,NA
+437738,Motor vehicle accident off public road,Observation,SNOMED,Event,S,214640008,37287,73050,NA
+444074,Victim of vehicular AND/OR traffic accident,Condition,SNOMED,Clinical Finding,S,36198007,37287,73050,NA
+1004521,"How often did you drink regular colas and root beer (with caffeine, not diet)",Observation,LOINC,LOINC Component,NA,LP102691-5,25569,73050,NA
+1025532,^Patient,Observation,LOINC,LOINC System,NA,LP310005-6,25569,73050,NA
+1029636,Finding,Observation,LOINC,LOINC Property,NA,LP6813-2,25569,73050,NA
+1029706,Number (count),Observation,LOINC,LOINC Property,NA,LP6841-3,25569,73050,NA
+1029816,Point in time (spot),Observation,LOINC,LOINC Time,NA,LP6960-1,25569,73050,NA
+1032718,Number of days diuretic medication received,Observation,LOINC,LOINC Component,NA,LP75209-4,25569,73050,NA
+1033535,Minimum Data Set,Observation,LOINC,LOINC Method,NA,LP76084-0,25569,73050,NA
+1033749,Ord,Observation,LOINC,LOINC Scale,NA,LP7751-3,25569,73050,NA
+1033751,Qn,Observation,LOINC,LOINC Scale,NA,LP7753-9,25569,73050,NA
+1034443,PhenX,Observation,LOINC,LOINC Method,NA,LP95333-8,25569,73050,NA
+1361364,glucagon Nasal Powder,Drug,RxNorm,Clinical Drug Form,S,2180665,43711,73050,NA
+1361365,glucagon 3 MG Nasal Powder,Drug,RxNorm,Clinical Drug,S,2180666,43711,73050,NA
+1361368,glucagon Nasal Powder [Baqsimi],Drug,RxNorm,Branded Drug Form,S,2180669,43711,73050,NA
+1361370,glucagon 3 MG Nasal Powder [Baqsimi],Drug,RxNorm,Branded Drug,S,2180671,43711,73050,NA
+1830184,Sisymbrium officianale whole extract 10 MG Nasal Powder [Euphon],Drug,RxNorm Extension,Branded Drug,S,OMOP5155536,44440,73050,NA
+1830278,Sisymbrium officianale whole extract Nasal Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP5155532,44440,73050,NA
+1830279,Sisymbrium officianale whole extract Nasal Powder [Euphon],Drug,RxNorm Extension,Branded Drug Form,S,OMOP5155533,44440,73050,NA
+1830280,Sisymbrium officianale whole extract 10 MG Nasal Powder,Drug,RxNorm Extension,Clinical Drug,S,OMOP5155534,44440,73050,NA
+1830281,Sisymbrium officianale whole extract 10 MG Nasal Powder Box of 50,Drug,RxNorm Extension,Clinical Drug Box,S,OMOP5155535,44440,73050,NA
+1830282,Sisymbrium officianale whole extract 10 MG Nasal Powder [Euphon] Box of 50,Drug,RxNorm Extension,Branded Drug Box,S,OMOP5155537,44440,73050,NA
+1830283,Sisymbrium officianale whole extract 10 MG Nasal Powder [Euphon] Box of 50 by Mayoly Spindler,Drug,RxNorm Extension,Marketed Product,S,OMOP5155538,44440,73050,NA
+1971546,glucose / potassium / sodium Nasal Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP5164119,44589,73050,NA
+3001467,Alkaline phosphatase.bone [Enzymatic activity/volume] in Serum or Plasma,Measurement,LOINC,Lab Test,S,1777-2,25569,73050,NA
+3002069,Alkaline phosphatase.bone/Alkaline phosphatase.total in Serum or Plasma,Measurement,LOINC,Lab Test,S,15013-6,25569,73050,NA
+3011539,Uroporphyrin 3 isomer [Moles/volume] in Serum or Plasma,Measurement,LOINC,Lab Test,S,14943-5,25569,73050,NA
+3012056,Uroporphyrin 3 isomer [Moles/volume] in Urine,Measurement,LOINC,Lab Test,S,14945-0,25569,73050,NA
+3018910,Alkaline phosphatase.bone [Mass/volume] in Serum or Plasma,Measurement,LOINC,Lab Test,S,17838-4,35961,73050,NA
+3026074,Uroporphyrin 3 isomer [Moles/volume] in Stool,Measurement,LOINC,Lab Test,S,14944-3,25569,73050,NA
+3026972,Cyclohexanone [Mass/volume] in Urine,Measurement,LOINC,Lab Test,S,21236-5,25569,73050,NA
+3041300,Uroporphyrin 3 isomer [Moles/time] in 24 hour Urine,Measurement,LOINC,Lab Test,S,40408-7,25569,73050,NA
+3042479,Alkaline phosphatase.bone [Presence] in Serum or Plasma,Measurement,LOINC,Lab Test,S,40797-3,38467,73050,NA
+3043879,Number of days diuretic medication received [Minimum Data Set],Observation,LOINC,Survey,S,45840-6,25569,73050,NA
+3045657,Days received the following medication Set,Observation,LOINC,Survey,S,46058-4,25569,73050,NA
+3046614,Uroporphyrin 3 isomer [Mass/time] in 24 hour Stool,Measurement,LOINC,Lab Test,S,33585-1,25569,73050,NA
+3046700,Uroporphyrin 3 isomer [Moles/mass] in Stool,Measurement,LOINC,Lab Test,S,45312-6,25569,73050,NA
+3523798,Manic mood,Observation,SNOMED,Undefined,NA,1.86611E+14,25569,38564,U
+3583353,Other operation on amniotic cavity NOS,Procedure,SNOMED,Procedure,NA,6.23301E+14,40269,40819,D
+4004858,Uroporphyrin III measurement,Measurement,SNOMED,Procedure,S,121272002,37287,73050,NA
+4012925,Operation on accessory sinus,Procedure,SNOMED,Procedure,S,112788002,37287,73050,NA
+4044177,Measurement - action,Observation,SNOMED,Qualifier Value,S,129266000,37287,73050,NA
+4092121,Level of mood,Observation,SNOMED,Observable Entity,S,247774004,37287,73050,NA
+4141932,Operation on unspecified nasal sinus,Procedure,SNOMED,Procedure,NA,265029005,37287,44588,U
+4150381,Uroporphyrin measurement,Measurement,SNOMED,Procedure,S,31152005,37287,73050,NA
+4151660,Alkaline phosphatase bone isoenzyme raised,Condition,SNOMED,Clinical Finding,S,310885000,37287,73050,NA
+4154344,Alkaline phosphatase - bone isoenzyme measurement,Measurement,SNOMED,Procedure,S,271052004,37287,73050,NA
+4195342,Plasma alkaline phosphatase bone isoenzyme measurement,Measurement,SNOMED,Procedure,S,313846006,37287,73050,NA
+4197973,"Alkaline phosphatase bone isoenzyme measurement, serum",Measurement,SNOMED,Procedure,S,313845005,37287,73050,NA
+4220473,"Alkaline phosphatase isoenzyme, bone fraction",Drug,SNOMED,Substance,NA,3990003,37287,73050,NA
+4220524,Uroporphyrin III,Drug,SNOMED,Substance,NA,82778006,37287,73050,NA
+4220699,Alkaline phosphatase isoenzymes measurement,Measurement,SNOMED,Procedure,S,8244002,37287,73050,NA
+4226696,Manic mood,Condition,SNOMED,Clinical Finding,S,405273008,38017,73050,NA
+4304866,Elevated mood,Condition,SNOMED,Clinical Finding,S,81548002,37287,73050,NA
+21018250,Jaaps Health Salts,Drug,RxNorm Extension,Brand Name,NA,OMOP336827,25569,73050,NA
+21216049,Sodium potassium tartrate,Drug,dm+d,Ingredient,NA,8088411000001102,25569,73050,NA
+21492201,Uroporphyrin 3 isomer [Mass/time] in 24 hour Urine,Measurement,LOINC,Lab Test,S,79128-5,42545,73050,NA
+21601213,combinations of electrolytes; parenteral,Drug,ATC,ATC 5th,C,B05XA30,25569,73050,NA
+21601386,ANTINEOPLASTIC AND IMMUNOMODULATING AGENTS,Drug,ATC,ATC 1st,C,L,25569,73050,NA
+21601387,ANTINEOPLASTIC AGENTS,Drug,ATC,ATC 2nd,C,L01,25569,73050,NA
+35604394,Topical Liquefied Gas,Drug,RxNorm,Dose Form,NA,1788820,42492,73050,NA
+35604434,nitrogen Topical Liquefied Gas,Drug,RxNorm,Clinical Drug Form,S,1788944,42492,73050,NA
+35604435,nitrogen 99.2 % Topical Liquefied Gas,Drug,RxNorm,Clinical Drug,S,1788945,42492,73050,NA
+35604439,nitrogen 99 % Topical Liquefied Gas,Drug,RxNorm,Clinical Drug,S,1788949,42492,73050,NA
+35604877,Nasal Powder,Drug,RxNorm,Dose Form,NA,1739329,42492,73050,NA
+35604879,sumatriptan Nasal Powder,Drug,RxNorm,Clinical Drug Form,S,1739331,42492,73050,NA
+35604880,sumatriptan 11 MG Nasal Powder,Drug,RxNorm,Clinical Drug,S,1739332,42492,73050,NA
+35604883,sumatriptan Nasal Powder [Onzetra],Drug,RxNorm,Branded Drug Form,S,1739335,42492,73050,NA
+35604884,sumatriptan 11 MG Nasal Powder [Onzetra],Drug,RxNorm,Branded Drug,S,1739337,42492,73050,NA
+35741956,Sodium potassium tartrate,Drug,RxNorm Extension,Ingredient,NA,OMOP2800105,25569,43313,U
+35774678,POTASSIUM SODIUM TARTRATE / Sodium Bicarbonate / tartaric acid Injectable Solution,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP2776139,42971,73050,NA
+36210656,Survey terms not yet categorized,Observation,LOINC,LOINC Hierarchy,C,LP248772-8,25569,73050,NA
+40475132,Arthropathies,Condition,ICD10,ICD10 SubChapter,NA,M00-M25,43943,73050,NA
+40475135,Other joint disorders,Condition,ICD10,ICD10 SubChapter,NA,M20-M25,43943,73050,NA
+40721254,POTASSIUM SODIUM TARTRATE 0.0094 MG/MG,Drug,RxNorm Extension,Clinical Drug Comp,S,OMOP4736855,43255,73050,NA
+40741270,POTASSIUM SODIUM TARTRATE / Sodium Bicarbonate / tartaric acid Oral Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP4715651,43255,73050,NA
+40764263,"How often did you drink regular colas and root beer (with caffeine, not diet) [PhenX]",Observation,LOINC,Clinical Observation,S,61502-1,40479,73050,NA
+40765028,PhenX - caffeine protocol 050301,Measurement,LOINC,Clinical Observation,S,62280-3,40504,73050,NA
+40775805,Cyclohexanone,Observation,LOINC,LOINC Component,NA,LP14374-0,25569,73050,NA
+45430573,Renal agenesis or dysgenesis NOS,Condition,Read,Read,NA,PD0z.00,25569,73050,NA
+45511667,Manic mood,Condition,Read,Read,NA,1S42.00,25569,73050,NA
+45533778,Other acquired deformities of limbs,Condition,ICD10,ICD10 Hierarchy,NA,M21,32994,73050,NA
+45881662,2-4 times per week,Meas Value,LOINC,Answer,S,LA13846-3,25569,73050,NA
+45882429,1-3 times per month,Meas Value,LOINC,Answer,S,LA13836-4,25569,73050,NA
+45882430,4-5 times per day,Meas Value,LOINC,Answer,S,LA13856-2,25569,73050,NA
+45882431,1 time per week,Meas Value,LOINC,Answer,S,LA13829-9,25569,73050,NA
+45882432,2-3 times per day,Meas Value,LOINC,Answer,S,LA13844-8,25569,73050,NA
+45882531,6 or more times per day,Meas Value,LOINC,Answer,S,LA13861-2,25569,73050,NA
+45883166,5-6 times per week,Meas Value,LOINC,Answer,S,LA13860-4,25569,73050,NA
+37498042,Bos taurus catalase preparation,Drug,RxNorm,Ingredient,S,2265847,43955,73050,NA
+37787172,Sodium potassium tartrate crystal,Drug,Gemscript,Gemscript,NA,48195020,42461,73050,NA
+44091285,POTASSIUM SODIUM TARTRATE 9.4 MG/MG,Drug,RxNorm Extension,Clinical Drug Comp,S,OMOP1085916,42971,73050,NA
+44810792,Alkaline phosphatase bone isoenzyme activity measurement,Measurement,SNOMED,Procedure,S,8.89411E+14,41548,73050,NA
+44812389,SNOMED CT United Kingdom clinical extension module,Metadata,SNOMED,Model Comp,NA,999000011000000103,38017,44588,D
+45548358,Internal derangement of knee,Condition,ICD10,ICD10 Hierarchy,NA,M23,32994,73050,NA
+45548372,Other specific joint derangements,Condition,ICD10,ICD10 Hierarchy,NA,M24,32994,73050,NA
+45875977,PhenX,Measurement,LOINC,LOINC Class,C,PHENX,25569,73050,NA
+45876109,Minimum Data Set (MDS) for Nursing Home Resident Assessment and Care Screening survey,Observation,LOINC,LOINC Class,C,SURVEY.MDS,25569,73050,NA
+21603215,THROAT PREPARATIONS,Drug,ATC,ATC 2nd,C,R02,25569,73050,NA
+21603248,DRUGS FOR OBSTRUCTIVE AIRWAY DISEASES,Drug,ATC,ATC 2nd,C,R03,25569,73050,NA
+21603365,COUGH AND COLD PREPARATIONS,Drug,ATC,ATC 2nd,C,R05,25569,73050,NA
+21603444,ANTIHISTAMINES FOR SYSTEMIC USE,Drug,ATC,ATC 2nd,C,R06,25569,73050,NA
+21603530,OTHER RESPIRATORY SYSTEM PRODUCTS,Drug,ATC,ATC 2nd,C,R07,25569,73050,NA
+21603812,ENDOCRINE THERAPY,Drug,ATC,ATC 2nd,C,L02,25569,73050,NA
+21603848,IMMUNOSTIMULANTS,Drug,ATC,ATC 2nd,C,L03,25569,73050,NA
+21603890,IMMUNOSUPPRESSANTS,Drug,ATC,ATC 2nd,C,L04,25569,73050,NA
+21605007,RESPIRATORY SYSTEM,Drug,ATC,ATC 1st,C,R,25569,73050,NA
+21605008,NASAL PREPARATIONS,Drug,ATC,ATC 2nd,C,R01,25569,73050,NA
+36034746,sodium chloride Nasal Powder [Neilmed Sinus Rins],Drug,RxNorm Extension,Branded Drug Form,S,OMOP5044767,44364,73050,NA
+36034747,sodium chloride Nasal Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP5044768,44364,73050,NA
+36034751,Mentha arvensis top extract / sodium chloride / xylitol Nasal Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP5044772,44364,73050,NA
+36036059,glucagon 3 MG Nasal Powder [Baqsimi] by Abacus Medicine,Drug,RxNorm Extension,Marketed Product,S,OMOP5046066,44364,73050,NA
+36207527,Clinical terms not yet categorized,Observation,LOINC,LOINC Hierarchy,C,LP248771-0,25569,73050,NA
+37065199,Cyclohexanone | Urine | Drug toxicology,Measurement,LOINC,LOINC Hierarchy,C,LP387392-6,25569,73050,NA
+40558872,Alkaline phosphatase - bone isoenzyme level,Procedure,SNOMED,Procedure,NA,390317001,25569,37652,U
+40563833,Alkaline phosphatase - bone isoenzyme level,Procedure,SNOMED,Procedure,NA,389585009,25569,37652,U
+42899580,potassium sodium tartrate,Drug,RxNorm,Ingredient,S,1311363,41183,73050,NA
+45538734,"Other joint disorders, not elsewhere classified",Condition,ICD10,ICD10 Hierarchy,NA,M25,32994,73050,NA
+37110496,Manic symptoms co-occurrent and due to primary psychotic disorder,Condition,SNOMED,Clinical Finding,S,724758000,42947,73050,NA
+44081436,POTASSIUM SODIUM TARTRATE / Sodium Bicarbonate / sodium carbonate / Sodium Chloride / tartaric acid Oral Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP1076067,42971,73050,NA
+45755492,Acquired deformities of fingers and toes,Condition,ICD10,ICD10 Hierarchy,NA,M20,32994,73050,NA
+45755493,Disorders of patella,Condition,ICD10,ICD10 Hierarchy,NA,M22,32994,73050,NA
+45756021,Bus occupant injured in collision with heavy transport vehicle or bus,Condition,ICD10,ICD10 Hierarchy,NA,V74,32994,73050,NA
+45756023,"Bus occupant injured in collision with heavy transport vehicle or bus, person on outside of vehicle injured in nontraffic accident",Condition,ICD10,ICD10 code,NA,V74.2,32994,73050,NA
+45884448,Never or less than 1 time per month,Meas Value,LOINC,Answer,S,LA13894-3,25569,73050,NA
+45885250,1 time per day,Meas Value,LOINC,Answer,S,LA13827-3,25569,73050,NA
+36217206,Topical Product,Drug,RxNorm,Dose Form Group,C,1151122,42583,73050,NA
+36217213,Nasal Product,Drug,RxNorm,Dose Form Group,C,1151130,42583,73050,NA
+37593197,Sodium / Sodium Chloride Nasal Powder,Drug,RxNorm Extension,Clinical Drug Form,S,OMOP4782636,43482,73050,NA
+40371897,Manic mood,Condition,SNOMED,Clinical Finding,NA,286571004,37287,38017,D
+40642537,Defined,Metadata,SNOMED,Model Comp,NA,900000000000073002,37287,73050,NA
+40642538,Primitive,Metadata,SNOMED,Model Comp,NA,900000000000074008,37287,73050,NA
+40642539,SNOMED CT core,Metadata,SNOMED,Model Comp,NA,900000000000207008,37287,73050,NA
+44022939,Septiline,Drug,RxNorm Extension,Brand Name,NA,OMOP1017570,25569,73050,NA
+46274351,sodium potassium tartrate tetrahydrate,Drug,RxNorm,Precise Ingredient,NA,1311362,42255,73050,NA
