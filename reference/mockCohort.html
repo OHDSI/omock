@@ -5,7 +5,7 @@ specified properties and simulates the frequency of observations for
 individuals."><meta property="og:description" content="This function generates synthetic cohort data and adds it to a given CDM
 (Common Data Model) reference. It allows for creating multiple cohorts with
 specified properties and simulates the frequency of observations for
-individuals."><meta property="og:image" content="https://ohdsi.github.io/omock/logo.png"></head><body>
+individuals."><meta property="og:image" content="https://oxford-pharmacoepi.github.io/omock/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -13,7 +13,7 @@ individuals."><meta property="og:image" content="https://ohdsi.github.io/omock/l
 
     <a class="navbar-brand me-2" href="../index.html">omock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@ individuals."><meta property="og:image" content="https://ohdsi.github.io/omock/l
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Generate Synthetic Cohort</h1>
-      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/R/mockCohort.R" class="external-link"><code>R/mockCohort.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/v0.3.0/R/mockCohort.R" class="external-link"><code>R/mockCohort.R</code></a></small>
       <div class="d-none name"><code>mockCohort.Rd</code></div>
     </div>
 
@@ -118,7 +118,7 @@ with its own set of observation records.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/">omock</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/" class="external-link">omock</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="mockCdmReference.html">mockCdmReference</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
