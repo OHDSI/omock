@@ -30,7 +30,7 @@ Imports:
     dplyr,
     lubridate,
     methods,
-    omopgenerics (>= 0.0.3),
+    omopgenerics (>= 0.3.0),
     purrr,
     rlang,
     snakecase,
@@ -46,5 +46,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 BugReports: https://github.com/ohdsi/omock/issues
-Remotes:
-    darwin-eu-dev/omopgenerics
+
