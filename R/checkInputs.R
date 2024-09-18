@@ -192,9 +192,8 @@ addArgument <- function(functions, exclude = character()) {
 #'
 addOtherColumns <- function(table, tableName) {
 
-  colToAdd <-
-    base::setdiff(omopgenerics::omopColumns(tableName, onlyRequired = FALSE),
-                  colnames(table))
+  colToAdd <- base::setdiff(
+    omopgenerics::omopColumns(tableName), colnames(table))
 
   for (col in colToAdd) {
     table[[col]] <- NA
