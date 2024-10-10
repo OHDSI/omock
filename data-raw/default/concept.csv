@@ -1,4 +1,4 @@
-concept_id,concept_name,domain_id,vocabulary_id,standard_concept,concept_class_id,concept_code,valid_start_date,valid_end_date,invalid_reason
+concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,standard_concept,concept_code,valid_start_date,valid_end_date,invalid_reason
 38003563,Hispanic or Latino,Ethnicity,Ethnicity,Ethnicity,S,Hispanic,01/01/1970,31/12/2099,NA
 38003564,Not Hispanic or Latino,Ethnicity,Ethnicity,Ethnicity,S,Not Hispanic,01/01/1970,31/12/2099,NA
 8507,MALE,Gender,Gender,Gender,S,M,01/01/1970,31/12/2099,NA
