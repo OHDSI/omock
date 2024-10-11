@@ -91,6 +91,12 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   omopTables <- tables[names(tables) %in% omopgenerics::omopTables()]
   cohortTables <- tables[!names(tables) %in% omopgenerics::omopTables()]
+  for (tables in names(cohortTables)){
+    cohortTables[[tables]] <- cohortTables[[tables]] |>
+      addOtherColumns("cohort_definition") |>
+      correctCdmFormat("cohort_definition") |>
+      dplyr::mutate(subject_id = as.integer(subject_id))
+  }
 
   cdm <- omopgenerics::cdmFromTables(
     tables = omopTables, cdmName = cdmName(cdm), cohortTables = cohortTables
@@ -292,7 +298,9 @@ createPersonTable <- function(dates, tables) {
       "ethnicity_source_concept_id" = 0L
     ) |>
     dplyr::inner_join(providers, by = "pc_id") |>
-    dplyr::select(-"birth_date", -"pc_id")
+    dplyr::select(-"birth_date", -"pc_id")|>
+    addOtherColumns("person") |>
+    correctCdmFormat("person")
   return(tables)
 }
 correctDateDeath <- function(dates, tables) {
@@ -308,7 +316,9 @@ correctDateDeath <- function(dates, tables) {
         .data$death_date,
         .data$end_observation
       )) |>
-      dplyr::select(-"death_date")
+      dplyr::select(-"death_date")|>
+      addOtherColumns("death") |>
+      correctCdmFormat("death")
   }
   return(dates)
 }
@@ -324,6 +334,8 @@ createObservationPeriodTable <- function(dates, tables) {
     dplyr::mutate(
       "observation_period_id" = dplyr::row_number(),
       "period_type_concept_id" = sample(obsTypes, size = n, replace = TRUE)
-    )
+    ) |>
+    addOtherColumns("observation_period") |>
+    correctCdmFormat("observation_period")
   return(tables)
 }
