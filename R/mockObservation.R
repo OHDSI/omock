@@ -54,7 +54,8 @@ mockObservation <- function(cdm,
 
   concept_id <-
     cdm$concept |>
-    dplyr::filter(.data$domain_id == "Observation") |>
+    dplyr::filter(.data$domain_id == "Observation" &
+                    .data$standard_concept == "S") |>
     dplyr::select("concept_id") |>
     dplyr::pull() |>
     unique()

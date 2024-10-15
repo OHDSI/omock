@@ -54,7 +54,8 @@ mockDrugExposure <- function(cdm,
 
   concept_id <-
     cdm$concept |>
-    dplyr::filter(.data$domain_id == "Drug") |>
+    dplyr::filter(.data$domain_id == "Drug" &
+                    .data$standard_concept == "S") |>
     dplyr::select("concept_id") |>
     dplyr::pull() |>
     unique()
