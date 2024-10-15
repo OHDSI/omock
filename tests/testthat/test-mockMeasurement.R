@@ -17,7 +17,8 @@ test_that("mock Measurement", {
 
   concept_id <-
     cdm$concept |>
-    dplyr::filter(.data$domain_id == "Measurement") |>
+    dplyr::filter(.data$domain_id == "Measurement",
+                  .data$standard_concept == "S") |>
     dplyr::select("concept_id") |>
     dplyr::pull() |>
     unique()
