@@ -220,7 +220,7 @@ correctCdmFormat <- function(table, tableName) {
       }
 
       if (colType == "date") {
-        table[[colName]] <- as.Date(table[[colName]])
+        table[[colName]] <- as.Date(table[[colName]], "%d/%m/%Y")
 
       }
 
