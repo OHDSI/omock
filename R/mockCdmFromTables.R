@@ -101,7 +101,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
     cohortTables[[tables]] <- cohortTables[[tables]] |>
       addOtherColumns("cohort_definition") |>
       correctCdmFormat("cohort_definition") |>
-      dplyr::mutate(subject_id = as.integer(subject_id))
+      dplyr::mutate(subject_id = as.integer(.data$subject_id))
   }
 
   cdm <- omopgenerics::cdmFromTables(
