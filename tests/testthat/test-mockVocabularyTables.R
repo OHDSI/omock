@@ -146,7 +146,8 @@ test_that("test user defined table", {
       denominator_unit_concept_id = 8587,
       box_size = NA,
       valid_start_date = NA,
-      valid_end_date = NA
+      valid_end_date = NA,
+      invalid_reason = NA
     )
   )
 
