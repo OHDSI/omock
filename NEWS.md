@@ -1,4 +1,4 @@
-# omock (development version)
+# omock 0.3.2
 
 # omock 0.3.2
 fixes for new omopgenerics
