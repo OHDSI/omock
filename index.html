@@ -8,8 +8,8 @@
 <title>Creation of Mock Observational Medical Outcomes Partnership Common Data Model • omock</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Creation of Mock Observational Medical Outcomes Partnership Common Data Model">
 <meta name="description" content="Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model. The package offers functions crafted with pipeline-friendly implementation, enabling users to effortlessly include only the necessary tables for their testing needs.">
 <meta property="og:description" content="Creates mock data for testing and package development for the Observational Medical Outcomes Partnership common data model. The package offers functions crafted with pipeline-friendly implementation, enabling users to effortlessly include only the necessary tables for their testing needs.">
@@ -77,12 +77,12 @@
 </h2>
 <p>With omock we can quickly make a simple mock of OMOP CDM data.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu-dev.github.io/omopgenerics/" class="external-link">omopgenerics</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu.github.io/omopgenerics/" class="external-link">omopgenerics</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/">omock</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <p>We first start by making an empty cdm reference. This includes the person and observation tables (as they are required) but they are currently empty.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu-dev.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"mock"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"mock"</span><span class="op">)</span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 0</span></span>
@@ -124,10 +124,10 @@
 <span><span class="co">#&gt; Rows: 1,000</span></span>
 <span><span class="co">#&gt; Columns: 18</span></span>
 <span><span class="co">#&gt; $ person_id                   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,…</span></span>
-<span><span class="co">#&gt; $ gender_concept_id           &lt;int&gt; 8507, 8507, 8532, 8507, 8532, 8507, 8507, …</span></span>
-<span><span class="co">#&gt; $ year_of_birth               &lt;int&gt; 1976, 1981, 1977, 1963, 1977, 1980, 1954, …</span></span>
-<span><span class="co">#&gt; $ month_of_birth              &lt;int&gt; 7, 7, 2, 12, 1, 12, 1, 2, 8, 8, 4, 2, 11, …</span></span>
-<span><span class="co">#&gt; $ day_of_birth                &lt;int&gt; 22, 2, 19, 2, 17, 11, 16, 15, 14, 24, 2, 1…</span></span>
+<span><span class="co">#&gt; $ gender_concept_id           &lt;int&gt; 8507, 8532, 8532, 8507, 8532, 8507, 8532, …</span></span>
+<span><span class="co">#&gt; $ year_of_birth               &lt;int&gt; 1956, 1966, 1983, 1990, 1993, 1983, 1952, …</span></span>
+<span><span class="co">#&gt; $ month_of_birth              &lt;int&gt; 5, 8, 12, 10, 11, 7, 2, 3, 6, 11, 11, 2, 7…</span></span>
+<span><span class="co">#&gt; $ day_of_birth                &lt;int&gt; 18, 22, 30, 21, 5, 24, 15, 9, 3, 16, 1, 19…</span></span>
 <span><span class="co">#&gt; $ race_concept_id             &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ ethnicity_concept_id        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ birth_datetime              &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
@@ -152,8 +152,8 @@
 <span><span class="co">#&gt; Columns: 5</span></span>
 <span><span class="co">#&gt; $ observation_period_id         &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
 <span><span class="co">#&gt; $ person_id                     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
-<span><span class="co">#&gt; $ observation_period_start_date &lt;date&gt; 1999-09-07, 2000-07-13, 1980-01-28, 200…</span></span>
-<span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; 2012-06-08, 2016-10-10, 1991-06-06, 201…</span></span>
+<span><span class="co">#&gt; $ observation_period_start_date &lt;date&gt; 1993-06-25, 2003-07-30, 2000-05-24, 200…</span></span>
+<span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; 2002-11-11, 2015-10-12, 2014-07-08, 201…</span></span>
 <span><span class="co">#&gt; $ period_type_concept_id        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span></code></pre></div>
 </div>
 </div>
