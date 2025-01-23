@@ -1,0 +1,10 @@
+bibentry(
+  bibtype  = "MISC",
+  title    = "Omock: Creation of mock observational medical outcomes
+               partnership common data model",
+  author   = "Du, Mike and Catala, Marti and Burn, Edward and Mercade-Besora,
+               Nuria and Chen, Xihang",
+  journal  = "The R Foundation",
+  year     = 2024,
+  doi      = "10.32614/CRAN.package.omock"
+)
