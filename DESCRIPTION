@@ -24,7 +24,7 @@ Description: Creates mock data for testing and package development for the
 License: Apache License (>= 2)
 URL: https://ohdsi.github.io/omock/, https://github.com/ohdsi/omock
 Depends: 
-    R (>= 2.10)
+    R (>= 4.1.0)
 Imports: 
     cli,
     dplyr,
