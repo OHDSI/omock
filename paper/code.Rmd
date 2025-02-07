@@ -1,0 +1,61 @@
+---
+title: "Code for the md"
+output: github_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message = TRUE}
+##install.packages(omock)
+##install.packages(dplyr)
+library(omock)
+```
+
+```{r}
+library(omock)
+
+cdm <- mockCdmReference(cdmName = "mock database",
+                             vocabularySet = "mock") |>
+       mockPerson(nPerson = 1000) |> 
+       mockObservationPeriod() |>
+       mockConditionOccurrence()
+                             
+print(cdm)
+```
+```{r}
+library(omock)
+
+cdm <- cdm |> mockCohort(
+    name = "omock_example",
+    numberCohorts = 1,
+    cohortName = c("omock_cohort_1")
+  )
+
+
+print(cdm)
+```
+
+```{r}
+library(dplyr)
+library(omock)
+
+condition_occurrence = tibble(
+  person_id = 1:3,
+  condition_start_date = as.Date("2020-01-01") + 1:3,
+  condition_end_date  = as.Date("2020-01-01") + 4:6,
+  condition_concept_id = 1,
+  condition_type_concept_id = 1,
+  condition_occurrence_id = 1:3
+)
+
+
+cdm <-
+  mockCdmReference() |> 
+  mockCdmFromTables(tables = list(condition_occurrence = condition_occurrence))
+
+print(cdm)
+```
+
