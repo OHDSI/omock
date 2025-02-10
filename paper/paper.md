@@ -28,7 +28,7 @@ authors:
   - name: Edward Burn
     orcid: 0000-0002-9286-1128
     affiliation: 1
-  - name: Martí Català-Sabate
+  - name: Martí Català
     orcid: 0000-0003-3308-9905
     corresponding: true
     affiliation: 1
@@ -42,26 +42,26 @@ output:
 ---
 
 **Authors:**\
-Mike Du, Núria Mercadé-Besora, Marta Alcalde-Herraiz, Xihang Chen,Yuchen Guo, Kim López-Güell, Edward Burn, Martí Català-Sabate
+Mike Du, Núria Mercadé-Besora, Marta Alcalde-Herraiz, Xihang Chen,Yuchen Guo, Kim López-Güell, Edward Burn, Martí Català
 
 Affiliation:\
 1. Health Data Sciences Group, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, University of Oxford, UK
 
 # Summary
 
-`omock` is an R package [@inproceedings] that allows users to create mock patient data in the standardised format of the Observational Medical Outcomes Partnership (OMOP) common data models (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
+`omock` is an R package [@inproceedings] that allows users to create mock patient level data in the formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
 
 # Statement of need
 
 Reliable testing is essential in R package development [@inproceedings], especially for packages that run across different server infrastructures. This need is particularly critical for software developed for Common Data Models (CDM) [@10172586].
 
-A CDM is a standardised and structured framework that helps define how data is organised and formatted across different databases [@Makadia2014-pq]. CDMs provide a standardised vocabulary and schema, making combining, comparing, and analysing data from multiple sources easier. In healthcare settings, CDMs help standardise different datasets such as electronic health records (EHRs), claims data and hospital data, enabling the use of the same analytical code across different data sources. A popular CDM used for medical research is the Observational Medical Outcomes Partnership (OMOP) CDM, with over 200 peer-reviewed publications leveraging its standardised data format. More than 800 million patients’ health-related data have been mapped to OMOP CDM by over 2,000 collaborators from more than 70 countries, enabling cross-institutional studies and scalable healthcare analytics[@omop]. A diagram of OMOP CDM table structure is shown in diagram 1.
+A CDM is a standardised and structured framework that helps define how data is organised and formatted across different databases [@Makadia2014-pq]. CDMs provide a standardised vocabulary and schema, making combining, comparing, and analysing data from multiple sources easier. In healthcare settings, CDMs help standardise different datasets such as electronic health records (EHRs), claims data and hospital data, enabling the use of the same analytical code across different data sources. A popular CDM used for medical research is the OMOP CDM, with over 200 peer-reviewed publications leveraging its standardised data format. More than 800 million patients’ health-related data have been mapped to OMOP CDM by over 2,000 collaborators from more than 70 countries, enabling cross-institutional studies and scalable healthcare analytics [@omop]. A diagram of OMOP CDM table structure is shown in figure 1.
 
-Creating robust tests for packages designed for the OMOP CDM is challenging because these packages must be compatible across various database types. Yet, fit-for-purpose datasets for testing are often unavailable due to privacy and ethical constraints.
+Creating robust tests for packages designed for the OMOP CDM is challenging because these packages must be compatible across various database types. Yet, fit-for-purpose datasets for testing are often unavailable due to privacy and ethical constraints. Having to write OMOP CDM datasets to test the different edge cases of the different packages is time consuming and not efficient.
 
 The `omock` R package was developed to address this gap, providing an easy-to-use pipeline for generating mock data tables for the OMOP CDM. `omock` facilitates reliable testing of functions and workflows, enabling developers to validate their packages' compatibility with OMOP CDM standards while preserving data privacy and ethical considerations.
 
-![Figure 1: Overview of all standard tables in the OMOP CDM.[@ohdsi2019book]](cdm54.png){fig-align="center" width="100%"}
+![Figure 1: Overview of OMOP CDM standard table.[@ohdsi2019book]](cdm54.png){fig-align="center" width="100%"}
 
 # Design principles
 
@@ -79,11 +79,11 @@ The second approach enables users to provide bespoke data tables in OMOP CDM for
 
 These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with OMOP CDM. Both approaches are not mutually exclusive and can be combined.
 
-The `omock` package is available in CRAN version 0.3.1 [@omock], and six packages that depend on it for testing currently.
+The `omock` package is available in CRAN version 0.3.2 [@omock], and currently there are six packages that depend on it for testing purposes.
 
 ## Building mock OMOP CDM with population settings
 
-An empty mock CDM can be created using the `mockCdmReference` function, which includes two key arguments: `cdmName` and `vocabularySet`. The `cdmName` argument allows users to specify the name of the mock OMOP CDM, while the `vocabularySet` argument lets users define the vocabulary tables to be included. Once the mock CDM is initialised, mock patients and corresponding observation periods can be added using the `mockPerson` and `mockObservation` functions.
+An empty mock CDM can be created using the `mockCdmReference` function, which includes two key arguments: `cdmName` and `vocabularySet`. The `cdmName` argument allows users to specify the name of the mock OMOP CDM, while the `vocabularySet` argument lets users define the vocabulary tables to be included. The package contains XXX vocabulary sets. Once the mock CDM is initialised, mock patients and corresponding observation periods can be added using the `mockPerson` and `mockObservation` functions.
 
 To expand the mock CDM with additional clinical tables, we can pipe the corresponding functions onto the previously created CDM object. For example, to add a condition occurrence and a drug exposure table to the OMOP CDM we can use `mockConditionOccurrence` and `mockDrugExposure` functions, respectively. There is a function for most of the commonly used clinical tables in OMOP CDM.
 
@@ -165,8 +165,9 @@ condition_occurrence = tibble(
 )
 
 
-cdm <-
-  mockCdmFromTables(tables = list(condition_occurrence = condition_occurrence))
+cdm <- mockCdmFromTables(
+  tables = list(condition_occurrence = condition_occurrence)
+)
 
 print(cdm)
 ```
