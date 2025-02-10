@@ -28,7 +28,7 @@ authors:
   - name: Edward Burn
     orcid: 0000-0002-9286-1128
     affiliation: 1
-  - name: Martí Català
+  - name: Martí Català-Sabate
     orcid: 0000-0003-3308-9905
     corresponding: true
     affiliation: 1
@@ -42,7 +42,7 @@ output:
 ---
 
 **Authors:**\
-Mike Du, Núria Mercadé-Besora, Marta Alcalde-Herraiz, Xihang Chen,Yuchen Guo, Kim López-Güell, Edward Burn, Martí Català
+Mike Du, Núria Mercadé-Besora, Marta Alcalde-Herraiz, Xihang Chen,Yuchen Guo, Kim López-Güell, Edward Burn, Martí Català-Sabate
 
 Affiliation:\
 1. Health Data Sciences Group, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, University of Oxford, UK
@@ -83,7 +83,7 @@ The `omock` package is available in CRAN version 0.3.2 [@omock], and currently t
 
 ## Building mock OMOP CDM with population settings
 
-An empty mock CDM can be created using the `mockCdmReference` function, which includes two key arguments: `cdmName` and `vocabularySet`. The `cdmName` argument allows users to specify the name of the mock OMOP CDM, while the `vocabularySet` argument lets users define the vocabulary tables to be included. The package contains XXX vocabulary sets. Once the mock CDM is initialised, mock patients and corresponding observation periods can be added using the `mockPerson` and `mockObservation` functions.
+An empty mock CDM can be created using the `mockCdmReference` function, which includes two key arguments: `cdmName` and `vocabularySet`. The `cdmName` argument allows users to specify the name of the mock OMOP CDM, while the `vocabularySet` argument lets users define the vocabulary tables to be included. The package contains a mock vocabulary sets. Once the mock CDM is initialised, mock patients and corresponding observation periods can be added using the `mockPerson` and `mockObservation` functions.
 
 To expand the mock CDM with additional clinical tables, we can pipe the corresponding functions onto the previously created CDM object. For example, to add a condition occurrence and a drug exposure table to the OMOP CDM we can use `mockConditionOccurrence` and `mockDrugExposure` functions, respectively. There is a function for most of the commonly used clinical tables in OMOP CDM.
 
