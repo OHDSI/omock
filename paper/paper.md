@@ -1,5 +1,5 @@
 ---
-title: 'omock: An R package for Mock Data Generation for the Observational Medical Outcomes Partnership common data model'
+title: 'omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership common data model'
 tags:
   - R
   - Epidemiology
