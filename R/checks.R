@@ -233,15 +233,38 @@ checkCohortTable <- function(cohortTable, call = parent.frame()) {
 
 # validate tables
 validateTables <- function(tables, call = parent.frame()) {
-  omopgenerics::assertList(
-    tables, class = "data.frame", named = TRUE, call = call)
+  omopgenerics::assertList(tables,
+                           class = "data.frame",
+                           named = TRUE,
+                           call = call)
   # make sure they are tibbles
   tables <- purrr::map(tables, dplyr::as_tibble)
-
-  # TODO add extra columns if missing or dismiss some tables if they dont have
-  # correct format
-
+  #put name to lower case
   names(tables) <- tolower(names(tables))
+  #split cohort_tables and cdm_tables
+  cohort_tables <- purrr::keep(tables, ~ "cohort_definition_id" %in% names(.x))
+  cdm_tables <- purrr::keep(tables, ~ !"cohort_definition_id" %in% names(.x))
+  #add missing columns and correct forma
+  cdm_tables <- purrr::imap(cdm_tables, ~ addOtherColumns(.x, tableName = .y))
+  cdm_tables <- purrr::imap(cdm_tables, ~ correctCdmFormat(.x, tableName = .y))
+  #bind table back
+  tables <- c(cdm_tables, cohort_tables)
+  # Check for NA in *_date columns inside each tibble
+  purrr::iwalk(tables, function(tbl, name) {
+    date_cols <- names(tbl)[grepl("_date$", names(tbl))]
+
+    cols_with_na <- purrr::keep(date_cols, ~ any(is.na(tbl[[.]])))
+
+    if (length(cols_with_na) > 0) {
+      cli::cli_abort(
+        c(
+          "Table {.strong {name}} contains missing values in these *_date columns:",
+          paste0("x {.field ", cols_with_na, "}")
+        ),
+        call = call
+      )
+    }
+  })
 
   return(tables)
 }

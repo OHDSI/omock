@@ -98,3 +98,58 @@ test_that("check cdm object get created", {
     )
   )))
 })
+
+
+
+
+test_that("check NA", {
+  expect_error(omock::mockCdmFromTables(
+  tables = list(
+    visit_occurrence = dplyr::tibble(
+      person_id = c(1L, 1L, 2L),
+      visit_start_date = as.Date("2020-01-01") + c(0L, 29L, 70L),
+      visit_end_date = as.Date("2020-01-01") + c(30L, 45L, 89L),
+    ),
+    condition_occurrence = dplyr::tibble(
+      person_id = c(1L, 2L, 2L),
+      condition_start_date = as.Date("2020-01-01") + c(50L, 51L, 89L),
+      condition_end_date = as.Date("2020-01-01") + c(NA, 77L, 90L)
+    )
+  )
+)
+)
+
+
+  expect_error(omock::mockCdmFromTables(
+    tables = list(
+      visit_occurrence = dplyr::tibble(
+        person_id = c(1L, 1L, 2L),
+        visit_start_date = as.Date("2020-01-01") + c(0L, 29L, 70L),
+        visit_end_date = as.Date("2020-01-01") + c(30L, 45L, 89L),
+      ),
+      condition_occurrence = dplyr::tibble(
+        person_id = c(1L, 2L, 2L),
+        condition_start_date = as.Date("2020-01-01") + c(50L, 51L, 89L),
+        condition_end_date = as.Date("2020-01-01") + c(NA, 77L, 90L)
+      )
+    )
+  )
+  )
+
+  expect_no_warning(omock::mockCdmFromTables(
+    tables = list(
+      visit_occurrence = dplyr::tibble(
+        person_id = c(1L, 1L, 2L),
+        visit_start_date = as.Date("2020-01-01") + c(0L, 29L, 70L),
+        visit_end_date = as.Date("2020-01-01") + c(30L, 45L, 89L),
+      ),
+      condition_occurrence = dplyr::tibble(
+        person_id = c(1L, 2L, 2L),
+        condition_start_date = as.Date("2020-01-01") + c(50L, 51L, 89L),
+        condition_end_date = as.Date("2020-01-01") + c(1L, 77L, 90L)
+      )
+    )
+  ))
+
+
+})
