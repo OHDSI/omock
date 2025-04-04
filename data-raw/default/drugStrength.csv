@@ -1,4 +1,4 @@
-drug_concept_id,ingredient_concept_id,amount_value,amount_unit_concept_id,numerator_value,numerator_unit_concept_id,denominator_value,denominator_unit_concept_id,box_size,valid_start_date,valid_end_date,
+drug_concept_id,ingredient_concept_id,amount_value,amount_unit_concept_id,numerator_value,numerator_unit_concept_id,denominator_value,denominator_unit_concept_id,box_size,valid_start_date,valid_end_date,invalid_reason
 1361364,1560278,NA,8576,NA,NA,NA,NA,NA,01/01/1970,31/12/2099,NA
 1361365,1560278,3,8576,NA,NA,NA,NA,NA,07/08/2017,31/12/2099,NA
 1361368,1560278,NA,8576,NA,NA,NA,NA,NA,01/01/1970,31/12/2099,NA
