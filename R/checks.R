@@ -243,6 +243,26 @@ validateTables <- function(tables, call = parent.frame()) {
 
   names(tables) <- tolower(names(tables))
 
+  tables <- purrr::imap(tables, ~ addOtherColumns(.x,tableName = .y))
+  tables <- purrr::imap(tables, ~ correctCdmFormat(.x,tableName = .y))
+
+  # Check for NA in *_date columns inside each tibble
+  purrr::iwalk(tables, function(tbl, name) {
+    date_cols <- names(tbl)[stringr::str_detect(names(tbl), "_date$")]
+
+    cols_with_na <- purrr::keep(date_cols, ~ any(is.na(tbl[[.]])))
+
+    if (length(cols_with_na) > 0) {
+      cli::cli_abort(
+        c(
+          "Table {.strong {name}} contains missing values in these *_date columns:",
+          setNames(paste0("x {.field ", cols_with_na, "}"), rep("", length(cols_with_na)))
+        ),
+        call = call
+      )
+    }
+  })
+
   return(tables)
 }
 
