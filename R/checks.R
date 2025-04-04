@@ -238,13 +238,17 @@ validateTables <- function(tables, call = parent.frame()) {
   # make sure they are tibbles
   tables <- purrr::map(tables, dplyr::as_tibble)
 
-  # TODO add extra columns if missing or dismiss some tables if they dont have
-  # correct format
 
   names(tables) <- tolower(names(tables))
+  #split cohort_tables and cdm_tables
+  cohort_tables <- purrr::keep(tables, ~ "cohort_definition_id" %in% names(.x))
+  cdm_tables <- purrr::keep(tables, ~ !"cohort_definition_id" %in% names(.x))
 
-  tables <- purrr::imap(tables, ~ addOtherColumns(.x,tableName = .y))
-  tables <- purrr::imap(tables, ~ correctCdmFormat(.x,tableName = .y))
+  #add missing columns and correct format
+  cdm_tables <- purrr::imap(cdm_tables, ~ addOtherColumns(.x,tableName = .y))
+  cdm_tables <- purrr::imap(cdm_tables, ~ correctCdmFormat(.x,tableName = .y))
+
+  tables <- c(cdm_tables,cohort_tables)
 
   # Check for NA in *_date columns inside each tibble
   purrr::iwalk(tables, function(tbl, name) {
