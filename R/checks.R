@@ -244,7 +244,7 @@ validateTables <- function(tables, call = parent.frame()) {
   cohort_tables <- purrr::keep(tables, ~ "cohort_definition_id" %in% names(.x))
   cdm_tables <- purrr::keep(tables, ~ !"cohort_definition_id" %in% names(.x))
 
-  #add missing columns and correct format
+  #add missing columns and correct forma
   cdm_tables <- purrr::imap(cdm_tables, ~ addOtherColumns(.x,tableName = .y))
   cdm_tables <- purrr::imap(cdm_tables, ~ correctCdmFormat(.x,tableName = .y))
 
@@ -260,7 +260,7 @@ validateTables <- function(tables, call = parent.frame()) {
       cli::cli_abort(
         c(
           "Table {.strong {name}} contains missing values in these *_date columns:",
-          setNames(paste0("x {.field ", cols_with_na, "}"), rep("", length(cols_with_na)))
+          paste0("x {.field ", cols_with_na, "}")
         ),
         call = call
       )
