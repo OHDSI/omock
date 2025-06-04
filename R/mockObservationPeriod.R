@@ -25,15 +25,13 @@
 #'
 #' # View the generated observation period data
 #' print(cdm$observation_period)
-mockObservationPeriod <- function(cdm, seed = NULL) {
+mockObservationPeriod <- function(cdm,
+                                  seed = NULL) {
   checkInput(cdm = cdm)
-
-  if (nrow(cdm$person) != 0) {
+  if (nrow(cdm$observation_period) == 0 &
+    nrow(cdm$person) != 0) {
     if (!is.null(seed)) {
       set.seed(seed = seed)
-    }
-    if (nrow(cdm$observation_period) != 0) {
-      cli::cli_warn("The observation period table have been overwrite.")
     }
     # pull date of birth from person table
     dob <- cdm$person |>
@@ -58,7 +56,10 @@ mockObservationPeriod <- function(cdm, seed = NULL) {
 
     # generate observation date from dob
 
-    observationDate <- obsDate(dob = dob, max = max(as.Date("2020-01-01"), max(as.Date(dob))))
+    observationDate <- obsDate(dob = dob, max = max(
+      as.Date("2020-01-01"),
+      max(as.Date(dob))
+    ))
 
 
     person_id <- cdm$person |>
@@ -80,16 +81,14 @@ mockObservationPeriod <- function(cdm, seed = NULL) {
 
 
     cdm <-
-      omopgenerics::insertTable(cdm = cdm,
-                                name = "observation_period",
-                                table = observationPeriod)
-
-
-
+      omopgenerics::insertTable(
+        cdm = cdm,
+        name = "observation_period",
+        table = observationPeriod
+      )
   }
+
   return(cdm)
-
-
 }
 
 
