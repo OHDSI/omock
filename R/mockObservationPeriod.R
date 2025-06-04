@@ -55,12 +55,12 @@ mockObservationPeriod <- function(cdm,
 
 
     # generate observation date from dob
-    tictoc::tic()
+
     observationDate <- obsDate(dob = dob, max = max(
       as.Date("2020-01-01"),
       max(as.Date(dob))
     ))
-    tictoc::toc()
+
 
     person_id <- cdm$person |>
       dplyr::select(person_id) |>
@@ -97,10 +97,10 @@ mockObservationPeriod <- function(cdm,
 # function to generate mock observational period date from a list of dob
 obsDate <- function(dob = dob, max = "2020-01-01") {
   #
-  r1 <- runif(n = length(dob))
-  start <- dob + round((as.Date(max) - dob) * r1)
-  r2 <- runif(n = length(dob))
-  end <- start + round((as.Date(max) - start) * r2)
+  r1 <- stats::runif(n = length(dob))
+  start <- dob + floor((as.Date(max) - dob) * r1)
+  r2 <- stats::runif(n = length(dob))
+  end <- start + ceiling((as.Date(max) - start) * r2)
 
   list(start, end)
 }
