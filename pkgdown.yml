@@ -1,12 +1,12 @@
 pandoc: 3.1.11
-pkgdown: 2.1.2
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   a01_Creating_synthetic_clinical_tables: a01_Creating_synthetic_clinical_tables.html
   a02_Creating_synthetic_cohorts: a02_Creating_synthetic_cohorts.html
   a03_Creating_a_synthetic_vocabulary: a03_Creating_a_synthetic_vocabulary.html
   a04_Building_a_bespoke_mock_cdm: a04_Building_a_bespoke_mock_cdm.html
-last_built: 2025-05-16T09:33Z
+last_built: 2025-06-04T15:40Z
 urls:
   reference: https://ohdsi.github.io/omock/reference
   article: https://ohdsi.github.io/omock/articles
