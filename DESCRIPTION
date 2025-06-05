@@ -32,9 +32,11 @@ Imports:
     methods,
     omopgenerics (>= 0.3.0),
     purrr,
+    readr,
     rlang,
     snakecase,
-    stats
+    stats,
+    stringr
 Suggests: 
     ggplot2,
     knitr,
