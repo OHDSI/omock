@@ -38,6 +38,18 @@ mockCdmFromDataset <- function(datasetName = "GiBleed") {
   # delete csv files
   unlink(x = tmpFolder, recursive = TRUE)
 
+  # add drug strength
+  if (datasetName == "GiBleed") {
+    tables$drug_strength <- eunomiaDrugStrength
+  } else {
+    concepts <- tables$concept$concept_id
+    tables$drug_strength <- getDrugStrength() |>
+      dplyr::filter(
+        .data$drug_concept_id %in% .env$concepts &
+          .data$ingredient_concept_id %in% .env$concepts
+      )
+  }
+
   omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
 }
 readTables <- function(tmpFolder, cv) {
@@ -66,7 +78,44 @@ readTables <- function(tmpFolder, cv) {
       }
     }
   }
+
   tables
+}
+getDrugStrength <- function() {
+  drugStregthZip <- file.path(mockDatasetsFolder(), "drug_strength.csv")
+
+  # download if it does not exist
+  if (!file.exists(drugStregthZip)) {
+    cli::cli_inform(c("i" = "Downloading {.pkg drug_strength} table."))
+    dropbox_url <- "https://www.dropbox.com/scl/fi/gw6eou1wrneh2h5w3r5we/drug_strength.zip?rlkey=dssh3kpt56xuenguvym1ml7cc&st=e76jev5j&dl=1"
+    utils::download.file(
+      url = dropbox_url, destfile = drugStregthZip, mode = "wb", quiet = FALSE
+    )
+  }
+
+  # unzip
+  tempFolder <- file.path(tempdir(), omopgenerics::uniqueId())
+  dir.create(tempFolder, showWarnings = FALSE)
+  utils::unzip(zipfile = drugStregthZip, exdir = tempFolder)
+
+  # read drug_strength
+  drugStrength <- readr::read_delim(
+    file = file.path(tempFolder, "drug_strength.csv"),
+    delim = "\t",
+    col_types = c(
+      drug_concept_id = "i", ingredient_concept_id = "i", amount_value = "d",
+      amount_unit_concept_id = "i", numerator_value = "d",
+      numerator_unit_concept_id = "i", denominator_value = "d",
+      denominator_unit_concept_id = "i", box_size = "i", valid_start_date = "D",
+      valid_end_date = "D", invalid_reason = "c"
+    )
+  ) |>
+    suppressWarnings()
+
+  # delete csv file
+  unlink(tempFolder, recursive = TRUE)
+
+  return(drugStrength)
 }
 
 #' Available mock OMOP CDM Synthetic Datasets
