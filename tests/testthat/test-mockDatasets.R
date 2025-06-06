@@ -2,9 +2,9 @@ test_that("mock datasets cdm creation", {
   expect_identical(availableMockDatasets(), omock::mockDatasets$dataset_name)
 
   Sys.setenv("MOCK_DATASETS_FOLDER" = "")
-  expect_message(expect_message(mockDatasetsFolder()))
+  expect_no_error(mockDatasetsFolder())
   myFolder <- file.path(tempdir(), "DATASETS")
-  expect_message(expect_message(expect_no_error(mockDatasetsFolder(myFolder))))
+  expect_message(expect_no_error(mockDatasetsFolder(myFolder)))
   expect_identical(mockDatasetsFolder(), myFolder)
 
   expect_false(isMockDatasetDownloaded("GiBleed"))
