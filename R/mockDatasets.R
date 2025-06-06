@@ -33,41 +33,76 @@ mockCdmFromDataset <- function(datasetName = "GiBleed") {
 
   # unzip
   utils::unzip(zipfile = datasetPath, exdir = tmpFolder)
+  cli::cli_inform(c(i = "Reading {.pkg {datasetName}} tables."))
   tables <- readTables(tmpFolder, cv)
 
   # delete csv files
   unlink(x = tmpFolder, recursive = TRUE)
 
+  # add drug strength
+  cli::cli_inform(c(i = "Adding {.pkg drug_strength} table."))
+  if (datasetName == "GiBleed") {
+    tables$drug_strength <- eunomiaDrugStrength
+  } else {
+    concepts <- tables$concept$concept_id
+    tables$drug_strength <- getDrugStrength() |>
+      dplyr::filter(
+        .data$drug_concept_id %in% .env$concepts &
+          .data$ingredient_concept_id %in% .env$concepts
+      )
+  }
+
   omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
 }
 readTables <- function(tmpFolder, cv) {
-  tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.csv$")
-  names(tables) <- substr(basename(tables), 1, nchar(basename(tables)) - 4)
+  tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.parquet$", recursive = TRUE)
+  names(tables) <- substr(basename(tables), 1, nchar(basename(tables)) - 8)
   tables <- as.list(tables)
   x <- omopgenerics::omopTableFields(cdmVersion = cv)
   for (nm in names(tables)) {
-    file <- tables[[nm]]
-    cols <- stringr::str_split_1(readLines(con = file, n = 1), ",")
-    colType <- x |>
-      dplyr::filter(
-        .data$cdm_table_name == .env$nm, .data$cdm_field_name %in% .env$cols
-      ) |>
-      dplyr::mutate(cdm_datatype = dplyr::case_when(
-        .data$cdm_datatype == "integer" ~ "i",
-        .data$cdm_datatype == "datetime" ~ "T",
-        .data$cdm_datatype == "date" ~ "D",
-        .data$cdm_datatype == "float" ~ "d",
-        .data$cdm_datatype == "logical" ~ "l",
-        stringr::str_detect(.data$cdm_datatype, "varchar") ~ "c"
-      ))
-    colTypes <- rlang::set_names(as.list(colType$cdm_datatype), colType$cdm_field_name)
-    missingTypes <- cols[!cols %in% names(colTypes)]
-    for (mt in missingTypes) {
-      colTypes[[mt]] <- "?"
-    }
-    tables[[nm]] <- readr::read_csv(file = file, col_types = colTypes)
+    # read file
+    tables[[nm]] <- arrow::read_parquet(file = tables[[nm]]) |>
+      # cast columns
+      castColumns(name = nm, version = cv)
   }
+
   tables
+}
+getDrugStrength <- function() {
+  drugStregthZip <- file.path(mockDatasetsFolder(), "drug_strength.csv")
+
+  # download if it does not exist
+  if (!file.exists(drugStregthZip)) {
+    cli::cli_inform(c("i" = "Downloading {.pkg drug_strength} table."))
+    dropbox_url <- "https://www.dropbox.com/scl/fi/gw6eou1wrneh2h5w3r5we/drug_strength.zip?rlkey=dssh3kpt56xuenguvym1ml7cc&st=e76jev5j&dl=1"
+    utils::download.file(
+      url = dropbox_url, destfile = drugStregthZip, mode = "wb", quiet = FALSE
+    )
+  }
+
+  # unzip
+  tempFolder <- file.path(tempdir(), omopgenerics::uniqueId())
+  dir.create(tempFolder, showWarnings = FALSE)
+  utils::unzip(zipfile = drugStregthZip, exdir = tempFolder)
+
+  # read drug_strength
+  drugStrength <- readr::read_delim(
+    file = file.path(tempFolder, "drug_strength.csv"),
+    delim = "\t",
+    col_types = c(
+      drug_concept_id = "i", ingredient_concept_id = "i", amount_value = "d",
+      amount_unit_concept_id = "i", numerator_value = "d",
+      numerator_unit_concept_id = "i", denominator_value = "d",
+      denominator_unit_concept_id = "i", box_size = "i", valid_start_date = "D",
+      valid_end_date = "D", invalid_reason = "c"
+    )
+  ) |>
+    suppressWarnings()
+
+  # delete csv file
+  unlink(tempFolder, recursive = TRUE)
+
+  return(drugStrength)
 }
 
 #' Available mock OMOP CDM Synthetic Datasets
@@ -96,7 +131,7 @@ readTables <- function(tmpFolder, cv) {
 #' for possibilities.
 #' @param path Path where to download the dataset.
 #' @param overwrite Whether to overwrite the dataset if it is already
-#' downloaded.
+#' downloaded. If NULL the used is asked whether to overwrite.
 #'
 #' @return The path to the downloaded dataset.
 #' @export
@@ -112,22 +147,25 @@ readTables <- function(tmpFolder, cv) {
 #'
 downloadMockDataset <- function(datasetName = "GiBleed",
                                 path = mockDatasetsFolder(),
-                                overwrite = FALSE) {
+                                overwrite = NULL) {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
   path <- validatePath(path)
-  omopgenerics::assertLogical(overwrite, length = TRUE)
+  omopgenerics::assertLogical(overwrite, length = 1, null = TRUE)
 
   datasetFile <- file.path(path, paste0(datasetName, ".zip"))
   # is available
   if (file.exists(datasetFile)) {
-    if (overwrite) {
+    if (isTRUE(overwrite)) {
       file.remove(datasetFile)
+    } else if (isFALSE(overwrite)) {
+      cli::cli_inform(c(i = "Prior download of {datasetName} is present set `overwrite = TRUE` to overwrite."))
+      return(invisible(datasetFile))
     } else {
-      if (rlang::is_interactive()) {
-        cli::cli_inform(c(i = "Set `overwrite = TRUE` to silence this message."))
-      }
       if (question("Do you want to overwrite prior existing dataset? Y/n")) {
+        if (!rlang::is_interactive()) {
+          cli::cli_inform(c(i = "Deleting prior version of {datasetName}."))
+        }
         file.remove(datasetFile)
       } else {
         return(invisible(datasetFile))
@@ -197,7 +235,7 @@ mockDatasetsStatus <- function() {
   x <- omock::mockDatasets |>
     dplyr::select("dataset_name") |>
     dplyr::mutate(exists = dplyr::if_else(file.exists(file.path(
-      mockDatasetsFolder(), .data$dataset_name, paste0(.data$dataset_name, ".zip")
+      mockDatasetsFolder(), paste0(.data$dataset_name, ".zip")
     )), 1, 0)) |>
     dplyr::arrange(dplyr::desc(.data$exists), .data$dataset_name) |>
     dplyr::mutate(status = dplyr::if_else(.data$exists == 1, "v", "x"))
@@ -285,4 +323,29 @@ validatePath <- function(path, call = parent.frame()) {
     cli::cli_abort(c(x = "Path {.path {path}} does not exist."), call = call)
   }
   invisible(path)
+}
+castColumns <- function(x, name, version) {
+  cols <- omopgenerics::omopTableFields(cdmVersion = version) |>
+    dplyr::filter(.data$cdm_table_name == .env$name) |>
+    dplyr::filter(.data$cdm_field_name %in% !!colnames(x))
+
+  for (k in seq_len(nrow(cols))) {
+    type <- cols$cdm_datatype[k]
+    if (grepl("varchar", type)) {
+      fun <- as.character
+    } else {
+      fun <- switch(type,
+                    integer = as.integer,
+                    datetime = as.POSIXct,
+                    date = as.Date,
+                    float = as.numeric,
+                    logical = as.logical,
+                    NULL)
+    }
+    if (!is.null(fun)) {
+      x[[cols$cdm_field_name[k]]] <- do.call(fun, list(x[[cols$cdm_field_name[k]]]))
+    }
+  }
+
+  x
 }

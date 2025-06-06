@@ -57,7 +57,7 @@ mockVisitOccurrence <- function(cdm,
   vist_type_id <- cdm$concept |>
     dplyr::filter(.data$vocabulary_id == "Visit" &
                     .data$standard_concept == "S") |>
-    dplyr::select(.data$concept_id) |>
+    dplyr::select("concept_id") |>
     dplyr::pull()
 
   visit <- visit |>

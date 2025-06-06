@@ -7,7 +7,7 @@
 downloadMockDataset(
   datasetName = "GiBleed",
   path = mockDatasetsFolder(),
-  overwrite = FALSE
+  overwrite = NULL
 )
 }
 \arguments{
@@ -17,7 +17,7 @@ for possibilities.}
 \item{path}{Path where to download the dataset.}
 
 \item{overwrite}{Whether to overwrite the dataset if it is already
-downloaded.}
+downloaded. If NULL the used is asked whether to overwrite.}
 }
 \value{
 The path to the downloaded dataset.

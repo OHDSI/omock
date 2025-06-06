@@ -1,5 +1,7 @@
 # omock (development version)
 
+* Add mock datasets by @catalamarti #155 #154
+
 # omock 0.3.2
 
 # omock 0.3.1
