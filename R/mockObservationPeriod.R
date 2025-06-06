@@ -54,7 +54,7 @@ mockObservationPeriod <- function(cdm,
         )
       )) |>
       dplyr::select(!c("year_of_birth1", "month_of_birth1", "day_of_birth1")) |>
-      dplyr::select(dob) |>
+      dplyr::select("dob") |>
       dplyr::pull()
 
 
@@ -67,7 +67,7 @@ mockObservationPeriod <- function(cdm,
 
 
     person_id <- cdm$person |>
-      dplyr::select(person_id) |>
+      dplyr::select("person_id") |>
       dplyr::pull()
 
     # define observation period table

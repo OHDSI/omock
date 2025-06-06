@@ -20,9 +20,9 @@ test_that("check mockDeath", {
       dplyr::pull())
 
   expect_true(
-    all(cdm$death |> dplyr::select(person_id) |>
+    all(cdm$death |> dplyr::select("person_id") |>
       dplyr::pull() |> unique() == cdm$death |>
-      dplyr::select(person_id) |>
+      dplyr::select("person_id") |>
       dplyr::pull())
   )
 
@@ -34,9 +34,9 @@ test_that("check mockDeath", {
       dplyr::pull() * 0.1))
 
   expect_true(
-    all(cdm2$death |> dplyr::select(person_id) |>
+    all(cdm2$death |> dplyr::select("person_id") |>
       dplyr::pull() |> unique() == cdm2$death |>
-      dplyr::select(person_id) |>
+      dplyr::select("person_id") |>
       dplyr::pull())
   )
 })
