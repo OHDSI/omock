@@ -184,53 +184,44 @@ mockCohort <- function(cdm,
   return(cdm)
 }
 
+addCohortDates <- function(x,
+                            start = "cohort_start_date",
+                            end = "cohort_end_date",
+                            observationPeriod) {
+  #only allow one observational period in this function
+  observationPeriod <- observationPeriod |>
+    dplyr::group_by(.data$person_id) |>
+    dplyr::slice(1) |>   # take first row per person_id
+    dplyr::ungroup()
 
 
+  x1 <- x |> dplyr::left_join(
+    observationPeriod |> dplyr::select(
+      "person_id",
+      "observation_period_start_date",
+      "observation_period_end_date"
+    ),
+    by = c("subject_id" = "person_id")
+  )
 
-addCohortDates <-
-  function(x,
-           start = "cohort_start_date",
-           end = "cohort_end_date",
-           observationPeriod) {
-    if (sum(length(start), length(end)) > 0) {
-      x <- x |>
-        dplyr::mutate(!!start := stats::runif(dplyr::n(), max = 0.5)) |>
-        dplyr::mutate(!!end := stats::runif(dplyr::n(), min = 0.51))
-
-      cols <- c(start, end)
-      sumsum <- paste0(".data[[\"", cols, "\"]]", collapse = " + ")
-      x <- x |>
-        dplyr::mutate(cum_sum = !!rlang::parse_expr(sumsum)) |>
-        dplyr::mutate(cum_sum = .data$cum_sum + stats::runif(dplyr::n())) |>
-        dplyr::mutate(dplyr::across(
-          dplyr::all_of(cols), ~ .x / .data$cum_sum)) |>
-        dplyr::select(-"cum_sum")
-
-      if(nrow(observationPeriod)>0){
-      observationPeriod <- observationPeriod |>
-        dplyr::mutate(rand = stats::runif(dplyr::n())) |>
-        dplyr::group_by(.data$person_id) |>
-        dplyr::filter(.data$rand == min(.data$rand)) |>
-        dplyr::ungroup() |>
-        dplyr::select(-"rand")
-      }
-      x <- x |>
-        dplyr::inner_join(
-          observationPeriod |>
-            dplyr::mutate(
-              date_diff = .data$observation_period_end_date -
-                .data$observation_period_start_date
-            ) |>
-            dplyr::select("person_id",
-                          "start" = "observation_period_start_date",
-                          "date_diff"),
-          by = c("subject_id" = "person_id")
-        ) |>
-        dplyr::mutate(dplyr::across(
-          dplyr::all_of(cols),
-          ~ round(.x * .data$date_diff) + .data$start
-        )) |>
-        dplyr::select(-c("start", "date_diff"))
-    }
-    return(x)
+  # function to generate mock date from a list of observation date
+  obsDate2 <- function(start, end) {
+    #
+    r1 <- stats::runif(n = length(start))
+    start <- start + floor((as.Date(end) - start) * r1)
+    r2 <- stats::runif(n = length(start))
+    end <- start + ceiling((as.Date(end) - start) * r2)
+    end <- pmax(start, end)
+    list(start, end)
   }
+
+  dateToAdd <- obsDate2(x1$"observation_period_start_date",
+                        x1$"observation_period_end_date")
+
+
+  x <- x |> dplyr::mutate(!!start := dateToAdd[[1]], !!end := dateToAdd[[2]])
+
+
+  return(x)
+
+}
