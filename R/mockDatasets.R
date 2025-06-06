@@ -33,12 +33,14 @@ mockCdmFromDataset <- function(datasetName = "GiBleed") {
 
   # unzip
   utils::unzip(zipfile = datasetPath, exdir = tmpFolder)
+  cli::cli_inform(c(i = "Reading {.pkg {datasetName}} tables."))
   tables <- readTables(tmpFolder, cv)
 
   # delete csv files
   unlink(x = tmpFolder, recursive = TRUE)
 
   # add drug strength
+  cli::cli_inform(c(i = "Adding {.pkg drug_strength} table."))
   if (datasetName == "GiBleed") {
     tables$drug_strength <- eunomiaDrugStrength
   } else {

@@ -31,7 +31,6 @@ mockVocabulary <- readr::read_csv(
   show_col_types = FALSE
 )
 
-
 # add the default eunomia vocabulary data
 eunomiaDrugStrength <- readr::read_csv(
   here::here("data-raw", "eunomia", "drugStrength.csv"),
