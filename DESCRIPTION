@@ -32,9 +32,11 @@ Imports:
     methods,
     omopgenerics (>= 0.3.0),
     purrr,
+    readr,
     rlang,
     snakecase,
-    stats
+    stats,
+    stringr
 Suggests: 
     ggplot2,
     knitr,
@@ -46,3 +48,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 BugReports: https://github.com/ohdsi/omock/issues
+LazyData: true

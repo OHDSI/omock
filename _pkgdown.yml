@@ -6,20 +6,40 @@ reference:
   - title: "Mock CDM Initialization"
     desc: "This group includes functions that initialize the foundational structures required for the mock CDM environment."
     contents:
-      - matches("mockCdmReference|mockCdmFromTables")
+      - mockCdmReference
+      - mockCdmFromTables
+      - mockCdmFromDataset
+
+  - title: "Mock Datasets"
+    desc: "This group of functions are utility functions to work with the mock datasets."
+    contents:
+      - mockDatasets
+      - downloadMockDataset
+      - availableMockDatasets
+      - isMockDatasetDownloaded
+      - mockDatasetsStatus
+      - mockDatasetsFolder
 
   - title: "Mock Table Creation"
     desc: "These functions are focused on adding mock data tables based on the initialized CDM structure."
     contents:
-      - matches("mockPerson|mockObservationPeriod|mockConditionOccurrence|mockDeath|mockDrugExposure|mockMeasurement|mockObservation|mockProcedureOccurrence|mockVisitOccurrence")
+      - mockPerson
+      - mockObservationPeriod
+      - mockConditionOccurrence
+      - mockDrugExposure
+      - mockMeasurement
+      - mockObservation
+      - mockProcedureOccurrence
+      - mockDeath
+      - mockVisitOccurrence
 
   - title: "Vocabulary Tables Creation"
     desc: "This group includes functions that set up vocabulary tables."
     contents:
-      - matches("mockVocabularyTables|mockConcepts")
+      - mockVocabularyTables
+      - mockConcepts
 
   - title: "Cohort Tables Creation"
     desc: "These functions are focused on adding mock cohort tables based on the initialized CDM structure."
     contents:
-      - matches("mockCohort")
-
+      - mockCohort

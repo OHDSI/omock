@@ -8,3 +8,4 @@
 .quarto
 inst/doc
 docs
+Datasets/*.zip
