@@ -26,4 +26,4 @@ jobs:
           needs: check
 
       - name: Test mock datasets
-        run: ./Datasets/testAllDatasets.R
+        run: Rscript ./Datasets/testAllDatasets.R
