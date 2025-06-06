@@ -61,24 +61,9 @@ readTables <- function(tmpFolder, cv) {
   x <- omopgenerics::omopTableFields(cdmVersion = cv)
   for (nm in names(tables)) {
     # read file
-    tables[[nm]] <- arrow::read_parquet(file = tables[[nm]])
-
-    # cast columns
-    xnm <- x |>
-      dplyr::filter(.data$cdm_table_name == .env$nm)
-    for (col in colnames(tables[[nm]])) {
-      type <- xnm$cdm_datatype[xnm$cdm_field_name == col]
-      if (length(type) == 1) {
-        fun <- switch(type,
-                      integer = as.integer,
-                      datetime = as.POSIXct,
-                      date = as.Date,
-                      float = as.numeric,
-                      logical = as.logical,
-                      as.character)
-        tables[[nm]][[col]] <- do.call(fun, list(tables[[nm]][[col]]))
-      }
-    }
+    tables[[nm]] <- arrow::read_parquet(file = tables[[nm]]) |>
+      # cast columns
+      castColumns(name = nm, version = cv)
   }
 
   tables
@@ -338,4 +323,29 @@ validatePath <- function(path, call = parent.frame()) {
     cli::cli_abort(c(x = "Path {.path {path}} does not exist."), call = call)
   }
   invisible(path)
+}
+castColumns <- function(x, name, version) {
+  cols <- omopgenerics::omopTableFields(cdmVersion = version) |>
+    dplyr::filter(.data$cdm_table_name == .env$name) |>
+    dplyr::filter(.data$cdm_field_name %in% !!colnames(x))
+
+  for (k in seq_len(nrow(cols))) {
+    type <- cols$cdm_datatype[k]
+    if (grepl("varchar", type)) {
+      fun <- as.character
+    } else {
+      fun <- switch(type,
+                    integer = as.integer,
+                    datetime = as.POSIXct,
+                    date = as.Date,
+                    float = as.numeric,
+                    logical = as.logical,
+                    NULL)
+    }
+    if (!is.null(fun)) {
+      x[[cols$cdm_field_name[k]]] <- do.call(fun, list(x[[cols$cdm_field_name[k]]]))
+    }
+  }
+
+  x
 }

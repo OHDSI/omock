@@ -5,61 +5,75 @@ library(here)
 mockDrugStrength <- readr::read_csv(
   here::here("data-raw", "default", "drugStrength.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("drug_strength", "5.3")
 mockConcept <- readr::read_csv(
   here::here("data-raw", "default", "concept.csv"),
   show_col_types = FALSE
-)
+)|>
+  castColumns("concept", "5.3")
 mockConceptAncestor <- readr::read_csv(
   here::here("data-raw", "default", "conceptAncestor.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_ancestor", "5.3")
 mockCdmSource <- readr::read_csv(
   here::here("data-raw", "default", "cdmSource.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("cdm_source", "5.3")
 mockConceptSynonym <- readr::read_csv(
   here::here("data-raw", "default", "conceptSynonym.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_synonym", "5.3")
 mockConceptRelationship <- readr::read_csv(
   here::here("data-raw", "default", "conceptRelationship.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_relationship", "5.3")
 mockVocabulary <- readr::read_csv(
   here::here("data-raw", "default", "vocabulary.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("vocabulary", "5.3")
 
 # add the default eunomia vocabulary data
 eunomiaDrugStrength <- readr::read_csv(
   here::here("data-raw", "eunomia", "drugStrength.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("drug_strength", "5.3")
 eunomiaConcept <- readr::read_csv(
   here::here("data-raw", "eunomia", "concept.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept", "5.3")
 eunomiaConceptAncestor <- readr::read_csv(
   here::here("data-raw", "eunomia", "conceptAncestor.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_ancestor", "5.3")
 eunomiaCdmSource <- readr::read_csv(
   here::here("data-raw", "eunomia", "cdmSource.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("cdm_source", "5.3")
 eunomiaConceptSynonym <- readr::read_csv(
   here::here("data-raw", "eunomia", "conceptSynonym.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_synonym", "5.3")
 eunomiaConceptRelationship <- readr::read_csv(
   here::here("data-raw", "eunomia", "conceptRelationship.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("concept_relationship", "5.3")
 eunomiaVocabulary <- readr::read_csv(
   here::here("data-raw", "eunomia", "vocabulary.csv"),
   show_col_types = FALSE
-)
+) |>
+  castColumns("vocabulary", "5.3")
 
 cdmTable <-  readr::read_csv(
   here::here("data-raw", "table", "OMOP_CDMv5.3_Field_Level.csv"),
