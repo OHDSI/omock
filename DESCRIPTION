@@ -25,7 +25,8 @@ License: Apache License (>= 2)
 URL: https://ohdsi.github.io/omock/, https://github.com/ohdsi/omock
 Depends: 
     R (>= 4.1.0)
-Imports: 
+Imports:
+    arrow,
     cli,
     dplyr,
     lubridate,
@@ -35,8 +36,7 @@ Imports:
     readr,
     rlang,
     snakecase,
-    stats,
-    stringr
+    stats
 Suggests: 
     ggplot2,
     knitr,
