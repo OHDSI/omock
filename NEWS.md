@@ -1,4 +1,4 @@
-# omock (development version)
+# omock 0.4.0
 
 ## What's Changed
 * Create draft-pdf.yml by @catalamarti in https://github.com/OHDSI/omock/pull/140
