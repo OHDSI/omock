@@ -7,7 +7,7 @@
 isMockDatasetDownloaded(datasetName = "GiBleed", path = mockDatasetsFolder())
 }
 \arguments{
-\item{datasetName}{Name of the mock dataset. See `availableMockDatasets()`
+\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
 for possibilities.}
 
 \item{path}{Path where to search for the dataset.}

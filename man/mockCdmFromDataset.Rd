@@ -2,19 +2,19 @@
 % Please edit documentation in R/mockDatasets.R
 \name{mockCdmFromDataset}
 \alias{mockCdmFromDataset}
-\title{Create a `local` cdm_reference from a dataset.}
+\title{Create a \code{local} cdm_reference from a dataset.}
 \usage{
 mockCdmFromDataset(datasetName = "GiBleed")
 }
 \arguments{
-\item{datasetName}{Name of the mock dataset. See `availableMockDatasets()`
+\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
 for possibilities.}
 }
 \value{
 A local cdm_reference object.
 }
 \description{
-Create a `local` cdm_reference from a dataset.
+Create a \code{local} cdm_reference from a dataset.
 }
 \examples{
 library(omock)
