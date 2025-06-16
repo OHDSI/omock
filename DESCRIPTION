@@ -29,6 +29,7 @@ Imports:
     arrow,
     cli,
     dplyr,
+    lifecycle,
     lubridate,
     methods,
     omopgenerics (>= 0.3.0),
@@ -38,6 +39,9 @@ Imports:
     snakecase,
     stats
 Suggests: 
+    CDMConnector,
+    DBI,
+    duckdb,
     ggplot2,
     knitr,
     rmarkdown,
@@ -49,3 +53,4 @@ Encoding: UTF-8
 RoxygenNote: 7.3.2
 BugReports: https://github.com/ohdsi/omock/issues
 LazyData: true
+Roxygen: list(markdown = TRUE)
