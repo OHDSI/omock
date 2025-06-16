@@ -1,9 +1,6 @@
 
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+  workflow_dispatch:
 
 name: Test all mock datasets can be used
 

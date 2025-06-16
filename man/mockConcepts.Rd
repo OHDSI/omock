@@ -22,14 +22,14 @@ added.Only accepts "Condition", "Drug", "Measurement", or
 fall and affects which vocabulary is used for them.}
 
 \item{seed}{An optional integer value used to set the random seed for
-generating reproducible concept attributes like `vocabulary_id`
-and `concept_class_id`. Useful for testing or when consistent
+generating reproducible concept attributes like \code{vocabulary_id}
+and \code{concept_class_id}. Useful for testing or when consistent
 output is required.}
 }
 \value{
 Returns the modified CDM object with the updated concept table
-        reflecting the newly added concepts.The function directly modifies
-        the provided CDM object.
+reflecting the newly added concepts.The function directly modifies
+the provided CDM object.
 }
 \description{
 This function inserts new concept entries into a specified domain within

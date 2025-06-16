@@ -20,9 +20,9 @@ Default is "mock".}
 }
 \value{
 Returns a CDM object that is initially empty but includes mock
-        vocabulary tables.The object structure is compliant with OMOP CDM
-        standards, making it suitable for further population with mock data
-        like person, visit, and observation records.
+vocabulary tables.The object structure is compliant with OMOP CDM
+standards, making it suitable for further population with mock data
+like person, visit, and observation records.
 }
 \description{
 This function initializes an empty CDM reference with a specified name and

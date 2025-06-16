@@ -2,9 +2,10 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom lifecycle deprecated
+#' @importFrom omopgenerics cdmReference
+#' @importFrom rlang :=
 #' @importFrom rlang .data
 #' @importFrom rlang .env
-#' @importFrom rlang :=
-#' @importFrom omopgenerics cdmReference
 ## usethis namespace: end
 NULL

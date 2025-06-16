@@ -43,3 +43,8 @@ reference:
     desc: "These functions are focused on adding mock cohort tables based on the initialized CDM structure."
     contents:
       - mockCohort
+
+  - title: "Copy a cdm to a duckdb database"
+    desc: "This function is used to copy a local cdm reference to a duckdb connection. This is an experimental function that might be removed in the future."
+    contents:
+      - copyCdmToDuckdb

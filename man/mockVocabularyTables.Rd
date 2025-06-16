@@ -17,14 +17,14 @@ mockVocabularyTables(
 )
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
+\item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding vocabulary tables.
 This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.}
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}
 
 \item{cdmSource}{An optional data frame representing the CDM source table.
-If provided, it will be used directly; otherwise, a mock table will be generated based on the `vocabularySet` prefix.}
+If provided, it will be used directly; otherwise, a mock table will be generated based on the \code{vocabularySet} prefix.}
 
 \item{concept}{An optional data frame representing the concept table.
 If provided, it will be used directly; if NULL, a mock table will be generated.}
@@ -45,7 +45,7 @@ If provided, it will be used directly; if NULL, a mock table will be generated.}
 If provided, it will be used directly; if NULL, a mock table will be generated.}
 }
 \value{
-Returns the modified `cdm` object with the new or provided vocabulary tables added.
+Returns the modified \code{cdm} object with the new or provided vocabulary tables added.
 }
 \description{
 This function adds specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
