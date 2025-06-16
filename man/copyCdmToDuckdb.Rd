@@ -30,9 +30,6 @@ cohort and other tables.}
 
 \item{achillesSchema}{String, character vector with the schema to write the
 achilles tables.}
-
-\item{achillesPrefix}{String, character vector with the writing prefix for
-achilles tables.}
 }
 \value{
 A cdm_reference in a duckdb connection.
