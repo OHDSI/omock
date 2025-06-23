@@ -10,11 +10,16 @@
 #'                within a larger simulation or testing framework. Default is
 #'                "mock database".
 #'
-#' @param vocabularySet A character string that specifies the name of the
-#'                      vocabulary set to be used in creating the vocabulary
-#'                      tables for the CDM. This allows for the customization
-#'                      of the vocabulary to match specific testing scenarios.
-#'                      Default is "mock".
+#' @param vocabularySet A character string specifying the name of the vocabulary set
+#'                    to be used when creating the vocabulary tables for the CDM.
+#'                    Options are "mock" or "eunomia":
+#'
+#' - "mock": Provides a very small synthetic vocabulary subset,
+#'   suitable for tests that do not require realistic vocabulary
+#'   names or relationships.
+#'
+#' - "eunomia": Uses the vocabulary from the Eunomia test database,
+#'   which contains real vocabularies available from ATHENA.
 #'
 #' @return Returns a CDM object that is initially empty but includes mock
 #'         vocabulary tables.The object structure is compliant with OMOP CDM

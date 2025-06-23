@@ -5,8 +5,16 @@
 #' @param cdm A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
 #'            This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.
 #'
-#' @param vocabularySet A character string that specifies a prefix or a set name used to initialize mock data tables.
-#'                      This allows for customization of the source data or structure names when generating vocabulary tables.
+#' @param vocabularySet A character string specifying the name of the vocabulary set
+#'                    to be used when creating the vocabulary tables for the CDM.
+#'                    Options are "mock" or "eunomia":
+#'
+#' - "mock": Provides a very small synthetic vocabulary subset,
+#'   suitable for tests that do not require realistic vocabulary
+#'   names or relationships.
+#'
+#' - "eunomia": Uses the vocabulary from the Eunomia test database,
+#'   which contains real vocabularies available from ATHENA.
 #'
 #' @param cdmSource An optional data frame representing the CDM source table.
 #'                  If provided, it will be used directly; otherwise, a mock table will be generated based on the `vocabularySet` prefix.
