@@ -26,8 +26,6 @@ cdm <- mockCdmReference(cdmName = "mock database",
 print(cdm)
 ```
 ```{r}
-library(omock)
-
 cdm <- cdm |> mockCohort(
     name = "omock_example",
     numberCohorts = 1,

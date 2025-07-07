@@ -36,8 +36,6 @@ print(cdm)
     ## • other tables: -
 
 ``` r
-library(omock)
-
 cdm <- cdm |> mockCohort(
     name = "omock_example",
     numberCohorts = 1,
@@ -92,7 +90,7 @@ condition_occurrence = tibble(
 )
 
 
-cdm <-
+cdm2 <-
   mockCdmReference() |> 
   mockCdmFromTables(tables = list(condition_occurrence = condition_occurrence))
 ```

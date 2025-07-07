@@ -13,11 +13,11 @@ authors:
   - name: Núria Mercadé-Besora
     orcid: 0009-0006-7948-3747
     affiliation: 1
-  - name: Xihang Chen
-    orcid: 0009-0001-8112-8959
-    affiliation: 1
   - name: Marta Alcalde-Herraiz
     orcid: 0009-0002-4405-1814
+    affiliation: 1
+  - name: Xihang Chen
+    orcid: 0009-0001-8112-8959
     affiliation: 1
   - name: Yuchen Guo
     orcid: 0000-0002-0847-4855
@@ -49,7 +49,7 @@ Affiliation:\
 
 # Summary
 
-`omock` is an R package [@inproceedings] that allows users to create mock patient level data in the formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
+`omock` is an R package that allows users to create mock patient level data in the formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
 
 # Statement of need
 
@@ -87,6 +87,8 @@ An empty mock CDM can be created using the `mockCdmReference` function, which in
 
 To expand the mock CDM with additional clinical tables, we can pipe the corresponding functions onto the previously created CDM object. For example, to add a condition occurrence and a drug exposure table to the OMOP CDM we can use `mockConditionOccurrence` and `mockDrugExposure` functions, respectively. There is a function for most of the commonly used clinical tables in OMOP CDM.
 
+This modular design, where each table is added via a separate function, provides flexibility in testing and development workflows. Since users can simulate the specific OMOP CDM tables as needed, depending on the scenario being tested, such as testing functionality that only requires drug exposures or condition occurrences. Generating only the necessary tables can be less computationally intensive, which is especially useful when simulating CDM with a large number of patients or when running automated test suites repeatedly. Additionally, table-level control also makes it easier to simulate edge cases and specify population settings, such as the number of patients, gender and number of records within each tables.
+
 Below is an example code snippet demonstrating how to generate a mock CDM with 1,000 patients, valid observation periods, and additional drug exposure and condition occurrence tables:
 
 ```         
@@ -120,8 +122,6 @@ print(cdm)
 Similarly, the `mockCohort` function can add a mock cohort table to the mock CDM object. The function contains arguments for the user to customise the mock table, such as its name and size. See the example below.
 
 ```         
-library(omock)
-
 cdm <- cdm |>
   mockCohort(
     name = "omock_example",
@@ -149,7 +149,13 @@ print(cdm)
 
 ## Building mock CDM object with bespoke CDM table
 
-To create a mock CDM object from a bespoke OMOP table, we can use the `mockCdmFromTables` function. `mockCdmFromTables` takes the OMOP table in `tibble` format and create a CDM object with valid person and observation period information for those tables. Below is an example code snippet on using `mockCdmFromTables` to create a mock CDM object from the `condition_occurrence` table.
+To create a mock CDM object from a bespoke OMOP table, we can use the `mockCdmFromTables` function. `mockCdmFromTables` takes the OMOP table in `tibble` format and create a CDM object with valid person and observation period information for those tables. This function is helpful for quickly generating a valid CDM object when one or more clinical tables are already defined, for example, when writing unit tests that require known values in a particular clinical table. For example, if a `condition_occurrence` table is provided, mockCdmFromTables will extract the person_id from the condition_occurrence table and generate a consistent `person` and `observation_period` table to match the records within the condition_occurrence table.
+
+By default, if no base CDM object is passed into `mockCdmFromTables()` explicitly, `mockCdmFromTables()` internally calls `mockCdmReference()` to initialise an empty CDM object. This ensures that all required vocabulary tables are present for creation of a valid CDM object that matches the OMOP CDM standards. This behaviour is particularly useful when users only need to validate code against their bespoke clinical tables, while `mockCdmFromTables` ensures that the resulting CDM object has all the required tables and relationships in place to form a valid CDM object.
+
+By contrast, if an existing CDM object is passed in and contains tables that overlap with the provided ones (e.g., a `person` table), those will be overwritten to add all the extra individuals from the new tables added. A warning will then be issued to notify users that the tables within the CDM object have been overwritten. This design allows for customising an existing CDM object with bespoke tables, while ensuring the CDM object is valid.
+
+Below is an example code snippet on using `mockCdmFromTables` to create a mock CDM object from the `condition_occurrence` table.
 
 ```         
 library(dplyr)
@@ -165,11 +171,11 @@ condition_occurrence = tibble(
 )
 
 
-cdm <- mockCdmFromTables(
+cdm2 <- mockCdmFromTables(
   tables = list(condition_occurrence = condition_occurrence)
 )
 
-print(cdm)
+print(cdm2)
 ```
 
 ```         
@@ -187,8 +193,6 @@ print(cdm)
 
 ## • other tables: -
 ```
-
-This functionality is particularly useful for unit tests, as we can create a mock `cdm_reference` that contains the specific OMOP CDM data we need to test the code's performance as expected.
 
 # Conclusions
 
