@@ -57,3 +57,67 @@ cdm <-
 print(cdm)
 ```
 
+```{r}        
+library(dplyr)
+library(omock)
+
+# Create a mock CDM with 10 persons and corresponding observation periods
+
+cdm_test <- mockCdmReference() |>
+  mockPerson(nPerson = 10) |>
+  mockObservationPeriod()
+
+# Simple test function
+count_observed_people <- function(cdm) {
+  cdm$observation_period |> 
+    distinct(person_id) |> 
+    inner_join(cdm$person, by = "person_id") |> 
+    summarise(n = n()) |> 
+    pull(n)
+}
+
+## Apply the function to validate if the function will provide the correct answer
+count_observed_people(cdm_test)
+
+# > [1] 10
+```
+
+
+```{r}         
+library(dplyr)
+library(omock)
+
+## Create a mock CDM with 10 persons and corresponding observation periods
+
+cohort_table <- tibble(
+    cohort_definition_id = c(1, 1, 1),
+    subject_id = c(1, 2,3),
+    cohort_start_date = as.Date(c(
+        "2020-04-01",
+        "2021-06-01",
+        "2022-05-22")),
+        cohort_end_date = as.Date(c(
+        "2020-04-01",
+        "2021-06-01",
+        "2022-05-22")))
+
+cdm_test2 <- omock::mockCdmFromTables(tables = list(cohort = cohort_table))
+
+# Function to check if all cohort_start_dates fall within a given date range
+check_cohort_date_range <- function(cohort_table, start_date, end_date) {
+  all(cohort_table$cohort_start_date >= start_date & 
+      cohort_table$cohort_start_date <= end_date)
+}
+
+## Run the check
+check_cohort_date_range(cdm_test2$cohort,
+                        start_date = as.Date("2020-01-01"),
+                        end_date = as.Date("2023-01-01"))
+#> [1] TRUE
+
+check_cohort_date_range(cdm_test2$cohort,
+                        start_date = as.Date("2020-01-01"),
+                        end_date = as.Date("2022-01-01"))
+                        
+#> [1] FALSE
+```

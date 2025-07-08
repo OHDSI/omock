@@ -194,6 +194,86 @@ print(cdm2)
 ## • other tables: -
 ```
 
+## Testing code with omock
+
+The main motivation for developing omock is to support reliable testing of analytic packages that depend on the OMOP CDM. This section provided two examples on how omock can be use for testing.
+
+### Example 1:
+
+Suppose we want to validate a function that counts the number of individuals who have both a person record and an associated observation period. We can generate such testing data as follows:
+
+```         
+library(dplyr)
+library(omock)
+
+# Create a mock CDM with 10 persons and corresponding observation periods
+
+cdm_test <- mockCdmReference() |>
+  mockPerson(nPerson = 10) |>
+  mockObservationPeriod()
+
+# Simple test function
+count_observed_people <- function(cdm) {
+  cdm$observation_period |> 
+    distinct(person_id) |> 
+    inner_join(cdm$person, by = "person_id") |> 
+    summarise(n = n()) |> 
+    pull(n)
+}
+
+## Apply the function to validate if the function will provide the correct answer
+count_observed_people(cdm_test)
+
+# > [1] 10
+```
+
+### Example 2:
+
+Suppose we want to validate a function that check if all records within a cohort table have cohort start date within a data range. We can generate such testing data as follows:
+
+```         
+library(dplyr)
+library(omock)
+
+## Create a mock CDM with 10 persons and corresponding observation periods
+
+cohort_table <- tibble(
+    cohort_definition_id = c(1, 1, 1),
+    subject_id = c(1, 2,3),
+    cohort_start_date = as.Date(c(
+        "2020-04-01",
+        "2021-06-01",
+        "2022-05-22")),
+        cohort_end_date = as.Date(c(
+        "2020-04-01",
+        "2021-06-01",
+        "2022-05-22")))
+
+cdm_test2 <- omock::mockCdmFromTables(tables = list(cohort = cohort_table))
+
+# Function to check if all cohort_start_dates fall within a given date range
+check_cohort_date_range <- function(cohort_table, start_date, end_date) {
+  all(cohort_table$cohort_start_date >= start_date & 
+      cohort_table$cohort_start_date <= end_date)
+}
+
+## Run the check
+check_cohort_date_range(cdm_test2$cohort,
+                        start_date = as.Date("2020-01-01"),
+                        end_date = as.Date("2023-01-01"))
+#> [1] TRUE
+
+check_cohort_date_range(cdm_test2$cohort,
+                        start_date = as.Date("2020-01-01"),
+                        end_date = as.Date("2022-01-01"))
+                        
+#> [1] FALSE
+```
+
+## Comparison with existing tools
+
+A commonly used resource for testing OMOP-based tools is the `Eunomia` package [@eunomia], which provides a fixed, small synthetic CDM dataset. `Eunomia` is a valuable tool for exploring the OMOP CDM data structure and for demonstration purposes. It is less suited for testing code that requires custom scenarios, such as examples 1 and 2 shown above. Since the data within the `Eunomia` package is static and cannot be easily modified, this made it challenging to generate custom mock data for unit testing. Whereas `omock` is designed to give users the flexibility for generating mock OMOP CDM data tailored to their testing needs.
+
 # Conclusions
 
 Overall, the `omock` R package allows users to generate mock OMOP CDM datasets tailored to their needs, addressing the need to develop and validate R packages for OMOP CDM data. Hence, the developers can test their tools while adhering to privacy and ethical considerations. Future directions for `omock` will enhance the realism of the mock data generated.
