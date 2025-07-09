@@ -4,7 +4,12 @@
 \alias{mockCdmFromTables}
 \title{Generates a mock CDM (Common Data Model) object based on existing CDM structures and additional tables.}
 \usage{
-mockCdmFromTables(cdm = mockCdmReference(), tables = list(), seed = NULL)
+mockCdmFromTables(
+  cdm = mockCdmReference(),
+  tables = list(),
+  maxObservationalPeriodEndDate = as.Date("01-01-2024", "\%d-\%m-\%Y"),
+  seed = NULL
+)
 }
 \arguments{
 \item{cdm}{A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
@@ -14,6 +19,9 @@ This parameter should already be initialized and can contain pre-existing standa
 These tables can include both standard OMOP tables such as 'drug_exposure' or 'condition_occurrence',
 as well as cohort-specific tables that are not part of the standard OMOP model but are necessary for specific analyses.
 Each table should be named according to its intended table name in the CDM structure.}
+
+\item{maxObservationalPeriodEndDate}{A `Date` object specifying the latest allowable end date for the observation period.
+This value ensures that `observation_period_end_date` values do not exceed the current calendar date.}
 
 \item{seed}{An optional integer that sets the seed for random number generation used in creating mock data entries.
 Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
