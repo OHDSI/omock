@@ -66,8 +66,7 @@ test_that("check cdm object get created", {
   expect_true(attributes(cdm$marker_cohort)$cohort_set |> dplyr::tally() > 0)
   expect_true(attributes(cdm$index_cohort)$cohort_set |> dplyr::tally() > 0)
 
-
-  expect_no_error(omock::mockCdmFromTables(tables = list(
+  tables = list(
     observation_period = dplyr::tibble(
       observation_period_id = as.integer(1:8),
       person_id = c(1, 1, 1, 2, 2, 3, 3, 4) |> as.integer(),
@@ -95,11 +94,59 @@ test_that("check cdm object get created", {
           "2020-12-10"
         )
       )
+    ))
+
+
+  cdm <- omock::mockCdmFromTables(tables = tables)
+
+  expect_true(
+    all(
+      cdm$observation_period |> dplyr::select(person_id) ==
+        tables$observation_period |> dplyr::select(person_id)
     )
-  )))
+  )
+
+  expect_true(
+    all(
+      cdm$observation_period |> dplyr::select(observation_period_start_date) ==
+        tables$observation_period |> dplyr::select(observation_period_start_date)
+    )
+  )
+
+  expect_true(cdm$person |> nrow() == 4)
+
 })
 
-
+dd <- omock::mockCdmFromTables(tables = list(
+  observation_period = dplyr::tibble(
+    observation_period_id = as.integer(1:8),
+    person_id = c(1, 1, 1, 2, 2, 3, 3, 4) |> as.integer(),
+    observation_period_start_date = as.Date(
+      c(
+        "2020-03-01",
+        "2020-03-25",
+        "2020-04-25",
+        "2020-08-10",
+        "2020-03-10",
+        "2020-03-01",
+        "2020-04-10",
+        "2020-03-10"
+      )
+    ),
+    observation_period_end_date = as.Date(
+      c(
+        "2020-03-20",
+        "2020-03-30",
+        "2020-08-15",
+        "2020-12-31",
+        "2020-03-27",
+        "2020-03-09",
+        "2020-05-08",
+        "2020-12-10"
+      )
+    )
+  )
+))
 
 
 test_that("check NA", {
@@ -142,6 +189,21 @@ test_that("check NA", {
         person_id = c(1L, 1L, 2L),
         visit_start_date = as.Date("2020-01-01") + c(0L, 29L, 70L),
         visit_end_date = as.Date("2020-01-01") + c(30L, 45L, 89L),
+      ),
+      condition_occurrence = dplyr::tibble(
+        person_id = c(1L, 2L, 2L),
+        condition_start_date = as.Date("2020-01-01") + c(50L, 51L, 89L),
+        condition_end_date = as.Date("2020-01-01") + c(1L, 77L, 90L)
+      )
+    )
+  ))
+
+  expect_error(omock::mockCdmFromTables(
+    tables = list(
+      visit_occurrence = dplyr::tibble(
+        person_id = c(1L, 1L, 2L),
+        visit_start_date = as.Date("2020-01-01") + c(0L, 29L, 70L),
+        visit_end_date = as.Date("2025-01-01") + c(30L, 45L, 89L),
       ),
       condition_occurrence = dplyr::tibble(
         person_id = c(1L, 2L, 2L),

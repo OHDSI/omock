@@ -135,7 +135,12 @@ namesTable <- dplyr::tribble(
   "specimen_date",
   "specimen_date",
   "specimen_concept_id",
-  "specimen_source_id"
+  "specimen_source_id",
+  "observation_period",
+  "observation_period_start_date",
+  "observation_period_end_date",
+  "period_type_concept_id",
+  NA
 )
 
 mockDatasetsKey <- "MOCK_DATASETS_FOLDER"
