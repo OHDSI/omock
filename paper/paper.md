@@ -49,7 +49,7 @@ Affiliation:\
 
 # Summary
 
-`omock` is an R package that allows users to create mock patient level data in the formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
+`omock` is an R package that allows users to create mock patient level data formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
 
 # Statement of need
 
