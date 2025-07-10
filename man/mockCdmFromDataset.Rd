@@ -4,11 +4,13 @@
 \alias{mockCdmFromDataset}
 \title{Create a \code{local} cdm_reference from a dataset.}
 \usage{
-mockCdmFromDataset(datasetName = "GiBleed")
+mockCdmFromDataset(datasetName = "GiBleed", source = "local")
 }
 \arguments{
 \item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
 for possibilities.}
+
+\item{source}{Choice between \code{local} or \code{duckdb}.}
 }
 \value{
 A local cdm_reference object.

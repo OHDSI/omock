@@ -1,6 +1,6 @@
 # omock (development version)
 
-* Create copyCdmToDuckdb #158
+* add option source to `mockCdmFromDataset` #158
 
 # omock 0.4.0
 
