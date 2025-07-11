@@ -3,6 +3,7 @@
 #'
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
 #' for possibilities.
+#' @param source Choice between `local` or `duckdb`.
 #'
 #' @return A local cdm_reference object.
 #' @export
@@ -15,9 +16,11 @@
 #' cdm <- mockCdmFromDataset(datasetName = "GiBleed")
 #' cdm
 #'
-mockCdmFromDataset <- function(datasetName = "GiBleed") {
+mockCdmFromDataset <- function(datasetName = "GiBleed",
+                               source = "local") {
   # initial check
   datasetName <- validateDatasetName(datasetName)
+  omopgenerics::assertChoice(source, c("local", "duckdb"))
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
 
@@ -52,7 +55,28 @@ mockCdmFromDataset <- function(datasetName = "GiBleed") {
       )
   }
 
-  omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
+  cdm <- omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
+
+  if (identical(source, "duckdb")) {
+    rlang::check_installed(c("duckdb", "CDMConnector"))
+    tmpFile <- tempfile(fileext = ".duckdb")
+    con <- duckdb::dbConnect(drv = duckdb::duckdb(dbdir = tmpFile))
+    to <- CDMConnector::dbSource(con = con, writeSchema = "main")
+    invisible(omopgenerics::insertCdmTo(cdm = cdm, to = to))
+    DBI::dbExecute(conn = con, statement = "CREATE SCHEMA results")
+    cdm <- CDMConnector::cdmFromCon(
+      con = con,
+      cdmSchema = "main",
+      writeSchema = "results",
+      cdmVersion = omopgenerics::cdmVersion(x = cdm),
+      cdmName = omopgenerics::cdmName(x = cdm),
+      writePrefix = "test_",
+      .softValidation = TRUE
+    ) |>
+      suppressMessages()
+  }
+
+  return(cdm)
 }
 readTables <- function(tmpFolder, cv) {
   tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.parquet$", recursive = TRUE)

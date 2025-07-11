@@ -7,11 +7,11 @@
 mockConditionOccurrence(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object that should already include 'person',
+\item{cdm}{A \code{cdm_reference} object that should already include 'person',
 'observation_period', and 'concept' tables.This object is the base
 CDM structure where the condition occurrence data will be added.
- It is essential that these tables are not empty as they provide
- the necessary context for generating condition data.}
+It is essential that these tables are not empty as they provide
+the necessary context for generating condition data.}
 
 \item{recordPerson}{An integer specifying the expected number of condition
 records to generate per person.This parameter allows
@@ -27,11 +27,11 @@ each time it is run with the same inputs.If 'NULL', the seed is
 not set, resulting in different outputs on each run.}
 }
 \value{
-Returns the modified `cdm` object with the new
-        'condition_occurrence' table added. This table includes the
-        simulated condition data for each person, ensuring that each
-        record is within the valid observation periods and linked to the
-        correct individuals in the 'person' table.
+Returns the modified \code{cdm} object with the new
+'condition_occurrence' table added. This table includes the
+simulated condition data for each person, ensuring that each
+record is within the valid observation periods and linked to the
+correct individuals in the 'person' table.
 }
 \description{
 This function simulates condition occurrences for individuals within a

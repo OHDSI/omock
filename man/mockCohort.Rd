@@ -15,8 +15,8 @@ mockCohort(
 }
 \arguments{
 \item{cdm}{A CDM reference object where the synthetic cohort data will be
-stored. This object should already include necessary tables such as `person`
-and `observation_period`.}
+stored. This object should already include necessary tables such as \code{person}
+and \code{observation_period}.}
 
 \item{name}{A string specifying the name of the table within the CDM where
 the cohort data will be stored. Defaults to "cohort". This name will be used
@@ -29,13 +29,13 @@ creation of multiple cohorts, each with a unique identifier.}
 \item{cohortName}{A character vector specifying the names of the cohorts to
 be created. If not provided, default names based on a sequence
 (e.g., "cohort_1", "cohort_2", ...) will be generated. The length of this
-vector must match the value of `numberCohorts`. This parameter provides
+vector must match the value of \code{numberCohorts}. This parameter provides
 meaningful names for each cohort.}
 
 \item{recordPerson}{An integer or a vector of integers specifying the
 expected number of records per person within each cohort. If a single
 integer is provided, it applies to all cohorts. If a vector is provided, its
-length must match the value of `numberCohorts`. This parameter helps
+length must match the value of \code{numberCohorts}. This parameter helps
 simulate the frequency of observations for individuals in each cohort,
 allowing for realistic variability in data.}
 

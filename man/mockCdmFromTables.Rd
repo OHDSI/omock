@@ -7,7 +7,7 @@
 mockCdmFromTables(cdm = mockCdmReference(), tables = list(), seed = NULL)
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
+\item{cdm}{A \code{cdm_reference} object, which serves as the base structure where all additional tables will be integrated.
 This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.}
 
 \item{tables}{A named list of data frames representing additional tables to be integrated into the CDM.
@@ -20,8 +20,8 @@ Setting a seed ensures that the generated mock data are reproducible across diff
 If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.}
 }
 \value{
-Returns the updated `cdm` object with all the new tables added and integrated, ensuring consistency
-        across the observational periods and the person entries.
+Returns the updated \code{cdm} object with all the new tables added and integrated, ensuring consistency
+across the observational periods and the person entries.
 }
 \description{
 This function takes an existing CDM reference (which can be empty) and a list of additional named tables to create
