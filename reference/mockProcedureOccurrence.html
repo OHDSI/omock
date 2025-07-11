@@ -68,11 +68,11 @@ windows.</p>
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A `cdm_reference` object that should already include 'person',
+<dd><p>A <code>cdm_reference</code> object that should already include 'person',
 'observation_period', and 'concept' tables.This object is the base
 CDM structure where the procedure occurrence data will be added.
- It is essential that these tables are not empty as they provide
- the necessary context for generating condition data.</p></dd>
+It is essential that these tables are not empty as they provide
+the necessary context for generating condition data.</p></dd>
 
 
 <dt id="arg-recordperson">recordPerson<a class="anchor" aria-label="anchor" href="#arg-recordperson"></a></dt>
@@ -94,11 +94,11 @@ not set, resulting in different outputs on each run.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns the modified `cdm` object with the new
-        'condition_occurrence' table added. This table includes the
-        simulated condition data for each person, ensuring that each
-        record is within the valid observation periods and linked to the
-        correct individuals in the 'person' table.</p>
+    <p>Returns the modified <code>cdm</code> object with the new
+'condition_occurrence' table added. This table includes the
+simulated condition data for each person, ensuring that each
+record is within the valid observation periods and linked to the
+correct individuals in the 'person' table.</p>
     </div>
 
     <div class="section level2">
@@ -117,26 +117,26 @@ not set, resulting in different outputs on each run.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 15</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    procedure_concept_id person_id procedure_date procedure_end_date</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>              4<span style="text-decoration: underline;">012</span>925        10 1983-10-03     1984-06-06        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>              4<span style="text-decoration: underline;">012</span>925         1 2004-05-16     2005-04-26        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>              4<span style="text-decoration: underline;">012</span>925         3 2005-10-07     2008-07-11        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>              4<span style="text-decoration: underline;">012</span>925         9 2011-09-29     2016-05-22        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>              4<span style="text-decoration: underline;">012</span>925         3 2013-10-15     2013-12-11        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>              4<span style="text-decoration: underline;">012</span>925        10 1989-10-11     1990-11-18        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>              4<span style="text-decoration: underline;">012</span>925         7 1993-10-17     1993-10-27        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>              4<span style="text-decoration: underline;">012</span>925         4 2002-08-05     2003-10-01        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>              4<span style="text-decoration: underline;">012</span>925         5 2009-07-17     2014-09-26        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>              4<span style="text-decoration: underline;">012</span>925         7 1990-09-23     1993-08-09        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>              4<span style="text-decoration: underline;">012</span>925         9 1990-08-03     2014-06-24        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>              4<span style="text-decoration: underline;">012</span>925         9 2002-10-07     2007-07-11        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>              4<span style="text-decoration: underline;">012</span>925         3 2006-12-02     2009-08-01        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>              4<span style="text-decoration: underline;">012</span>925         3 2015-03-12     2016-08-10        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>              4<span style="text-decoration: underline;">012</span>925         5 1999-01-28     2012-03-28        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span>              4<span style="text-decoration: underline;">012</span>925         8 2012-07-25     2013-04-11        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span>              4<span style="text-decoration: underline;">012</span>925         3 2006-06-21     2016-04-20        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span>              4<span style="text-decoration: underline;">012</span>925         5 1997-10-19     2012-05-05        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span>              4<span style="text-decoration: underline;">012</span>925         3 2007-06-27     2009-08-22        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span>              4<span style="text-decoration: underline;">012</span>925         6 2010-01-05     2013-08-07        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>              4<span style="text-decoration: underline;">012</span>925         5 2010-05-09     2010-09-15        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>              4<span style="text-decoration: underline;">012</span>925         2 2013-03-03     2013-09-06        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>              4<span style="text-decoration: underline;">012</span>925         9 2008-04-12     2012-05-20        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>              4<span style="text-decoration: underline;">012</span>925         1 1980-12-14     1982-01-26        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>              4<span style="text-decoration: underline;">012</span>925         9 1999-11-21     2012-01-02        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>              4<span style="text-decoration: underline;">012</span>925         5 2000-12-14     2006-12-26        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>              4<span style="text-decoration: underline;">012</span>925        10 2011-11-08     2012-04-16        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>              4<span style="text-decoration: underline;">012</span>925         2 2011-01-23     2014-08-23        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>              4<span style="text-decoration: underline;">012</span>925         9 2003-05-01     2011-06-08        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>              4<span style="text-decoration: underline;">012</span>925         6 2008-06-29     2011-04-27        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>              4<span style="text-decoration: underline;">012</span>925         4 2014-12-15     2015-01-01        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>              4<span style="text-decoration: underline;">012</span>925         5 2010-01-26     2010-06-09        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>              4<span style="text-decoration: underline;">012</span>925         9 2007-06-28     2008-04-30        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>              4<span style="text-decoration: underline;">012</span>925         5 2001-03-14     2001-03-30        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>              4<span style="text-decoration: underline;">012</span>925         7 1998-12-29     2013-02-14        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span>              4<span style="text-decoration: underline;">012</span>925         4 2014-11-10     2014-12-21        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span>              4<span style="text-decoration: underline;">012</span>925         3 1966-10-24     1967-04-05        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span>              4<span style="text-decoration: underline;">012</span>925         7 2012-10-07     2017-07-12        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span>              4<span style="text-decoration: underline;">012</span>925         9 2000-08-21     2000-12-03        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span>              4<span style="text-decoration: underline;">012</span>925         6 2011-12-16     2012-02-23        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more variables: procedure_occurrence_id &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   procedure_type_concept_id &lt;int&gt;, procedure_datetime &lt;dttm&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   modifier_concept_id &lt;int&gt;, quantity &lt;int&gt;, provider_id &lt;int&gt;,</span></span>

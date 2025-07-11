@@ -53,7 +53,7 @@
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A `cdm_reference` object that must already include 'person', 'observation_period', and 'concept' tables.
+<dd><p>A <code>cdm_reference</code> object that must already include 'person', 'observation_period', and 'concept' tables.
 This object serves as the base CDM structure where the observation data will be added.
 The 'person' and 'observation_period' tables must be populated as they are necessary for generating accurate observation records.</p></dd>
 
@@ -72,9 +72,9 @@ If 'NULL', the seed is not set, which can lead to different outputs on each run.
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns the modified `cdm` object with the new 'observation' table added. This table includes the simulated
-        observation data for each person, ensuring that each record is correctly linked to individuals in the 'person' table
-        and falls within valid observation periods.</p>
+    <p>Returns the modified <code>cdm</code> object with the new 'observation' table added. This table includes the simulated
+observation data for each person, ensuring that each record is correctly linked to individuals in the 'person' table
+and falls within valid observation periods.</p>
     </div>
 
     <div class="section level2">
@@ -92,16 +92,16 @@ If 'NULL', the seed is not set, which can lead to different outputs on each run.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 180 × 18</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    observation_concept_id person_id observation_date observation_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>                 <span style="text-decoration: underline;">437</span>738         5 2015-07-11                    1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>                 <span style="text-decoration: underline;">437</span>738         3 2014-09-17                    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>                 <span style="text-decoration: underline;">437</span>738         9 1998-05-13                    3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>                 <span style="text-decoration: underline;">437</span>738         9 2000-05-19                    4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>                 <span style="text-decoration: underline;">437</span>738         7 2004-12-14                    5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>                 <span style="text-decoration: underline;">437</span>738         8 2006-02-02                    6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>                 <span style="text-decoration: underline;">437</span>738         4 1991-09-27                    7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>                 <span style="text-decoration: underline;">437</span>738         1 2018-06-05                    8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>                 <span style="text-decoration: underline;">437</span>738         7 2004-10-16                    9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>                 <span style="text-decoration: underline;">437</span>738         7 2004-12-10                   10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>                 <span style="text-decoration: underline;">437</span>738         7 1985-03-01                    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>                 <span style="text-decoration: underline;">437</span>738         4 2009-03-30                    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>                 <span style="text-decoration: underline;">437</span>738         9 2011-01-23                    3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>                 <span style="text-decoration: underline;">437</span>738         8 1991-01-02                    4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>                 <span style="text-decoration: underline;">437</span>738         6 2013-04-14                    5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>                 <span style="text-decoration: underline;">437</span>738         4 2008-11-05                    6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>                 <span style="text-decoration: underline;">437</span>738         4 2009-04-11                    7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>                 <span style="text-decoration: underline;">437</span>738         4 2008-11-01                    8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>                 <span style="text-decoration: underline;">437</span>738         2 2014-08-19                    9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>                 <span style="text-decoration: underline;">437</span>738         9 2004-10-12                   10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 170 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more variables: observation_type_concept_id &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   observation_datetime &lt;dttm&gt;, value_as_number &lt;dbl&gt;, value_as_string &lt;chr&gt;,</span></span>

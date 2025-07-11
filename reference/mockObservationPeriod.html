@@ -53,7 +53,7 @@
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A `cdm_reference` object that must include a 'person' table with valid dates of birth.
+<dd><p>A <code>cdm_reference</code> object that must include a 'person' table with valid dates of birth.
 This object serves as the base CDM structure where the observation period data will be added.
 The function checks to ensure that the 'person' table is populated and uses the date of birth to generate observation periods.</p></dd>
 
@@ -66,8 +66,8 @@ If 'NULL', the seed is not set, which can lead to different outputs on each run.
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns the modified `cdm` object with the new 'observation_period' table added. This table includes the simulated
-        observation periods for each person, ensuring that each record spans a realistic timeframe based on the person's date of birth.</p>
+    <p>Returns the modified <code>cdm</code> object with the new 'observation_period' table added. This table includes the simulated
+observation periods for each person, ensuring that each record spans a realistic timeframe based on the person's date of birth.</p>
     </div>
 
     <div class="section level2">
@@ -84,16 +84,16 @@ If 'NULL', the seed is not set, which can lead to different outputs on each run.
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 100 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    observation_period_id person_id observation_period_s…¹ observation_period_e…²</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>                     1         1 2011-08-06             2017-04-12            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>                     2         2 1992-12-24             2016-08-14            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>                     3         3 1965-07-02             2017-08-15            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>                     4         4 1966-06-06             1978-06-14            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>                     5         5 1990-04-03             1990-07-04            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>                     6         6 2000-12-02             2014-08-28            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>                     7         7 1980-04-26             1987-08-14            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>                     8         8 2002-09-20             2007-08-12            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>                     9         9 1965-05-23             1981-05-16            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>                    10        10 2002-04-15             2016-05-29            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>                     1         1 2004-04-30             2019-03-17            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>                     2         2 2013-01-25             2014-09-22            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>                     3         3 1985-07-14             2014-08-12            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>                     4         4 1997-11-25             2009-02-10            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>                     5         5 1985-04-02             2007-08-04            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>                     6         6 1960-09-30             1965-02-23            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>                     7         7 2017-10-17             2018-12-02            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>                     8         8 2001-08-07             2016-10-19            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>                     9         9 2007-09-23             2009-12-12            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>                    10        10 1999-07-26             2010-01-13            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 90 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated names: ¹​observation_period_start_date,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​observation_period_end_date</span></span>
