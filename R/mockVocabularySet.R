@@ -21,6 +21,10 @@
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed") {
 
+  checkInput(
+    cdm = cdm
+  )
+
 
   dataSet <- mockCdmFromDataset(datasetName = "GiBleed")
 
