@@ -38,6 +38,7 @@ reference:
     contents:
       - mockVocabularyTables
       - mockConcepts
+      - mockVocabularySet
 
   - title: "Cohort Tables Creation"
     desc: "These functions are focused on adding mock cohort tables based on the initialized CDM structure."
