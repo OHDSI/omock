@@ -23,7 +23,7 @@ This function create specified vocabulary tables to a CDM object. It can either 
 library(omock)
 
 # Create a mock CDM reference and populate it with mock vocabulary tables
-cdm <- mockCdmReference() |> mockVocabularySet(vocabularySet = "mock")
+cdm <- mockCdmReference() |> mockVocabularySet(vocabularySet = "GiBleed")
 
 # View the names of the tables added to the CDM
 names(cdm)

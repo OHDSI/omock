@@ -14,19 +14,32 @@
 #' library(omock)
 #'
 #' # Create a mock CDM reference and populate it with mock vocabulary tables
-#' cdm <- mockCdmReference() |> mockVocabularySet(vocabularySet = "mock")
+#' cdm <- mockCdmReference() |> mockVocabularySet(vocabularySet = "GiBleed")
 #'
 #' # View the names of the tables added to the CDM
 #' names(cdm)
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed") {
 
-  checkInput(
-    cdm = cdm
-  )
+  # initial check
+  datasetName <- validateDatasetName(vocabularySet)
+  cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
+  cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
 
+  # make dataset available
+  datasetPath <- datasetAvailable(datasetName)
 
-  dataSet <- mockCdmFromDataset(datasetName = "GiBleed")
+  # folder to unzip
+  tmpFolder <- file.path(tempdir(), omopgenerics::uniqueId())
+  if (dir.exists(tmpFolder)) {
+    unlink(x = tmpFolder, recursive = FALSE)
+  }
+  dir.create(tmpFolder)
+
+  # unzip
+  utils::unzip(zipfile = datasetPath, exdir = tmpFolder)
+  cli::cli_inform(c(i = "Reading {.pkg {datasetName}} tables."))
+  dataSet <- readTables(tmpFolder, cv, vocab = T)
 
   # create the list of tables
   cdmTables <- list(
