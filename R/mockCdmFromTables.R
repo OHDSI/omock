@@ -13,6 +13,10 @@
 #'               as well as cohort-specific tables that are not part of the standard OMOP model but are necessary for specific analyses.
 #'               Each table should be named according to its intended table name in the CDM structure.
 #'
+#' @param maxObservationalPeriodEndDate A `Date` object specifying the latest allowable end date for the observation period.
+#'        This value ensures that `observation_period_end_date` values do not exceed the current calendar date.
+#'
+#'
 #' @param seed An optional integer that sets the seed for random number generation used in creating mock data entries.
 #'             Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
 #'             If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.
@@ -47,6 +51,7 @@
 #' }
 mockCdmFromTables <- function(cdm = mockCdmReference(),
                               tables = list(),
+                              maxObservationalPeriodEndDate = as.Date("01-01-2024", "%d-%m-%Y"),
                               seed = NULL) {
   meanBirthStart <- 5 * 365
   meanStartFirst <- 2 * 365
@@ -56,6 +61,20 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   omopgenerics::validateCdmArgument(cdm = cdm)
   omopgenerics::assertNumeric(seed,integerish = TRUE, min = 1,
                               length = 1, null = TRUE)
+  omopgenerics::assertDate(maxObservationalPeriodEndDate,
+                           length = 1, null = FALSE)
+
+  if(maxObservationalPeriodEndDate > Sys.Date()){
+    cli::cli_abort("maxObservationalPeriodEndDate provided is greater than current date",
+                   call = parent.frame())
+  }
+
+  #flag input with observation_period table only
+  if (all(names(tables) == "observation_period")) {
+    obsFlag = T
+  } else{
+    obsFlag = F
+  }
 
   tables <- validateTables(tables)
 
@@ -71,9 +90,11 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   # summarise individuals observation
   individuals <- summariseObservations(tables)
 
-  if (max(individuals$last_observation) > as.Date("01-01-2024", "%d-%m-%Y")) {
-    cli::cli_abort("tables provided contain date greater than 01-01-2024",
-                   call = parent.frame())
+  if (max(individuals$last_observation) > maxObservationalPeriodEndDate) {
+    cli::cli_abort(
+      "tables provided contain date greater than `maxObservationalPeriodEndDate`",
+      call = parent.frame()
+    )
 
   }
 
@@ -87,8 +108,14 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   dates <- correctDateDeath(dates = dates, tables = tables)
 
   # get observation_period
-  tables <- createObservationPeriodTable(dates = dates, tables = tables)
-
+  if (!obsFlag) {
+    tables <- createObservationPeriodTable(dates = dates, tables = tables)
+  } else {
+    cli::cli_inform(
+      "! Input tables only contain the observation_period table, hence only the person table will be updated",
+      call = parent.frame()
+    )
+  }
   # TODO summarise concepts
 
   # TODO update vocabulary tables
@@ -193,12 +220,14 @@ getObsTypes <- function(tables) {
 }
 getPersonId <- function(tableName) {
   if (tableName %in% c(namesTable$table_name)) {
-    return("person_id")
+    x <- "person_id"
   } else if (tableName %in% omopgenerics::omopTables()) {
-    return(NA)
+    x <- NA
   } else {
-    return("subject_id")
+    x <- "subject_id"
   }
+  return(x)
+
 }
 getStartDate <- function(tableName) {
   if (tableName %in% namesTable$table_name) {
