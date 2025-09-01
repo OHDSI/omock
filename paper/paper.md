@@ -28,7 +28,7 @@ authors:
   - name: Edward Burn
     orcid: 0000-0002-9286-1128
     affiliation: 1
-  - name: Martí Català-Sabate
+  - name: Martí Català
     orcid: 0000-0003-3308-9905
     corresponding: true
     affiliation: 1
@@ -79,7 +79,7 @@ The second approach enables users to provide bespoke data tables in OMOP CDM for
 
 These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with OMOP CDM. Both approaches are not mutually exclusive and can be combined.
 
-The `omock` package is available in CRAN version 0.3.2 [@omock], and currently there are six packages that depend on it for testing purposes.
+The `omock` package is available in CRAN version 0.5.0 [@omock], and currently there are six packages that depend on it for testing purposes.
 
 ## Building mock OMOP CDM with population settings
 
