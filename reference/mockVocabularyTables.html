@@ -20,7 +20,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/a01_Creating_synthetic_clinical_tables.html">Creating synthetic clinical tables</a></li>
     <li><a class="dropdown-item" href="../articles/a02_Creating_synthetic_cohorts.html">Creating synthetic cohorts</a></li>
-    <li><a class="dropdown-item" href="../articles/a03_Creating_a_synthetic_vocabulary.html">Creating a synthetic vocabulary</a></li>
+    <li><a class="dropdown-item" href="../articles/a03_Creating_a_synthetic_vocabulary.html">Creating synthetic vocabulary Tables with omock</a></li>
     <li><a class="dropdown-item" href="../articles/a04_Building_a_bespoke_mock_cdm.html">Building a bespoke mock cdm</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -68,8 +68,14 @@ This should be an existing or a newly created CDM object, typically initialized 
 
 
 <dt id="arg-vocabularyset">vocabularySet<a class="anchor" aria-label="anchor" href="#arg-vocabularyset"></a></dt>
-<dd><p>A character string that specifies a prefix or a set name used to initialize mock data tables.
-This allows for customization of the source data or structure names when generating vocabulary tables.</p></dd>
+<dd><p>A character string specifying the name of the vocabulary set
+                   to be used when creating the vocabulary tables for the CDM.
+                   Options are "mock" or "eunomia":</p>
+<p>- "mock": Provides a very small synthetic vocabulary subset,
+  suitable for tests that do not require realistic vocabulary
+  names or relationships.</p>
+<p>- "eunomia": Uses the vocabulary from the Eunomia test database,
+  which contains real vocabularies available from ATHENA.</p></dd>
 
 
 <dt id="arg-cdmsource">cdmSource<a class="anchor" aria-label="anchor" href="#arg-cdmsource"></a></dt>

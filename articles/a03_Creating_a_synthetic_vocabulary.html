@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Creating a synthetic vocabulary • omock</title>
+<title>Creating synthetic vocabulary Tables with omock • omock</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -15,7 +15,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Creating a synthetic vocabulary">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Creating synthetic vocabulary Tables with omock">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,7 +40,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/a01_Creating_synthetic_clinical_tables.html">Creating synthetic clinical tables</a></li>
     <li><a class="dropdown-item" href="../articles/a02_Creating_synthetic_cohorts.html">Creating synthetic cohorts</a></li>
-    <li><a class="dropdown-item" href="../articles/a03_Creating_a_synthetic_vocabulary.html">Creating a synthetic vocabulary</a></li>
+    <li><a class="dropdown-item" href="../articles/a03_Creating_a_synthetic_vocabulary.html">Creating synthetic vocabulary Tables with omock</a></li>
     <li><a class="dropdown-item" href="../articles/a04_Building_a_bespoke_mock_cdm.html">Building a bespoke mock cdm</a></li>
   </ul>
 </li>
@@ -63,7 +63,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Creating a synthetic vocabulary</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Creating synthetic vocabulary Tables with omock</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/vignettes/a03_Creating_a_synthetic_vocabulary.Rmd" class="external-link"><code>vignettes/a03_Creating_a_synthetic_vocabulary.Rmd</code></a></small>
@@ -72,12 +72,98 @@
 
     
     
+<p>The <code>omock</code> R package provides functions to build and
+populate mock or user’s bespoke vocabulary tables for their mock cdm.In
+this vignette, we’ll show how to use the
+<code><a href="../reference/mockVocabularyTables.html">mockVocabularyTables()</a></code> function to initialize standard OMOP
+vocabulary tables within a mock CDM reference.</p>
+<p>First, let’s load packages required for this vignette.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/">omock</a></span><span class="op">)</span></span></code></pre></div>
-<p>Here we explain creating a synthetic vocab table</p>
-<p><span style="font-size:50px;">This function is currently under
-construction, a donation of high quality coffee to the OXINFER team
-would potential speed this up.</span></p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/">omock</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<p>Then we start off with creating an <code>cdm</code> object.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"synthetic cdm"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">10</span>, birthRange <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1960-01-01"</span>, <span class="st">"1980-12-31"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>To populate this cdm object with synthetic vocabulary table, we
+simply use the <code><a href="../reference/mockVocabularyTables.html">mockVocabularyTables()</a></code> function. The
+<code>omock</code> package comes with two set mock vocabulary tables at
+the moment. “mock” and “Eunomia”, the “mock” vocabulary set contain a
+very small subset of vocabularies from the CPRD database and “Eunomia”
+is the vocabulary set from the eunomia test database. <a href="https://ohdsi.github.io/Eunomia/" class="external-link uri">https://ohdsi.github.io/Eunomia/</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockVocabularyTables.html">mockVocabularyTables</a></span><span class="op">(</span><span class="va">cdm</span>, vocabularySet <span class="op">=</span> <span class="st">"mock"</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">vocabulary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 65 × 5</span></span></span>
+<span><span class="co">#&gt;    vocabulary_id        vocabulary_name  vocabulary_reference vocabulary_version</span></span>
+<span><span class="co">#&gt;  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ABMS                 Provider Specia… http://www.abms.org… mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> ATC                  WHO Anatomic Th… http://www.whocc.no… mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CDM                  OMOP Common Dat… https://github.com/… mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CMS Place of Service Place of Servic… http://www.cms.gov/… mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Cohort Type          OMOP Cohort Type OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Concept Class        OMOP Concept Cl… OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Condition Status     OMOP Condition … OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Condition Type       OMOP Condition … OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Cost                 OMOP Cost        OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Cost Type            OMOP Cost Type   OMOP generated       mock              </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 55 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: vocabulary_concept_id &lt;int&gt;</span></span></span></code></pre></div>
+<p>set vocabularySet to eunomia to create the cdm with eunomia
+vocabulary table.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockVocabularyTables.html">mockVocabularyTables</a></span><span class="op">(</span><span class="va">cdm</span>, vocabularySet <span class="op">=</span> <span class="st">"eunomia"</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">vocabulary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 125 × 5</span></span></span>
+<span><span class="co">#&gt;    vocabulary_id vocabulary_name         vocabulary_reference vocabulary_version</span></span>
+<span><span class="co">#&gt;  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> ABMS          Provider Specialty (Am… http://www.abms.org… 2018-06-26 ABMS   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> AMT           Australian Medicines T… https://www.nehta.g… AMT 01-SEP-17     </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> APC           Ambulatory Payment Cla… http://www.cms.gov/… 2018-January-Adde…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> ATC           WHO Anatomic Therapeut… FDB UK distribution… RXNORM 2018-08-12 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> BDPM          Public Database of Med… http://base-donnees… BDPM 17-JUL-17    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> CDM           OMOP Common DataModel   https://github.com/… CDM v6.0.0        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CDT           Current Dental Termino… http://www.nlm.nih.… 2018 Release      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> CIEL          Columbia International… https://wiki.openmr… Openmrs 1.11.0 20…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Cohort        Legacy OMOP HOI or DOI… OMOP generated       <span style="color: #BB0000;">NA</span>                </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Cohort Type   OMOP Cohort Type        OMOP generated       <span style="color: #BB0000;">NA</span>                </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 115 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: vocabulary_concept_id &lt;int&gt;</span></span></span></code></pre></div>
+<p>You can also edit any vocabulary table with your own bespoke
+vocabulary, for example if you want to insert your own bespoke concept
+table. you can do below.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">myConceptTable</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span>  concept_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
+<span>  concept_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Condition A"</span>, <span class="st">"Condition B"</span>, <span class="st">"Drug C"</span><span class="op">)</span>,</span>
+<span>  domain_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Condition"</span>, <span class="st">"Condition"</span>, <span class="st">"Drug"</span><span class="op">)</span>,</span>
+<span>  vocabulary_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SNOMED"</span>, <span class="st">"SNOMED"</span>, <span class="st">"RxNorm"</span><span class="op">)</span>,</span>
+<span>  concept_class_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Clinical Finding"</span>, <span class="st">"Clinical Finding"</span>, <span class="st">"Ingredient"</span><span class="op">)</span>,</span>
+<span>  standard_concept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"S"</span>, <span class="st">"S"</span>, <span class="st">"S"</span><span class="op">)</span>,</span>
+<span>  concept_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"111"</span>, <span class="st">"222"</span>, <span class="st">"333"</span><span class="op">)</span>,</span>
+<span>  valid_start_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1970-01-01"</span><span class="op">)</span>,</span>
+<span>  valid_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2099-12-31"</span><span class="op">)</span>,</span>
+<span>  invalid_reason <span class="op">=</span> <span class="cn">NA</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockVocabularyTables.html">mockVocabularyTables</a></span><span class="op">(</span><span class="va">cdm</span>, </span>
+<span>                            vocabularySet <span class="op">=</span> <span class="st">"eunomia"</span>,</span>
+<span>                            concept <span class="op">=</span> <span class="va">myConceptTable</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">concept</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 10</span></span></span>
+<span><span class="co">#&gt;   concept_id concept_name domain_id vocabulary_id concept_class_id</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">*</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>          1 Condition A  Condition SNOMED        Clinical Finding</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>          2 Condition B  Condition SNOMED        Clinical Finding</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>          3 Drug C       Drug      RxNorm        Ingredient      </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5 more variables: standard_concept &lt;chr&gt;, concept_code &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   valid_start_date &lt;date&gt;, valid_end_date &lt;date&gt;, invalid_reason &lt;lgl&gt;</span></span></span></code></pre></div>
+<p>As you can see mockVocabularyTables() allows you to populate a mock
+CDM with custom vocabulary tables, it provided two different vocabulary
+set for you to choose from and also give you the flexibility to modify
+it with your own custom vocabulary tables.</p>
   </main>
 </div>
 
