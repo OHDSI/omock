@@ -21,15 +21,15 @@ mockVocabularyTables(
 This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.}
 
 \item{vocabularySet}{A character string specifying the name of the vocabulary set
-                   to be used when creating the vocabulary tables for the CDM.
-                   Options are "mock" or "eunomia":
-
-- "mock": Provides a very small synthetic vocabulary subset,
-  suitable for tests that do not require realistic vocabulary
-  names or relationships.
-
-- "eunomia": Uses the vocabulary from the Eunomia test database,
-  which contains real vocabularies available from ATHENA.}
+to be used when creating the vocabulary tables for the CDM.
+Options are "mock" or "eunomia":
+\itemize{
+\item "mock": Provides a very small synthetic vocabulary subset,
+suitable for tests that do not require realistic vocabulary
+names or relationships.
+\item "eunomia": Uses the vocabulary from the Eunomia test database,
+which contains real vocabularies available from ATHENA.
+}}
 
 \item{cdmSource}{An optional data frame representing the CDM source table.
 If provided, it will be used directly; otherwise, a mock table will be generated based on the \code{vocabularySet} prefix.}

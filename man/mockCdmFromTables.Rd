@@ -20,8 +20,8 @@ These tables can include both standard OMOP tables such as 'drug_exposure' or 'c
 as well as cohort-specific tables that are not part of the standard OMOP model but are necessary for specific analyses.
 Each table should be named according to its intended table name in the CDM structure.}
 
-\item{maxObservationalPeriodEndDate}{A `Date` object specifying the latest allowable end date for the observation period.
-This value ensures that `observation_period_end_date` values do not exceed the current calendar date.}
+\item{maxObservationalPeriodEndDate}{A \code{Date} object specifying the latest allowable end date for the observation period.
+This value ensures that \code{observation_period_end_date} values do not exceed the current calendar date.}
 
 \item{seed}{An optional integer that sets the seed for random number generation used in creating mock data entries.
 Setting a seed ensures that the generated mock data are reproducible across different runs of the function.

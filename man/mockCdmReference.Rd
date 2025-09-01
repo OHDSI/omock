@@ -13,15 +13,15 @@ within a larger simulation or testing framework. Default is
 "mock database".}
 
 \item{vocabularySet}{A character string specifying the name of the vocabulary set
-                   to be used when creating the vocabulary tables for the CDM.
-                   Options are "mock" or "eunomia":
-
-- "mock": Provides a very small synthetic vocabulary subset,
-  suitable for tests that do not require realistic vocabulary
-  names or relationships.
-
-- "eunomia": Uses the vocabulary from the Eunomia test database,
-  which contains real vocabularies available from ATHENA.}
+to be used when creating the vocabulary tables for the CDM.
+Options are "mock" or "eunomia":
+\itemize{
+\item "mock": Provides a very small synthetic vocabulary subset,
+suitable for tests that do not require realistic vocabulary
+names or relationships.
+\item "eunomia": Uses the vocabulary from the Eunomia test database,
+which contains real vocabularies available from ATHENA.
+}}
 }
 \value{
 Returns a CDM object that is initially empty but includes mock

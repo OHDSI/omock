@@ -7,14 +7,14 @@
 mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
+\item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding vocabulary tables.
 This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.}
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}
 }
 \value{
-Returns the modified `cdm` object with the provided vocabulary set tables.
+Returns the modified \code{cdm} object with the provided vocabulary set tables.
 }
 \description{
 This function create specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
