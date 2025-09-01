@@ -34,5 +34,9 @@ test_that("mock datasets cdm creation", {
 
   expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName))
 
+  expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName, source = "duckdb"))
+  expect_no_error(omopgenerics::validateCdmArgument(cdm))
+  expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName, source = "duckdb"))
+
   unlink(myFolder, recursive = TRUE)
 })

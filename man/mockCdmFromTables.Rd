@@ -4,10 +4,15 @@
 \alias{mockCdmFromTables}
 \title{Generates a mock CDM (Common Data Model) object based on existing CDM structures and additional tables.}
 \usage{
-mockCdmFromTables(cdm = mockCdmReference(), tables = list(), seed = NULL)
+mockCdmFromTables(
+  cdm = mockCdmReference(),
+  tables = list(),
+  maxObservationalPeriodEndDate = as.Date("01-01-2024", "\%d-\%m-\%Y"),
+  seed = NULL
+)
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
+\item{cdm}{A \code{cdm_reference} object, which serves as the base structure where all additional tables will be integrated.
 This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.}
 
 \item{tables}{A named list of data frames representing additional tables to be integrated into the CDM.
@@ -15,13 +20,16 @@ These tables can include both standard OMOP tables such as 'drug_exposure' or 'c
 as well as cohort-specific tables that are not part of the standard OMOP model but are necessary for specific analyses.
 Each table should be named according to its intended table name in the CDM structure.}
 
+\item{maxObservationalPeriodEndDate}{A `Date` object specifying the latest allowable end date for the observation period.
+This value ensures that `observation_period_end_date` values do not exceed the current calendar date.}
+
 \item{seed}{An optional integer that sets the seed for random number generation used in creating mock data entries.
 Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
 If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.}
 }
 \value{
-Returns the updated `cdm` object with all the new tables added and integrated, ensuring consistency
-        across the observational periods and the person entries.
+Returns the updated \code{cdm} object with all the new tables added and integrated, ensuring consistency
+across the observational periods and the person entries.
 }
 \description{
 This function takes an existing CDM reference (which can be empty) and a list of additional named tables to create

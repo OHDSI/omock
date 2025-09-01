@@ -13,7 +13,7 @@ mockPerson(
 )
 }
 \arguments{
-\item{cdm}{A `cdm_reference` object that serves as the base structure for adding the person table.
+\item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding the person table.
 This parameter should be an existing or newly created CDM object that does not yet
 contain a 'person' table.}
 
@@ -22,11 +22,11 @@ This defines the scale of the simulation and allows for the creation of datasets
 with varying sizes.}
 
 \item{birthRange}{A date range within which the birthdays of the mock persons will be randomly generated.
-This should be provided as a vector of two dates (`as.Date` format), specifying
+This should be provided as a vector of two dates (\code{as.Date} format), specifying
 the start and end of the range.}
 
 \item{proportionFemale}{A numeric value between 0 and 1 indicating the proportion of the persons
-who are female. For example, a value of 0.5 means approximately 50% of
+who are female. For example, a value of 0.5 means approximately 50\% of
 the generated persons will be female. This helps simulate realistic demographic distributions.}
 
 \item{seed}{An optional integer used to set the seed for random number generation, ensuring
@@ -35,8 +35,8 @@ to produce consistent results each time it is run with the same inputs. If 'NULL
 the seed is not set, which can lead to different outputs on each run.}
 }
 \value{
-A modified `cdm` object with the new 'person' table added. This table includes simulated
-        person data for each generated individual, with unique identifiers and demographic attributes.
+A modified \code{cdm} object with the new 'person' table added. This table includes simulated
+person data for each generated individual, with unique identifiers and demographic attributes.
 }
 \description{
 This function creates a mock person table with specified characteristics for each individual,
