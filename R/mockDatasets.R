@@ -78,8 +78,12 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 
   return(cdm)
 }
-readTables <- function(tmpFolder, cv) {
+readTables <- function(tmpFolder, cv, vocab = F) {
   tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.parquet$", recursive = TRUE)
+
+  if (vocab) {
+    tables <- filterToVocab(tables)
+  }
   names(tables) <- substr(basename(tables), 1, nchar(basename(tables)) - 8)
   tables <- as.list(tables)
   x <- omopgenerics::omopTableFields(cdmVersion = cv)
@@ -388,4 +392,26 @@ castColumns <- function(x, name, version) {
   }
 
   x
+}
+
+filterToVocab <- function(path) {
+  # Target table names (without .parquet extension)
+  target_tables <- c(
+    "cdm_source",
+    "concept",
+    "vocabulary",
+    "concept_relationship",
+    "concept_synonym",
+    "concept_ancestor",
+    "drug_strength"
+  )
+
+  # Create pattern for grepl
+  t <- paste(target_tables, collapse = "|")
+
+  # Filter using grepl
+  filtered_paths <- path[grepl(t, path)]
+
+  return(filtered_paths)
+
 }
