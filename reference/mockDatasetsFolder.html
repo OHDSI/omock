@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Check or set the datasets Folder</h1>
-      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/R/mockDatasets.R" class="external-link"><code>R/mockDatasets.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/v0.5.0.1/R/mockDatasets.R" class="external-link"><code>R/mockDatasets.R</code></a></small>
       <div class="d-none name"><code>mockDatasetsFolder.Rd</code></div>
     </div>
 
@@ -66,11 +66,11 @@ current OMOP_DATASETS_FOLDER is returned.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpjPXBkp"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpRoWUFb"</span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"OMOP_DATASETS"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating <span style="color: #0000BB;">/tmp/RtmpjPXBkp/OMOP_DATASETS</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating <span style="color: #0000BB;">/tmp/RtmpRoWUFb/OMOP_DATASETS</span>.</span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpjPXBkp/OMOP_DATASETS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpRoWUFb/OMOP_DATASETS"</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
