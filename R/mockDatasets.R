@@ -199,7 +199,23 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 
   # download dataset
   url <- omock::mockDatasets$url[omock::mockDatasets$dataset_name == datasetName]
-  utils::download.file(url = url, destfile = datasetFile)
+  tryCatch({
+    utils::download.file(url = url, destfile = datasetFile, mode = "wb", quiet = FALSE)
+  }, error = function(e) {
+    if (grepl("timed out|Timeout was reached|Could not resolve host|Operation was aborted", e$message, ignore.case = TRUE)) {
+      cli::cli_abort(c(
+        "x" = "Failed to download dataset `{datasetName}` due to a timeout or network issue.",
+        "i" = "Check your internet connection, or try downloading again later.",
+        "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
+        " " = "{.url {url}}"
+      ))
+    } else {
+      cli::cli_abort(c(
+        "x" = "An error occurred while downloading dataset `{datasetName}`.",
+        "!" = "{e$message}"
+      ))
+    }
+  })
 
   invisible(datasetFile)
 }
