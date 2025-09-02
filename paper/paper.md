@@ -28,7 +28,7 @@ authors:
   - name: Edward Burn
     orcid: 0000-0002-9286-1128
     affiliation: 1
-  - name: Martí Català-Sabate
+  - name: Martí Català
     orcid: 0000-0003-3308-9905
     corresponding: true
     affiliation: 1
