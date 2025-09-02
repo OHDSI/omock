@@ -41,12 +41,6 @@ output:
   word_document: default
 ---
 
-**Authors:**\
-Mike Du, Núria Mercadé-Besora, Marta Alcalde-Herraiz, Xihang Chen,Yuchen Guo, Kim López-Güell, Edward Burn, Martí Català-Sabate
-
-Affiliation:\
-1. Health Data Sciences Group, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, University of Oxford, UK
-
 # Summary
 
 `omock` is an R package that allows users to create mock patient level data formatted in the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) [@omop]. This package provides a flexible and efficient way to create synthetic datasets in OMOP CDM format, facilitating the testing and validation of packages and analytic codes.
