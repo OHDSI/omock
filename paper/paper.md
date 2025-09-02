@@ -28,7 +28,7 @@ authors:
   - name: Edward Burn
     orcid: 0000-0002-9286-1128
     affiliation: 1
-  - name: Martí Català
+  - name: Martí Català-Sabate
     orcid: 0000-0003-3308-9905
     corresponding: true
     affiliation: 1
@@ -49,7 +49,7 @@ output:
 
 Reliable testing is essential in R package development [@inproceedings], especially for packages that run across different server infrastructures. This need is particularly critical for software developed for Common Data Models (CDM) [@10172586].
 
-A CDM is a standardised and structured framework that helps define how data is organised and formatted across different databases [@Makadia2014-pq]. CDMs provide a standardised vocabulary and schema, making combining, comparing, and analysing data from multiple sources easier. In healthcare settings, CDMs help standardise different datasets such as electronic health records (EHRs), claims data and hospital data, enabling the use of the same analytical code across different data sources. A popular CDM used for medical research is the OMOP CDM, with over 200 peer-reviewed publications leveraging its standardised data format. More than 800 million patients’ health-related data have been mapped to OMOP CDM by over 2,000 collaborators from more than 70 countries, enabling cross-institutional studies and scalable healthcare analytics [@omop]. A diagram of OMOP CDM table structure is shown in figure 1.
+A CDM is a standardised and structured framework that helps define how data is organised and formatted across different databases [@Makadia2014-pq]. CDMs provide a standardised vocabulary and schema, making combining, comparing, and analysing data from multiple sources easier. In healthcare settings, CDMs help standardise different datasets such as electronic health records (EHRs), claims data and hospital data, enabling the use of the same analytical code across different data sources. A popular CDM used for medical research is the OMOP CDM [@omopweb], with over 200 peer-reviewed publications leveraging its standardised data format. More than 800 million patients’ health-related data have been mapped to OMOP CDM by over 2,000 collaborators from more than 70 countries, enabling cross-institutional studies and scalable healthcare analytics [@omop]. A diagram of OMOP CDM table structure is shown in figure 1.
 
 Creating robust tests for packages designed for the OMOP CDM is challenging because these packages must be compatible across various database types. Yet, fit-for-purpose datasets for testing are often unavailable due to privacy and ethical constraints. Having to write OMOP CDM datasets to test the different edge cases of the different packages is time consuming and not efficient.
 
@@ -73,7 +73,7 @@ The second approach enables users to provide bespoke data tables in OMOP CDM for
 
 These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with OMOP CDM. Both approaches are not mutually exclusive and can be combined.
 
-The `omock` package is available in CRAN version 0.5.0 [@omock], and currently there are six packages that depend on it for testing purposes.
+The `omock` package is available in CRAN version 0.3.2 [@omock], and currently there are six packages that depend on it for testing purposes.
 
 ## Building mock OMOP CDM with population settings
 
