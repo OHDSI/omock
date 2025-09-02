@@ -1,5 +1,5 @@
 ---
-title: 'omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership common data model'
+title: 'omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model'
 tags:
   - R
   - Epidemiology
@@ -71,7 +71,7 @@ The first approach allows users to specify population settings, such as the numb
 
 The second approach enables users to provide bespoke data tables in OMOP CDM format, which are used as a foundation to build a customised mock CDM with them.
 
-These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with OMOP CDM. Both approaches are not mutually exclusive and can be combined.
+These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with the OMOP CDM. Both approaches are not mutually exclusive and can be combined.
 
 The `omock` package is available in CRAN version 0.3.2 [@omock], and currently there are six packages that depend on it for testing purposes.
 
