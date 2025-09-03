@@ -55,7 +55,7 @@ Creating robust tests for packages designed for the OMOP CDM is challenging beca
 
 The `omock` R package was developed to address this gap, providing an easy-to-use pipeline for generating mock data tables for the OMOP CDM. `omock` facilitates reliable testing of functions and workflows, enabling developers to validate their packages' compatibility with OMOP CDM standards while preserving data privacy and ethical considerations.
 
-![Figure 1: Overview of OMOP CDM standard table.[@ohdsi2019book]](cdm54.png){fig-align="center" width="100%"}
+![Overview of OMOP CDM standard table.[@ohdsi2019book]](cdm54.png){fig-align="center" width="100%"}
 
 # Design principles
 
@@ -73,7 +73,7 @@ The second approach enables users to provide bespoke data tables in OMOP CDM for
 
 These flexible options ensure that `omock` can accommodate various testing scenarios and requirements for developers and researchers working with the OMOP CDM. Both approaches are not mutually exclusive and can be combined.
 
-The `omock` package is available in CRAN version 0.3.2 [@omock], and currently there are six packages that depend on it for testing purposes.
+The `omock` package is available in CRAN version 0.5.0 [@omock], and currently there are six packages that depend on it for testing purposes.
 
 ## Building mock OMOP CDM with population settings
 
@@ -88,11 +88,10 @@ Below is an example code snippet demonstrating how to generate a mock CDM with 1
 ```         
 library(omock)
 
-cdm <- mockCdmReference(cdmName = "mock database",
-                             vocabularySet = "mock") |>
-       mockPerson(nPerson = 1000) |>
-       mockObservationPeriod() |>
-       mockConditionOccurrence()
+cdm <- mockCdmReference(cdmName = "mock database", vocabularySet = "mock") |>
+  mockPerson(nPerson = 1000) |>
+  mockObservationPeriod() |>
+  mockConditionOccurrence()
 
 print(cdm)
 ```
@@ -212,7 +211,7 @@ count_observed_people <- function(cdm) {
     distinct(person_id) |> 
     inner_join(cdm$person, by = "person_id") |> 
     summarise(n = n()) |> 
-    pull(n)
+    pull("n")
 }
 
 ## Apply the function to validate if the function will provide the correct answer
