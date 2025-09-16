@@ -60,9 +60,11 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
       )
   }
 
+  cli::cli_inform(c(i = "Creating local {.cls cdm_reference} object."))
   cdm <- omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
 
   if (identical(source, "duckdb")) {
+    cli::cli_inform(c(i = "Inserting {.cls cdm_reference} into {.pkg duckdb}."))
     rlang::check_installed(c("duckdb", "CDMConnector"))
     tmpFile <- tempfile(fileext = ".duckdb")
     con <- duckdb::dbConnect(drv = duckdb::duckdb(dbdir = tmpFile))
