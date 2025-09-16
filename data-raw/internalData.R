@@ -143,10 +143,7 @@ namesTable <- dplyr::tribble(
   NA
 )
 
-mockDatasetsKey <- "MOCK_DATASETS_FOLDER"
-
 usethis::use_data(
-  mockDatasetsKey,
   mockDrugStrength,
   mockConcept,
   mockConceptAncestor,

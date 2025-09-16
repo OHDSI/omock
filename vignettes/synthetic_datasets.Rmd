@@ -14,13 +14,17 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r, echo=FALSE}
+options(timeout = 600)
+```
+
+## Introduction
+
+As seen in other vignettes **omock** provides you with functionality to build. synthetic datasets. **omock** also provides some prebuilt synthetics datasets, those datasets are widely available and were created by the OHDSI community.
+
 ```{r}
 library(omock)
 ```
-
-# Introduction
-
-As seen in other vignettes **omock** provides you with functionality to build. synthetic datasets. **omock** also provides some prebuilt synthetics datasets, those datasets are widely available and were created by the OHDSI community.
 
 ## Avialable datasets
 
@@ -74,7 +78,7 @@ availableMockDatasets()
 
 ## Download a dataset
 
-To prevent having to download the dataset everytime that you want to set up a reference to it, it is recommended to set up a permanent folder where the synthetic datasets are stored, this allows the user to have to download each dataset only once. To set up a permanent location for your dataset please create an environmental variable (`usethis::edit_r_environ()`) pointing to an existing folder:
+To prevent having to download the dataset everytime that you want to use a dataset, it is recommended to set up a permanent folder where the synthetic datasets are stored. This allows the user to have to download each dataset only once. To set up a permanent location for your dataset please create an environmental variable (`usethis::edit_r_environ()`) pointing to an existing folder like:
 
 ```
 OMOP_DATA_FOLDER="path/to/my/folder"
@@ -86,9 +90,9 @@ This folder is in fact defined by [omopgenerics](https://darwin-eu.github.io/omo
 omopDataFolder()
 ```
 
-If you would have set up an environment variable the message of temporary folder would not appear and you would see the path to you folder.
+Note that if you would have set up an environment variable the message of temporary folder would not appear and you would see the path to you folder.
 
-You can download a dataset using ``:
+You can download a dataset using `downloadMockDataset()`:
 
 ```{r}
 downloadMockDataset(datasetName = "synthea-covid19-10k")
@@ -100,7 +104,29 @@ This will download the dataset and store it as a zip file in you `OMOP_DATA_FOLD
 list.files(path = omopDataFolder(), recursive = TRUE)
 ```
 
-Note this step is not needed as each dataset will be downloaded (if not stored already) when you create a cdm reference with it.
+Note datasets are stored in a subfolder named *mockDatasets* to account for the fact that this folder is used also by other packages to store data.
 
-##
+## Create a cdm reference of a mock dataset
 
+You can easily create a mock dataset reference using the `mockCdmFromDataset()` function:
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "synthea-covid19-10k")
+cdm
+```
+
+Downloading the dataset before hand was not needed and that if you try to create a reference of a dataset that is not downloaded it will be downloaded in the process (in interactive sessions you will be asked):
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "GiBleed")
+cdm
+```
+
+Finally, you can also insert the local dataset into a duckdb connection using the `source` argument:
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "GiBleed", source = "duckdb")
+cdm
+```
+
+Note the local datasets can be inserted in many different sources using the function `insertCdmTo()` from omopgenerics.
