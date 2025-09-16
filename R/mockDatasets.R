@@ -181,7 +181,7 @@ getDrugStrength <- function() {
 #' }
 #'
 downloadMockDataset <- function(datasetName = "GiBleed",
-                                path = mockDatasetsFolder(),
+                                path = omopDataFolder(),
                                 overwrite = NULL) {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
@@ -235,7 +235,6 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 #'
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
 #' for possibilities.
-#' @param path Path where to search for the dataset.
 #'
 #' @return Whether the dataset is available or not.
 #' @export
@@ -249,11 +248,11 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 #' isMockDatasetDownloaded("GiBleed")
 #' }
 #'
-isMockDatasetDownloaded <- function(datasetName = "GiBleed",
-                                    path = mockDatasetsFolder()) {
+isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
-  path <- validatePath(path)
+
+  path <- mockFolder()
 
   file.exists(file.path(path, paste0(datasetName, ".zip")))
 }
@@ -286,7 +285,7 @@ mockDatasetsStatus <- function() {
   x <- omock::mockDatasets |>
     dplyr::select("dataset_name") |>
     dplyr::mutate(exists = dplyr::if_else(file.exists(file.path(
-      mockDatasetsFolder(), paste0(.data$dataset_name, ".zip")
+      omopDataFolder(), paste0(.data$dataset_name, ".zip")
     )), 1, 0)) |>
     dplyr::arrange(dplyr::desc(.data$exists), .data$dataset_name) |>
     dplyr::mutate(status = dplyr::if_else(.data$exists == 1, "v", "x"))
@@ -294,7 +293,7 @@ mockDatasetsStatus <- function() {
   invisible(x)
 }
 
-#' Check or set the datasets Folder
+#' Deprecated
 #'
 #' @param path Path to a folder to store the synthetic datasets. If NULL the
 #' current OMOP_DATASETS_FOLDER is returned.
@@ -310,6 +309,8 @@ mockDatasetsStatus <- function() {
 #' }
 #'
 mockDatasetsFolder <- function(path = NULL) {
+  lifecycle::deprecate_soft(when = "0.6.0", what = "mockDatasetsFolder()", with = "omopDatasetsFolder")
+
   if (is.null(path)) {
     if (Sys.getenv(mockDatasetsKey) == "") {
       tempMockDatasetsFolder <- file.path(tempdir(), mockDatasetsKey)
@@ -339,9 +340,40 @@ mockDatasetsFolder <- function(path = NULL) {
   }
 }
 
+mockFolder <- function(path = NULL) {
+  if (is.null(path)) {
+    odf <- Sys.getenv("OMOP_DATA_FOLDER")
+    mdf <- Sys.getenv()
+    if ( = "")
+    if (Sys.getenv(mockDatasetsKey) == "") {
+      tempMockDatasetsFolder <- file.path(tempdir(), mockDatasetsKey)
+      dir.create(tempMockDatasetsFolder, showWarnings = FALSE)
+      if (rlang::is_interactive()) {
+        cli::cli_inform(c("i" = "`{mockDatasetsKey}` temporarily set to {.path {tempMockDatasetsFolder}}."))
+        cli::cli_inform(c("!" = "Please consider creating a permanent `{mockDatasetsKey}` location."))
+      }
+      arg <- rlang::set_names(x = tempMockDatasetsFolder, nm = mockDatasetsKey)
+      do.call(what = Sys.setenv, args = as.list(arg))
+    }
+    return(Sys.getenv(mockDatasetsKey))
+  } else {
+    omopgenerics::assertCharacter(x = path, length = 1)
+    if (!dir.exists(path)) {
+      cli::cli_inform(c("i" = "Creating {.path {path}}."))
+      dir.create(path)
+    }
+    arg <- rlang::set_names(x = path, nm = mockDatasetsKey)
+    do.call(what = Sys.setenv, args = as.list(arg))
+    if (rlang::is_interactive()) {
+      c("i" = "If you want to create a permanent `{mockDatasetsKey}` write the following in your `.Renviron` file:",
+        "", " " = "{.pkg {mockDatasetsKey}}=\"{path}\"", "") |>
+        cli::cli_inform()
+    }
+    return(invisible(Sys.getenv(mockDatasetsKey)))
+  }
+}
 datasetAvailable <- function(datasetName, call = parent.frame()) {
-  folder <- mockDatasetsFolder()
-  if (!isMockDatasetDownloaded(datasetName = datasetName, path = folder)) {
+  if (!isMockDatasetDownloaded(datasetName = datasetName)) {
     if (question(paste0("`", datasetName, "` is not downloaded, do you want to download it? Y/n"))) {
       downloadMockDataset(datasetName = datasetName, path = folder)
     } else {
