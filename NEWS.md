@@ -1,8 +1,10 @@
 # omock (development version)
 
+* Efficient filtering of the drug_strength table by @catalamarti #181
+
 # omock 0.5.0
 
-* add option source to `mockCdmFromDataset` #158
+* add option source to `mockCdmFromDataset` by @catalamarti #158
 
 # omock 0.4.0
 
