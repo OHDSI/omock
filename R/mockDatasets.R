@@ -47,17 +47,24 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   if (datasetName == "GiBleed") {
     tables$drug_strength <- eunomiaDrugStrength
   } else {
-    concepts <- tables$concept$concept_id
     tables$drug_strength <- getDrugStrength() |>
-      dplyr::filter(
-        .data$drug_concept_id %in% .env$concepts &
-          .data$ingredient_concept_id %in% .env$concepts
+      dplyr::inner_join(
+        tables$concept |>
+          dplyr::select("drug_concept_id" = "concept_id"),
+        by = "drug_concept_id"
+      ) |>
+      dplyr::inner_join(
+        tables$concept |>
+          dplyr::select("ingredient_concept_id" = "concept_id"),
+        by = "ingredient_concept_id"
       )
   }
 
+  cli::cli_inform(c(i = "Creating local {.cls cdm_reference} object."))
   cdm <- omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
 
   if (identical(source, "duckdb")) {
+    cli::cli_inform(c(i = "Inserting {.cls cdm_reference} into {.pkg duckdb}."))
     rlang::check_installed(c("duckdb", "CDMConnector"))
     tmpFile <- tempfile(fileext = ".duckdb")
     con <- duckdb::dbConnect(drv = duckdb::duckdb(dbdir = tmpFile))
