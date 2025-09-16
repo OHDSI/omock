@@ -47,11 +47,16 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   if (datasetName == "GiBleed") {
     tables$drug_strength <- eunomiaDrugStrength
   } else {
-    concepts <- tables$concept$concept_id
     tables$drug_strength <- getDrugStrength() |>
-      dplyr::filter(
-        .data$drug_concept_id %in% .env$concepts &
-          .data$ingredient_concept_id %in% .env$concepts
+      dplyr::inner_join(
+        tables$concept |>
+          dplyr::select("drug_concept_id" = "concept_id"),
+        by = "drug_concept_id"
+      ) |>
+      dplyr::inner_join(
+        tables$concept |>
+          dplyr::select("ingredient_concept_id" = "concept_id"),
+        by = "ingredient_concept_id"
       )
   }
 
