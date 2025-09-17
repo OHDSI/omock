@@ -328,6 +328,18 @@ mockFolder <- function(path = NULL) {
     }
     path <- omopDataFolder(path = NULL)
   }
+
+  # check if existing datasets needs to be moved
+  list.files(path = path) |>
+    purrr::keep(\(x) x %in% paste0(mockDatasets$dataset_name, ".zip")) |>
+    purrr::map(\(x) {
+      from <- file.path(path, x)
+      to <- file.path(path, "mockDatasets", x)
+      file.copy(from = from, to = to)
+      file.remove(from)
+    }) |>
+    invisible()
+
   path <- file.path(path, "mockDatasets")
   if (!dir.exists(path)) {
     dir.create(path = path, recursive = TRUE)
