@@ -2,7 +2,7 @@
 title: "Creating synthetic clinical tables"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{a01_Creating_synthetic_clinical_tables}
+  %\VignetteIndexEntry{synthetic_clinical_tables}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

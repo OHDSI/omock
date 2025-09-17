@@ -1,0 +1,132 @@
+---
+title: "synthetic_datasets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{synthetic_datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo=FALSE}
+options(timeout = 600)
+```
+
+## Introduction
+
+As seen in other vignettes **omock** provides you with functionality to build. synthetic datasets. **omock** also provides some prebuilt synthetics datasets, those datasets are widely available and were created by the OHDSI community.
+
+```{r}
+library(omock)
+```
+
+## Avialable datasets
+
+The available datasets are listed below:
+
+```{r, echo=FALSE}
+niceSize <- function(x) {
+  purrr::map_chr(x, \(x) {
+    if (x < 1024) {
+      x <- fprintf("%i B", x)
+    } else if (x < 1024**2) {
+      x <- x / 1024
+      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "kB")
+    } else if (x < 1024**3) {
+      x <- x / 1024**2
+      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "MB")
+    } else {
+      x <- x / 1024**3
+      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "GB")
+    }
+    stringr::str_squish(x)
+  })
+}
+mockDatasets |>
+  dplyr::mutate(
+    size = niceSize(.data$size),
+    link = paste0("[🔗](", .data$url, ")"),
+    dplyr::across(
+      c("number_individuals", "number_records", "number_concepts"), 
+      \(x) format(x, big.mark = ",")
+    )
+  ) |>
+  dplyr::select(
+    "datasetName" = "dataset_name", "CDM name" = "cdm_name", 
+    "CDM version" = "cdm_version", "Size" = "size", 
+    "Number individuals" = "number_individuals",
+    "Number records" = "number_records", "Number concepts" = "number_concepts", 
+    "Link" = "link"
+  ) |>
+  gt::gt() |>
+  gt::fmt_markdown("Link")
+```
+
+For more details on those synthetic datasets you can check the [OmopSketch](https://ohdsi.github.io/OmopSketch/) ShinyApp: <https://dpa-pde-oxford.shinyapps.io/OmopSketchCharacterisation/> that characterise those datasets.
+
+You can also check programatically which are the synthetic datasets that you can use with:
+
+```{r}
+availableMockDatasets()
+```
+
+## Download a dataset
+
+To prevent having to download the dataset everytime that you want to use a dataset, it is recommended to set up a permanent folder where the synthetic datasets are stored. This allows the user to have to download each dataset only once. To set up a permanent location for your dataset please create an environmental variable (`usethis::edit_r_environ()`) pointing to an existing folder like:
+
+```
+OMOP_DATA_FOLDER="path/to/my/folder"
+```
+
+This folder is in fact defined by [omopgenerics](https://darwin-eu.github.io/omopgenerics/) and it is used also by other packages. You can check the folder by using the following function:
+
+```{r}
+omopDataFolder()
+```
+
+Note that if you would have set up an environment variable the message of temporary folder would not appear and you would see the path to you folder.
+
+You can download a dataset using `downloadMockDataset()`:
+
+```{r}
+downloadMockDataset(datasetName = "synthea-covid19-10k")
+```
+
+This will download the dataset and store it as a zip file in you `OMOP_DATA_FOLDER`:
+
+```{r}
+list.files(path = omopDataFolder(), recursive = TRUE)
+```
+
+Note datasets are stored in a subfolder named *mockDatasets* to account for the fact that this folder is used also by other packages to store data.
+
+## Create a cdm reference of a mock dataset
+
+You can easily create a mock dataset reference using the `mockCdmFromDataset()` function:
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "synthea-covid19-10k")
+cdm
+```
+
+Downloading the dataset before hand was not needed and that if you try to create a reference of a dataset that is not downloaded it will be downloaded in the process (in interactive sessions you will be asked):
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "GiBleed")
+cdm
+```
+
+Finally, you can also insert the local dataset into a duckdb connection using the `source` argument:
+
+```{r}
+cdm <- mockCdmFromDataset(datasetName = "GiBleed", source = "duckdb")
+cdm
+```
+
+Note the local datasets can be inserted in many different sources using the function `insertCdmTo()` from omopgenerics.

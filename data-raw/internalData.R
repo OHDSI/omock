@@ -143,10 +143,7 @@ namesTable <- dplyr::tribble(
   NA
 )
 
-mockDatasetsKey <- "MOCK_DATASETS_FOLDER"
-
 usethis::use_data(
-  mockDatasetsKey,
   mockDrugStrength,
   mockConcept,
   mockConceptAncestor,
@@ -202,5 +199,35 @@ mockDatasets <- mockDatasets |>
   dplyr::ungroup() |>
   dplyr::mutate(size_mb = round(.data$size / 1024 / 1024)) |>
   dplyr::arrange(.data$dataset_name)
+
+x <- mockDatasets$dataset_name |>
+  purrr::map(\(x) {
+    omock::downloadMockDataset(datasetName = x, overwrite = FALSE)
+    cdm <- omock::mockCdmFromDataset(datasetName = x)
+    numberIndividuals <- omopgenerics::numberSubjects(cdm$person)
+    numberRecords <- c("condition_occurrence", "drug_exposure", "procedure_occurrence", "device_exposure", "measurement", "observation", "death", "specimen") |>
+      purrr::keep(\(x) x %in% names(cdm)) |>
+      purrr::map_int(\(x) omopgenerics::numberRecords(cdm[[x]])) |>
+      sum()
+    numberConcepts <- c("condition_occurrence", "drug_exposure", "procedure_occurrence", "device_exposure", "measurement", "observation", "death", "specimen") |>
+      purrr::keep(\(x) x %in% names(cdm)) |>
+      purrr::map(\(x) {
+        concept <- omopgenerics::omopColumns(table = x, field = "standard_concept")
+        unique(cdm[[x]][[concept]])
+      }) |>
+      unlist() |>
+      unique() |>
+      length()
+    dplyr::tibble(
+      dataset_name = x,
+      number_individuals = numberIndividuals,
+      number_records = numberRecords,
+      number_concepts = numberConcepts
+    )
+  }) |>
+  dplyr::bind_rows()
+
+mockDatasets <- mockDatasets |>
+  dplyr::inner_join(x, by = "dataset_name")
 
 usethis::use_data(mockDatasets, overwrite = TRUE)
