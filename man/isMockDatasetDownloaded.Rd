@@ -4,13 +4,11 @@
 \alias{isMockDatasetDownloaded}
 \title{Check if a certain dataset is downloaded.}
 \usage{
-isMockDatasetDownloaded(datasetName = "GiBleed", path = mockDatasetsFolder())
+isMockDatasetDownloaded(datasetName = "GiBleed")
 }
 \arguments{
 \item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
 for possibilities.}
-
-\item{path}{Path where to search for the dataset.}
 }
 \value{
 Whether the dataset is available or not.

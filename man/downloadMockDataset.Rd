@@ -4,11 +4,7 @@
 \alias{downloadMockDataset}
 \title{Download an OMOP Synthetic dataset.}
 \usage{
-downloadMockDataset(
-  datasetName = "GiBleed",
-  path = mockDatasetsFolder(),
-  overwrite = NULL
-)
+downloadMockDataset(datasetName = "GiBleed", path = NULL, overwrite = NULL)
 }
 \arguments{
 \item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}

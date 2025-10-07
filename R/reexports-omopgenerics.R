@@ -1,3 +1,4 @@
+
 #' @importFrom omopgenerics emptyCdmReference
 #' @export
 omopgenerics::emptyCdmReference
@@ -30,10 +31,22 @@ omopgenerics::cdmVersion
 #' @export
 omopgenerics::cdmSource
 
-#' @importFrom omopgenerics dropTable
+#' @importFrom omopgenerics dropSourceTable
 #' @export
-omopgenerics::dropTable
+omopgenerics::dropSourceTable
+
+#' @importFrom omopgenerics readSourceTable
+#' @export
+omopgenerics::readSourceTable
+
+#' @importFrom omopgenerics listSourceTables
+#' @export
+omopgenerics::listSourceTables
 
 #' @importFrom omopgenerics insertTable
 #' @export
 omopgenerics::insertTable
+
+#' @importFrom omopgenerics omopDataFolder
+#' @export
+omopgenerics::omopDataFolder

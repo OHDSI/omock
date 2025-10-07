@@ -1,0 +1,96 @@
+---
+title: "Building a mock from data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mock_from_tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+Most of the functionalities of **omock** are used to build specific mock tables (e.g. `mockPerson()`, `mockObservationPeriod()`, ...), this allows the user to create mock cdm objects combining all those functions with some room for customisation. There are times where the user will want to create a mock CDM reference from its own bespoke tables. The [`mockCdmFromTables()`](https://ohdsi.github.io/omock/reference/mockCdmFromTables.html) function is designed to facilitates the creation of mock CDM reference from bespoke tables. This functionality will be useful to create a mock CDM from a `cohort_table` or a `drug_exposure` table, or with incomplete data (e.g. missing columns).
+
+```{r}
+library(omock)
+library(dplyr, warn.conflicts = FALSE)
+library(PatientProfiles)
+```
+
+# Create a mock cdm from a cohort table
+
+For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code. 
+
+```{r, warning = FALSE}
+# Define a list of user-defined cohort tables
+cohortTables <- list(
+  cohort1 = tibble(
+    subject_id = 1:10L,
+    cohort_definition_id = rep(1L, 10),
+    cohort_start_date = as.Date("2020-01-01") + 1:10,
+    cohort_end_date = as.Date("2020-01-01") + 11:20
+  ),
+  cohort2 = tibble(
+    subject_id = 11:20L,
+    cohort_definition_id = rep(2L, 10),
+    cohort_start_date = as.Date("2020-02-01") + 1:10,
+    cohort_end_date = as.Date("2020-02-01") + 11:20
+  )
+)
+
+# Create a mock CDM object from the user-defined tables
+cdm <- mockCdmFromTables(tables = cohortTables)
+
+cdm
+```
+
+The generated CDM object will build the `person`, `observation_period` and vocabulary tables so that all the cohorts are in observation:
+
+```{r}
+cdm$cohort1 |>
+  addInObservation()
+cdm$observation_period
+```
+
+# Create a mock CDM from drug_exposure
+
+Now we will create a CDM around a `drug_exposure` table, this functionality is quite useful to obtain mock datasets for testing purposes only specifying part of the information. In this case we will partially define `person` table to impose all individuals are women:
+
+```{r}
+person <- tibble(person_id = 1:5L, gender_concept_id = 8532L)
+```
+
+and we will also create the records of the `drug_exposure` table:
+
+```{r}
+drugExposure <- tibble(
+  person_id = rep(1:5L, 2),
+  drug_concept_id = 19073188L,
+  drug_exposure_start_date = rep(as.Date(c("2000-01-01", "2000-06-1")), each = 5),
+  drug_exposure_end_date = drug_exposure_start_date + c(10L, 20L, 100L, 140L, 30L, 50L, 30L, 20L, 45L, 35L) 
+)
+```
+
+Then `mockCdmFromTables()` will populate the missing columns with interpolated data and add all the tables necessary to create a minimum viable CDM (it will contain at least `person`, `observation_period` and the vocabulary tables):
+
+```{r, eval = FALSE}
+cdm <- mockCdmFromTables(tables = list(person = person, drug_exposure = drugExposure))
+
+cdm
+```
+
+As before all the records of `drug_exposure` will be in observation:
+
+```{r, eval = FALSE}
+cdm$drug_exposure |>
+  addInObservation() |>
+  group_by(in_observation) |>
+  tllay()
+```
