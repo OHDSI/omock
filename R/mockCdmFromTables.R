@@ -109,7 +109,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # get observation_period
   if (!obsFlag) {
-  if(!"observation_period" %in% names(tables)){
+  if(nrow(tables[["observation_period"]]) == 0){
     tables <- createObservationPeriodTable(dates = dates, tables = tables)
   }
   } else {
