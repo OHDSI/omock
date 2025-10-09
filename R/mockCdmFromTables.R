@@ -109,7 +109,9 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # get observation_period
   if (!obsFlag) {
+  if(nrow(tables[["observation_period"]]) == 0){
     tables <- createObservationPeriodTable(dates = dates, tables = tables)
+  }
   } else {
     cli::cli_inform(
       "! Input tables only contain the observation_period table, hence only the person table will be updated",
@@ -148,7 +150,9 @@ mergeTables <- function(tables, cdm, call = parent.frame()) {
   }
   for (nm in names(cdm)) {
     if (nm %in% names(tables)) {
-      cli::cli_warn(c("!" = "{nm} table will be overwritten", call = call))
+      if (nrow(cdm[[nm]]) > 0) {
+        cli::cli_warn(c("!" = "{nm} table will be overwritten", call = call))
+      }
     } else {
       tables[[nm]] <- cdm[[nm]]
     }

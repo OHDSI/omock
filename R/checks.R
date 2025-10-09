@@ -251,20 +251,29 @@ validateTables <- function(tables, call = parent.frame()) {
   tables <- c(cdm_tables, cohort_tables)
   # Check for NA in *_date columns inside each tibble
   purrr::iwalk(tables, function(tbl, name) {
-    date_cols <- names(tbl)[grepl("_date$", names(tbl))]
 
-    cols_with_na <- purrr::keep(date_cols, ~ any(is.na(tbl[[.]])))
+    required_cols <- omopgenerics::omopTableFields() |>
+      dplyr::filter(cdm_table_name == !!tolower(name),
+             is_required == TRUE,
+             cdm_datatype == "date") |> dplyr::pull("cdm_field_name")
+
+    if(tolower(name) == "person") {
+      required_cols <- c("person_id","gender_concept_id", "year_of_birth")
+    }
+
+    cols_with_na <- purrr::keep(required_cols, ~ any(is.na(tbl[[.]])))
 
     if (length(cols_with_na) > 0) {
       cli::cli_abort(
         c(
-          "Table {.strong {name}} contains missing values in these *_date columns:",
+          "Table {.strong {name}} contains missing values in columns shown below which cannot be missing:",
           paste0("x {.field ", cols_with_na, "}")
         ),
         call = call
       )
     }
   })
+
 
   return(tables)
 }
