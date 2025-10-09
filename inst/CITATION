@@ -5,8 +5,6 @@ bibentry(
   title    = "omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model",
   author   = "Du, Mike and Mercadé-Besora, Núria and Alcalde-Herraiz, Marta and Chen, Xihang and Guo, Yuchen and López-Güell, Kim and Burn, Edward and Català, Martí",
   journal  = "Journal of Open Source Software",
-  number   = "113"
-  pages    = "8178"
   year     = 2025,
   doi      = "110.21105/joss.08178",
   url      = "https://doi.org/10.21105/joss.08178"
