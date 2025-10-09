@@ -261,9 +261,7 @@ validateTables <- function(tables, call = parent.frame()) {
              cdm_datatype == "date") |> dplyr::pull("cdm_field_name")
 
     if(tolower(name) == "person") {
-      required_cols <- omopgenerics::omopTableFields() |>
-        dplyr::filter(cdm_table_name == !!tolower(name),
-                      is_required == TRUE) |> dplyr::pull("cdm_field_name")
+      required_cols <- c("person_id","gender_concept_id", "year_of_birth")
     }
 
     cols_with_na <- purrr::keep(required_cols, ~ any(is.na(tbl[[.]])))
