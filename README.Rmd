@@ -18,10 +18,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/OHDSI/omock/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OHDSI/omock?branch=main)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.08178/status.svg)](https://doi.org/10.21105/joss.08178)
 <!-- badges: end -->
 
 
-The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem.
+The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software. 
+
+> Du et al., (2025). omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model. Journal of Open Source Software, 10(113), 8178, https://doi.org/10.21105/joss.08178
 
 
 ## Introduction

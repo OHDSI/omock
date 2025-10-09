@@ -1,6 +1,7 @@
 name: Draft PDF
-on: [push]
- 
+on:
+  workflow_dispatch:
+
 jobs:
   paper:
     runs-on: ubuntu-latest
