@@ -252,9 +252,6 @@ validateTables <- function(tables, call = parent.frame()) {
   # Check for NA in *_date columns inside each tibble
   purrr::iwalk(tables, function(tbl, name) {
 
-    omopgenerics::omopTableFields() |>
-      dplyr::filter(is_required == F)
-
     required_cols <- omopgenerics::omopTableFields() |>
       dplyr::filter(cdm_table_name == !!tolower(name),
              is_required == TRUE,
