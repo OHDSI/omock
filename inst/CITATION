@@ -1,10 +1,11 @@
+citHeader("To cite omock in publications please use:")
+
 bibentry(
-  bibtype  = "MISC",
-  title    = "Omock: Creation of mock observational medical outcomes
-               partnership common data model",
-  author   = "Du, Mike and Catala, Marti and Burn, Edward and Mercade-Besora,
-               Nuria and Chen, Xihang",
-  journal  = "The R Foundation",
-  year     = 2024,
-  doi      = "10.32614/CRAN.package.omock"
+  bibtype  = "Article",
+  title    = "omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model",
+  author   = "Du, Mike and Mercadé-Besora, Núria and Alcalde-Herraiz, Marta and Chen, Xihang and Guo, Yuchen and López-Güell, Kim and Burn, Edward and Català, Martí",
+  journal  = "Journal of Open Source Software",
+  year     = 2025,
+  doi      = "110.21105/joss.08178",
+  url      = "https://doi.org/10.21105/joss.08178"
 )
