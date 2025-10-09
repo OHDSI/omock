@@ -252,11 +252,14 @@ validateTables <- function(tables, call = parent.frame()) {
   # Check for NA in *_date columns inside each tibble
   purrr::iwalk(tables, function(tbl, name) {
 
-    if(tolower(name) != "person"){
-    date_cols <- names(tbl)[grepl("_date$", names(tbl))]
-    date_cols <- setdiff(date_cols, "verbatim_end_date")
+    omopgenerics::omopTableFields() |>
+      dplyr::filter(is_required == F)
 
-    cols_with_na <- purrr::keep(date_cols, ~ any(is.na(tbl[[.]])))
+    required_cols <- omopgenerics::omopTableFields() |>
+      dplyr::filter(cdm_table_name == !!tolower(name),
+             is_required == TRUE) |> dplyr::pull("cdm_field_name")
+
+    cols_with_na <- purrr::keep(required_cols, ~ any(is.na(tbl[[.]])))
 
     if (length(cols_with_na) > 0) {
       cli::cli_abort(
@@ -266,23 +269,6 @@ validateTables <- function(tables, call = parent.frame()) {
         ),
         call = call
       )
-    }
-    } else {
-
-      cols <- c("person_id","gender_concept_id","year_of_birth")
-
-      cols_with_na <- purrr::keep(cols, ~ any(is.na(tbl[[.]])))
-
-      if (length(cols_with_na) > 0) {
-        cli::cli_abort(
-          c(
-            "Table {.strong {name}} contains missing values in columns shown below which cannot be missing:",
-            paste0("x {.field ", cols_with_na, "}")
-          ),
-          call = call
-        )
-      }
-
     }
   })
 

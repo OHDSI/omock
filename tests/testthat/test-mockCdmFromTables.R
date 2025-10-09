@@ -273,5 +273,9 @@ test_that("check NA", {
       c("2020-01-01", "2021-01-01")
   ))
 
+  expect_error(omock::mockCdmFromTables(tables = list("person" = dplyr::tibble(
+    "person_id" = c(1L, 2L, 3L)
+  ))))
+
 
 })
