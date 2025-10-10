@@ -110,7 +110,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # create person
 
-  if(nrow(tables[["person"]]) > 0){
+  if(nrow(tables[["person"]]) == 0){
     tables <- createPersonTable(dates = dates, tables = tables)
   }
   # correct end dates based on death
@@ -270,17 +270,17 @@ summariseObservations <- function(tables) {
       dob <- tables[[tableName]] |> dplyr::mutate(
         derived_birth_date =
           ifelse(
-            !is.na(year_of_birth),
+            !is.na(.data$year_of_birth),
             sprintf(
               "%02d-%02d-%04d",
-              dplyr::coalesce(day_of_birth, 1L),
-              dplyr::coalesce(month_of_birth, 1L),
-              year_of_birth
+              dplyr::coalesce(.data$day_of_birth, 1L),
+              dplyr::coalesce(.data$month_of_birth, 1L),
+              .data$year_of_birth
             ),
             NA_character_
           )
       ) |> dplyr::mutate("date" =
-                           as.Date(derived_birth_date, "%d-%m-%Y")) |>
+                           as.Date(.data$derived_birth_date, "%d-%m-%Y")) |>
         dplyr::select("person_id", "date")
 
       individuals <- individuals |>
