@@ -74,6 +74,10 @@ mockCohort <- function(cdm,
                    numberCohort")
   }
 
+  if(nrow(cdm$observation_period) == 0) {
+    cli::cli_warn("observation period table is empty, empty cohort table returned")
+  }
+
   if (!is.null(seed)) {
     set.seed(seed = seed)
   }
