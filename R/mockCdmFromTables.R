@@ -84,6 +84,8 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
     return(cdm)
   }
 
+  tables_temp <- tables
+
   # append cdm tables to tables
   tables <- mergeTables(tables, cdm)
 
@@ -99,9 +101,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   }
 
   # get observation period times and birth dates
-  dates <- calculateDates(individuals, meanBirthStart, meanStartFirst, meanLastEnd)
-
-  if("person" %in% names(tables)){
+  if(all("person" == names(tables_temp))){
 
     dates <- calculateDates2(individuals, meanBirthStart, meanStartFirst, meanLastEnd)
   } else {
@@ -110,7 +110,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # create person
 
-  if(!"person" %in% names(tables)){
+  if(nrow(tables[["person"]]) > 0){
     tables <- createPersonTable(dates = dates, tables = tables)
   }
   # correct end dates based on death
