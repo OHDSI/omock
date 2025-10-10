@@ -277,5 +277,19 @@ test_that("check NA", {
     "person_id" = c(1L, 2L, 3L)
   ))))
 
+  # cdm with just person table
+  expect_no_error(cdm <- omock::mockCdmFromTables(tables = list(
+    person = dplyr::tibble(
+      person_id = 1:4,
+      gender_concept_id = c(8532L, 8507L, 8507L, 8507L),
+      year_of_birth = c(1997L, 1963L, 1986L, 1978L),
+      month_of_birth = c(8L, 1L, 3L, 11L),
+      day_of_birth = c(22L, 27L, 10L, 8L),
+      race_concept_id = NA_integer_,
+      ethnicity_concept_id = NA_integer_
+    )
+  )))
+
+
 
 })

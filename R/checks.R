@@ -253,9 +253,9 @@ validateTables <- function(tables, call = parent.frame()) {
   purrr::iwalk(tables, function(tbl, name) {
 
     required_cols <- omopgenerics::omopTableFields() |>
-      dplyr::filter(cdm_table_name == !!tolower(name),
-             is_required == TRUE,
-             cdm_datatype == "date") |> dplyr::pull("cdm_field_name")
+      dplyr::filter(.data$cdm_table_name == !!tolower(name),
+             .data$is_required == TRUE,
+             .data$cdm_datatype == "date") |> dplyr::pull("cdm_field_name")
 
     if(tolower(name) == "person") {
       required_cols <- c("person_id","gender_concept_id", "year_of_birth")
