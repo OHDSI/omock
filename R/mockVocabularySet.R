@@ -79,8 +79,6 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
 
   names(cdmTables) <- snakecase::to_snake_case(names(cdmTables))
 
-  cdm <- mockCdmReference()
-
   for (nam in names(cdmTables)) {
     cdm <-
       omopgenerics::insertTable(cdm = cdm,
