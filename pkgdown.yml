@@ -6,7 +6,7 @@ articles:
   a02_Creating_synthetic_cohorts: a02_Creating_synthetic_cohorts.html
   a03_Creating_a_synthetic_vocabulary: a03_Creating_a_synthetic_vocabulary.html
   a04_Building_a_bespoke_mock_cdm: a04_Building_a_bespoke_mock_cdm.html
-last_built: 2025-10-13T08:51Z
+last_built: 2025-10-13T10:24Z
 urls:
   reference: https://ohdsi.github.io/omock/reference
   article: https://ohdsi.github.io/omock/articles

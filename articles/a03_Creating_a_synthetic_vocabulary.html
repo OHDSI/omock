@@ -150,13 +150,11 @@ table. you can do below.</p>
 <span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockVocabularyTables.html">mockVocabularyTables</a></span><span class="op">(</span><span class="va">cdm</span>, </span>
 <span>                            vocabularySet <span class="op">=</span> <span class="st">"eunomia"</span>,</span>
 <span>                            concept <span class="op">=</span> <span class="va">myConceptTable</span><span class="op">)</span> </span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 1 casted column in <span style="font-weight: bold;">concept</span> as do not match expected column type:</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `invalid_reason` from <span style="color: #0000BB;">logical</span> to <span style="color: #0000BB;">character</span></span></span>
 <span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">concept</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 10</span></span></span>
 <span><span class="co">#&gt;   concept_id concept_name domain_id vocabulary_id concept_class_id</span></span>
-<span><span class="co">#&gt;        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">*</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>          1 Condition A  Condition SNOMED        Clinical Finding</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>          2 Condition B  Condition SNOMED        Clinical Finding</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>          3 Drug C       Drug      RxNorm        Ingredient      </span></span>
