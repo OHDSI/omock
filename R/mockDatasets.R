@@ -336,7 +336,7 @@ mockFolder <- function(path = NULL) {
 
   # check if existing datasets needs to be moved
   list.files(path = path) |>
-    purrr::keep(\(x) x %in% paste0(mockDatasets$dataset_name, ".zip")) |>
+    purrr::keep(\(x) x %in% paste0(availableMockDatasets(), ".zip")) |>
     purrr::map(\(x) {
       from <- file.path(path, x)
       to <- file.path(datasetsPath, x)
