@@ -1,0 +1,47 @@
+---
+title: "Building a bespoke mock cdm"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{a04_Building_a_bespoke_mock_cdm}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup,message=FALSE, warning=FALSE}
+library(omock)
+library(dplyr)
+library(lubridate)
+```
+
+There are times where the user will want to create a mock CDM reference from its own bespoke tables. The mockCdmFromTables() function is designed to facilitates the creation of mock CDM reference from bespoke tables.For example if you want to create a CDM reference based on below bespoke cohorts. You can do it simple using the mockCdmFromTable() functions in a few lines of code. 
+
+```{r, warning = FALSE}
+# Define a list of user-defined cohort tables
+cohortTables <- list(
+  cohort1 = tibble(
+    subject_id = 1:10,
+    cohort_definition_id = rep(1, 10),
+    cohort_start_date = as.Date("2020-01-01") + 1:10,
+    cohort_end_date = as.Date("2020-01-01") + 11:20
+  ),
+  cohort2 = tibble(
+    subject_id = 11:20,
+    cohort_definition_id = rep(2, 10),
+    cohort_start_date = as.Date("2020-02-01") + 1:10,
+    cohort_end_date = as.Date("2020-02-01") + 11:20
+  )
+)
+
+# Create a mock CDM object from the user-defined tables
+cdm <- mockCdmFromTables(tables = cohortTables)
+
+cdm |> glimpse()
+```
+

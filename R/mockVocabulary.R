@@ -106,6 +106,11 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
       cdmTables[[nam]] <- eval(parse(text = tableName)) |>
         addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
         correctCdmFormat(tableName = snakecase::to_snake_case(nam))
+    } else {
+
+      cdmTables[[nam]] <- cdmTables[[nam]] |>
+        addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
+        correctCdmFormat(tableName = snakecase::to_snake_case(nam))
     }
   }
 

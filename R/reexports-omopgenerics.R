@@ -3,22 +3,6 @@
 #' @export
 omopgenerics::emptyCdmReference
 
-#' @importFrom omopgenerics settings
-#' @export
-omopgenerics::settings
-
-#' @importFrom omopgenerics attrition
-#' @export
-omopgenerics::attrition
-
-#' @importFrom omopgenerics cohortCount
-#' @export
-omopgenerics::cohortCount
-
-#' @importFrom omopgenerics bind
-#' @export
-omopgenerics::bind
-
 #' @importFrom omopgenerics cdmName
 #' @export
 omopgenerics::cdmName
@@ -50,3 +34,51 @@ omopgenerics::insertTable
 #' @importFrom omopgenerics omopDataFolder
 #' @export
 omopgenerics::omopDataFolder
+
+#' @importFrom omopgenerics cdmReference
+#' @export
+omopgenerics::cdmReference
+
+#' @importFrom omopgenerics tableName
+#' @export
+omopgenerics::tableName
+
+#' @importFrom omopgenerics tableSource
+#' @export
+omopgenerics::tableSource
+
+#' @importFrom omopgenerics dropSourceTable
+#' @export
+omopgenerics::dropSourceTable
+
+#' @importFrom omopgenerics listSourceTables
+#' @export
+omopgenerics::listSourceTables
+
+#' @importFrom omopgenerics readSourceTable
+#' @export
+omopgenerics::readSourceTable
+
+#' @importFrom omopgenerics omopColumns
+#' @export
+omopgenerics::omopColumns
+
+#' @importFrom omopgenerics omopTables
+#' @export
+omopgenerics::omopTables
+
+#' @importFrom omopgenerics cohortColumns
+#' @export
+omopgenerics::cohortColumns
+
+#' @importFrom omopgenerics cohortTables
+#' @export
+omopgenerics::cohortTables
+
+#' @importFrom omopgenerics achillesColumns
+#' @export
+omopgenerics::achillesColumns
+
+#' @importFrom omopgenerics achillesTables
+#' @export
+omopgenerics::achillesTables
