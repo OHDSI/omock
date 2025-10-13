@@ -13,6 +13,25 @@
 \alias{cdmSource}
 \alias{dropTable}
 \alias{insertTable}
+\alias{cdmReference}
+\alias{tableName}
+\alias{tableSource}
+\alias{dropSourceTable}
+\alias{listSourceTables}
+\alias{readSourceTable}
+\alias{omopColumns}
+\alias{omopTables}
+\alias{cohortColumns}
+\alias{cohortTables}
+\alias{achillesColumns}
+\alias{achillesTables}
+\alias{cohortCodelist}
+\alias{suppress}
+\alias{exportSummarisedResult}
+\alias{importSummarisedResult}
+\alias{groupColumns}
+\alias{strataColumns}
+\alias{additionalColumns}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -20,6 +39,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{omopgenerics}{\code{\link[omopgenerics]{attrition}}, \code{\link[omopgenerics]{bind}}, \code{\link[omopgenerics]{cdmName}}, \code{\link[omopgenerics]{cdmSource}}, \code{\link[omopgenerics]{cdmVersion}}, \code{\link[omopgenerics]{cohortCount}}, \code{\link[omopgenerics]{dropTable}}, \code{\link[omopgenerics]{emptyCdmReference}}, \code{\link[omopgenerics]{insertTable}}, \code{\link[omopgenerics]{settings}}}
+  \item{omopgenerics}{\code{\link[omopgenerics]{achillesColumns}}, \code{\link[omopgenerics]{achillesTables}}, \code{\link[omopgenerics]{additionalColumns}}, \code{\link[omopgenerics]{attrition}}, \code{\link[omopgenerics]{bind}}, \code{\link[omopgenerics]{cdmName}}, \code{\link[omopgenerics]{cdmReference}}, \code{\link[omopgenerics]{cdmSource}}, \code{\link[omopgenerics]{cdmVersion}}, \code{\link[omopgenerics]{cohortCodelist}}, \code{\link[omopgenerics]{cohortColumns}}, \code{\link[omopgenerics]{cohortCount}}, \code{\link[omopgenerics]{cohortTables}}, \code{\link[omopgenerics]{dropSourceTable}}, \code{\link[omopgenerics]{dropTable}}, \code{\link[omopgenerics]{emptyCdmReference}}, \code{\link[omopgenerics]{exportSummarisedResult}}, \code{\link[omopgenerics]{groupColumns}}, \code{\link[omopgenerics]{importSummarisedResult}}, \code{\link[omopgenerics]{insertTable}}, \code{\link[omopgenerics]{listSourceTables}}, \code{\link[omopgenerics]{omopColumns}}, \code{\link[omopgenerics]{omopTables}}, \code{\link[omopgenerics]{readSourceTable}}, \code{\link[omopgenerics]{settings}}, \code{\link[omopgenerics]{strataColumns}}, \code{\link[omopgenerics]{suppress}}, \code{\link[omopgenerics]{tableName}}, \code{\link[omopgenerics]{tableSource}}}
 }}
 
