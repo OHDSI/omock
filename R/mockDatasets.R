@@ -321,11 +321,17 @@ mockFolder <- function(path = NULL) {
     mdf <- Sys.getenv("MOCK_DATASETS_FOLDER")
     if (odf == "" & mdf != "") {
       cli::cli_inform(c(
-        i = "`MOCK_DATASETS_FOLDER` environmental variable changed to `OMOP_DATA_FOLDER`, please change your .Renviron file."
+        i = "`MOCK_DATASETS_FOLDER` environmental variable has been deprecated
+        in favour of `OMOP_DATA_FOLDER`, please change your .Renviron file."
       ))
       Sys.setenv("OMOP_DATA_FOLDER" = mdf)
     }
     path <- omopDataFolder(path = NULL)
+  }
+
+  datasetsPath <- file.path(path, "mockDatasets")
+  if (!dir.exists(datasetsPath)) {
+    dir.create(path = datasetsPath, recursive = TRUE)
   }
 
   # check if existing datasets needs to be moved
@@ -333,17 +339,13 @@ mockFolder <- function(path = NULL) {
     purrr::keep(\(x) x %in% paste0(mockDatasets$dataset_name, ".zip")) |>
     purrr::map(\(x) {
       from <- file.path(path, x)
-      to <- file.path(path, "mockDatasets", x)
+      to <- file.path(datasetsPath, x)
       file.copy(from = from, to = to)
       file.remove(from)
     }) |>
     invisible()
 
-  path <- file.path(path, "mockDatasets")
-  if (!dir.exists(path)) {
-    dir.create(path = path, recursive = TRUE)
-  }
-  return(path)
+  return(datasetsPath)
 }
 datasetAvailable <- function(datasetName, call = parent.frame()) {
   if (!isMockDatasetDownloaded(datasetName = datasetName)) {
