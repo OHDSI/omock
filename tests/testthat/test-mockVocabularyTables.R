@@ -177,6 +177,16 @@ test_that("test user defined table", {
     drugStrength = drugStrength
   )
 
+  expect_true("omop_table" %in% class(cdm$concept))
+  expect_true("omop_table" %in% class(cdm$cdm_source))
+  expect_true("omop_table" %in% class(cdm$vocabulary))
+  expect_true("omop_table" %in% class(cdm$concept_relationship))
+  expect_true("omop_table" %in% class(cdm$concept_synonym))
+  expect_true("omop_table" %in% class(cdm$concept_ancestor))
+  expect_true("omop_table" %in% class(cdm$drug_strength))
+  expect_true("omop_table" %in% class(cdm$person))
+  expect_true("omop_table" %in% class(cdm$observation_period))
+
   expect_true(all(
     names(cdm) %in% c(
       "person",
