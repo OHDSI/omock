@@ -2,6 +2,15 @@ url: https://ohdsi.github.io/omock/
 template:
   bootstrap: 5
 
+articles:
+  - title: "Articles"
+    contents:
+    - synthetic_clinical_tables
+    - synthetic_cohorts
+    - synthetic_vocabulary
+    - mock_from_tables
+    - synthetic_datasets
+
 reference:
   - title: "Mock CDM Initialization"
     desc: "This group includes functions that initialize the foundational structures required for the mock CDM environment."

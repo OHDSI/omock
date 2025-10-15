@@ -1,22 +1,7 @@
+
 #' @importFrom omopgenerics emptyCdmReference
 #' @export
 omopgenerics::emptyCdmReference
-
-#' @importFrom omopgenerics settings
-#' @export
-omopgenerics::settings
-
-#' @importFrom omopgenerics attrition
-#' @export
-omopgenerics::attrition
-
-#' @importFrom omopgenerics cohortCount
-#' @export
-omopgenerics::cohortCount
-
-#' @importFrom omopgenerics bind
-#' @export
-omopgenerics::bind
 
 #' @importFrom omopgenerics cdmName
 #' @export
@@ -30,13 +15,25 @@ omopgenerics::cdmVersion
 #' @export
 omopgenerics::cdmSource
 
-#' @importFrom omopgenerics dropTable
+#' @importFrom omopgenerics dropSourceTable
 #' @export
-omopgenerics::dropTable
+omopgenerics::dropSourceTable
+
+#' @importFrom omopgenerics readSourceTable
+#' @export
+omopgenerics::readSourceTable
+
+#' @importFrom omopgenerics listSourceTables
+#' @export
+omopgenerics::listSourceTables
 
 #' @importFrom omopgenerics insertTable
 #' @export
 omopgenerics::insertTable
+
+#' @importFrom omopgenerics omopDataFolder
+#' @export
+omopgenerics::omopDataFolder
 
 #' @importFrom omopgenerics cdmReference
 #' @export
@@ -85,31 +82,3 @@ omopgenerics::achillesColumns
 #' @importFrom omopgenerics achillesTables
 #' @export
 omopgenerics::achillesTables
-
-#' @importFrom omopgenerics cohortCodelist
-#' @export
-omopgenerics::cohortCodelist
-
-#' @importFrom omopgenerics suppress
-#' @export
-omopgenerics::suppress
-
-#' @importFrom omopgenerics exportSummarisedResult
-#' @export
-omopgenerics::exportSummarisedResult
-
-#' @importFrom omopgenerics importSummarisedResult
-#' @export
-omopgenerics::importSummarisedResult
-
-#' @importFrom omopgenerics groupColumns
-#' @export
-omopgenerics::groupColumns
-
-#' @importFrom omopgenerics strataColumns
-#' @export
-omopgenerics::strataColumns
-
-#' @importFrom omopgenerics additionalColumns
-#' @export
-omopgenerics::additionalColumns

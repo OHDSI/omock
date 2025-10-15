@@ -13,6 +13,9 @@ A data frame with 4 variables:
 \item{cdm_version}{OMOP CDM version of the dataset.}
 \item{size}{Size in bytes of the dataset.}
 \item{size_mb}{Size in Mega bytes of the dataset.}
+\item{number_individuals}{Number individuals in the dataset.}
+\item{number_records}{Total number of records in the dataset.}
+\item{number_concepts}{Distinct number of concepts in the dataset.}
 }
 }
 \usage{

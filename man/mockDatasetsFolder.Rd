@@ -2,7 +2,7 @@
 % Please edit documentation in R/mockDatasets.R
 \name{mockDatasetsFolder}
 \alias{mockDatasetsFolder}
-\title{Check or set the datasets Folder}
+\title{Deprecated}
 \usage{
 mockDatasetsFolder(path = NULL)
 }
@@ -14,7 +14,7 @@ current OMOP_DATASETS_FOLDER is returned.}
 The dataset folder.
 }
 \description{
-Check or set the datasets Folder
+Deprecated
 }
 \examples{
 \donttest{

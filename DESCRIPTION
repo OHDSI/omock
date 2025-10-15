@@ -32,7 +32,7 @@ Imports:
     lifecycle,
     lubridate,
     methods,
-    omopgenerics (>= 0.3.0),
+    omopgenerics (>= 1.3.1),
     purrr,
     readr,
     rlang,
@@ -43,8 +43,11 @@ Suggests:
     DBI,
     duckdb,
     ggplot2,
+    gt,
     knitr,
+    PatientProfiles,
     rmarkdown,
+    stringr,
     testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr

@@ -2,7 +2,7 @@
 title: "Creating synthetic cohorts"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{a02_Creating_synthetic_cohorts}
+  %\VignetteIndexEntry{synthetic_cohorts}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

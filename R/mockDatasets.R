@@ -30,7 +30,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   # folder to unzip
   tmpFolder <- file.path(tempdir(), omopgenerics::uniqueId())
   if (dir.exists(tmpFolder)) {
-    unlink(x = tmpFolder, recursive = FALSE)
+    unlink(x = tmpFolder, recursive = TRUE)
   }
   dir.create(tmpFolder)
 
@@ -152,6 +152,9 @@ getDrugStrength <- function() {
 #'   \item{cdm_version}{OMOP CDM version of the dataset.}
 #'   \item{size}{Size in bytes of the dataset.}
 #'   \item{size_mb}{Size in Mega bytes of the dataset.}
+#'   \item{number_individuals}{Number individuals in the dataset.}
+#'   \item{number_records}{Total number of records in the dataset.}
+#'   \item{number_concepts}{Distinct number of concepts in the dataset.}
 #' }
 #'
 #' @examples
@@ -180,10 +183,13 @@ getDrugStrength <- function() {
 #' }
 #'
 downloadMockDataset <- function(datasetName = "GiBleed",
-                                path = mockDatasetsFolder(),
+                                path = NULL,
                                 overwrite = NULL) {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
+  if (is.null(path)) {
+    path <- mockFolder()
+  }
   path <- validatePath(path)
   omopgenerics::assertLogical(overwrite, length = 1, null = TRUE)
 
@@ -234,7 +240,6 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 #'
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
 #' for possibilities.
-#' @param path Path where to search for the dataset.
 #'
 #' @return Whether the dataset is available or not.
 #' @export
@@ -248,13 +253,11 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 #' isMockDatasetDownloaded("GiBleed")
 #' }
 #'
-isMockDatasetDownloaded <- function(datasetName = "GiBleed",
-                                    path = mockDatasetsFolder()) {
+isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
-  path <- validatePath(path)
 
-  file.exists(file.path(path, paste0(datasetName, ".zip")))
+  file.exists(file.path(mockFolder(), paste0(datasetName, ".zip")))
 }
 
 #' List the available datasets
@@ -285,7 +288,7 @@ mockDatasetsStatus <- function() {
   x <- omock::mockDatasets |>
     dplyr::select("dataset_name") |>
     dplyr::mutate(exists = dplyr::if_else(file.exists(file.path(
-      mockDatasetsFolder(), paste0(.data$dataset_name, ".zip")
+      mockFolder(), paste0(.data$dataset_name, ".zip")
     )), 1, 0)) |>
     dplyr::arrange(dplyr::desc(.data$exists), .data$dataset_name) |>
     dplyr::mutate(status = dplyr::if_else(.data$exists == 1, "v", "x"))
@@ -293,7 +296,7 @@ mockDatasetsStatus <- function() {
   invisible(x)
 }
 
-#' Check or set the datasets Folder
+#' Deprecated
 #'
 #' @param path Path to a folder to store the synthetic datasets. If NULL the
 #' current OMOP_DATASETS_FOLDER is returned.
@@ -309,45 +312,53 @@ mockDatasetsStatus <- function() {
 #' }
 #'
 mockDatasetsFolder <- function(path = NULL) {
-  if (is.null(path)) {
-    if (Sys.getenv(mockDatasetsKey) == "") {
-      tempMockDatasetsFolder <- file.path(tempdir(), mockDatasetsKey)
-      dir.create(tempMockDatasetsFolder, showWarnings = FALSE)
-      if (rlang::is_interactive()) {
-        cli::cli_inform(c("i" = "`{mockDatasetsKey}` temporarily set to {.path {tempMockDatasetsFolder}}."))
-        cli::cli_inform(c("!" = "Please consider creating a permanent `{mockDatasetsKey}` location."))
-      }
-      arg <- rlang::set_names(x = tempMockDatasetsFolder, nm = mockDatasetsKey)
-      do.call(what = Sys.setenv, args = as.list(arg))
-    }
-    return(Sys.getenv(mockDatasetsKey))
-  } else {
-    omopgenerics::assertCharacter(x = path, length = 1)
-    if (!dir.exists(path)) {
-      cli::cli_inform(c("i" = "Creating {.path {path}}."))
-      dir.create(path)
-    }
-    arg <- rlang::set_names(x = path, nm = mockDatasetsKey)
-    do.call(what = Sys.setenv, args = as.list(arg))
-    if (rlang::is_interactive()) {
-      c("i" = "If you want to create a permanent `{mockDatasetsKey}` write the following in your `.Renviron` file:",
-        "", " " = "{.pkg {mockDatasetsKey}}=\"{path}\"", "") |>
-        cli::cli_inform()
-    }
-    return(invisible(Sys.getenv(mockDatasetsKey)))
-  }
+  lifecycle::deprecate_soft(when = "0.6.0", what = "mockDatasetsFolder()", with = "omopDataFolder()")
+  mockFolder(path = path)
 }
 
+mockFolder <- function(path = NULL) {
+  if (!is.null(path)) {
+    path <- omopDataFolder(path = path)
+  } else {
+    odf <- Sys.getenv("OMOP_DATA_FOLDER")
+    mdf <- Sys.getenv("MOCK_DATASETS_FOLDER")
+    if (odf == "" & mdf != "") {
+      cli::cli_inform(c(
+        i = "`MOCK_DATASETS_FOLDER` environmental variable has been deprecated
+        in favour of `OMOP_DATA_FOLDER`, please change your .Renviron file."
+      ))
+      Sys.setenv("OMOP_DATA_FOLDER" = mdf)
+    }
+    path <- omopDataFolder(path = NULL)
+  }
+
+  datasetsPath <- file.path(path, "mockDatasets")
+  if (!dir.exists(datasetsPath)) {
+    dir.create(path = datasetsPath, recursive = TRUE)
+  }
+
+  # check if existing datasets needs to be moved
+  list.files(path = path) |>
+    purrr::keep(\(x) x %in% paste0(availableMockDatasets(), ".zip")) |>
+    purrr::map(\(x) {
+      from <- file.path(path, x)
+      to <- file.path(datasetsPath, x)
+      file.copy(from = from, to = to)
+      file.remove(from)
+    }) |>
+    invisible()
+
+  return(datasetsPath)
+}
 datasetAvailable <- function(datasetName, call = parent.frame()) {
-  folder <- mockDatasetsFolder()
-  if (!isMockDatasetDownloaded(datasetName = datasetName, path = folder)) {
+  if (!isMockDatasetDownloaded(datasetName = datasetName)) {
     if (question(paste0("`", datasetName, "` is not downloaded, do you want to download it? Y/n"))) {
-      downloadMockDataset(datasetName = datasetName, path = folder)
+      downloadMockDataset(datasetName = datasetName)
     } else {
       cli::cli_abort(c(x = "`{datasetName}` is not downloaded."), call = call)
     }
   }
-  file.path(folder, paste0(datasetName, ".zip"))
+  file.path(mockFolder(), paste0(datasetName, ".zip"))
 }
 question <- function(message) {
   if (rlang::is_interactive()) {
