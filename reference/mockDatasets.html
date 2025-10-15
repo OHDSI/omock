@@ -18,13 +18,7 @@ using the omock package."><meta property="og:image" content="https://ohdsi.githu
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/a01_Creating_synthetic_clinical_tables.html">Creating synthetic clinical tables</a></li>
-    <li><a class="dropdown-item" href="../articles/a02_Creating_synthetic_cohorts.html">Creating synthetic cohorts</a></li>
-    <li><a class="dropdown-item" href="../articles/a03_Creating_a_synthetic_vocabulary.html">Creating synthetic vocabulary Tables with omock</a></li>
-    <li><a class="dropdown-item" href="../articles/a04_Building_a_bespoke_mock_cdm.html">Building a bespoke mock cdm</a></li>
-  </ul></li>
+<li class="nav-item"><a class="nav-link" href="../articles/index.html">Articles</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -71,26 +65,36 @@ using the <code>omock</code> package.</p>
 <dt>size_mb</dt>
 <dd><p>Size in Mega bytes of the dataset.</p></dd>
 
+<dt>number_individuals</dt>
+<dd><p>Number individuals in the dataset.</p></dd>
+
+<dt>number_records</dt>
+<dd><p>Total number of records in the dataset.</p></dd>
+
+<dt>number_concepts</dt>
+<dd><p>Distinct number of concepts in the dataset.</p></dd>
+
 
 </dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mockDatasets</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    dataset_name               url            cdm_name cdm_version   size size_mb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> GiBleed                    https://examp… GiBleed  5.3         6.75<span style="color: #949494;">e</span>6       6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> empty_cdm                  https://examp… empty_c… 5.3         8.21<span style="color: #949494;">e</span>8     783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> synpuf-1k_5.3              https://examp… synpuf-… 5.3         5.93<span style="color: #949494;">e</span>8     566</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> synpuf-1k_5.4              https://examp… synpuf-… 5.4         3.97<span style="color: #949494;">e</span>8     379</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> synthea-allergies-10k      https://examp… synthea… 5.3         8.40<span style="color: #949494;">e</span>8     801</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> synthea-anemia-10k         https://examp… synthea… 5.3         8.40<span style="color: #949494;">e</span>8     801</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> synthea-breast_cancer-10k  https://examp… synthea… 5.3         8.41<span style="color: #949494;">e</span>8     802</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> synthea-contraceptives-10k https://examp… synthea… 5.3         8.42<span style="color: #949494;">e</span>8     803</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> synthea-covid19-10k        https://examp… synthea… 5.3         8.41<span style="color: #949494;">e</span>8     802</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> synthea-covid19-200k       https://examp… synthea… 5.3         1.18<span style="color: #949494;">e</span>9    <span style="text-decoration: underline;">1</span>124</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    dataset_name     url   cdm_name cdm_version   size size_mb number_individuals</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> GiBleed          http… GiBleed  5.3         6.75<span style="color: #949494;">e</span>6       6               <span style="text-decoration: underline;">2</span>694</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> empty_cdm        http… empty_c… 5.3         8.21<span style="color: #949494;">e</span>8     783                  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> synpuf-1k_5.3    http… synpuf-… 5.3         5.93<span style="color: #949494;">e</span>8     566               <span style="text-decoration: underline;">1</span>000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> synpuf-1k_5.4    http… synpuf-… 5.4         3.97<span style="color: #949494;">e</span>8     379               <span style="text-decoration: underline;">1</span>000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> synthea-allergi… http… synthea… 5.3         8.40<span style="color: #949494;">e</span>8     801              <span style="text-decoration: underline;">10</span>703</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> synthea-anemia-… http… synthea… 5.3         8.40<span style="color: #949494;">e</span>8     801              <span style="text-decoration: underline;">10</span>679</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> synthea-breast_… http… synthea… 5.3         8.41<span style="color: #949494;">e</span>8     802              <span style="text-decoration: underline;">10</span>751</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> synthea-contrac… http… synthea… 5.3         8.42<span style="color: #949494;">e</span>8     803              <span style="text-decoration: underline;">10</span>728</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> synthea-covid19… http… synthea… 5.3         8.41<span style="color: #949494;">e</span>8     802              <span style="text-decoration: underline;">10</span>754</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> synthea-covid19… http… synthea… 5.3         1.18<span style="color: #949494;">e</span>9    <span style="text-decoration: underline;">1</span>124             <span style="text-decoration: underline;">213</span>953</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: number_records &lt;int&gt;, number_concepts &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
