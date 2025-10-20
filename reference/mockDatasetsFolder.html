@@ -18,6 +18,7 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../articles/index.html">Articles</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://joss.theoj.org/papers/10.21105/joss.08178" target="_blank">JOSS Paper</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/ohdsi/omock/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
@@ -60,12 +61,12 @@ current OMOP_DATASETS_FOLDER is returned.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYbbXJz/mockDatasets"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmppdkkdE/mockDatasets"</span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"OMOP_DATASETS"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating <span style="color: #0000BB;">/tmp/RtmpYbbXJz/OMOP_DATASETS</span>.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYbbXJz/OMOP_DATASETS/mockDatasets"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating <span style="color: #0000BB;">/tmp/RtmppdkkdE/OMOP_DATASETS</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmppdkkdE/OMOP_DATASETS/mockDatasets"</span>
 <span class="r-in"><span><span class="fu">mockDatasetsFolder</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYbbXJz/OMOP_DATASETS/mockDatasets"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmppdkkdE/OMOP_DATASETS/mockDatasets"</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

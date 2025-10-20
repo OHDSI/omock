@@ -40,6 +40,7 @@
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="articles/index.html">Articles</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://joss.theoj.org/papers/10.21105/joss.08178" target="_blank">JOSS Paper</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -61,14 +62,31 @@
 <!-- badges: start -->
 
 <p>The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software.</p>
-<blockquote>
-<p>Du et al., (2025). omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model. Journal of Open Source Software, 10(113), 8178, <a href="https://doi.org/10.21105/joss.08178" class="external-link uri">https://doi.org/10.21105/joss.08178</a></p>
-</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#&gt; To cite omock in publications please use:</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;   Du, Mike, Mercadé-Besora, Núria, Alcalde-Herraiz, Marta, Chen,</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt;   Xihang, Guo, Yuchen, López-Güell, Kim, Burn, Edward, Català, Martí</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   (2025). "omock: A R package for Mock Data Generation for the</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt;   Observational Medical Outcomes Partnership Common Data Model."</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt;   _Journal of Open Source Software_. doi:110.21105/joss.08178</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;   &lt;https://doi.org/110.21105/joss.08178&gt;,</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;   &lt;https://joss.theoj.org/papers/10.21105/joss.08178&gt;.</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;   @Article{,</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;     title = {omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model},</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;     author = {{Du} and {Mike} and {Mercadé-Besora} and {Núria} and {Alcalde-Herraiz} and {Marta} and {Chen} and {Xihang} and {Guo} and {Yuchen} and {López-Güell} and {Kim} and {Burn} and {Edward} and {Català} and {Martí}},</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;     journal = {Journal of Open Source Software},</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt;     year = {2025},</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;     doi = {110.21105/joss.08178},</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt;     url = {https://joss.theoj.org/papers/10.21105/joss.08178},</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt;   }</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>You can install the development version of omock using:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"OHDSI/omock"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -76,12 +94,12 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>With omock we can quickly make a simple mock of OMOP CDM data.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu.github.io/omopgenerics/" class="external-link">omopgenerics</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ohdsi.github.io/omock/">omock</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <p>We first start by making an empty cdm reference. This includes the person and observation tables (as they are required) but they are currently empty.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/emptyCdmReference.html" class="external-link">emptyCdmReference</a></span><span class="op">(</span>cdmName <span class="op">=</span> <span class="st">"mock"</span><span class="op">)</span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">person</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -115,7 +133,7 @@
 <span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; </span></span>
 <span><span class="co">#&gt; $ period_type_concept_id        &lt;int&gt;</span></span></code></pre></div>
 <p>Once we have have our empty cdm reference, we can quickly add a person table with a specific number of individuals.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="va">cdm</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">omock</span><span class="fu">::</span><span class="fu"><a href="reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
@@ -124,10 +142,10 @@
 <span><span class="co">#&gt; Rows: 1,000</span></span>
 <span><span class="co">#&gt; Columns: 18</span></span>
 <span><span class="co">#&gt; $ person_id                   &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,…</span></span>
-<span><span class="co">#&gt; $ gender_concept_id           &lt;int&gt; 8532, 8532, 8507, 8532, 8507, 8507, 8532, …</span></span>
-<span><span class="co">#&gt; $ year_of_birth               &lt;int&gt; 1979, 1996, 1967, 1954, 1972, 1981, 1956, …</span></span>
-<span><span class="co">#&gt; $ month_of_birth              &lt;int&gt; 1, 4, 1, 12, 11, 12, 11, 3, 12, 11, 3, 4, …</span></span>
-<span><span class="co">#&gt; $ day_of_birth                &lt;int&gt; 16, 29, 12, 14, 2, 31, 5, 30, 29, 13, 27, …</span></span>
+<span><span class="co">#&gt; $ gender_concept_id           &lt;int&gt; 8507, 8532, 8532, 8507, 8532, 8532, 8507, …</span></span>
+<span><span class="co">#&gt; $ year_of_birth               &lt;int&gt; 1999, 1974, 1999, 1954, 1977, 1981, 1963, …</span></span>
+<span><span class="co">#&gt; $ month_of_birth              &lt;int&gt; 1, 6, 10, 12, 9, 3, 2, 12, 8, 6, 8, 1, 10,…</span></span>
+<span><span class="co">#&gt; $ day_of_birth                &lt;int&gt; 22, 11, 25, 2, 10, 11, 5, 22, 6, 11, 18, 2…</span></span>
 <span><span class="co">#&gt; $ race_concept_id             &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ ethnicity_concept_id        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ birth_datetime              &lt;dttm&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</span></span>
@@ -142,7 +160,7 @@
 <span><span class="co">#&gt; $ ethnicity_source_value      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
 <span><span class="co">#&gt; $ ethnicity_source_concept_id &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span></code></pre></div>
 <p>We can then fill in the observation period table for these individuals.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="va">cdm</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">omock</span><span class="fu">::</span><span class="fu"><a href="reference/mockObservationPeriod.html">mockObservationPeriod</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -152,8 +170,8 @@
 <span><span class="co">#&gt; Columns: 5</span></span>
 <span><span class="co">#&gt; $ observation_period_id         &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
 <span><span class="co">#&gt; $ person_id                     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…</span></span>
-<span><span class="co">#&gt; $ observation_period_start_date &lt;date&gt; 2002-01-05, 2014-06-15, 2012-10-08, 197…</span></span>
-<span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; 2013-04-09, 2016-09-25, 2015-12-20, 198…</span></span>
+<span><span class="co">#&gt; $ observation_period_start_date &lt;date&gt; 2015-02-15, 2008-07-09, 2004-05-02, 196…</span></span>
+<span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; 2016-04-18, 2018-12-17, 2013-08-01, 200…</span></span>
 <span><span class="co">#&gt; $ period_type_concept_id        &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span></span></code></pre></div>
 </div>
 </div>
