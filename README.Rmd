@@ -24,7 +24,9 @@ knitr::opts_chunk$set(
 
 The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software. 
 
-> Du et al., (2025). omock: A R package for Mock Data Generation for the Observational Medical Outcomes Partnership Common Data Model. Journal of Open Source Software, 10(113), 8178, https://doi.org/10.21105/joss.08178
+```{r, echo = FALSE}
+citation("omock")
+```
 
 
 ## Introduction

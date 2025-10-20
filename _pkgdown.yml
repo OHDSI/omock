@@ -53,3 +53,17 @@ reference:
     desc: "These functions are focused on adding mock cohort tables based on the initialized CDM structure."
     contents:
       - mockCohort
+
+navbar:
+  structure:
+    left:
+      - home
+      - reference
+      - articles
+      - news
+      - paper
+  components:
+    paper:
+      text: "JOSS Paper"
+      href: "https://joss.theoj.org/papers/10.21105/joss.08178"
+      target: _blank
