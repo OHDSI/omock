@@ -31,6 +31,7 @@ test_that("test mock condition occurrence", {
 
   expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
+
 })
 
 
@@ -49,5 +50,73 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$condition_occurrence, cdm2$condition_occurrence))
   expect_equal(cdm1$condition_occurrence, cdm3$condition_occurrence)
+
+})
+
+test_that("concept type id test", {
+
+  cdm <- mockVocabularyTables(concept = data.frame(
+    concept_id = 1:19,
+    concept_name = c(
+      "Musculoskeletal disorder",
+      "Osteoarthrosis",
+      "Arthritis",
+      "Osteoarthritis of knee",
+      "Osteoarthritis of hip",
+      "Osteonecrosis",
+      "Degenerative arthropathy",
+      "Knee osteoarthritis",
+      "H/O osteoarthritis",
+      "Adalimumab",
+      "Injection",
+      "ALIMENTARY TRACT AND METABOLISM",
+      "Descendant drug",
+      "Injectable",
+      "Diseases of the musculoskeletal system and connective tissue",
+      "Arthropathies",
+      "Arthritis",
+      "OA",
+      "Other ingredient"
+    ),
+    domain_id = c(
+      rep("Condition", 8), "Observation", rep("Drug", 5),
+      rep("Condition Type", 4), "Drug"
+    ),
+    vocabulary_id = c(
+      rep("SNOMED", 6),
+      rep("Read", 2),
+      "LOINC", "RxNorm", "OMOP",
+      "ATC",
+      "RxNorm", "OMOP",
+      "ICD10", "ICD10", "ICD10", "ICD10", "RxNorm"
+    ),
+    standard_concept = c(
+      rep("S", 6),
+      rep(NA, 2),
+      "S", "S", NA,
+      NA, "S", NA, NA, NA, NA, "S", "S"
+    ),
+    concept_class_id = c(
+      rep("Clinical Finding", 6),
+      rep("Diagnosis", 2),
+      "Observation", "Ingredient", "Dose Form",
+      "ATC 1st", "Drug", "Dose Form",
+      "ICD10 Chapter", "ICD10 SubChapter",
+      "ICD Code", "ICD Code", "Ingredient"
+    ),
+    concept_code = "1234",
+    valid_start_date = NA,
+    valid_end_date = NA,
+    invalid_reason =
+      NA
+  ))
+
+  cdm <- cdm |> omock::mockPerson(nPerson = 10, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence(seed = 1)
+
+  expect_true(cdm$condition_occurrence |> dplyr::select("condition_type_concept_id") |>
+    dplyr::pull() |> unique() == 18)
+
 
 })
