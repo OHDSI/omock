@@ -59,6 +59,12 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptAncestor = NULL,
                                  drugStrength = NULL) {
 
+  lifecycle::deprecate_warn(
+    "0.6.0",                  # version when deprecated
+    "mockVocabularyTables()",             # deprecated function
+    "mockVocabularySet()"              # replacement
+  )
+
 
 
   #
