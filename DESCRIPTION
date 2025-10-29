@@ -37,7 +37,8 @@ Imports:
     readr,
     rlang,
     snakecase,
-    stats
+    stats,
+    utils
 Suggests: 
     CDMConnector,
     DBI,
