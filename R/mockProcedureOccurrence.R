@@ -68,14 +68,13 @@ mockProcedureOccurrence <- function(cdm,
     set.seed(seed = seed)
   }
 
+  concept_id <- getConceptId(cdm = cdm, type = "Procedure")
+  type_id <- getConceptId(cdm = cdm, type = "Procedure Type")
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(.data$domain_id == "Procedure" &
-                    .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
+
 
   if(length(concept_id) == 0){
     cli::cli_abort(
@@ -111,7 +110,11 @@ mockProcedureOccurrence <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       procedure_occurrence_id = dplyr::row_number(),
-      procedure_type_concept_id = 1
+      procedure_type_concept_id = if(length(type_id) > 1) {
+        sample(c(type_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      }
     ) |>
     dplyr::rename(person_id = "subject_id") |>
     addOtherColumns(tableName = "procedure_occurrence") |>

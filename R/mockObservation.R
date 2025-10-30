@@ -50,15 +50,12 @@ mockObservation <- function(cdm,
     cli::cli_abort("person and observation_period table cannot be empty")
   }
 
+  concept_id <- getConceptId(cdm = cdm, type = "Observation")
+  type_id <- getConceptId(cdm = cdm, type = "Observation Type")
 
-
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(.data$domain_id == "Observation" &
-                    .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
 
   # concept count
   concept_count <- length(concept_id)
@@ -92,7 +89,11 @@ mockObservation <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       observation_id = dplyr::row_number(),
-      observation_type_concept_id = 1
+      observation_type_concept_id = if(length(type_id) > 1) {
+        sample(c(type_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      }
     ) |>
     dplyr::rename(
       person_id = "subject_id",

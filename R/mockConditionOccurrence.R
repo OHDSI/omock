@@ -69,13 +69,12 @@ mockConditionOccurrence <- function(cdm,
   }
 
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(.data$domain_id == "Condition" &
-                    .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  concept_id <- getConceptId(cdm = cdm, type = "Condition")
+  type_id <- getConceptId(cdm = cdm, type = "Condition Type")
+
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
 
   # number of rows per concept_id
   numberRows <-
@@ -106,7 +105,11 @@ mockConditionOccurrence <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       condition_occurrence_id = dplyr::row_number(),
-      condition_type_concept_id = 1
+      condition_type_concept_id = if (length(type_id) > 1) {
+        sample(c(type_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      }
     ) |>
     dplyr::rename(person_id = "subject_id") |>
     addOtherColumns(tableName = "condition_occurrence") |>
@@ -121,3 +124,14 @@ mockConditionOccurrence <- function(cdm,
 
   return(cdm)
 }
+
+getConceptId <- function(cdm, type){
+  cdm$concept |>
+    dplyr::filter(.data$domain_id == type &
+                    .data$standard_concept == "S") |>
+    dplyr::select("concept_id") |>
+    dplyr::pull() |>
+    unique()
+}
+
+
