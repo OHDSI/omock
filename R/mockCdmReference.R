@@ -41,9 +41,8 @@ mockCdmReference <- function(cdmName = "mock database",
                              vocabularySet = "mock") {
   checkInput(tableName = cdmName)
 
-
   cdm <- omopgenerics::emptyCdmReference(cdmName = cdmName)
-  cdm <- cdm |> omock::mockVocabularyTables(vocabularySet = vocabularySet)
+  cdm <- cdm |> omock::mockVocabularySet(vocabularySet = vocabularySet)
 
 
   return(cdm)

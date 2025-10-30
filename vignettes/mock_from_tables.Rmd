@@ -64,7 +64,7 @@ cdm$observation_period
 Now we will create a CDM around a `drug_exposure` table, this functionality is quite useful to obtain mock datasets for testing purposes only specifying part of the information. In this case we will partially define `person` table to impose all individuals are women:
 
 ```{r}
-person <- tibble(person_id = 1:5L, gender_concept_id = 8532L)
+person <- tibble(person_id = 1:5L, gender_concept_id = 8532L, year_of_birth = 1992)
 ```
 
 and we will also create the records of the `drug_exposure` table:
@@ -92,5 +92,5 @@ As before all the records of `drug_exposure` will be in observation:
 cdm$drug_exposure |>
   addInObservation() |>
   group_by(in_observation) |>
-  tllay()
+  tally()
 ```

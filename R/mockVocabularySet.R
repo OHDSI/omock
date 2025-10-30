@@ -20,7 +20,11 @@
 #' names(cdm)
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed") {
-
+  #read off mock
+  if(vocabularySet == "mock") {
+    cdm <- cdm |> mockVocabularyTables(vocabularySet = vocabularySet)
+    return(cdm)
+  }
   # initial check
   datasetName <- validateDatasetName(vocabularySet)
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]

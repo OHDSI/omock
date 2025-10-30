@@ -58,9 +58,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
                                  drugStrength = NULL) {
-
-
-
   #
   # create the list of tables
   cdmTables <- list(
