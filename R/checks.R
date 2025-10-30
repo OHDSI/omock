@@ -290,3 +290,7 @@ checkDomain <- function(domain, call = parent.frame()) {
   omopgenerics::assertCharacter(domain, na = FALSE, call = call)
 }
 
+# check version
+checkVersion <- function(version, call = parent.frame()) {
+  omopgenerics::assertCharacter(version, na = FALSE, call = call)
+}

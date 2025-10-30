@@ -190,10 +190,10 @@ addArgument <- function(functions, exclude = character()) {
 #'
 #' @noRd
 #'
-addOtherColumns <- function(table, tableName) {
+addOtherColumns <- function(table, tableName, version = "5.3") {
 
   colToAdd <- base::setdiff(
-    omopgenerics::omopColumns(tableName), colnames(table))
+    omopgenerics::omopColumns(tableName, version = version), colnames(table))
 
   for (col in colToAdd) {
     table[[col]] <- NA
@@ -255,4 +255,23 @@ startDateColumn <- function(tableName) {
   } else {
     return("cohort_start_date")
   }
+}
+
+
+
+#' change column name
+#'
+#' @noRd
+#'
+changeColumnsName <- function(table, tableName, version = "5.3") {
+
+  colToAdd <- base::setdiff(
+    omopgenerics::omopColumns(tableName, version = version), colnames(table))
+
+  for (col in colToAdd) {
+    table[[col]] <- NA
+  }
+
+  return(table)
+
 }
