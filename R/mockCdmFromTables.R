@@ -395,9 +395,9 @@ createPersonTable <- function(dates, tables) {
     dplyr::select("person_id", "birth_date") |>
     dplyr::mutate(
       "gender_concept_id" = sample(x = c(8507, 8532), size = n, replace = TRUE),
-      "year_of_birth" = lubridate::year(.data$birth_date),
-      "month_of_birth" = lubridate::month(.data$birth_date),
-      "day_of_birth" = lubridate::day(.data$birth_date),
+      "year_of_birth" = clock::get_year(.data$birth_date),
+      "month_of_birth" = clock::get_month(.data$birth_date),
+      "day_of_birth" = clock::get_day(.data$birth_date),
       "birth_datetime" = .data$birth_date,
       "race_concept_id" = sample(x = raceConcepts, size = n, replace = TRUE),
       "ethnicity_concept_id" = sample(x = ethnicityConcepts, size = n, replace = TRUE),

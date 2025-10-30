@@ -77,9 +77,9 @@ mockPerson <- function(cdm = mockCdmReference(),
     person <- dplyr::tibble(
       person_id = person_id,
       gender_concept_id = as.integer(gender),
-      year_of_birth = as.integer(lubridate::year(dob)),
-      month_of_birth = as.integer(lubridate::month(dob)),
-      day_of_birth = as.integer(lubridate::day(dob))
+      year_of_birth = as.integer(clock::get_year(dob)),
+      month_of_birth = as.integer(clock::get_month(dob)),
+      day_of_birth = as.integer(clock::get_day(dob))
     )
     person <- person |>
       dplyr::mutate(
