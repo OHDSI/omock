@@ -134,7 +134,7 @@ addVisitDetail <- function(cdm){
 
 
   id <- cdm$visit_occurrence |>
-    dplyr::pull(visit_occurrence_id) |> unique()
+    dplyr::pull("visit_occurrence_id") |> unique()
 
   vist_detail <- dplyr::tibble("visit_occurrence_id" =
                                  as.integer(c(id, sample(
