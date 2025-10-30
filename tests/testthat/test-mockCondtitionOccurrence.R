@@ -32,6 +32,27 @@ test_that("test mock condition occurrence", {
   expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
 
+  # concept type
+  conceptTable <- dplyr::tibble(
+    "concept_id" = c(135L, 136L, 137L, 138L),
+    "concept_name" = c("a","b", "c", "d"),
+    "domain_id" = c("Condition", "Condition Type", "Condition", "Condition Type"),
+    "standard_concept" = c("S","S","S","S")
+  )
+
+  cdm <- omock::mockVocabularyTables(concept = conceptTable) |>
+    omock::mockPerson() |>
+    omock::mockObservationPeriod() |>
+    omock::mockConditionOccurrence()
+
+  expect_true(all(cdm$condition_occurrence |> dplyr::pull("condition_concept_id") |>
+                    unique() %in% c(135,137)))
+
+  expect_true(all(cdm$condition_occurrence |> dplyr::pull("condition_type_concept_id") |>
+                    unique() %in% c(136,138)))
+
+
+
 })
 
 

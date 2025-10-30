@@ -31,6 +31,27 @@ test_that("mock observation", {
 
   expect_true(cdm$observation |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
+
+  #concept
+
+  conceptTable <- dplyr::tibble(
+    "concept_id" = c(135L, 136L, 137L, 138L),
+    "concept_name" = c("a","b", "c", "d"),
+    "domain_id" = c("Observation", "Observation Type", "Observation", "Observation Type"),
+    "standard_concept" = c("S","S","S","S")
+  )
+
+  cdm <- omock::mockVocabularyTables(concept = conceptTable) |>
+    omock::mockPerson() |>
+    omock::mockObservationPeriod() |>
+    omock::mockObservation()
+
+  expect_true(all(cdm$observation |> dplyr::pull("observation_concept_id") |>
+                    unique() %in% c(135,137)))
+
+  expect_true(all(cdm$observation |> dplyr::pull("observation_type_concept_id") |>
+                    unique() %in% c(136,138)))
+
 })
 
 test_that("seed test", {

@@ -43,6 +43,25 @@ test_that("test mock drug exposure", {
 
   expect_warning(omock::mockCdmReference() |> mockVisitOccurrence())
 
+  #concept type
+  conceptTable <- dplyr::tibble(
+    "concept_id" = c(135L, 136L, 137L, 138L),
+    "concept_name" = c("a","b", "c", "d"),
+    "domain_id" = c("Drug", "Drug Type", "Drug", "Drug Type"),
+    "standard_concept" = c("S","S","S","S")
+  )
+
+  cdm <- omock::mockVocabularyTables(concept = conceptTable) |>
+    omock::mockPerson() |>
+    omock::mockObservationPeriod() |>
+    omock::mockDrugExposure()
+
+  expect_true(all(cdm$drug_exposure |> dplyr::pull("drug_concept_id") |>
+                    unique() %in% c(135,137)))
+
+  expect_true(all(cdm$drug_exposure |> dplyr::pull("drug_type_concept_id") |>
+                    unique() %in% c(136,138)))
+
 
 })
 

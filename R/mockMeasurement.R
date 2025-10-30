@@ -52,13 +52,12 @@ mockMeasurement <- function(cdm,
 
 
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(.data$domain_id == "Measurement" &
-                    .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  concept_id <- getConceptId(cdm = cdm, type = "Measurement")
+  type_id <- getConceptId(cdm = cdm, type = "Measurement Type")
+
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
 
   # concept count
   concept_count <- length(concept_id)
@@ -92,7 +91,11 @@ mockMeasurement <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       measurement_id = dplyr::row_number(),
-      measurement_type_concept_id = 1
+      measurement_type_concept_id = if(length(type_id) > 1) {
+        sample(c(type_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      }
     ) |>
     dplyr::rename(
       person_id = "subject_id",

@@ -70,11 +70,10 @@ mockConditionOccurrence <- function(cdm,
 
 
   concept_id <- getConceptId(cdm = cdm, type = "Condition")
-
   type_id <- getConceptId(cdm = cdm, type = "Condition Type")
 
   if(length(type_id) == 0){
-    type_id <- 1L
+    type_id <- 0L
   }
 
   # number of rows per concept_id
