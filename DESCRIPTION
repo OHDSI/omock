@@ -6,7 +6,7 @@ Version: 0.5.0.9000
 Authors@R: c(
     person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9517-8834")),
-    person("Marti", "Catala", , "marti.catalasabate@ndorms.ox.ac.uk", role = "aut",
+    person("Martí", "Català", , "marti.catalasabate@ndorms.ox.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0003-3308-9905")),
     person("Edward", "Burn", , "edward.burn@ndorms.ox.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0002-9286-1128")),

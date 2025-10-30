@@ -257,7 +257,29 @@ isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   # initial checks
   datasetName <- validateDatasetName(datasetName)
 
-  file.exists(file.path(mockFolder(), paste0(datasetName, ".zip")))
+  filePath <- file.path(mockFolder(), paste0(datasetName, ".zip"))
+  result <- file.exists(filePath)
+
+  # check file is downloaded properly
+  if (isTRUE(result)) {
+    expectedSize <- omock::mockDatasets$size[omock::mockDatasets$dataset_name == datasetName]
+    actualSize <- file.size(filePath)
+    if (actualSize != expectedSize) {
+      cli::cli_warn(c("!" = "There is a downloaded dataset in {.path {filePath}}
+                      but its size ({actualSize} B) is not the expected {expectedSize} B."))
+      if (question("Do you want to delete prior dataset? Y/n")) {
+        file.remove(filePath)
+        cli::cli_inform(c(
+          "v" = "Incomplete prior dataset deleted.",
+          "i" = "Probably connection was trucaded due to small timeout, do you
+          want to set a bigger timeout? {.run options(timeout = 600)}"
+        ))
+        result <- FALSE
+      }
+    }
+  }
+
+  return(result)
 }
 
 #' List the available datasets
