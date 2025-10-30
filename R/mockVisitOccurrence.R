@@ -2,6 +2,7 @@
 #'
 #' @param cdm the CDM reference into which the  mock visit occurrence table will be added
 #' @param seed A random seed to ensure reproducibility of the generated data.
+#' @param detail T/F it add the corresponding visit_detail table for the mock visit occurrence created.
 #'
 #' @return A cdm reference with the visit_occurrence tables added
 #' @export
@@ -10,7 +11,8 @@
 #' library(omock)
 #'
 mockVisitOccurrence <- function(cdm,
-                                seed = NULL) {
+                                seed = NULL,
+                                detail = F) {
   checkInput(
     cdm = cdm,
     seed = seed
@@ -54,17 +56,22 @@ mockVisitOccurrence <- function(cdm,
 
   }
 
-  vist_type_id <- cdm$concept |>
-    dplyr::filter(.data$vocabulary_id == "Visit" &
-                    .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull()
+  concept_id <- getConceptId(cdm = cdm, type = "Visit")
+  type_id <- getConceptId(cdm = cdm, type = "Visit Type")
+
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
 
   visit <- visit |>
     dplyr::mutate(
     visit_occurrence_id = dplyr::row_number(),
-    "visit_concept_id" := !!sample(vist_type_id, nrow(visit), replace = TRUE),
-    visit_type_concept_id = .data$visit_concept_id
+    "visit_concept_id" := !!sample(concept_id, nrow(visit), replace = TRUE),
+    visit_type_concept_id = if (length(type_id) > 1) {
+      sample(c(type_id), size = dplyr::n(), replace = TRUE)
+    } else {
+      type_id
+    }
   )|>
     addOtherColumns(tableName = "visit_occurrence") |>
     correctCdmFormat(tableName = "visit_occurrence")
@@ -93,7 +100,76 @@ mockVisitOccurrence <- function(cdm,
 
   }
 
+
+  if(isTRUE(detail)){
+    cdm <- cdm |> addVisitDetail()
+  }
+
   return(cdm)
 }
+
+
+#visit detail
+addVisitDetail <- function(cdm){
+
+
+  concept_id <- getConceptId(cdm = cdm, type = "Visit Detail")
+  type_id <- getConceptId(cdm = cdm, type = "Visit Detail Type")
+
+  if(length(type_id) == 0){
+    type_id <- 0L
+  }
+
+  if(length(concept_id) == 0){
+    type_id <- 0L
+  }
+
+
+  detail <- cdm$visit_occurrence |> dplyr::select("person_id",
+                                                       "visit_start_date",
+                                                       "visit_end_date",
+                                                       "visit_occurrence_id") |>
+    dplyr::rename("visit_detail_start_date" = "visit_start_date",
+                  "visit_detail_end_date" = "visit_end_date")
+
+
+  id <- cdm$visit_occurrence |>
+    dplyr::pull(visit_occurrence_id) |> unique()
+
+  vist_detail <- dplyr::tibble("visit_occurrence_id" =
+                                 as.integer(c(id, sample(
+    id, floor(0.1 * length(id))
+  )))) |> dplyr::left_join(detail) |>
+    dplyr::mutate(
+      visit_detail_concept_id = if (length(concept_id) > 1) {
+        sample(c(concept_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      },
+      visit_detail_type_concept_id = if (length(type_id) > 1) {
+        sample(c(type_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        type_id
+      }
+    )|>
+    addOtherColumns(tableName = "visit_detail") |>
+    correctCdmFormat(tableName = "visit_detail")
+
+  cdm <-
+    omopgenerics::insertTable(
+      cdm = cdm,
+      name = "visit_detail",
+      table = vist_detail
+    )
+
+  return(cdm)
+
+
+
+}
+
+
+
+
 
 
