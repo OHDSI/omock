@@ -63,7 +63,8 @@ mockDeath <- function(cdm,
   if (cdm$person |> nrow() == 0 ||
     cdm$observation_period |> nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort(
-      "person, observation_period and concept table cannot be empty")
+      "person, observation_period and concept table cannot be empty"
+    )
   }
 
   if (!is.null(seed)) {
@@ -80,7 +81,8 @@ mockDeath <- function(cdm,
     replace = FALSE
   )) |> dplyr::left_join(
     cdm$observation_period |> dplyr::select(
-      "person_id", "observation_period_end_date"),
+      "person_id", "observation_period_end_date"
+    ),
     by = "person_id"
   )
 

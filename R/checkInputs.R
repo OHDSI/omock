@@ -191,16 +191,15 @@ addArgument <- function(functions, exclude = character()) {
 #' @noRd
 #'
 addOtherColumns <- function(table, tableName, version = "5.3") {
-
   colToAdd <- base::setdiff(
-    omopgenerics::omopColumns(tableName, version = version), colnames(table))
+    omopgenerics::omopColumns(tableName, version = version), colnames(table)
+  )
 
   for (col in colToAdd) {
     table[[col]] <- NA
   }
 
   return(table)
-
 }
 
 #' Format columns of omop table to correct format
@@ -221,7 +220,6 @@ correctCdmFormat <- function(table, tableName) {
 
       if (colType == "date") {
         table[[colName]] <- as.Date(table[[colName]], "%d/%m/%Y")
-
       }
 
       if (colType == "datetime") {
@@ -236,14 +234,10 @@ correctCdmFormat <- function(table, tableName) {
       if (grepl("varchar", colType)) {
         table[[colName]] <- as.character(table[[colName]])
       }
-
     }
-
   }
 
   return(table)
-
-
 }
 #' get column start date
 #'
@@ -264,14 +258,13 @@ startDateColumn <- function(tableName) {
 #' @noRd
 #'
 changeColumnsName <- function(table, tableName, version = "5.3") {
-
   colToAdd <- base::setdiff(
-    omopgenerics::omopColumns(tableName, version = version), colnames(table))
+    omopgenerics::omopColumns(tableName, version = version), colnames(table)
+  )
 
   for (col in colToAdd) {
     table[[col]] <- NA
   }
 
   return(table)
-
 }

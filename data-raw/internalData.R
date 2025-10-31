@@ -10,7 +10,7 @@ mockDrugStrength <- readr::read_csv(
 mockConcept <- readr::read_csv(
   here::here("data-raw", "default", "concept.csv"),
   show_col_types = FALSE
-)|>
+) |>
   castColumns("concept", "5.3")
 mockConceptAncestor <- readr::read_csv(
   here::here("data-raw", "default", "conceptAncestor.csv"),
@@ -75,7 +75,7 @@ eunomiaVocabulary <- readr::read_csv(
 ) |>
   castColumns("vocabulary", "5.3")
 
-cdmTable <-  readr::read_csv(
+cdmTable <- readr::read_csv(
   here::here("data-raw", "table", "OMOP_CDMv5.3_Field_Level.csv"),
   show_col_types = FALSE
 )

@@ -1,12 +1,14 @@
 test_that("check update cdm version", {
   skip_on_cran()
 
-  cdm <- mockCdmFromDataset(datasetName = "GiBleed",
-                            source = "local")
+  cdm <- mockCdmFromDataset(
+    datasetName = "GiBleed",
+    source = "local"
+  )
   expect_true(cdmVersion(cdm) == "5.3")
   cdm2 <- cdm |> changeCdmVersion(version = "5.4")
 
-#extra colnums
+  # extra colnums
   expect_true("cdm_version_concept_id" %in% colnames(cdm2$cdm_source))
 
   expect_true("admitted_from_source_value" %in% colnames(cdm2$visit_detail))
@@ -43,5 +45,4 @@ test_that("check update cdm version", {
 
   expect_true("procedure_end_date" %in% colnames(cdm2$procedure_occurrence))
   expect_true("procedure_end_datetime" %in% colnames(cdm2$procedure_occurrence))
-
 })

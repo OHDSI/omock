@@ -16,18 +16,16 @@ knitr::opts_chunk$set(
 # omock <img src="man/figures/logo.png" align="right" height="200"/>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/OHDSI/omock/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OHDSI/omock?branch=main)
-[![DOI](https://joss.theoj.org/papers/10.21105/joss.08178/status.svg)](https://doi.org/10.21105/joss.08178)
+
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![CRAN status](https://www.r-pkg.org/badges/version/omock)](https://CRAN.R-project.org/package=omock) [![R-CMD-check](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OHDSI/omock/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/OHDSI/omock/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OHDSI/omock?branch=main) [![DOI](https://joss.theoj.org/papers/10.21105/joss.08178/status.svg)](https://doi.org/10.21105/joss.08178)
+
 <!-- badges: end -->
 
-
-The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software. 
+The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software.
 
 ```{r, echo = FALSE}
 citation("omock")
 ```
-
 
 ## Introduction
 
@@ -49,6 +47,7 @@ library(dplyr)
 ```
 
 We first start by making an empty cdm reference. This includes the person and observation tables (as they are required) but they are currently empty.
+
 ```{r}
 cdm <- emptyCdmReference(cdmName = "mock")
 cdm$person %>%
@@ -58,6 +57,7 @@ cdm$observation_period %>%
 ```
 
 Once we have have our empty cdm reference, we can quickly add a person table with a specific number of individuals.
+
 ```{r}
 cdm <- cdm %>%
   omock::mockPerson(nPerson = 1000)
@@ -67,6 +67,7 @@ cdm$person %>%
 ```
 
 We can then fill in the observation period table for these individuals.
+
 ```{r}
 cdm <- cdm %>%
   omock::mockObservationPeriod()

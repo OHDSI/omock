@@ -7,11 +7,8 @@ test_that("check it works", {
 })
 
 test_that("check no error with vocab set in mockVocabulary set", {
-
-  expect_no_error(omock::mockCdmReference(cdmName = "liverpool",
-                                 vocabularySet = "GiBleed"))
-
-
+  expect_no_error(omock::mockCdmReference(
+    cdmName = "liverpool",
+    vocabularySet = "GiBleed"
+  ))
 })
-
-

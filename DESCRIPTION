@@ -2,7 +2,7 @@ Type: Package
 Package: omock
 Title: Creation of Mock Observational Medical Outcomes Partnership Common
     Data Model
-Version: 0.5.0.9000
+Version: 0.6.0
 Authors@R: c(
     person("Mike", "Du", , "mike.du@ndorms.ox.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9517-8834")),
@@ -36,7 +36,6 @@ Imports:
     purrr,
     readr,
     rlang,
-    snakecase,
     stats,
     utils
 Suggests: 
@@ -54,7 +53,7 @@ VignetteBuilder:
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 BugReports: https://github.com/ohdsi/omock/issues
 LazyData: true
 Roxygen: list(markdown = TRUE)

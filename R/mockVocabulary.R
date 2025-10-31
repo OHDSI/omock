@@ -1,5 +1,7 @@
 #' Creates a mock CDM database populated with various vocabulary tables.
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' This function adds specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
 #'
 #' @param cdm A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
@@ -58,7 +60,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
                                  drugStrength = NULL) {
-  #
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -70,7 +71,7 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     drugStrength = drugStrength
   )
 
-  if(!vocabularySet %in% c("mock", "eunomia")) {
+  if (!vocabularySet %in% c("mock", "eunomia")) {
     cli::cli_abort("vocabularySet must be either mock or eunomia.")
   }
 
@@ -82,11 +83,9 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
   }
   if (!isTRUE(check_table(cdmTables))) {
     cli::cli_abort(
-      "all the input vocabulary table must be either NULL or is a dataframe")
+      "all the input vocabulary table must be either NULL or is a dataframe"
+    )
   }
-
-
-
 
   # fill tables
   for (nam in names(cdmTables)) {
@@ -99,20 +98,17 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
         )
       )
 
-
       cdmTables[[nam]] <- eval(parse(text = tableName)) |>
-        addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
-        correctCdmFormat(tableName = snakecase::to_snake_case(nam))
+        addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
+        correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     } else {
-
       cdmTables[[nam]] <- cdmTables[[nam]] |>
-        addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
-        correctCdmFormat(tableName = snakecase::to_snake_case(nam))
+        addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
+        correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     }
   }
 
-  names(cdmTables) <- snakecase::to_snake_case(names(cdmTables))
-
+  names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
 
   for (nam in names(cdmTables)) {
     cdm <-

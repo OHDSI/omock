@@ -74,7 +74,7 @@ mockCohort <- function(cdm,
                    numberCohort")
   }
 
-  if(nrow(cdm$observation_period) == 0) {
+  if (nrow(cdm$observation_period) == 0) {
     cli::cli_warn("observation period table is empty, empty cohort table returned")
   }
 
@@ -91,8 +91,6 @@ mockCohort <- function(cdm,
 
   numberRows <- (numberRows * 1.2) |> round()
   rows_to_keep <- sum(numberRows / 1.2)
-
-
 
   # generate cohort table
   cohort <- list()
@@ -117,14 +115,14 @@ mockCohort <- function(cdm,
       )
   }
 
-
-
   # adjust cohort so no overlap between cohort start and end date for same
-  #subject_id within cohort
+  # subject_id within cohort
   cohort <- dplyr::bind_rows(cohort) |>
-    dplyr::arrange(.data$cohort_definition_id,
-                   .data$subject_id,
-                   .data$cohort_start_date) |>
+    dplyr::arrange(
+      .data$cohort_definition_id,
+      .data$subject_id,
+      .data$cohort_start_date
+    ) |>
     dplyr::group_by(.data$cohort_definition_id, .data$subject_id) |>
     dplyr::mutate(
       next_observation = dplyr::lead(
@@ -134,15 +132,13 @@ mockCohort <- function(cdm,
       ),
       cohort_end_date =
         dplyr::if_else(
-          .data$cohort_end_date >=
-            .data$next_observation &
+          .data$cohort_end_date >= .data$next_observation &
             !is.na(.data$next_observation),
           .data$next_observation - 1,
           .data$cohort_end_date
         ),
       cohort_end_date = dplyr::if_else(
-        .data$cohort_end_date <
-          .data$cohort_start_date,
+        .data$cohort_end_date < .data$cohort_start_date,
         NA,
         .data$cohort_end_date
       )
@@ -152,35 +148,35 @@ mockCohort <- function(cdm,
     stats::na.omit() |>
     dplyr::distinct()
 
-#correct cohort count
-  if(nrow(cohort) > 0) {
+  # correct cohort count
+  if (nrow(cohort) > 0) {
     cohort_id <- cohort |>
       dplyr::pull("cohort_definition_id") |>
-      unique() |> as.integer()
+      unique() |>
+      as.integer()
 
-    numberRows <- (numberRows / 1.2) |> round()
+    numberRows <- round(numberRows / 1.2)
 
-    cohort <- purrr::map(
-      cohort_id,
-      \(x) cohort |>
+    cohort <- purrr::map(cohort_id, \(x) {
+      cohort |>
         dplyr::filter(.data$cohort_definition_id == x) |>
-        dplyr::slice(1:numberRows[x])
-    ) |> dplyr::bind_rows()
+        dplyr::slice_head(n = numberRows[x])
+    }) |>
+      dplyr::bind_rows()
   }
   # generate cohort set table
 
-  cohortName <- snakecase::to_snake_case(cohortName)
+  cohortName <- omopgenerics::toSnakeCase(cohortName)
 
-  cohortSetTable <- dplyr::tibble(cohort_definition_id = cohortId,
-                                  cohort_name = cohortName)
+  cohortSetTable <- dplyr::tibble(
+    cohort_definition_id = cohortId,
+    cohort_name = cohortName
+  )
   # create class
 
-  cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = name,
-                              table = cohort)
-  cdm[[name]] <-
-    cdm[[name]] |> omopgenerics::newCohortTable(
+  cdm <- omopgenerics::insertTable(cdm = cdm, name = name, table = cohort)
+  cdm[[name]] <- cdm[[name]] |>
+    omopgenerics::newCohortTable(
       cohortSetRef = cohortSetTable,
       cohortAttritionRef = attr(cohort, "cohort_attrition")
     )
@@ -189,13 +185,13 @@ mockCohort <- function(cdm,
 }
 
 addCohortDates <- function(x,
-                            start = "cohort_start_date",
-                            end = "cohort_end_date",
-                            observationPeriod) {
-  #only allow one observational period in this function
+                           start = "cohort_start_date",
+                           end = "cohort_end_date",
+                           observationPeriod) {
+  # only allow one observational period in this function
   observationPeriod <- observationPeriod |>
     dplyr::group_by(.data$person_id) |>
-    dplyr::slice(1) |>   # take first row per person_id
+    dplyr::slice(1) |> # take first row per person_id
     dplyr::ungroup()
 
 
@@ -219,13 +215,14 @@ addCohortDates <- function(x,
     list(start, end)
   }
 
-  dateToAdd <- obsDate2(x1$"observation_period_start_date",
-                        x1$"observation_period_end_date")
+  dateToAdd <- obsDate2(
+    x1$"observation_period_start_date",
+    x1$"observation_period_end_date"
+  )
 
 
   x <- x |> dplyr::mutate(!!start := dateToAdd[[1]], !!end := dateToAdd[[2]])
 
 
   return(x)
-
 }

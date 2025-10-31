@@ -36,14 +36,10 @@
 #' print(cdm)
 #'
 #' @export
-
 mockCdmReference <- function(cdmName = "mock database",
                              vocabularySet = "mock") {
   checkInput(tableName = cdmName)
 
-  cdm <- omopgenerics::emptyCdmReference(cdmName = cdmName)
-  cdm <- cdm |> omock::mockVocabularySet(vocabularySet = vocabularySet)
-
-
-  return(cdm)
+  omopgenerics::emptyCdmReference(cdmName = cdmName) |>
+    mockVocabularySet(vocabularySet = vocabularySet)
 }

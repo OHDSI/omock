@@ -1,7 +1,5 @@
-
 # check cohortSetTable
 checkCohortSetTable <- function(cohortSetTable, call = parent.frame()) {
-
   omopgenerics::assertTable(
     cohortSetTable,
     class = "data.frame",
@@ -9,7 +7,6 @@ checkCohortSetTable <- function(cohortSetTable, call = parent.frame()) {
     null = TRUE,
     call = call
   )
-
 }
 
 # check cohortAttritionTable
@@ -24,13 +21,10 @@ checkCohortAttritionTable <- function(cohortAttritionTable, call = parent.frame(
     null = TRUE,
     call = call
   )
-
-
 }
 
 # check cohortCountTable
 checkCohortCountTable <- function(cohortCountTable, call = parent.frame()) {
-
   omopgenerics::assertTable(
     cohortCountTable,
     class = "data.frame",
@@ -77,10 +71,9 @@ checkIndividuals <- function(individuals, person, call = parent.frame()) {
       "observation_end"
     )
     if (is.numeric(individuals)) {
-
       omopgenerics::assertNumeric(
-        x = individuals, integerish = TRUE, length = 1, call = call)
-
+        x = individuals, integerish = TRUE, length = 1, call = call
+      )
     } else if ("tbl" %in% class(individuals)) {
       omopgenerics::assertTable(
         individuals,
@@ -116,7 +109,9 @@ checkSeed <- function(seed, call = parent.frame()) {
 # check numberRecords
 checkNumberRecords <- function(numberRecords, call = parent.frame()) {
   omopgenerics::assertNumeric(
-    numberRecords, min = 0, named = TRUE, call = call)
+    numberRecords,
+    min = 0, named = TRUE, call = call
+  )
   nam <- c(
     "death", "observationPeriod", "conditionOccurrence", "drugExposure",
     "procedureOccurrence", "deviceExposure", "measurement", "observation"
@@ -166,7 +161,9 @@ checkCohort <- function(string, call = parent.frame()) {
 # check nPerson
 checknPerson <- function(nPerson, call = parent.frame()) {
   omopgenerics::assertNumeric(
-    nPerson, integerish = TRUE, min = 1, length = 1, call = call)
+    nPerson,
+    integerish = TRUE, min = 1, length = 1, call = call
+  )
 }
 
 # check birthRange
@@ -234,31 +231,34 @@ checkCohortTable <- function(cohortTable, call = parent.frame()) {
 # validate tables
 validateTables <- function(tables, call = parent.frame()) {
   omopgenerics::assertList(tables,
-                           class = "data.frame",
-                           named = TRUE,
-                           call = call)
+    class = "data.frame",
+    named = TRUE,
+    call = call
+  )
   # make sure they are tibbles
   tables <- purrr::map(tables, dplyr::as_tibble)
-  #put name to lower case
+  # put name to lower case
   names(tables) <- tolower(names(tables))
-  #split cohort_tables and cdm_tables
+  # split cohort_tables and cdm_tables
   cohort_tables <- purrr::keep(tables, ~ "cohort_definition_id" %in% names(.x))
   cdm_tables <- purrr::keep(tables, ~ !"cohort_definition_id" %in% names(.x))
-  #add missing columns and correct forma
+  # add missing columns and correct forma
   cdm_tables <- purrr::imap(cdm_tables, ~ addOtherColumns(.x, tableName = .y))
   cdm_tables <- purrr::imap(cdm_tables, ~ correctCdmFormat(.x, tableName = .y))
-  #bind table back
+  # bind table back
   tables <- c(cdm_tables, cohort_tables)
   # Check for NA in *_date columns inside each tibble
   purrr::iwalk(tables, function(tbl, name) {
-
     required_cols <- omopgenerics::omopTableFields() |>
-      dplyr::filter(.data$cdm_table_name == !!tolower(name),
-             .data$is_required == TRUE,
-             .data$cdm_datatype == "date") |> dplyr::pull("cdm_field_name")
+      dplyr::filter(
+        .data$cdm_table_name == !!tolower(name),
+        .data$is_required == TRUE,
+        .data$cdm_datatype == "date"
+      ) |>
+      dplyr::pull("cdm_field_name")
 
-    if(tolower(name) == "person") {
-      required_cols <- c("person_id","gender_concept_id", "year_of_birth")
+    if (tolower(name) == "person") {
+      required_cols <- c("person_id", "gender_concept_id", "year_of_birth")
     }
 
     cols_with_na <- purrr::keep(required_cols, ~ any(is.na(tbl[[.]])))

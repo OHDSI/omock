@@ -10,8 +10,10 @@ test_that("mock observation", {
 
   concept_id <-
     cdm$concept |>
-    dplyr::filter(.data$domain_id == "Observation",
-                  .data$standard_concept == "S") |>
+    dplyr::filter(
+      .data$domain_id == "Observation",
+      .data$standard_concept == "S"
+    ) |>
     dplyr::select("concept_id") |>
     dplyr::pull() |>
     unique()
@@ -32,13 +34,13 @@ test_that("mock observation", {
   expect_true(cdm$observation |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
 
-  #concept
+  # concept
 
   conceptTable <- dplyr::tibble(
     "concept_id" = c(135L, 136L, 137L, 138L),
-    "concept_name" = c("a","b", "c", "d"),
+    "concept_name" = c("a", "b", "c", "d"),
     "domain_id" = c("Observation", "Observation Type", "Observation", "Observation Type"),
-    "standard_concept" = c("S","S","S","S")
+    "standard_concept" = c("S", "S", "S", "S")
   )
 
   cdm <- omock::mockVocabularyTables(concept = conceptTable) |>
@@ -47,11 +49,10 @@ test_that("mock observation", {
     omock::mockObservation()
 
   expect_true(all(cdm$observation |> dplyr::pull("observation_concept_id") |>
-                    unique() %in% c(135,137)))
+    unique() %in% c(135, 137)))
 
   expect_true(all(cdm$observation |> dplyr::pull("observation_type_concept_id") |>
-                    unique() %in% c(136,138)))
-
+    unique() %in% c(136, 138)))
 })
 
 test_that("seed test", {
@@ -69,6 +70,4 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$observation, cdm2$observation))
   expect_equal(cdm1$observation, cdm3$observation)
-
 })
-
