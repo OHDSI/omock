@@ -4,12 +4,14 @@
 \alias{mockVisitOccurrence}
 \title{Function to generate visit occurrence table}
 \usage{
-mockVisitOccurrence(cdm, seed = NULL)
+mockVisitOccurrence(cdm, seed = NULL, detail = F)
 }
 \arguments{
 \item{cdm}{the CDM reference into which the  mock visit occurrence table will be added}
 
 \item{seed}{A random seed to ensure reproducibility of the generated data.}
+
+\item{detail}{T/F it add the corresponding visit_detail table for the mock visit occurrence created.}
 }
 \value{
 A cdm reference with the visit_occurrence tables added
