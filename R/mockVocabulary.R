@@ -101,17 +101,17 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
 
 
       cdmTables[[nam]] <- eval(parse(text = tableName)) |>
-        addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
-        correctCdmFormat(tableName = snakecase::to_snake_case(nam))
+        addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
+        correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     } else {
 
       cdmTables[[nam]] <- cdmTables[[nam]] |>
-        addOtherColumns(tableName = snakecase::to_snake_case(nam)) |>
-        correctCdmFormat(tableName = snakecase::to_snake_case(nam))
+        addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
+        correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     }
   }
 
-  names(cdmTables) <- snakecase::to_snake_case(names(cdmTables))
+  names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
 
 
   for (nam in names(cdmTables)) {

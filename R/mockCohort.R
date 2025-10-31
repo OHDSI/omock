@@ -169,7 +169,7 @@ mockCohort <- function(cdm,
   }
   # generate cohort set table
 
-  cohortName <- snakecase::to_snake_case(cohortName)
+  cohortName <- omopgenerics::toSnakeCase(cohortName)
 
   cohortSetTable <- dplyr::tibble(cohort_definition_id = cohortId,
                                   cohort_name = cohortName)
