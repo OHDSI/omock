@@ -28,7 +28,6 @@ reference:
       - isMockDatasetDownloaded
       - mockDatasetsStatus
       - mockDatasetsFolder
-      - changeCdmVersion
 
   - title: "Mock Table Creation"
     desc: "These functions are focused on adding mock data tables based on the initialized CDM structure."
