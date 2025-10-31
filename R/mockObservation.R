@@ -64,11 +64,11 @@ mockObservation <- function(cdm,
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  observation <- list()
+  obs <- list()
 
   for (i in seq_along(concept_id)) {
     num <- numberRows
-    observation[[i]] <- dplyr::tibble(
+    obs[[i]] <- dplyr::tibble(
       observation_concept_id = concept_id[i],
       subject_id = sample(
         x = cdm$person |> dplyr::pull("person_id"),
@@ -83,9 +83,7 @@ mockObservation <- function(cdm,
       )
   }
 
-
-  observation <-
-    observation |>
+  obs <- obs |>
     dplyr::bind_rows() |>
     dplyr::mutate(
       observation_id = dplyr::row_number(),
@@ -103,12 +101,5 @@ mockObservation <- function(cdm,
     addOtherColumns(tableName = "observation") |>
     correctCdmFormat(tableName = "observation")
 
-  cdm <-
-    omopgenerics::insertTable(
-      cdm = cdm,
-      name = "observation",
-      table = observation
-    )
-
-  return(cdm)
+  omopgenerics::insertTable(cdm = cdm, name = "observation", table = obs)
 }

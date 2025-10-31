@@ -92,8 +92,6 @@ mockCohort <- function(cdm,
   numberRows <- (numberRows * 1.2) |> round()
   rows_to_keep <- sum(numberRows / 1.2)
 
-
-
   # generate cohort table
   cohort <- list()
   if (length(numberRows) == 1) {
@@ -117,8 +115,6 @@ mockCohort <- function(cdm,
       )
   }
 
-
-
   # adjust cohort so no overlap between cohort start and end date for same
   #subject_id within cohort
   cohort <- dplyr::bind_rows(cohort) |>
@@ -134,15 +130,13 @@ mockCohort <- function(cdm,
       ),
       cohort_end_date =
         dplyr::if_else(
-          .data$cohort_end_date >=
-            .data$next_observation &
+          .data$cohort_end_date >= .data$next_observation &
             !is.na(.data$next_observation),
           .data$next_observation - 1,
           .data$cohort_end_date
         ),
       cohort_end_date = dplyr::if_else(
-        .data$cohort_end_date <
-          .data$cohort_start_date,
+        .data$cohort_end_date < .data$cohort_start_date,
         NA,
         .data$cohort_end_date
       )
@@ -156,16 +150,17 @@ mockCohort <- function(cdm,
   if(nrow(cohort) > 0) {
     cohort_id <- cohort |>
       dplyr::pull("cohort_definition_id") |>
-      unique() |> as.integer()
+      unique() |>
+      as.integer()
 
-    numberRows <- (numberRows / 1.2) |> round()
+    numberRows <- round(numberRows / 1.2)
 
-    cohort <- purrr::map(
-      cohort_id,
-      \(x) cohort |>
+    cohort <- purrr::map(cohort_id, \(x) {
+      cohort |>
         dplyr::filter(.data$cohort_definition_id == x) |>
-        dplyr::slice(1:numberRows[x])
-    ) |> dplyr::bind_rows()
+        dplyr::slice_head(n = numberRows[x])
+    }) |>
+      dplyr::bind_rows()
   }
   # generate cohort set table
 
@@ -175,12 +170,9 @@ mockCohort <- function(cdm,
                                   cohort_name = cohortName)
   # create class
 
-  cdm <-
-    omopgenerics::insertTable(cdm = cdm,
-                              name = name,
-                              table = cohort)
-  cdm[[name]] <-
-    cdm[[name]] |> omopgenerics::newCohortTable(
+  cdm <- omopgenerics::insertTable(cdm = cdm, name = name, table = cohort)
+  cdm[[name]] <- cdm[[name]] |>
+    omopgenerics::newCohortTable(
       cohortSetRef = cohortSetTable,
       cohortAttritionRef = attr(cohort, "cohort_attrition")
     )

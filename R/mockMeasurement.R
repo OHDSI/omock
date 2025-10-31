@@ -50,8 +50,6 @@ mockMeasurement <- function(cdm,
     cli::cli_abort("person and observation_period table cannot be empty")
   }
 
-
-
   concept_id <- getConceptId(cdm = cdm, type = "Measurement")
   type_id <- getConceptId(cdm = cdm, type = "Measurement Type")
 

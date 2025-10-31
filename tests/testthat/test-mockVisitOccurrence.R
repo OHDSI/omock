@@ -35,7 +35,7 @@ test_that("visit occurrence detail works", {
     omock::mockPerson() |>
     omock::mockObservationPeriod() |>
     omock::mockDrugExposure() |>
-    omock::mockVisitOccurrence(detail = T)
+    omock::mockVisitOccurrence(visitDetail = T)
 
   expect_true(all(
     cdm$visit_occurrence |> dplyr::pull("visit_concept_id") |>

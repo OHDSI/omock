@@ -60,7 +60,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
                                  drugStrength = NULL) {
-  #
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -87,9 +86,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
       "all the input vocabulary table must be either NULL or is a dataframe")
   }
 
-
-
-
   # fill tables
   for (nam in names(cdmTables)) {
     if (is.null(cdmTables[[nam]])) {
@@ -100,7 +96,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
           nam, 2, nchar(nam)
         )
       )
-
 
       cdmTables[[nam]] <- eval(parse(text = tableName)) |>
         addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
@@ -114,7 +109,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
   }
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
-
 
   for (nam in names(cdmTables)) {
     cdm <-

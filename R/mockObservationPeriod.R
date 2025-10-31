@@ -80,12 +80,8 @@ mockObservationPeriod <- function(cdm,
   return(cdm)
 }
 
-
-
-
 # function to generate mock observational period date from a list of dob
 obsDate <- function(dob = dob, max = "2020-01-01") {
-  #
   r1 <- stats::runif(n = length(dob))
   start <- dob + floor((as.Date(max) - dob) * r1)
   r2 <- stats::runif(n = length(dob))

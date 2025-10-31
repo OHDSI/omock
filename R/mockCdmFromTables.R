@@ -101,8 +101,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   }
 
   # get observation period times and birth dates
-  if(all("person" == names(tables_temp))){
-
+  if ("person" %in% names(tables_temp)) {
     dates <- calculateDates2(individuals, meanBirthStart, meanStartFirst, meanLastEnd)
   } else {
     dates <- calculateDates(individuals, meanBirthStart, meanStartFirst, meanLastEnd)

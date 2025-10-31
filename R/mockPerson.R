@@ -89,8 +89,6 @@ mockPerson <- function(cdm = mockCdmReference(),
       addOtherColumns(tableName = "person") |>
       correctCdmFormat(tableName = "person")
 
-
-
     cdm <-
       omopgenerics::insertTable(
         cdm = cdm,

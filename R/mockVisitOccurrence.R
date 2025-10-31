@@ -2,9 +2,11 @@
 #'
 #' `r lifecycle::badge('experimental')`
 #'
-#' @param cdm the CDM reference into which the  mock visit occurrence table will be added
+#' @param cdm the CDM reference into which the  mock visit occurrence table will
+#' be added
 #' @param seed A random seed to ensure reproducibility of the generated data.
-#' @param detail T/F it add the corresponding visit_detail table for the mock visit occurrence created.
+#' @param visitDetail TRUE/FALSE it add the corresponding visit_detail table for
+#' the mock visit occurrence created.
 #'
 #' @return A cdm reference with the visit_occurrence tables added
 #' @export
@@ -14,16 +16,13 @@
 #'
 mockVisitOccurrence <- function(cdm,
                                 seed = NULL,
-                                detail = F) {
-  checkInput(
-    cdm = cdm,
-    seed = seed
-  )
+                                visitDetail = FALSE) {
+  checkInput(cdm = cdm, seed = seed)
+  omopgenerics::assertLogical(visitDetail, length = 1)
 
   if (!is.null(seed)) {
     set.seed(seed = seed)
   }
-
 
   # check for table with persion_id or vist_occurrence_id
   tableName <- c()
@@ -36,12 +35,11 @@ mockVisitOccurrence <- function(cdm,
 
   if (length(tableName) == 0) {
     cli::cli_warn("Your cdm object don't contain clinical tables with visit_occurrence_id.")
-
     return(cdm)
   }
 
   visit <- dplyr::tibble()
-#create visit occurrence table
+  #create visit occurrence table
   for (tab in tableName) {
     startDate <- startDateColumn(tab)
 
@@ -84,7 +82,7 @@ mockVisitOccurrence <- function(cdm,
       name = "visit_occurrence",
       table = visit
     )
-#add visit_occurrence detail to clinical table
+  #add visit_occurrence detail to clinical table
   for (tab in tableName) {
     startDate <- startDateColumn(tab)
 
@@ -102,8 +100,7 @@ mockVisitOccurrence <- function(cdm,
 
   }
 
-
-  if(isTRUE(detail)){
+  if(isTRUE(visitDetail)){
     cdm <- cdm |> addVisitDetail()
   }
 
@@ -113,8 +110,6 @@ mockVisitOccurrence <- function(cdm,
 
 #visit detail
 addVisitDetail <- function(cdm){
-
-
   concept_id <- getConceptId(cdm = cdm, type = "Visit Detail")
   type_id <- getConceptId(cdm = cdm, type = "Visit Detail Type")
 
@@ -126,14 +121,12 @@ addVisitDetail <- function(cdm){
     type_id <- 0L
   }
 
-
   detail <- cdm$visit_occurrence |> dplyr::select("person_id",
                                                        "visit_start_date",
                                                        "visit_end_date",
                                                        "visit_occurrence_id") |>
     dplyr::rename("visit_detail_start_date" = "visit_start_date",
                   "visit_detail_end_date" = "visit_end_date")
-
 
   id <- cdm$visit_occurrence |>
     dplyr::pull("visit_occurrence_id") |> unique()
@@ -165,9 +158,6 @@ addVisitDetail <- function(cdm){
     )
 
   return(cdm)
-
-
-
 }
 
 

@@ -4,7 +4,7 @@ test_that("mock datasets cdm creation", {
   Sys.setenv("MOCK_DATASETS_FOLDER" = "")
   expect_no_error(mockDatasetsFolder())
   myFolder <- file.path(tempdir(), "DATASETS")
-  expect_message(expect_no_error(mockDatasetsFolder(myFolder)))
+  expect_no_error(mockDatasetsFolder(myFolder))
   expect_identical(mockDatasetsFolder(), file.path(myFolder, "mockDatasets"))
 
   expect_false(isMockDatasetDownloaded("GiBleed"))

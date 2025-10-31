@@ -77,8 +77,7 @@ mockConditionOccurrence <- function(cdm,
   }
 
   # number of rows per concept_id
-  numberRows <-
-    recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
+  numberRows <- round(recordPerson * (nrow(cdm$person)))
 
   con <- list()
 
@@ -99,9 +98,7 @@ mockConditionOccurrence <- function(cdm,
       )
   }
 
-
-  con <-
-    con |>
+  con <- con |>
     dplyr::bind_rows() |>
     dplyr::mutate(
       condition_occurrence_id = dplyr::row_number(),
@@ -115,23 +112,15 @@ mockConditionOccurrence <- function(cdm,
     addOtherColumns(tableName = "condition_occurrence") |>
     correctCdmFormat(tableName = "condition_occurrence")
 
-  cdm <-
-    omopgenerics::insertTable(
-      cdm = cdm,
-      name = "condition_occurrence",
-      table = con
-    )
-
-  return(cdm)
+  omopgenerics::insertTable(
+    cdm = cdm, name = "condition_occurrence", table = con
+  )
 }
 
 getConceptId <- function(cdm, type){
   cdm$concept |>
-    dplyr::filter(.data$domain_id == type &
+    dplyr::filter(.data$domain_id == .env$type &
                     .data$standard_concept == "S") |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
+    dplyr::pull("concept_id") |>
     unique()
 }
-
-

@@ -452,5 +452,4 @@ filterToVocab <- function(path) {
   filtered_paths <- path[grepl(t, path)]
 
   return(filtered_paths)
-
 }
