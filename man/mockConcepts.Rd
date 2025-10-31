@@ -32,6 +32,9 @@ reflecting the newly added concepts.The function directly modifies
 the provided CDM object.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
 This function inserts new concept entries into a specified domain within
 the concept table of a CDM object.It supports four domains: Condition, Drug,
 Measurement, and Observation. Existing entries with the same concept IDs

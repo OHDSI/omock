@@ -1,5 +1,7 @@
 #' Function to generate visit occurrence table
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' @param cdm the CDM reference into which the  mock visit occurrence table will be added
 #' @param seed A random seed to ensure reproducibility of the generated data.
 #' @param detail T/F it add the corresponding visit_detail table for the mock visit occurrence created.

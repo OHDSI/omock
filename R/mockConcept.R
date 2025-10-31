@@ -1,5 +1,7 @@
 #' Adds mock concept data to a concept table within a Common Data Model (CDM) object.
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' This function inserts new concept entries into a specified domain within
 #' the concept table of a CDM object.It supports four domains: Condition, Drug,
 #' Measurement, and Observation. Existing entries with the same concept IDs

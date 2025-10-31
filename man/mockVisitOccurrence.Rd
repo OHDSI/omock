@@ -17,7 +17,7 @@ mockVisitOccurrence(cdm, seed = NULL, detail = F)
 A cdm reference with the visit_occurrence tables added
 }
 \description{
-Function to generate visit occurrence table
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \examples{
 library(omock)

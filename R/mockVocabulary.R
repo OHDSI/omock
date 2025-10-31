@@ -1,5 +1,7 @@
 #' Creates a mock CDM database populated with various vocabulary tables.
 #'
+#' `r lifecycle::badge('experimental')`
+#'
 #' This function adds specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
 #'
 #' @param cdm A `cdm_reference` object that serves as the base structure for adding vocabulary tables.

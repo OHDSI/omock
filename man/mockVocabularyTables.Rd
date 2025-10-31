@@ -56,6 +56,9 @@ If provided, it will be used directly; if NULL, a mock table will be generated.}
 Returns the modified \code{cdm} object with the new or provided vocabulary tables added.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\details{
 This function adds specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
 }
 \examples{
