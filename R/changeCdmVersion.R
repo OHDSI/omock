@@ -4,7 +4,7 @@
 #' @param version cdm version to convert to e.g. version 5.4
 #'
 #' @returns Returns the modified `cdm` object with updated version
-#' @export
+#' @noRd
 #'
 #' @examples
 #' library(omock)

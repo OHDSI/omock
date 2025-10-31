@@ -53,7 +53,7 @@ VignetteBuilder:
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 BugReports: https://github.com/ohdsi/omock/issues
 LazyData: true
 Roxygen: list(markdown = TRUE)
