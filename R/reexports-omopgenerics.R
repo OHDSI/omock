@@ -81,3 +81,7 @@ omopgenerics::achillesColumns
 #' @importFrom omopgenerics achillesTables
 #' @export
 omopgenerics::achillesTables
+
+#' @importFrom omopgenerics cdmDisconnect
+#' @export
+omopgenerics::cdmDisconnect

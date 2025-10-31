@@ -21,6 +21,7 @@
 \alias{cohortTables}
 \alias{achillesColumns}
 \alias{achillesTables}
+\alias{cdmDisconnect}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -28,6 +29,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{omopgenerics}{\code{\link[omopgenerics]{achillesColumns}}, \code{\link[omopgenerics]{achillesTables}}, \code{\link[omopgenerics]{cdmName}}, \code{\link[omopgenerics]{cdmReference}}, \code{\link[omopgenerics]{cdmSource}}, \code{\link[omopgenerics]{cdmVersion}}, \code{\link[omopgenerics]{cohortColumns}}, \code{\link[omopgenerics]{cohortTables}}, \code{\link[omopgenerics]{dropSourceTable}}, \code{\link[omopgenerics]{dropSourceTable}}, \code{\link[omopgenerics]{emptyCdmReference}}, \code{\link[omopgenerics]{insertTable}}, \code{\link[omopgenerics]{listSourceTables}}, \code{\link[omopgenerics]{listSourceTables}}, \code{\link[omopgenerics]{omopColumns}}, \code{\link[omopgenerics]{omopDataFolder}}, \code{\link[omopgenerics]{omopTables}}, \code{\link[omopgenerics]{readSourceTable}}, \code{\link[omopgenerics]{readSourceTable}}, \code{\link[omopgenerics]{tableName}}, \code{\link[omopgenerics]{tableSource}}}
+  \item{omopgenerics}{\code{\link[omopgenerics]{achillesColumns}}, \code{\link[omopgenerics]{achillesTables}}, \code{\link[omopgenerics]{cdmDisconnect}}, \code{\link[omopgenerics]{cdmName}}, \code{\link[omopgenerics]{cdmReference}}, \code{\link[omopgenerics]{cdmSource}}, \code{\link[omopgenerics]{cdmVersion}}, \code{\link[omopgenerics]{cohortColumns}}, \code{\link[omopgenerics]{cohortTables}}, \code{\link[omopgenerics]{dropSourceTable}}, \code{\link[omopgenerics]{dropSourceTable}}, \code{\link[omopgenerics]{emptyCdmReference}}, \code{\link[omopgenerics]{insertTable}}, \code{\link[omopgenerics]{listSourceTables}}, \code{\link[omopgenerics]{listSourceTables}}, \code{\link[omopgenerics]{omopColumns}}, \code{\link[omopgenerics]{omopDataFolder}}, \code{\link[omopgenerics]{omopTables}}, \code{\link[omopgenerics]{readSourceTable}}, \code{\link[omopgenerics]{readSourceTable}}, \code{\link[omopgenerics]{tableName}}, \code{\link[omopgenerics]{tableSource}}}
 }}
 

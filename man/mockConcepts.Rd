@@ -47,7 +47,8 @@ library(dplyr)
 
 # Create a mock CDM reference and add concepts in the 'Condition' domain
 cdm <- mockCdmReference() |> mockConcepts(
-conceptSet = c(100, 200), domain = "Condition")
+  conceptSet = c(100, 200), domain = "Condition"
+)
 
 # View the updated concept entries for the 'Condition' domain
 cdm$concept |> filter(domain_id == "Condition")
