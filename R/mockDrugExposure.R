@@ -53,7 +53,7 @@ mockDrugExposure <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Drug")
   type_id <- getConceptId(cdm = cdm, type = "Drug Type")
 
-  if(length(type_id) == 0){
+  if (length(type_id) == 0) {
     type_id <- 0L
   }
 

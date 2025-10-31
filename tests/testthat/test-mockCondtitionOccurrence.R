@@ -15,8 +15,10 @@ test_that("test mock condition occurrence", {
 
   concept_id <-
     cdm$concept |>
-    dplyr::filter(.data$domain_id == "Condition",
-                  .data$standard_concept == "S") |>
+    dplyr::filter(
+      .data$domain_id == "Condition",
+      .data$standard_concept == "S"
+    ) |>
     dplyr::select("concept_id") |>
     dplyr::pull() |>
     unique()
@@ -35,9 +37,9 @@ test_that("test mock condition occurrence", {
   # concept type
   conceptTable <- dplyr::tibble(
     "concept_id" = c(135L, 136L, 137L, 138L),
-    "concept_name" = c("a","b", "c", "d"),
+    "concept_name" = c("a", "b", "c", "d"),
     "domain_id" = c("Condition", "Condition Type", "Condition", "Condition Type"),
-    "standard_concept" = c("S","S","S","S")
+    "standard_concept" = c("S", "S", "S", "S")
   )
 
   cdm <- omock::mockVocabularyTables(concept = conceptTable) |>
@@ -46,13 +48,10 @@ test_that("test mock condition occurrence", {
     omock::mockConditionOccurrence()
 
   expect_true(all(cdm$condition_occurrence |> dplyr::pull("condition_concept_id") |>
-                    unique() %in% c(135,137)))
+    unique() %in% c(135, 137)))
 
   expect_true(all(cdm$condition_occurrence |> dplyr::pull("condition_type_concept_id") |>
-                    unique() %in% c(136,138)))
-
-
-
+    unique() %in% c(136, 138)))
 })
 
 
@@ -71,11 +70,9 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$condition_occurrence, cdm2$condition_occurrence))
   expect_equal(cdm1$condition_occurrence, cdm3$condition_occurrence)
-
 })
 
 test_that("concept type id test", {
-
   cdm <- mockVocabularyTables(concept = data.frame(
     concept_id = 1:19,
     concept_name = c(
@@ -132,12 +129,11 @@ test_that("concept type id test", {
       NA
   ))
 
-  cdm <- cdm |> omock::mockPerson(nPerson = 10, seed = 1) |>
+  cdm <- cdm |>
+    omock::mockPerson(nPerson = 10, seed = 1) |>
     omock::mockObservationPeriod(seed = 1) |>
     omock::mockConditionOccurrence(seed = 1)
 
   expect_true(cdm$condition_occurrence |> dplyr::select("condition_type_concept_id") |>
     dplyr::pull() |> unique() == 18)
-
-
 })

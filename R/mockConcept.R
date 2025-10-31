@@ -39,7 +39,8 @@
 #'
 #' # Create a mock CDM reference and add concepts in the 'Condition' domain
 #' cdm <- mockCdmReference() |> mockConcepts(
-#' conceptSet = c(100, 200), domain = "Condition")
+#'   conceptSet = c(100, 200), domain = "Condition"
+#' )
 #'
 #' # View the updated concept entries for the 'Condition' domain
 #' cdm$concept |> filter(domain_id == "Condition")
@@ -88,7 +89,9 @@ mockConcepts <- function(cdm,
     vocabulary_id <- sample("SNOMED", length(conceptSet), replace = TRUE)
     concept_name <- paste0("Condition_", conceptSet)
     concept_class_id <- sample(
-      "Clinical Finding", length(conceptSet), replace = TRUE)
+      "Clinical Finding", length(conceptSet),
+      replace = TRUE
+    )
   }
 
   if (domain == "Drug") {
@@ -101,14 +104,18 @@ mockConcepts <- function(cdm,
     vocabulary_id <- sample("RxNorm", length(conceptSet), replace = TRUE)
     concept_name <- paste0("Measurement_", conceptSet)
     concept_class_id <- sample(
-      "Measurement", length(conceptSet), replace = TRUE)
+      "Measurement", length(conceptSet),
+      replace = TRUE
+    )
   }
 
   if (domain == "Observation") {
     vocabulary_id <- sample("LOINC", length(conceptSet), replace = TRUE)
     concept_name <- paste0("Observation_", conceptSet)
     concept_class_id <- sample(
-      "Observation", length(conceptSet), replace = TRUE)
+      "Observation", length(conceptSet),
+      replace = TRUE
+    )
   }
   # generate domain_id
   domain <- sample(domain, length(conceptSet), replace = TRUE)

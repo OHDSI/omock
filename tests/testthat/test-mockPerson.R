@@ -94,5 +94,4 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$person, cdm2$person))
   expect_equal(cdm1$person, cdm3$person)
-
 })

@@ -37,13 +37,13 @@ niceSize <- function(x) {
       x <- fprintf("%i B", x)
     } else if (x < 1024**2) {
       x <- x / 1024
-      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "kB")
+      x <- paste(formatC(x, digits = 3, format = "fg", flag = "#"), "kB")
     } else if (x < 1024**3) {
       x <- x / 1024**2
-      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "MB")
+      x <- paste(formatC(x, digits = 3, format = "fg", flag = "#"), "MB")
     } else {
       x <- x / 1024**3
-      x <- paste(formatC(x, digits=3, format="fg", flag="#"), "GB")
+      x <- paste(formatC(x, digits = 3, format = "fg", flag = "#"), "GB")
     }
     stringr::str_squish(x)
   })
@@ -53,15 +53,15 @@ mockDatasets |>
     size = niceSize(.data$size),
     link = paste0("[🔗](", .data$url, ")"),
     dplyr::across(
-      c("number_individuals", "number_records", "number_concepts"), 
+      c("number_individuals", "number_records", "number_concepts"),
       \(x) format(x, big.mark = ",")
     )
   ) |>
   dplyr::select(
-    "datasetName" = "dataset_name", "CDM name" = "cdm_name", 
-    "CDM version" = "cdm_version", "Size" = "size", 
+    "datasetName" = "dataset_name", "CDM name" = "cdm_name",
+    "CDM version" = "cdm_version", "Size" = "size",
     "Number individuals" = "number_individuals",
-    "Number records" = "number_records", "Number concepts" = "number_concepts", 
+    "Number records" = "number_records", "Number concepts" = "number_concepts",
     "Link" = "link"
   ) |>
   gt::gt() |>

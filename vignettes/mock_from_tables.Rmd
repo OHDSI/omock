@@ -74,7 +74,7 @@ drugExposure <- tibble(
   person_id = rep(1:5L, 2),
   drug_concept_id = 19073188L,
   drug_exposure_start_date = rep(as.Date(c("2000-01-01", "2000-06-1")), each = 5),
-  drug_exposure_end_date = drug_exposure_start_date + c(10L, 20L, 100L, 140L, 30L, 50L, 30L, 20L, 45L, 35L) 
+  drug_exposure_end_date = drug_exposure_start_date + c(10L, 20L, 100L, 140L, 30L, 50L, 30L, 20L, 45L, 35L)
 )
 ```
 

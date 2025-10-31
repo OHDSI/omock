@@ -1,4 +1,3 @@
-
 #' Create a `local` cdm_reference from a dataset.
 #'
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
@@ -215,23 +214,26 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 
   # download dataset
   url <- omock::mockDatasets$url[omock::mockDatasets$dataset_name == datasetName]
-  tryCatch({
-    utils::download.file(url = url, destfile = datasetFile, mode = "wb", quiet = FALSE)
-  }, error = function(e) {
-    if (grepl("timed out|Timeout was reached|Could not resolve host|Operation was aborted", e$message, ignore.case = TRUE)) {
-      cli::cli_abort(c(
-        "x" = "Failed to download dataset `{datasetName}` due to a timeout or network issue.",
-        "i" = "Check your internet connection, or try downloading again later.",
-        "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
-        " " = "{.url {url}}"
-      ))
-    } else {
-      cli::cli_abort(c(
-        "x" = "An error occurred while downloading dataset `{datasetName}`.",
-        "!" = "{e$message}"
-      ))
+  tryCatch(
+    {
+      utils::download.file(url = url, destfile = datasetFile, mode = "wb", quiet = FALSE)
+    },
+    error = function(e) {
+      if (grepl("timed out|Timeout was reached|Could not resolve host|Operation was aborted", e$message, ignore.case = TRUE)) {
+        cli::cli_abort(c(
+          "x" = "Failed to download dataset `{datasetName}` due to a timeout or network issue.",
+          "i" = "Check your internet connection, or try downloading again later.",
+          "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
+          " " = "{.url {url}}"
+        ))
+      } else {
+        cli::cli_abort(c(
+          "x" = "An error occurred while downloading dataset `{datasetName}`.",
+          "!" = "{e$message}"
+        ))
+      }
     }
-  })
+  )
 
   invisible(datasetFile)
 }
@@ -385,7 +387,7 @@ datasetAvailable <- function(datasetName, call = parent.frame()) {
 question <- function(message) {
   if (rlang::is_interactive()) {
     x <- ""
-    while(!x %in% c("yes", "no")) {
+    while (!x %in% c("yes", "no")) {
       cli::cli_inform(message = message)
       x <- tolower(readline())
       x[x == "y"] <- "yes"
@@ -418,12 +420,13 @@ castColumns <- function(x, name, version) {
       fun <- as.character
     } else {
       fun <- switch(type,
-                    integer = as.integer,
-                    datetime = as.POSIXct,
-                    date = as.Date,
-                    float = as.numeric,
-                    logical = as.logical,
-                    NULL)
+        integer = as.integer,
+        datetime = as.POSIXct,
+        date = as.Date,
+        float = as.numeric,
+        logical = as.logical,
+        NULL
+      )
     }
     if (!is.null(fun)) {
       x[[cols$cdm_field_name[k]]] <- do.call(fun, list(x[[cols$cdm_field_name[k]]]))

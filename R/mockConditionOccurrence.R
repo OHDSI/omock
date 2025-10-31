@@ -61,7 +61,8 @@ mockConditionOccurrence <- function(cdm,
   if (cdm$person |> nrow() == 0 ||
     cdm$observation_period |> nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort(
-      "person, observation_period and concept table cannot be empty")
+      "person, observation_period and concept table cannot be empty"
+    )
   }
 
   if (!is.null(seed)) {
@@ -72,7 +73,7 @@ mockConditionOccurrence <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Condition")
   type_id <- getConceptId(cdm = cdm, type = "Condition Type")
 
-  if(length(type_id) == 0){
+  if (length(type_id) == 0) {
     type_id <- 0L
   }
 
@@ -117,10 +118,10 @@ mockConditionOccurrence <- function(cdm,
   )
 }
 
-getConceptId <- function(cdm, type){
+getConceptId <- function(cdm, type) {
   cdm$concept |>
     dplyr::filter(.data$domain_id == .env$type &
-                    .data$standard_concept == "S") |>
+      .data$standard_concept == "S") |>
     dplyr::pull("concept_id") |>
     unique()
 }

@@ -53,7 +53,7 @@ mockObservation <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Observation")
   type_id <- getConceptId(cdm = cdm, type = "Observation Type")
 
-  if(length(type_id) == 0){
+  if (length(type_id) == 0) {
     type_id <- 0L
   }
 
@@ -87,7 +87,7 @@ mockObservation <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       observation_id = dplyr::row_number(),
-      observation_type_concept_id = if(length(type_id) > 1) {
+      observation_type_concept_id = if (length(type_id) > 1) {
         sample(c(type_id), size = dplyr::n(), replace = TRUE)
       } else {
         type_id

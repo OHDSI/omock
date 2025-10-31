@@ -29,10 +29,9 @@ mockObservationPeriod <- function(cdm,
                                   seed = NULL) {
   checkInput(cdm = cdm)
   if (nrow(cdm$person) != 0) {
-
-   if(nrow(cdm$observation_period) != 0) {
-     cli::cli_inform("The observation period table has been overwritten.")
-   }
+    if (nrow(cdm$observation_period) != 0) {
+      cli::cli_inform("The observation period table has been overwritten.")
+    }
 
     if (!is.null(seed)) {
       set.seed(seed = seed)

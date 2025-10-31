@@ -37,5 +37,4 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$observation_period, cdm2$observation_period))
   expect_equal(cdm1$observation_period, cdm3$observation_period)
-
 })

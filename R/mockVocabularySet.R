@@ -20,8 +20,8 @@
 #' names(cdm)
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed") {
-  #read off mock
-  if(vocabularySet == "mock") {
+  # read off mock
+  if (vocabularySet == "mock") {
     cdm <- cdm |> mockVocabularyTables(vocabularySet = vocabularySet)
     return(cdm)
   }
@@ -70,9 +70,11 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
   # fill tables
   for (nam in names(cdmTables)) {
     if (is.null(cdmTables[[nam]])) {
-      tableName <- paste0(vocabularySet,
-                          substr(toupper(nam), 1, 1),
-                          substr(nam, 2, nchar(nam)))
+      tableName <- paste0(
+        vocabularySet,
+        substr(toupper(nam), 1, 1),
+        substr(nam, 2, nchar(nam))
+      )
 
 
       cdmTables[[nam]] <- eval(parse(text = tableName)) |>
@@ -85,12 +87,12 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
 
   for (nam in names(cdmTables)) {
     cdm <-
-      omopgenerics::insertTable(cdm = cdm,
-                                name = nam,
-                                table = cdmTables[[nam]])
+      omopgenerics::insertTable(
+        cdm = cdm,
+        name = nam,
+        table = cdmTables[[nam]]
+      )
   }
 
   return(cdm)
-
 }
-

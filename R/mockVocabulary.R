@@ -71,7 +71,7 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
     drugStrength = drugStrength
   )
 
-  if(!vocabularySet %in% c("mock", "eunomia")) {
+  if (!vocabularySet %in% c("mock", "eunomia")) {
     cli::cli_abort("vocabularySet must be either mock or eunomia.")
   }
 
@@ -83,7 +83,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
   }
   if (!isTRUE(check_table(cdmTables))) {
     cli::cli_abort(
-      "all the input vocabulary table must be either NULL or is a dataframe")
+      "all the input vocabulary table must be either NULL or is a dataframe"
+    )
   }
 
   # fill tables
@@ -101,7 +102,6 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
         addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
         correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     } else {
-
       cdmTables[[nam]] <- cdmTables[[nam]] |>
         addOtherColumns(tableName = omopgenerics::toSnakeCase(nam)) |>
         correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))

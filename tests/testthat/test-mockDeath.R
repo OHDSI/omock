@@ -56,5 +56,4 @@ test_that("seed test", {
 
   expect_error(expect_equal(cdm1$death, cdm2$death))
   expect_equal(cdm1$death, cdm3$death)
-
 })

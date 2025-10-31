@@ -53,7 +53,7 @@ mockMeasurement <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Measurement")
   type_id <- getConceptId(cdm = cdm, type = "Measurement Type")
 
-  if(length(type_id) == 0){
+  if (length(type_id) == 0) {
     type_id <- 0L
   }
 
@@ -89,7 +89,7 @@ mockMeasurement <- function(cdm,
     dplyr::bind_rows() |>
     dplyr::mutate(
       measurement_id = dplyr::row_number(),
-      measurement_type_concept_id = if(length(type_id) > 1) {
+      measurement_type_concept_id = if (length(type_id) > 1) {
         sample(c(type_id), size = dplyr::n(), replace = TRUE)
       } else {
         type_id
