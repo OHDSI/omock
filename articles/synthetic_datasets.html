@@ -59,7 +59,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>synthetic_datasets</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/vignettes/synthetic_datasets.Rmd" class="external-link"><code>vignettes/synthetic_datasets.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/v0.6.0/vignettes/synthetic_datasets.Rmd" class="external-link"><code>vignettes/synthetic_datasets.Rmd</code></a></small>
       <div class="d-none name"><code>synthetic_datasets.Rmd</code></div>
     </div>
 
@@ -818,20 +818,20 @@ is used also by other packages. You can check the folder by using the
 following function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html" class="external-link">omopDataFolder</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpdqKq7c/OMOP_DATASETS"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpaefODZ/OMOP_DATASETS"</span></span></code></pre></div>
 <p>Note that if you would have set up an environment variable the
 message of temporary folder would not appear and you would see the path
 to you folder.</p>
 <p>You can download a dataset using
 <code><a href="../reference/downloadMockDataset.html">downloadMockDataset()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/downloadMockDataset.html">downloadMockDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"synthea-covid19-10k"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/downloadMockDataset.html">downloadMockDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Deleting prior version of GiBleed.</span></span></code></pre></div>
 <p>This will download the dataset and store it as a zip file in you
 <code>OMOP_DATA_FOLDER</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html" class="external-link">omopDataFolder</a></span><span class="op">(</span><span class="op">)</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "mockDatasets/GiBleed.zip"            </span></span>
-<span><span class="co">#&gt; [2] "mockDatasets/synthea-covid19-10k.zip"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "mockDatasets/GiBleed.zip"</span></span></code></pre></div>
 <p>Note datasets are stored in a subfolder named <em>mockDatasets</em>
 to account for the fact that this folder is used also by other packages
 to store data.</p>
@@ -842,25 +842,23 @@ to store data.</p>
 <p>You can easily create a mock dataset reference using the
 <code><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset()</a></code> function:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"synthea-covid19-10k"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Reading <span style="color: #0000BB;">synthea-covid19-10k</span> tables.</span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Reading <span style="color: #0000BB;">GiBleed</span> tables.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Adding <span style="color: #0000BB;">drug_strength</span> table.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Downloading <span style="color: #0000BB;">drug_strength</span> table.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating local <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> object.</span></span>
 <span><span class="va">cdm</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;"># OMOP CDM reference (local) of synthea-covid19-10k</span> <span style="color: #00BBBB;">─────────────────────────</span></span></span>
-<span><span class="co">#&gt; • <span style="font-weight: bold;">omop tables:</span> attribute_definition, care_site, cdm_source, cohort_definition,</span></span>
-<span><span class="co">#&gt; concept, concept_ancestor, concept_class, concept_relationship,</span></span>
-<span><span class="co">#&gt; concept_synonym, condition_era, condition_occurrence, cost, death,</span></span>
-<span><span class="co">#&gt; device_exposure, domain, dose_era, drug_era, drug_exposure, drug_strength,</span></span>
-<span><span class="co">#&gt; fact_relationship, location, measurement, metadata, note, note_nlp,</span></span>
-<span><span class="co">#&gt; observation, observation_period, payer_plan_period, person,</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;"># OMOP CDM reference (local) of GiBleed</span> <span style="color: #00BBBB;">─────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">omop tables:</span> care_site, cdm_source, concept, concept_ancestor, concept_class,</span></span>
+<span><span class="co">#&gt; concept_relationship, concept_synonym, condition_era, condition_occurrence,</span></span>
+<span><span class="co">#&gt; cost, death, device_exposure, domain, dose_era, drug_era, drug_exposure,</span></span>
+<span><span class="co">#&gt; drug_strength, fact_relationship, location, measurement, metadata, note,</span></span>
+<span><span class="co">#&gt; note_nlp, observation, observation_period, payer_plan_period, person,</span></span>
 <span><span class="co">#&gt; procedure_occurrence, provider, relationship, source_to_concept_map, specimen,</span></span>
 <span><span class="co">#&gt; visit_detail, visit_occurrence, vocabulary</span></span>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">cohort tables:</span> -</span></span>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">achilles tables:</span> -</span></span>
-<span><span class="co">#&gt; • <span style="font-weight: bold;">other tables:</span> cohort, cohort_count, cohort_set</span></span></code></pre></div>
+<span><span class="co">#&gt; • <span style="font-weight: bold;">other tables:</span> -</span></span></code></pre></div>
 <p>Downloading the dataset before hand was not needed and that if you
 try to create a reference of a dataset that is not downloaded it will be
 downloaded in the process (in interactive sessions you will be

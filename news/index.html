@@ -30,13 +30,36 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/ohdsi/omock/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/ohdsi/omock/blob/v0.6.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="omock-development-version">omock (development version)<a class="anchor" aria-label="anchor" href="#omock-development-version"></a></h2>
-<ul><li>Efficient filtering of the drug_strength table by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> <a href="https://github.com/ohdsi/omock/issues/181" class="external-link">#181</a></li>
+<h2 class="pkg-version" data-toc-text="0.6.0" id="omock-060">omock 0.6.0<a class="anchor" aria-label="anchor" href="#omock-060"></a></h2><p class="text-muted">CRAN release: 2025-10-31</p>
+<div class="section level3">
+<h3 id="new-features-and-improvements-0-6-0">New Features and Improvements<a class="anchor" aria-label="anchor" href="#new-features-and-improvements-0-6-0"></a></h3>
+<ul><li>Added new vignettes and updated to omopgenerics 1.3.1 <a href="https://github.com/ohdsi/omock/issues/184" class="external-link">#184</a></li>
+<li>Introduced support for <code><a href="../reference/mockCdmFromTables.html">mockCdmFromTables()</a></code> <a href="https://github.com/ohdsi/omock/issues/196" class="external-link">#196</a></li>
+<li>Added re-exported functions from <code>omopgenerics</code> for improved usability <a href="https://github.com/ohdsi/omock/issues/198" class="external-link">#198</a></li>
+<li>Added warning messages in <code><a href="../reference/mockCohort.html">mockCohort()</a></code> for clearer user feedback <a href="https://github.com/ohdsi/omock/issues/197" class="external-link">#197</a></li>
+<li>Added <code>visit_detail</code> mock table support <a href="https://github.com/ohdsi/omock/issues/224" class="external-link">#224</a></li>
+<li>Added function to change CDM version from 5.3 to 5.4 <a href="https://github.com/ohdsi/omock/issues/221" class="external-link">#221</a></li>
 </ul></div>
+<div class="section level3">
+<h3 id="updates-and-maintenance-0-6-0">Updates and Maintenance<a class="anchor" aria-label="anchor" href="#updates-and-maintenance-0-6-0"></a></h3>
+<ul><li>Updated citation and badge information <a href="https://github.com/ohdsi/omock/issues/195" class="external-link">#195</a></li>
+<li>Updated <code>drugStrength</code> from RDS source <a href="https://github.com/ohdsi/omock/issues/194" class="external-link">#194</a></li>
+<li>General updates and internal refinements <a href="https://github.com/ohdsi/omock/issues/207" class="external-link">#207</a></li>
+<li>Replaced deprecated <code>lubridate</code> usage with <code>clock</code> for date-time handling <a href="https://github.com/ohdsi/omock/issues/222" class="external-link">#222</a></li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-6-0">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-6-0"></a></h3>
+<ul><li>Fixed handling of concepts not in OMOP tables <a href="https://github.com/ohdsi/omock/issues/199" class="external-link">#199</a></li>
+<li>Fixed vocabulary set retrieval issues <a href="https://github.com/ohdsi/omock/issues/209" class="external-link">#209</a></li>
+<li>Fixed concept type ID handling <a href="https://github.com/ohdsi/omock/issues/208" class="external-link">#208</a></li>
+<li>Fixed download truncation issues <a href="https://github.com/ohdsi/omock/issues/212" class="external-link">#212</a></li>
+<li>Fixed other minor bugs <a href="https://github.com/ohdsi/omock/issues/192" class="external-link">#192</a> <a href="https://github.com/ohdsi/omock/issues/200" class="external-link">#200</a></li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="omock-050">omock 0.5.0<a class="anchor" aria-label="anchor" href="#omock-050"></a></h2><p class="text-muted">CRAN release: 2025-09-01</p>
 <ul><li>add option source to <code>mockCdmFromDataset</code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> <a href="https://github.com/ohdsi/omock/issues/158" class="external-link">#158</a></li>
