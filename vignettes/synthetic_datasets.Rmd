@@ -95,7 +95,7 @@ Note that if you would have set up an environment variable the message of tempor
 You can download a dataset using `downloadMockDataset()`:
 
 ```{r}
-downloadMockDataset(datasetName = "synthea-covid19-10k")
+downloadMockDataset(datasetName = "GiBleed")
 ```
 
 This will download the dataset and store it as a zip file in you `OMOP_DATA_FOLDER`:
@@ -111,7 +111,7 @@ Note datasets are stored in a subfolder named *mockDatasets* to account for the 
 You can easily create a mock dataset reference using the `mockCdmFromDataset()` function:
 
 ```{r}
-cdm <- mockCdmFromDataset(datasetName = "synthea-covid19-10k")
+cdm <- mockCdmFromDataset(datasetName = "GiBleed")
 cdm
 ```
 
