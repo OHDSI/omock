@@ -6,6 +6,6 @@ bibentry(
   author   = "Du, Mike and Mercadé-Besora, Núria and Alcalde-Herraiz, Marta and Chen, Xihang and Guo, Yuchen and López-Güell, Kim and Burn, Edward and Català, Martí",
   journal  = "Journal of Open Source Software",
   year     = 2025,
-  doi      = "110.21105/joss.08178",
+  doi      = "10.21105/joss.08178",
   url      = "https://joss.theoj.org/papers/10.21105/joss.08178"
 )
