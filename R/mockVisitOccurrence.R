@@ -41,6 +41,9 @@ mockVisitOccurrence <- function(cdm,
   visit <- dplyr::tibble()
   # create visit occurrence table
   for (tab in tableName) {
+    # skip the note and visit_detail tables
+    if (tab %in% c("note", "visit_detail")) next
+
     startDate <- startDateColumn(tab)
 
     table <- cdm[[tab]] |>
@@ -48,7 +51,8 @@ mockVisitOccurrence <- function(cdm,
         "person_id",
         "visit_start_date" = dplyr::all_of(startDate),
         "visit_end_date" = dplyr::all_of(startDate)
-      )
+      ) |>
+      dplyr::collect()
 
     visit <- visit |>
       rbind(table) |>
@@ -83,6 +87,9 @@ mockVisitOccurrence <- function(cdm,
     )
   # add visit_occurrence detail to clinical table
   for (tab in tableName) {
+    # skip the note and visit_detail tables
+    if (tab %in% c("note", "visit_detail")) next
+
     startDate <- startDateColumn(tab)
 
     cdm[[tab]] <- cdm[[tab]] |>

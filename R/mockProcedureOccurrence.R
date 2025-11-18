@@ -57,8 +57,8 @@ mockProcedureOccurrence <- function(cdm,
   )
 
   # check if table are empty
-  if (cdm$person |> nrow() == 0 ||
-    cdm$observation_period |> nrow() == 0 || is.null(cdm$concept)) {
+  if (cdm$person |> .nrow() == 0 ||
+    cdm$observation_period |> .nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort(
       "person, observation_period and concept table cannot be empty"
     )
@@ -85,28 +85,21 @@ mockProcedureOccurrence <- function(cdm,
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  con <- list()
-
-  for (i in seq_along(concept_id)) {
-    num <- numberRows
-    con[[i]] <- dplyr::tibble(
-      procedure_concept_id = concept_id[i],
-      subject_id = sample(
-        x = cdm$person |> dplyr::pull("person_id"),
-        size = num,
-        replace = TRUE
-      )
-    ) |>
-      addCohortDates(
-        start = "procedure_date",
-        end = "procedure_end_date",
-        observationPeriod = cdm$observation_period
-      )
-  }
-
+  con <- dplyr::tibble(
+    procedure_concept_id = sample(concept_id, size = numberRows, replace = TRUE),
+    subject_id = sample(
+      x = cdm$person |> dplyr::pull("person_id"),
+      size = numberRows,
+      replace = TRUE
+    )
+  ) |>
+    addCohortDates(
+      start = "procedure_date",
+      end = "procedure_end_date",
+      observationPeriod = cdm$observation_period
+    )
 
   con <- con |>
-    dplyr::bind_rows() |>
     dplyr::mutate(
       procedure_occurrence_id = dplyr::row_number(),
       procedure_type_concept_id = if (length(type_id) > 1) {

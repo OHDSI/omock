@@ -114,7 +114,7 @@ test_that("check cdm object get created", {
     )
   )
 
-  expect_true(cdm$person |> nrow() == 4)
+  expect_true(cdm$person |> .nrow() == 4)
 })
 
 dd <- omock::mockCdmFromTables(tables = list(

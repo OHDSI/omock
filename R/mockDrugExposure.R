@@ -45,8 +45,8 @@ mockDrugExposure <- function(cdm,
   }
 
   # check if table are empty
-  if (cdm$person |> nrow() == 0 |
-    cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+  if (cdm$person |> .nrow() == 0 ||
+    cdm$observation_period |> .nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort("person and observation_period table cannot be empty")
   }
 
@@ -61,29 +61,23 @@ mockDrugExposure <- function(cdm,
   concept_count <- length(concept_id)
 
   # number of rows per concept_id
-  numberRows <- recordPerson * nrow(cdm$person) |> round()
+  numberRows <- recordPerson * .nrow(cdm$person) |> round()
 
-  drug <- list()
-
-  for (i in seq_along(concept_id)) {
-    num <- numberRows
-    drug[[i]] <- dplyr::tibble(
-      drug_concept_id = concept_id[i],
-      subject_id = sample(
-        x = cdm$person |> dplyr::pull("person_id"),
-        size = num,
-        replace = TRUE
-      )
-    ) |>
-      addCohortDates(
-        start = "drug_exposure_start_date",
-        end = "drug_exposure_end_date",
-        observationPeriod = cdm$observation_period
-      )
-  }
+  drug <- dplyr::tibble(
+    drug_concept_id = sample(concept_id, size = numberRows, replace = TRUE),
+    subject_id = sample(
+      x = cdm$person |> dplyr::pull("person_id"),
+      size = numberRows,
+      replace = TRUE
+    )
+  ) |>
+    addCohortDates(
+      start = "drug_exposure_start_date",
+      end = "drug_exposure_end_date",
+      observationPeriod = cdm$observation_period
+    )
 
   drug <- drug |>
-    dplyr::bind_rows() |>
     dplyr::mutate(
       drug_exposure_id = dplyr::row_number(),
       drug_type_concept_id = if (length(type_id) > 1) {

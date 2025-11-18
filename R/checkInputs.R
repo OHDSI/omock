@@ -92,7 +92,7 @@ config <- function(inputs, .options) {
     dplyr::select("package", "name", "available_argument")
 }
 performChecks <- function(toCheck, inputs, call = call) {
-  for (k in seq_len(nrow(toCheck))) {
+  for (k in seq_len(.nrow(toCheck))) {
     x <- toCheck[k, ]
     nam <- ifelse(
       x$package == "omock", x$name, paste0(x$package, "::", x$name)

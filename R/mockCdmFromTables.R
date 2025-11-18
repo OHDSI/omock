@@ -112,7 +112,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # create person
 
-  if (nrow(tables[["person"]]) == 0) {
+  if (.nrow(tables[["person"]]) == 0) {
     tables <- createPersonTable(dates = dates, tables = tables)
   }
   # correct end dates based on death
@@ -120,7 +120,7 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 
   # get observation_period
   if (!obsFlag) {
-    if (nrow(tables[["observation_period"]]) == 0) {
+    if (.nrow(tables[["observation_period"]]) == 0) {
       tables <- createObservationPeriodTable(dates = dates, tables = tables)
     }
   } else {
@@ -151,17 +151,17 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
 }
 
 mergeTables <- function(tables, cdm, call = parent.frame()) {
-  if (nrow(cdm$person) > 0) {
+  if (.nrow(cdm$person) > 0) {
     cli::cli_warn(c("!" = "person table will be overwritten", call = call))
     cdm[["person"]] <- NULL
   }
-  if (nrow(cdm$observation_period) > 0) {
+  if (.nrow(cdm$observation_period) > 0) {
     cli::cli_warn(c("!" = "observation_period table will be overwritten", call = call))
     cdm[["observation_period"]] <- NULL
   }
   for (nm in names(cdm)) {
     if (nm %in% names(tables)) {
-      if (nrow(cdm[[nm]]) > 0) {
+      if (.nrow(cdm[[nm]]) > 0) {
         cli::cli_warn(c("!" = "{nm} table will be overwritten", call = call))
       }
     } else {
@@ -218,7 +218,7 @@ getProviders <- function(cdm) {
       dplyr::distinct() |>
       dplyr::mutate("pc_id" = dplyr::row_number())
   }
-  if (is.null(x) || nrow(x) == 0) {
+  if (is.null(x) || .nrow(x) == 0) {
     x <- dplyr::tibble("pc_id" = 0L, "provider_id" = 0L, "care_site_id" = 0L)
   }
   return(x)
@@ -332,7 +332,7 @@ calculateDates <- function(individuals, meanBirthStart, meanStartFirst, meanLast
       round() |>
       as.integer()
   }
-  n <- nrow(individuals)
+  n <- .nrow(individuals)
 
   individuals |>
     dplyr::mutate(
@@ -363,7 +363,7 @@ calculateDates2 <- function(individuals, meanBirthStart, meanStartFirst, meanLas
       round() |>
       as.integer()
   }
-  n <- nrow(individuals)
+  n <- .nrow(individuals)
 
   individuals |>
     dplyr::mutate(
@@ -398,7 +398,7 @@ createPersonTable <- function(dates, tables) {
   ethnicityConcepts <- getEthnicityConcepts(tables)
   locations <- getLocations(tables)
   providers <- getProviders(tables)
-  n <- nrow(dates)
+  n <- .nrow(dates)
   tables[["person"]] <- dates |>
     dplyr::select("person_id", "birth_date") |>
     dplyr::mutate(
@@ -446,7 +446,7 @@ correctDateDeath <- function(dates, tables) {
 }
 createObservationPeriodTable <- function(dates, tables) {
   obsTypes <- getObsTypes(tables)
-  n <- nrow(dates)
+  n <- .nrow(dates)
   tables[["observation_period"]] <- dates |>
     dplyr::select(
       "person_id",
@@ -460,4 +460,13 @@ createObservationPeriodTable <- function(dates, tables) {
     addOtherColumns("observation_period") |>
     correctCdmFormat("observation_period")
   return(tables)
+}
+.nrow <- function(x) {
+  if (is.data.frame(x)) {
+    return(nrow(x))
+  } else if(methods::is(x, "tbl_sql")) {
+    return(dplyr::tally(x) |> dplyr::pull("n"))
+  } else {
+    stop("x must be a dataframe or tbl_sql")
+  }
 }

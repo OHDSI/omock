@@ -42,7 +42,7 @@ mockPerson <- function(cdm = mockCdmReference(),
                        proportionFemale = 0.5,
                        seed = NULL) {
   checkInput(cdm = cdm)
-  if (nrow(cdm$person) == 0) {
+  if (.nrow(cdm$person) == 0) {
     checkInput(
       nPerson = nPerson,
       birthRange = birthRange,

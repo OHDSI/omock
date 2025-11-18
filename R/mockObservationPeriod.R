@@ -28,8 +28,8 @@
 mockObservationPeriod <- function(cdm,
                                   seed = NULL) {
   checkInput(cdm = cdm)
-  if (nrow(cdm$person) != 0) {
-    if (nrow(cdm$observation_period) != 0) {
+  if (.nrow(cdm$person) != 0) {
+    if (.nrow(cdm$observation_period) != 0) {
       cli::cli_inform("The observation period table has been overwritten.")
     }
 
@@ -38,6 +38,7 @@ mockObservationPeriod <- function(cdm,
     }
     # pull date of birth from person table
     dob <- cdm$person |>
+      dplyr::collect() |>
       dplyr::mutate(dob = as.Date(sprintf(
         "%i-%02i-%02i",
         .data$year_of_birth,

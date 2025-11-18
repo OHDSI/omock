@@ -131,11 +131,11 @@ checkCdm <- function(cdm, tables = NULL, call = parent.env()) {
   if (!isTRUE(inherits(cdm, "cdm_reference"))) {
     cli::cli_abort("cdm must be a `cdm_reference` object", call = call)
   }
-  if (!"local_cdm" %in% class(cdmSource(cdm))) {
+  if (!("local_cdm" %in% class(cdmSource(cdm)) || "db_cdm" %in% class(cdmSource(cdm)))) {
     cl <- class(cdmSource(cdm))
     cl <- cl[cl != "cdm_source"]
     cli::cli_abort(
-      "The cdm_reference has to be a local cdm_reference, it can not be a:
+      "The cdm_reference has to be a local or db cdm_reference, it cannot be a:
       `{cl}` source.",
       call = call
     )

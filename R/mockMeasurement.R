@@ -45,8 +45,8 @@ mockMeasurement <- function(cdm,
   }
 
   # check if table are empty
-  if (cdm$person |> nrow() == 0 |
-    cdm$observation_period |> nrow() == 0 | is.null(cdm$concept)) {
+  if (cdm$person |> .nrow() == 0 ||
+    cdm$observation_period |> .nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort("person and observation_period table cannot be empty")
   }
 
@@ -64,29 +64,23 @@ mockMeasurement <- function(cdm,
   numberRows <-
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
-  measurement <- list()
+  simulated_measurements_with_values <- getMeasurementsWithValues(nrows = numberRows, conceptIdsToInclude = concept_id)
 
-  for (i in seq_along(concept_id)) {
-    num <- numberRows
-    measurement[[i]] <- dplyr::tibble(
-      measurement_concept_id = concept_id[i],
-      subject_id = sample(
-        x = cdm$person |> dplyr::pull("person_id"),
-        size = num,
-        replace = TRUE
-      )
-    ) |>
-      addCohortDates(
-        start = "measurement_start_date",
-        end = "measurement_end_date",
-        observationPeriod = cdm$observation_period
-      )
-  }
+  measurement <- dplyr::tibble(
+    measurement_concept_id = sample(concept_id, size = numberRows, replace = TRUE),
+    subject_id = sample(
+      x = cdm$person |> dplyr::pull("person_id"),
+      size = numberRows,
+      replace = TRUE
+    )
+  ) |>
+    addCohortDates(
+      start = "measurement_start_date",
+      end = "measurement_end_date",
+      observationPeriod = cdm$observation_period
+    )
 
-
-  measurement <-
-    measurement |>
-    dplyr::bind_rows() |>
+  measurement <- measurement |>
     dplyr::mutate(
       measurement_id = dplyr::row_number(),
       measurement_type_concept_id = if (length(type_id) > 1) {
@@ -103,6 +97,14 @@ mockMeasurement <- function(cdm,
     addOtherColumns(tableName = "measurement") |>
     correctCdmFormat(tableName = "measurement")
 
+  if (nrow(simulated_measurements_with_values) > 0) {
+    # replace the measurement_concept_id and value columns the simulated measurement value data
+    measurement <- measurement |>
+      dplyr::select(-dplyr::any_of(names(simulated_measurements_with_values))) |>
+      dplyr::bind_cols(simulated_measurements_with_values) |>
+      dplyr::select(colnames(measurement))
+  }
+
   cdm <-
     omopgenerics::insertTable(
       cdm = cdm,
@@ -112,3 +114,51 @@ mockMeasurement <- function(cdm,
 
   return(cdm)
 }
+
+
+# This function returns a random tibble with columns measurement_concept_id, unit_concept_id, value_as_number, value_as_concept_id
+#
+# @param nrows = number of rows to generate
+# @param conceptIdsToInclude = a vector of concept ids to subset the generated measurements to
+# @return a dataframe with measurement concept ids and simulated realistic values
+getMeasurementsWithValues <- local({
+
+  # helper to create a simulator from quantiles
+  createSimFunc <- function(xmin, p01, p10, p25, p50, p75, p90, p99, xmax) {
+    if (any(is.na(c(xmin, p01, p10, p25, p50, p75, p90, p99, xmax)))) return(function(n = 1) rep(NA_real_, n))
+    probs <- c(0, 0.01, 0.10, 0.25, 0.50, 0.75, 0.90, 0.99, 1)
+    qvals <- c(xmin, p01, p10,  p25,  p50,  p75,  p90, p99, xmax)
+    Q <- approxfun(probs, qvals, method = "linear", rule = 2)
+    function(n = 1) Q(runif(n))
+  }
+
+  cache <- NULL   # will store the fully-prepped table (including simfunc)
+
+  function(nrows, conceptIdsToInclude) {
+    # build + cache once
+    if (is.null(cache)) {
+      zip_path <- system.file("measurement_simdata.csv.zip", package = "omock", mustWork = TRUE)
+      cache <<- tibble::tibble(read.csv(unz(zip_path, "simdata.csv"))) |>
+        # artificially create the p01 and p99 quantiles so we get a skewed distribution for outliers
+        dplyr::mutate(
+          p01 = p10 - 0.1 * (p10 - xmin),
+          p99 = p90 + 0.1 * (xmax - p90)
+        ) |>
+        dplyr::mutate(
+          simfunc = purrr::pmap(
+            list(xmin, p01, p10, p25, p50, p75, p90, p99, xmax),
+            createSimFunc
+          )
+        )
+    }
+
+    cache |>
+      dplyr::filter(.data$measurement_concept_id %in% conceptIdsToInclude) |>
+      dplyr::mutate(wt = wt/sum(wt)) |>
+      dplyr::slice_sample(n = nrows, replace = TRUE, weight_by = wt) |>
+      dplyr::mutate(
+        value_as_number = purrr::map_dbl(simfunc, ~.x(n = 1))
+      ) |>
+      dplyr::select(measurement_concept_id, unit_concept_id, value_as_number, value_as_concept_id = value_concept_id)
+  }
+})

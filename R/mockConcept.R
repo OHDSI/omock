@@ -67,7 +67,7 @@ mockConcepts <- function(cdm,
                    Drug, Measurement and Observation domain.")
   }
   # check if concept table is empty
-  if (cdm$concept |> nrow() == 0) {
+  if (cdm$concept |> .nrow() == 0) {
     cli::cli_abort("concept table must exist and cannot be empty")
   }
 

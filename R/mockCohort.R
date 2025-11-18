@@ -74,7 +74,7 @@ mockCohort <- function(cdm,
                    numberCohort")
   }
 
-  if (nrow(cdm$observation_period) == 0) {
+  if (.nrow(cdm$observation_period) == 0) {
     cli::cli_warn("observation period table is empty, empty cohort table returned")
   }
 
@@ -149,7 +149,7 @@ mockCohort <- function(cdm,
     dplyr::distinct()
 
   # correct cohort count
-  if (nrow(cohort) > 0) {
+  if (.nrow(cohort) > 0) {
     cohort_id <- cohort |>
       dplyr::pull("cohort_definition_id") |>
       unique() |>
@@ -190,6 +190,7 @@ addCohortDates <- function(x,
                            observationPeriod) {
   # only allow one observational period in this function
   observationPeriod <- observationPeriod |>
+    dplyr::collect() |>
     dplyr::group_by(.data$person_id) |>
     dplyr::slice(1) |> # take first row per person_id
     dplyr::ungroup()

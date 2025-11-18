@@ -8,9 +8,9 @@ test_that("mockVocabularySet", {
 
   expect_no_error(cdm <- mockVocabularySet(vocabularySet = dbName))
 
-  expect_equal(cdm$person |> nrow(), 0)
+  expect_equal(cdm$person |> .nrow(), 0)
 
-  expect_equal(cdm$observation_period |> nrow(), 0)
+  expect_equal(cdm$observation_period |> .nrow(), 0)
 
   unlink(myFolder, recursive = TRUE)
 })

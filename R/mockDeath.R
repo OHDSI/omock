@@ -60,8 +60,8 @@ mockDeath <- function(cdm,
   }
 
   # check if table are empty
-  if (cdm$person |> nrow() == 0 ||
-    cdm$observation_period |> nrow() == 0 || is.null(cdm$concept)) {
+  if (cdm$person |> .nrow() == 0 ||
+    cdm$observation_period |> .nrow() == 0 || is.null(cdm$concept)) {
     cli::cli_abort(
       "person, observation_period and concept table cannot be empty"
     )
