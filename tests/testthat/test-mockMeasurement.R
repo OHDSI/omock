@@ -25,17 +25,13 @@ test_that("mock Measurement", {
     dplyr::pull() |>
     unique()
 
-  # concept count
-  concept_count <- length(concept_id)
+  person_count <- cdm$person |> dplyr::tally() |> dplyr::pull()
 
-  expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10)
+  expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == person_count * 1)
 
   cdm <- cdm |> mockMeasurement(recordPerson = 2)
 
-  expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10 * 2)
-
+  expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == person_count * 2)
 
   # concept type
   conceptTable <- dplyr::tibble(

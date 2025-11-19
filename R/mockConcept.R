@@ -123,7 +123,7 @@ mockConcepts <- function(cdm,
   # row to add
 
   table <- dplyr::tibble(
-    concept_id = conceptSet,
+    concept_id = as.integer(conceptSet),
     concept_name = concept_name,
     domain_id = domain,
     vocabulary_id = vocabulary_id,

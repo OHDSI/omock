@@ -13,26 +13,13 @@ test_that("test mock drug exposure", {
       colnames(cdm$drug_exposure)
   ))
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(
-      .data$domain_id == "Drug",
-      .data$standard_concept == "S"
-    ) |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  person_count <- cdm$person |> dplyr::tally() |> dplyr::pull()
 
-  # concept count
-  concept_count <- length(concept_id)
-
-  expect_true(cdm$drug_exposure |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10)
+  expect_true(cdm$drug_exposure |> dplyr::tally() |> dplyr::pull() == person_count * 1)
 
   cdm <- cdm |> mockDrugExposure(recordPerson = 2)
 
-  expect_true(cdm$drug_exposure |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10 * 2)
+  expect_true(cdm$drug_exposure |> dplyr::tally() |> dplyr::pull() == person_count * 2)
 
   # add visit details
 

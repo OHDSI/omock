@@ -10,7 +10,7 @@
 #' @examples
 #' library(omock)
 #'
-#' mockDatasetsFolder(tempdir())
+#' omopDataFolder(tempdir())
 #' downloadMockDataset(datasetName = "GiBleed")
 #' cdm <- mockCdmFromDataset(datasetName = "GiBleed")
 #' cdm
@@ -93,7 +93,7 @@ readTables <- function(tmpFolder, cv, vocab = F) {
   tables
 }
 getDrugStrength <- function() {
-  drugStregthFile <- file.path(mockDatasetsFolder(), "drug_strength.rds")
+  drugStregthFile <- file.path(omopDataFolder(), "drug_strength.rds")
 
   # download if it does not exist
   if (!file.exists(drugStregthFile)) {

@@ -13,26 +13,13 @@ test_that("test mock condition occurrence", {
       colnames(cdm$condition_occurrence)
   ))
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(
-      .data$domain_id == "Condition",
-      .data$standard_concept == "S"
-    ) |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
+  person_count <- cdm$person |> dplyr::tally() |> dplyr::pull()
 
-  # concept count
-  concept_count <- length(concept_id)
-
-  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10)
+  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == person_count * 1)
 
   cdm <- cdm |> mockConditionOccurrence(recordPerson = 2)
 
-  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10 * 2)
+  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == person_count * 2)
 
   # concept type
   conceptTable <- dplyr::tibble(

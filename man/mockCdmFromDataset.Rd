@@ -21,7 +21,7 @@ Create a \code{local} cdm_reference from a dataset.
 \examples{
 library(omock)
 
-mockDatasetsFolder(tempdir())
+omopDataFolder(tempdir())
 downloadMockDataset(datasetName = "GiBleed")
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
 cdm

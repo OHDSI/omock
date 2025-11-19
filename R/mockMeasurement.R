@@ -138,27 +138,35 @@ getMeasurementsWithValues <- local({
     # build + cache once
     if (is.null(cache)) {
       zip_path <- system.file("measurement_simdata.csv.zip", package = "omock", mustWork = TRUE)
-      cache <<- tibble::tibble(read.csv(unz(zip_path, "simdata.csv"))) |>
+      cache <<- dplyr::tibble(utils::read.csv(base::unz(zip_path, "simdata.csv"))) |>
         # artificially create the p01 and p99 quantiles so we get a skewed distribution for outliers
         dplyr::mutate(
-          p01 = p10 - 0.1 * (p10 - xmin),
-          p99 = p90 + 0.1 * (xmax - p90)
+          p01 = .data$p10 - 0.1 * (.data$p10 - .data$xmin),
+          p99 = .data$p90 + 0.1 * (.data$xmax - .data$p90)
         ) |>
         dplyr::mutate(
           simfunc = purrr::pmap(
-            list(xmin, p01, p10, p25, p50, p75, p90, p99, xmax),
+            list(.data$xmin, .data$p01, .data$p10, .data$p25, .data$p50, .data$p75, .data$p90, .data$p99, .data$xmax),
             createSimFunc
           )
         )
     }
 
-    cache |>
-      dplyr::filter(.data$measurement_concept_id %in% conceptIdsToInclude) |>
-      dplyr::mutate(wt = wt/sum(wt)) |>
-      dplyr::slice_sample(n = nrows, replace = TRUE, weight_by = wt) |>
-      dplyr::mutate(
-        value_as_number = purrr::map_dbl(simfunc, ~.x(n = 1))
-      ) |>
-      dplyr::select(measurement_concept_id, unit_concept_id, value_as_number, value_as_concept_id = value_concept_id)
+    out <- cache |>
+      dplyr::filter(.data$measurement_concept_id %in% conceptIdsToInclude)
+
+    if (nrow(out) == 0) {
+      return(out)
+    } else {
+      out <- out |>
+        dplyr::mutate(wt = .data$wt/sum(.data$wt)) |>
+        dplyr::slice_sample(n = nrows, replace = TRUE, weight_by = .data$wt) |>
+        dplyr::mutate(
+          value_as_number = purrr::map_dbl(.data$simfunc, ~.x(n = 1))
+        ) |>
+        dplyr::select("measurement_concept_id", "unit_concept_id", "value_as_number", value_as_concept_id = "value_concept_id")
+
+      return(out)
+    }
   }
 })
