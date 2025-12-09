@@ -44,7 +44,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   # add drug strength
   cli::cli_inform(c(i = "Adding {.pkg drug_strength} table."))
   if (datasetName == "GiBleed") {
-    tables$drug_strength <- eunomiaDrugStrength
+    tables$drug_strength <- cdmGiBleed$drug_strength
   } else {
     tables$drug_strength <- getDrugStrength()
   }
