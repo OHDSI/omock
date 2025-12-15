@@ -214,26 +214,56 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 
   # download dataset
   url <- omock::mockDatasets$url[omock::mockDatasets$dataset_name == datasetName]
-  tryCatch(
-    {
-      utils::download.file(url = url, destfile = datasetFile, mode = "wb", quiet = FALSE)
-    },
-    error = function(e) {
-      if (grepl("timed out|Timeout was reached|Could not resolve host|Operation was aborted", e$message, ignore.case = TRUE)) {
-        cli::cli_abort(c(
-          "x" = "Failed to download dataset `{datasetName}` due to a timeout or network issue.",
-          "i" = "Check your internet connection, or try downloading again later.",
-          "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
-          " " = "{.url {url}}"
-        ))
-      } else {
-        cli::cli_abort(c(
-          "x" = "An error occurred while downloading dataset `{datasetName}`.",
-          "!" = "{e$message}"
-        ))
-      }
-    }
+
+
+  # save + restore user's timeout option
+  old_timeout <- getOption("timeout")
+  on.exit(options(timeout = old_timeout), add = TRUE)
+
+
+  # ---- download attempts ----
+  firstAttempt <- attemptDownload(
+    url = url,
+    destfile = datasetFile,
+    datasetName = datasetName,
+    timeout = 120
   )
+
+  if (!firstAttempt && rlang::is_interactive()) {
+    cli::cli_inform(
+      "Download of `{datasetName}` timed out (or network failed) after 120 seconds."
+    )
+
+    retryTimeout <- max(old_timeout, 900)
+
+    if (question(paste0(
+      "Do you want to retry with a longer timeout (",
+      retryTimeout, " seconds)? Y/n"
+    ))) {
+      secondAttempt <- attemptDownload(
+        url = url,
+        destfile = datasetFile,
+        datasetName = datasetName,
+        timeout = retryTimeout
+      )
+    } else {
+      cli::cli_abort(c(
+        "x" = "Download cancelled by user.",
+        "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
+        " " = "{.url {url}}"
+      ))
+    }
+  }
+
+  # final failure check
+  if (!firstAttempt && (!exists("secondAttempt") || !secondAttempt)) {
+    cli::cli_abort(c(
+      "x" = "Failed to download dataset `{datasetName}` due to a timeout or network issue.",
+      "i" = "Check your internet connection, or try again later.",
+      "i" = "You may also manually download it from the URL below and place it in {.path {path}}:",
+      " " = "{.url {url}}"
+    ))
+  }
 
   invisible(datasetFile)
 }
@@ -274,7 +304,7 @@ isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
         cli::cli_inform(c(
           "v" = "Incomplete prior dataset deleted.",
           "i" = "Probably connection was trucaded due to small timeout, do you
-          want to set a bigger timeout? {.run options(timeout = 600)}"
+          want to set a bigger timeout? {.run options(timeout = 1200)}"
         ))
         result <- FALSE
       }
@@ -455,4 +485,67 @@ filterToVocab <- function(path) {
   filtered_paths <- path[grepl(t, path)]
 
   return(filtered_paths)
+}
+
+
+
+##attemptDownload
+attemptDownload <- function(url, destfile, datasetName,
+                            timeout = 300,
+                            quiet = TRUE) {
+  # validate basic inputs
+  url <- as.character(url)
+  if (length(url) != 1 || is.na(url) || !nzchar(url)) {
+    cli::cli_abort(c("x" = "Invalid `url` provided to `attemptDownload()` for `{datasetName}`."))
+  }
+
+  old_timeout <- getOption("timeout")
+  on.exit(options(timeout = old_timeout), add = TRUE)
+  options(timeout = timeout)
+
+  cli::cli_inform(c(i = "Attempting download with timeout = {timeout} seconds."))
+
+  pb <- cli::cli_progress_bar(
+    total = NA,
+    format = "Downloading {datasetName} [:bar] {elapsed} elapsed"
+  )
+  on.exit(cli::cli_progress_done(id = pb), add = TRUE)
+
+  timeout_warning <- FALSE
+
+  out <- withCallingHandlers(
+    tryCatch(
+      {
+        utils::download.file(
+          url = url,
+          destfile = destfile,
+          mode = "wb",
+          quiet = quiet
+        )
+        TRUE
+      },
+      error = function(e) {
+        if (isTRUE(timeout_warning) ||
+            grepl("timed out|Timeout was reached|Could not resolve host|Operation was aborted",
+                  e$message, ignore.case = TRUE)) {
+          return(FALSE)
+        }
+
+        cli::cli_abort(c(
+          "x" = "An error occurred while downloading `{datasetName}`.",
+          "!" = "{e$message}"
+        ))
+      }
+    ),
+    warning = function(w) {
+      msg <- conditionMessage(w)
+      if (grepl("timeout|timed out|Timeout of .* seconds was reached",
+                msg, ignore.case = TRUE)) {
+        timeout_warning <<- TRUE
+      }
+      invokeRestart("muffleWarning")
+    }
+  )
+
+  out
 }
