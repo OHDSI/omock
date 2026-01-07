@@ -46,8 +46,8 @@
 #' cdm <- mockCdmFromTables(cdm = mockCdmReference(), tables = list(cohort = cohort))
 #'
 #' # Access the newly integrated cohort table and the standard person table in the CDM
-#' print(cdm$cohort)
-#' print(cdm$person)
+#' cdm$cohort |> glimpse()
+#' cdm$person |> glimpse()
 #' }
 mockCdmFromTables <- function(cdm = mockCdmReference(),
                               tables = list(),

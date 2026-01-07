@@ -1,15 +1,20 @@
 library(dplyr)
 library(here)
+library(readr)
 
 # add the default mock vocabulary data
 mockDrugStrength <- readr::read_csv(
   here::here("data-raw", "default", "drugStrength.csv"),
-  show_col_types = FALSE
+  show_col_types = FALSE,
+  col_types = cols(valid_start_date = col_date(format = "%d/%m/%Y"),
+                   valid_end_date = col_date(format = "%d/%m/%Y"))
 ) |>
   castColumns("drug_strength", "5.3")
 mockConcept <- readr::read_csv(
   here::here("data-raw", "default", "concept.csv"),
-  show_col_types = FALSE
+  show_col_types = FALSE,
+  col_types = cols(valid_start_date = col_date(format = "%d/%m/%Y"),
+                   valid_end_date = col_date(format = "%d/%m/%Y"))
 ) |>
   castColumns("concept", "5.3")
 mockConceptAncestor <- readr::read_csv(
@@ -29,7 +34,9 @@ mockConceptSynonym <- readr::read_csv(
   castColumns("concept_synonym", "5.3")
 mockConceptRelationship <- readr::read_csv(
   here::here("data-raw", "default", "conceptRelationship.csv"),
-  show_col_types = FALSE
+  show_col_types = FALSE,
+  col_types = cols(valid_start_date = col_date(format = "%d/%m/%Y"),
+                   valid_end_date = col_date(format = "%d/%m/%Y"))
 ) |>
   castColumns("concept_relationship", "5.3")
 mockVocabulary <- readr::read_csv(

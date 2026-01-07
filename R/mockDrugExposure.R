@@ -22,6 +22,7 @@
 #'
 #' @examples
 #' library(omock)
+#' library(dplyr)
 #'
 #' # Create a mock CDM reference and add drug exposure records
 #' cdm <- mockCdmReference() |>
@@ -30,7 +31,7 @@
 #'   mockDrugExposure(recordPerson = 3)
 #'
 #' # View the generated drug exposure data
-#' print(cdm$drug_exposure)
+#' cdm$drug_exposure |> glimpse()
 mockDrugExposure <- function(cdm,
                              recordPerson = 1,
                              seed = NULL) {
@@ -53,9 +54,6 @@ mockDrugExposure <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Drug")
   type_id <- getConceptId(cdm = cdm, type = "Drug Type")
 
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   # concept count
   concept_count <- length(concept_id)

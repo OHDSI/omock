@@ -17,14 +17,14 @@
 #'
 #' @examples
 #' library(omock)
-#'
+#' library(dplyr)
 #' # Create a mock CDM reference and add observation periods
 #' cdm <- mockCdmReference() |>
 #'   mockPerson(nPerson = 100) |>
 #'   mockObservationPeriod()
 #'
 #' # View the generated observation period data
-#' print(cdm$observation_period)
+#' cdm$observation_period |> glimpse()
 mockObservationPeriod <- function(cdm,
                                   seed = NULL) {
   checkInput(cdm = cdm)

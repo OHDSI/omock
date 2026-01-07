@@ -73,3 +73,16 @@ test_that("seed test", {
   expect_error(expect_equal(cdm1$measurement, cdm2$measurement))
   expect_equal(cdm1$measurement, cdm3$measurement)
 })
+
+test_that("empty measurement concept", {
+
+  cdm <- omock::mockVocabularySet()
+  #> ℹ Reading GiBleed tables.
+  cdm$concept <- cdm$concept |>
+    dplyr::filter(domain_id != "Measurement" | concept_id == 3001467)
+
+  expect_error(a <- cdm |>
+    omock::mockPerson(nPerson = 1) |>
+    omock::mockObservationPeriod() |>
+    omock::mockMeasurement())
+})

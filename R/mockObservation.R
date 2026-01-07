@@ -22,6 +22,7 @@
 #'
 #' @examples
 #' library(omock)
+#' library(dplyr)
 #'
 #' # Create a mock CDM reference and add observation records
 #' cdm <- mockCdmReference() |>
@@ -30,7 +31,7 @@
 #'   mockObservation(recordPerson = 3)
 #'
 #' # View the generated observation data
-#' print(cdm$observation)
+#' cdm$observation |> glimpse()
 mockObservation <- function(cdm,
                             recordPerson = 1,
                             seed = NULL) {
@@ -52,10 +53,6 @@ mockObservation <- function(cdm,
 
   concept_id <- getConceptId(cdm = cdm, type = "Observation")
   type_id <- getConceptId(cdm = cdm, type = "Observation Type")
-
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   # concept count
   concept_count <- length(concept_id)

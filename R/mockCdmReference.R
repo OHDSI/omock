@@ -33,7 +33,7 @@
 #' cdm <- mockCdmReference()
 #'
 #' # Display the structure of the newly created CDM
-#' print(cdm)
+#' cdm
 #'
 #' @export
 mockCdmReference <- function(cdmName = "mock database",

@@ -15,7 +15,7 @@
 #' cdm <- cdm |> changeCdmVersion(version = "5.4")
 #'
 #' # View cdm version
-#' print(cdmVersion(cdm))
+#' cdmVersion(cdm)
 changeCdmVersion <- function(cdm, version = "5.4") {
   checkInput(cdm = cdm, version = version)
   current <- cdmVersion(cdm)

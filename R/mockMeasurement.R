@@ -22,7 +22,7 @@
 #'
 #' @examples
 #' library(omock)
-#'
+#' library(dplyr)
 #' # Create a mock CDM reference and add measurement records
 #' cdm <- mockCdmReference() |>
 #'   mockPerson() |>
@@ -30,7 +30,7 @@
 #'   mockMeasurement(recordPerson = 5)
 #'
 #' # View the generated measurement data
-#' print(cdm$measurement)
+#' cdm$measurement |> glimpse()
 mockMeasurement <- function(cdm,
                             recordPerson = 1,
                             seed = NULL) {
@@ -51,11 +51,15 @@ mockMeasurement <- function(cdm,
   }
 
   concept_id <- getConceptId(cdm = cdm, type = "Measurement")
+
+  if(length(concept_id) == 1){
+    if(concept_id == 0){
+    cli::cli_abort("Measurement concepts not found in the CDM concept table.")
+    }
+  }
+
   type_id <- getConceptId(cdm = cdm, type = "Measurement Type")
 
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   # concept count
   concept_count <- length(concept_id)

@@ -58,9 +58,6 @@ mockVisitOccurrence <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Visit")
   type_id <- getConceptId(cdm = cdm, type = "Visit Type")
 
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   visit <- visit |>
     dplyr::mutate(

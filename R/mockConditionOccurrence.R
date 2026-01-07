@@ -37,7 +37,7 @@
 #' @examples
 #' \donttest{
 #' library(omock)
-#'
+#' library(dplyr)
 #' # Create a mock CDM reference and add condition occurrences
 #' cdm <- mockCdmReference() |>
 #'   mockPerson() |>
@@ -45,7 +45,7 @@
 #'   mockConditionOccurrence(recordPerson = 2)
 #'
 #' # View the generated condition occurrence data
-#' print(cdm$condition_occurrence)
+#' cdm$condition_occurrence |> dplyr::glimpse()
 #' }
 mockConditionOccurrence <- function(cdm,
                                     recordPerson = 1,
@@ -72,10 +72,6 @@ mockConditionOccurrence <- function(cdm,
 
   concept_id <- getConceptId(cdm = cdm, type = "Condition")
   type_id <- getConceptId(cdm = cdm, type = "Condition Type")
-
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   # number of rows per concept_id
   numberRows <- round(recordPerson * (nrow(cdm$person)))
@@ -119,9 +115,15 @@ mockConditionOccurrence <- function(cdm,
 }
 
 getConceptId <- function(cdm, type) {
-  cdm$concept |>
+  type_id <- cdm$concept |>
     dplyr::filter(.data$domain_id == .env$type &
       .data$standard_concept == "S") |>
     dplyr::pull("concept_id") |>
     unique()
+
+  if (length(type_id) == 0) {
+    type_id <- 0L
+  }
+
+  return(type_id)
 }

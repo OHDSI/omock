@@ -24,12 +24,12 @@ This function simulates observation periods for individuals based on their date 
 }
 \examples{
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add observation periods
 cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod()
 
 # View the generated observation period data
-print(cdm$observation_period)
+cdm$observation_period |> glimpse()
 }

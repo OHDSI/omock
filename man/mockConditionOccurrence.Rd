@@ -44,7 +44,7 @@ windows.
 \examples{
 \donttest{
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add condition occurrences
 cdm <- mockCdmReference() |>
   mockPerson() |>
@@ -52,6 +52,6 @@ cdm <- mockCdmReference() |>
   mockConditionOccurrence(recordPerson = 2)
 
 # View the generated condition occurrence data
-print(cdm$condition_occurrence)
+cdm$condition_occurrence |> dplyr::glimpse()
 }
 }

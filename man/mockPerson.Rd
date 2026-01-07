@@ -47,10 +47,11 @@ is uniquely identified.
 \examples{
 \donttest{
 library(omock)
+library(dplyr)
 cdm <- mockPerson(cdm = mockCdmReference(), nPerson = 10)
 
 # View the generated person data
-print(cdm$person)
+cdm$person |> glimpse()
 }
 
 }
