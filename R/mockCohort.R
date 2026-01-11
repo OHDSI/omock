@@ -90,14 +90,15 @@ mockCohort <- function(cdm,
     recordPerson * (cdm$person |> dplyr::tally() |> dplyr::pull()) |> round()
 
   numberRows <- (numberRows * 1.2) |> round()
-  rows_to_keep <- sum(numberRows / 1.2)
 
   # generate cohort table
   cohort <- list()
   if (length(numberRows) == 1) {
     numberRows <- rep(numberRows, length(cohortId))
-    rows_to_keep <- sum(numberRows / 1.2)
   }
+
+  rows_to_keep <- sum(numberRows / 1.2)
+
   for (i in seq_along(cohortId)) {
     num <- numberRows[[i]]
     cohort[[i]] <- dplyr::tibble(
