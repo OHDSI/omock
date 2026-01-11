@@ -42,7 +42,23 @@ mockPerson <- function(cdm = mockCdmReference(),
                        proportionFemale = 0.5,
                        seed = NULL) {
   checkInput(cdm = cdm)
-  if (nrow(cdm$person) == 0) {
+
+
+  if (nrow(cdm$person) > 0) {
+    if (!interactive()) {
+      cli::cli_abort(
+        "CDM reference already contains a non-empty person table.\n\
+     Refusing to overwrite in non-interactive mode."
+      )
+    }
+
+    ans <- utils::menu(choices = c("No", "Yes"), title = "CDM already contains a non-empty person table. Overwrite it?")
+
+    if (ans != 2) {
+      cli::cli_abort("Aborted: existing person table was not overwritten.")
+    }
+
+  }
     checkInput(
       nPerson = nPerson,
       birthRange = birthRange,
@@ -95,9 +111,6 @@ mockPerson <- function(cdm = mockCdmReference(),
         name = "person",
         table = person
       )
-  } else {
-    cli::cli_abort("CDM reference already contains a non-empty person table.")
-  }
 
 
   return(cdm)
