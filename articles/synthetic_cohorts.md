@@ -1,0 +1,55 @@
+# Creating synthetic cohorts
+
+``` r
+library(omock)
+```
+
+Here we explain making a mock cohort table using mockCohort().
+mockCohort() is designed to generate synthetic cohorts within a given
+CDM reference. It allows for the creation of multiple cohorts with
+specified names and the expected number of records per person. This can
+be useful for testing, simulations, or educational purposes where real
+patient data cannot be used.
+
+The mockCohort() function has several different arguments to help user
+to tailored the synthetic cohort creation process. The cdm argument
+represents the local CDM reference into which the synthetic cohort will
+be integrated. The tableName argument specifies the name of the table
+within the CDM to store the cohort data. For scenarios necessitating
+multiple cohorts, the numberCohorts argument determines how many
+distinct cohorts to generate within the table, defaulting to 1. The
+cohortName argument allows for the assignment of names to the created
+cohorts, supporting either a single name or a vector of names for
+multiple cohorts. Additionally, the recordPerson argument indicates the
+expected number of records per person in each cohort. Lastly, the seed
+argument is used to set a random seed, ensuring the reproducibility of
+the generated data.
+
+**Example**
+
+The example provided in the vignette demonstrates how to use the
+mockCohort function within a pipeline that includes generating a mock
+CDM reference, adding mock persons, and observation periods before
+finally adding the mock cohorts. This showcases a typical workflow for
+setting up a synthetic CDM with multiple components for testing or
+analysis.
+
+``` r
+cdm <- mockCdmReference() |>
+  mockPerson(nPerson = 100) |>
+  mockObservationPeriod() |>
+  mockCohort(
+    name = "omock_example",
+    numberCohorts = 2,
+    cohortName = c("omock_cohort_1", "omock_cohort_2")
+  )
+
+cdm
+#> 
+#> ── # OMOP CDM reference (local) of mock database ───────────────────────────────
+#> • omop tables: cdm_source, concept, concept_ancestor, concept_relationship,
+#> concept_synonym, drug_strength, observation_period, person, vocabulary
+#> • cohort tables: omock_example
+#> • achilles tables: -
+#> • other tables: -
+```
