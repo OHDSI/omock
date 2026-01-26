@@ -37,6 +37,7 @@ library(omock)
 
 # Create a mock CDM reference and populate it with mock vocabulary tables
 cdm <- mockCdmReference() |> mockVocabularySet(vocabularySet = "GiBleed")
+#> ℹ Attempting download with timeout = 120 seconds.
 #> ℹ Reading GiBleed tables.
 
 # View the names of the tables added to the CDM

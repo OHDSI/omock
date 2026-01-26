@@ -84,7 +84,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/RtmpWJaRrG/OMOP_DATASETS"
+#> [1] "/tmp/RtmpyXNvOx/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message
@@ -97,6 +97,7 @@ You can download a dataset using
 ``` r
 downloadMockDataset(datasetName = "GiBleed")
 #> ℹ Deleting prior version of GiBleed.
+#> ℹ Attempting download with timeout = 600 seconds.
 ```
 
 This will download the dataset and store it as a zip file in you

@@ -30,6 +30,7 @@ isMockDatasetDownloaded("GiBleed")
 #> [1] TRUE
 downloadMockDataset("GiBleed")
 #> ℹ Deleting prior version of GiBleed.
+#> ℹ Attempting download with timeout = 120 seconds.
 isMockDatasetDownloaded("GiBleed")
 #> [1] TRUE
 # }
