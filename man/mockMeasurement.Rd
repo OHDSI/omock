@@ -37,5 +37,6 @@ cdm <- mockCdmReference() |>
   mockMeasurement(recordPerson = 5)
 
 # View the generated measurement data
-cdm$measurement |> glimpse()
+cdm$measurement |>
+glimpse()
 }

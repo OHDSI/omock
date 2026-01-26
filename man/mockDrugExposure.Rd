@@ -38,5 +38,6 @@ cdm <- mockCdmReference() |>
   mockDrugExposure(recordPerson = 3)
 
 # View the generated drug exposure data
-cdm$drug_exposure |> glimpse()
+cdm$drug_exposure |>
+glimpse()
 }

@@ -24,7 +24,8 @@
 #'   mockObservationPeriod()
 #'
 #' # View the generated observation period data
-#' cdm$observation_period |> glimpse()
+#' cdm$observation_period |>
+#' glimpse()
 mockObservationPeriod <- function(cdm,
                                   seed = NULL) {
   checkInput(cdm = cdm)

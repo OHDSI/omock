@@ -32,7 +32,8 @@
 #' cdm <- mockPerson(cdm = mockCdmReference(), nPerson = 10)
 #'
 #' # View the generated person data
-#' cdm$person |> glimpse()
+#' cdm$person |>
+#' glimpse()
 #' }
 #'
 #' @export

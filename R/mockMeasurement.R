@@ -30,7 +30,8 @@
 #'   mockMeasurement(recordPerson = 5)
 #'
 #' # View the generated measurement data
-#' cdm$measurement |> glimpse()
+#' cdm$measurement |>
+#' glimpse()
 mockMeasurement <- function(cdm,
                             recordPerson = 1,
                             seed = NULL) {
@@ -52,10 +53,24 @@ mockMeasurement <- function(cdm,
 
   concept_id <- getConceptId(cdm = cdm, type = "Measurement")
 
-  if(length(concept_id) == 1){
-    if(concept_id == 0){
-    cli::cli_abort("Measurement concepts not found in the CDM concept table.")
-    }
+  if (length(concept_id) == 1 && concept_id == 0) {
+    cli::cli_warn(
+      "No Measurement concepts found in the concept table. Returning an empty measurement table."
+    )
+
+    empty_measurement <-
+      dplyr::tibble() |>
+      addOtherColumns(tableName = "measurement") |>
+      correctCdmFormat(tableName = "measurement")
+
+    cdm <-
+      omopgenerics::insertTable(
+        cdm = cdm,
+        name = "measurement",
+        table = empty_measurement
+      )
+
+    return(cdm)
   }
 
   type_id <- getConceptId(cdm = cdm, type = "Measurement Type")

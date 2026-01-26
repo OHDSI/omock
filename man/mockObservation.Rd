@@ -38,5 +38,6 @@ cdm <- mockCdmReference() |>
   mockObservation(recordPerson = 3)
 
 # View the generated observation data
-cdm$observation |> glimpse()
+cdm$observation |>
+glimpse()
 }

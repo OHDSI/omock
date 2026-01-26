@@ -52,6 +52,7 @@ cdm <- mockCdmReference() |>
   mockProcedureOccurrence(recordPerson = 2)
 
 # View the generated condition occurrence data
-cdm$procedure_occurrence |> glimpse()
+cdm$procedure_occurrence |>
+glimpse()
 }
 }

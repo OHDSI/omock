@@ -31,7 +31,8 @@
 #'   mockDrugExposure(recordPerson = 3)
 #'
 #' # View the generated drug exposure data
-#' cdm$drug_exposure |> glimpse()
+#' cdm$drug_exposure |>
+#' glimpse()
 mockDrugExposure <- function(cdm,
                              recordPerson = 1,
                              seed = NULL) {

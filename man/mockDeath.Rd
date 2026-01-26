@@ -52,6 +52,7 @@ cdm <- mockCdmReference() |>
   mockDeath(recordPerson = 1)
 
 # View the generated death data
-cdm$death |> dplyr::glimpse()
+cdm$death |>
+glimpse()
 }
 }

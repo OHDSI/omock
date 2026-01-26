@@ -81,7 +81,7 @@ test_that("empty measurement concept", {
   cdm$concept <- cdm$concept |>
     dplyr::filter(domain_id != "Measurement" | concept_id == 3001467)
 
-  expect_error(a <- cdm |>
+  expect_warning(a <- cdm |>
     omock::mockPerson(nPerson = 1) |>
     omock::mockObservationPeriod() |>
     omock::mockMeasurement())

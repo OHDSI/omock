@@ -31,7 +31,8 @@
 #'   mockObservation(recordPerson = 3)
 #'
 #' # View the generated observation data
-#' cdm$observation |> glimpse()
+#' cdm$observation |>
+#' glimpse()
 mockObservation <- function(cdm,
                             recordPerson = 1,
                             seed = NULL) {

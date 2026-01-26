@@ -45,7 +45,8 @@
 #'   mockConditionOccurrence(recordPerson = 2)
 #'
 #' # View the generated condition occurrence data
-#' cdm$condition_occurrence |> dplyr::glimpse()
+#' cdm$condition_occurrence |>
+#' glimpse()
 #' }
 mockConditionOccurrence <- function(cdm,
                                     recordPerson = 1,
