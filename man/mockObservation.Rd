@@ -29,6 +29,7 @@ This function simulates observation records for individuals within a specified c
 }
 \examples{
 library(omock)
+library(dplyr)
 
 # Create a mock CDM reference and add observation records
 cdm <- mockCdmReference() |>
@@ -37,5 +38,6 @@ cdm <- mockCdmReference() |>
   mockObservation(recordPerson = 3)
 
 # View the generated observation data
-print(cdm$observation)
+cdm$observation |>
+glimpse()
 }

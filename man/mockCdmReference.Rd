@@ -42,6 +42,6 @@ library(omock)
 cdm <- mockCdmReference()
 
 # Display the structure of the newly created CDM
-print(cdm)
+cdm
 
 }

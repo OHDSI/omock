@@ -37,7 +37,7 @@
 #' @examples
 #' \donttest{
 #' library(omock)
-#'
+#' library(dplyr)
 #' # Create a mock CDM reference and add condition occurrences
 #' cdm <- mockCdmReference() |>
 #'   mockPerson() |>
@@ -45,7 +45,8 @@
 #'   mockProcedureOccurrence(recordPerson = 2)
 #'
 #' # View the generated condition occurrence data
-#' print(cdm$procedure_occurrence)
+#' cdm$procedure_occurrence |>
+#' glimpse()
 #' }
 mockProcedureOccurrence <- function(cdm,
                                     recordPerson = 1,
@@ -71,9 +72,6 @@ mockProcedureOccurrence <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Procedure")
   type_id <- getConceptId(cdm = cdm, type = "Procedure Type")
 
-  if (length(type_id) == 0) {
-    type_id <- 0L
-  }
 
   if (length(concept_id) == 0) {
     cli::cli_abort(

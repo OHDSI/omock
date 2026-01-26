@@ -29,7 +29,7 @@ This function simulates measurement records for individuals within a specified c
 }
 \examples{
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add measurement records
 cdm <- mockCdmReference() |>
   mockPerson() |>
@@ -37,5 +37,6 @@ cdm <- mockCdmReference() |>
   mockMeasurement(recordPerson = 5)
 
 # View the generated measurement data
-print(cdm$measurement)
+cdm$measurement |>
+glimpse()
 }

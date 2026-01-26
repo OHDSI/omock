@@ -36,6 +36,7 @@
 #' @examples
 #' \donttest{
 #' library(omock)
+#' library(dplyr)
 #'
 #' # Create a mock CDM reference and add death records
 #' cdm <- mockCdmReference() |>
@@ -44,7 +45,8 @@
 #'   mockDeath(recordPerson = 1)
 #'
 #' # View the generated death data
-#' print(cdm$death)
+#' cdm$death |>
+#' glimpse()
 #' }
 mockDeath <- function(cdm,
                       recordPerson = 1,

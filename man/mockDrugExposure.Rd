@@ -29,6 +29,7 @@ This function simulates drug exposure records for individuals within a specified
 }
 \examples{
 library(omock)
+library(dplyr)
 
 # Create a mock CDM reference and add drug exposure records
 cdm <- mockCdmReference() |>
@@ -37,5 +38,6 @@ cdm <- mockCdmReference() |>
   mockDrugExposure(recordPerson = 3)
 
 # View the generated drug exposure data
-print(cdm$drug_exposure)
+cdm$drug_exposure |>
+glimpse()
 }
