@@ -50,7 +50,7 @@ periods and linked to the correct individuals in the 'person' table.
 ``` r
 # \donttest{
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add condition occurrences
 cdm <- mockCdmReference() |>
   mockPerson() |>
@@ -58,26 +58,25 @@ cdm <- mockCdmReference() |>
   mockConditionOccurrence(recordPerson = 2)
 
 # View the generated condition occurrence data
-print(cdm$condition_occurrence)
-#> # A tibble: 120 × 16
-#>    condition_concept_id person_id condition_start_date condition_end_date
-#>  *                <int>     <int> <date>               <date>            
-#>  1               194152        10 2018-10-16           2018-12-26        
-#>  2               194152        10 2018-12-04           2018-12-21        
-#>  3               194152         6 2015-03-27           2015-06-30        
-#>  4               194152         5 1980-02-21           1988-08-15        
-#>  5               194152         4 2003-01-22           2003-10-11        
-#>  6               194152         6 2006-08-07           2010-01-20        
-#>  7               194152         5 1992-02-22           1993-04-02        
-#>  8               194152         1 2002-02-26           2009-10-29        
-#>  9               194152         5 1989-06-11           1991-03-31        
-#> 10               194152         2 2010-08-04           2011-08-20        
-#> # ℹ 110 more rows
-#> # ℹ 12 more variables: condition_occurrence_id <int>,
-#> #   condition_type_concept_id <int>, condition_start_datetime <dttm>,
-#> #   condition_end_datetime <dttm>, condition_status_concept_id <int>,
-#> #   stop_reason <chr>, provider_id <int>, visit_occurrence_id <int>,
-#> #   visit_detail_id <int>, condition_source_value <chr>,
-#> #   condition_source_concept_id <int>, condition_status_source_value <chr>
+cdm$condition_occurrence |>
+glimpse()
+#> Rows: 120
+#> Columns: 16
+#> $ condition_concept_id          <int> 194152, 194152, 194152, 194152, 194152, …
+#> $ person_id                     <int> 10, 10, 6, 5, 4, 6, 5, 1, 5, 2, 3, 2, 10…
+#> $ condition_start_date          <date> 2018-10-16, 2018-12-04, 2015-03-27, 198…
+#> $ condition_end_date            <date> 2018-12-26, 2018-12-21, 2015-06-30, 198…
+#> $ condition_occurrence_id       <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
+#> $ condition_type_concept_id     <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+#> $ condition_start_datetime      <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#> $ condition_end_datetime        <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+#> $ condition_status_concept_id   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ stop_reason                   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ provider_id                   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ visit_occurrence_id           <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ visit_detail_id               <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ condition_source_value        <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ condition_source_concept_id   <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+#> $ condition_status_source_value <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
 # }
 ```

@@ -50,7 +50,7 @@ periods and linked to the correct individuals in the 'person' table.
 ``` r
 # \donttest{
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add condition occurrences
 cdm <- mockCdmReference() |>
   mockPerson() |>
@@ -58,35 +58,24 @@ cdm <- mockCdmReference() |>
   mockProcedureOccurrence(recordPerson = 2)
 
 # View the generated condition occurrence data
-print(cdm$procedure_occurrence)
-#> # A tibble: 20 × 15
-#>    procedure_concept_id person_id procedure_date procedure_end_date
-#>  *                <int>     <int> <date>         <date>            
-#>  1              4012925         7 2014-08-08     2016-12-07        
-#>  2              4012925         1 2010-04-24     2010-09-27        
-#>  3              4012925         8 1967-12-23     1972-10-26        
-#>  4              4012925         4 2003-10-24     2009-06-02        
-#>  5              4012925         5 1980-11-25     1996-09-10        
-#>  6              4012925         6 1979-04-26     1987-09-15        
-#>  7              4012925         4 1998-03-14     1999-07-29        
-#>  8              4012925         3 2018-08-21     2018-10-15        
-#>  9              4012925         9 2018-03-22     2018-09-29        
-#> 10              4012925        10 2015-10-04     2016-04-24        
-#> 11              4012925         9 2016-10-14     2016-12-15        
-#> 12              4012925         3 2018-10-14     2018-12-21        
-#> 13              4012925         5 1988-06-13     1992-03-31        
-#> 14              4012925         7 2012-01-11     2015-08-31        
-#> 15              4012925         1 2010-04-28     2010-05-04        
-#> 16              4012925         8 1972-07-30     1975-10-07        
-#> 17              4012925         6 1984-09-17     1987-11-11        
-#> 18              4012925         8 1972-07-17     1978-06-05        
-#> 19              4012925         5 2000-08-20     2000-10-09        
-#> 20              4012925         8 1978-09-10     1981-07-28        
-#> # ℹ 11 more variables: procedure_occurrence_id <int>,
-#> #   procedure_type_concept_id <int>, procedure_datetime <dttm>,
-#> #   modifier_concept_id <int>, quantity <int>, provider_id <int>,
-#> #   visit_occurrence_id <int>, visit_detail_id <int>,
-#> #   procedure_source_value <chr>, procedure_source_concept_id <int>,
-#> #   modifier_source_value <chr>
+cdm$procedure_occurrence |>
+glimpse()
+#> Rows: 20
+#> Columns: 15
+#> $ procedure_concept_id        <int> 4012925, 4012925, 4012925, 4012925, 401292…
+#> $ person_id                   <int> 7, 1, 8, 4, 5, 6, 4, 3, 9, 10, 9, 3, 5, 7,…
+#> $ procedure_date              <date> 2014-08-08, 2010-04-24, 1967-12-23, 2003-…
+#> $ procedure_end_date          <date> 2016-12-07, 2010-09-27, 1972-10-26, 2009-…
+#> $ procedure_occurrence_id     <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,…
+#> $ procedure_type_concept_id   <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ procedure_datetime          <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+#> $ modifier_concept_id         <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ quantity                    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ provider_id                 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ visit_occurrence_id         <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ visit_detail_id             <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ procedure_source_value      <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ procedure_source_concept_id <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+#> $ modifier_source_value       <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 # }
 ```

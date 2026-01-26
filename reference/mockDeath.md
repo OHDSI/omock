@@ -51,6 +51,7 @@ and falls within valid observation periods.
 ``` r
 # \donttest{
 library(omock)
+library(dplyr)
 
 # Create a mock CDM reference and add death records
 cdm <- mockCdmReference() |>
@@ -59,21 +60,16 @@ cdm <- mockCdmReference() |>
   mockDeath(recordPerson = 1)
 
 # View the generated death data
-print(cdm$death)
-#> # A tibble: 10 × 7
-#>    person_id death_date death_type_concept_id death_datetime
-#>  *     <int> <date>                     <int> <dttm>        
-#>  1         1 1985-04-23                     1 NA            
-#>  2         5 2016-11-04                     1 NA            
-#>  3         7 2015-07-24                     1 NA            
-#>  4         2 1998-01-21                     1 NA            
-#>  5         4 2005-02-10                     1 NA            
-#>  6         6 2006-12-23                     1 NA            
-#>  7        10 1991-08-09                     1 NA            
-#>  8         3 2004-01-01                     1 NA            
-#>  9         9 2019-09-14                     1 NA            
-#> 10         8 2013-10-23                     1 NA            
-#> # ℹ 3 more variables: cause_concept_id <int>, cause_source_value <chr>,
-#> #   cause_source_concept_id <int>
+cdm$death |>
+glimpse()
+#> Rows: 10
+#> Columns: 7
+#> $ person_id               <int> 1, 5, 7, 2, 4, 6, 10, 3, 9, 8
+#> $ death_date              <date> 1985-04-23, 2016-11-04, 2015-07-24, 1998-01-21…
+#> $ death_type_concept_id   <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+#> $ death_datetime          <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ cause_concept_id        <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ cause_source_value      <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ cause_source_concept_id <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 # }
 ```

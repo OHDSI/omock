@@ -40,29 +40,20 @@ on the person's date of birth.
 
 ``` r
 library(omock)
-
+library(dplyr)
 # Create a mock CDM reference and add observation periods
 cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod()
 
 # View the generated observation period data
-print(cdm$observation_period)
-#> # A tibble: 100 × 5
-#>    person_id observation_period_s…¹ observation_period_e…² observation_period_id
-#>  *     <int> <date>                 <date>                                 <int>
-#>  1         1 2006-02-03             2014-08-11                                 1
-#>  2         2 2014-12-05             2015-05-17                                 2
-#>  3         3 2011-07-19             2013-11-17                                 3
-#>  4         4 2012-10-02             2013-02-21                                 4
-#>  5         5 1999-03-31             2002-07-25                                 5
-#>  6         6 1994-11-09             2016-08-29                                 6
-#>  7         7 2017-01-15             2018-04-27                                 7
-#>  8         8 1968-10-07             1980-07-07                                 8
-#>  9         9 2001-06-19             2014-07-06                                 9
-#> 10        10 1991-05-09             1994-07-19                                10
-#> # ℹ 90 more rows
-#> # ℹ abbreviated names: ¹​observation_period_start_date,
-#> #   ²​observation_period_end_date
-#> # ℹ 1 more variable: period_type_concept_id <int>
+cdm$observation_period |>
+glimpse()
+#> Rows: 100
+#> Columns: 5
+#> $ person_id                     <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
+#> $ observation_period_start_date <date> 2006-02-03, 2014-12-05, 2011-07-19, 201…
+#> $ observation_period_end_date   <date> 2014-08-11, 2015-05-17, 2013-11-17, 201…
+#> $ observation_period_id         <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
+#> $ period_type_concept_id        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 ```

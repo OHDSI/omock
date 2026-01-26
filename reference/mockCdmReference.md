@@ -49,7 +49,7 @@ library(omock)
 cdm <- mockCdmReference()
 
 # Display the structure of the newly created CDM
-print(cdm)
+cdm
 #> 
 #> ── # OMOP CDM reference (local) of mock database ───────────────────────────────
 #> • omop tables: cdm_source, concept, concept_ancestor, concept_relationship,

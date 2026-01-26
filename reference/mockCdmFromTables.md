@@ -88,34 +88,33 @@ cohort <- tibble(
 cdm <- mockCdmFromTables(cdm = mockCdmReference(), tables = list(cohort = cohort))
 
 # Access the newly integrated cohort table and the standard person table in the CDM
-print(cdm$cohort)
-#> # A tibble: 10 × 4
-#>    cohort_definition_id subject_id cohort_start_date cohort_end_date
-#>                   <int>      <int> <date>            <date>         
-#>  1                    1          1 2020-04-01        2020-04-01     
-#>  2                    1          4 2021-06-01        2021-06-01     
-#>  3                    2          2 2022-05-22        2022-05-22     
-#>  4                    2          3 2010-01-01        2010-01-01     
-#>  5                    1          5 2019-08-01        2019-08-01     
-#>  6                    3          5 2019-04-07        2019-04-07     
-#>  7                    3          4 2021-01-01        2021-01-01     
-#>  8                    3          3 2008-02-02        2008-02-02     
-#>  9                    1          3 2009-09-09        2009-09-09     
-#> 10                    3          1 2021-01-01        2021-01-01     
-print(cdm$person)
-#> # A tibble: 5 × 18
-#>   person_id gender_concept_id year_of_birth month_of_birth day_of_birth
-#> *     <int>             <int>         <int>          <int>        <int>
-#> 1         1              8507          2010              8           29
-#> 2         2              8507          2011             10           20
-#> 3         3              8532          2007              8           30
-#> 4         4              8532          2018              4           29
-#> 5         5              8507          2015             11           11
-#> # ℹ 13 more variables: birth_datetime <dttm>, race_concept_id <int>,
-#> #   ethnicity_concept_id <int>, location_id <int>, person_source_value <chr>,
-#> #   gender_source_value <chr>, gender_source_concept_id <int>,
-#> #   race_source_value <chr>, race_source_concept_id <int>,
-#> #   ethnicity_source_value <chr>, ethnicity_source_concept_id <int>,
-#> #   provider_id <int>, care_site_id <int>
+cdm$cohort |> glimpse()
+#> Rows: 10
+#> Columns: 4
+#> $ cohort_definition_id <int> 1, 1, 2, 2, 1, 3, 3, 3, 1, 3
+#> $ subject_id           <int> 1, 4, 2, 3, 5, 5, 4, 3, 3, 1
+#> $ cohort_start_date    <date> 2020-04-01, 2021-06-01, 2022-05-22, 2010-01-01, 2…
+#> $ cohort_end_date      <date> 2020-04-01, 2021-06-01, 2022-05-22, 2010-01-01, 2…
+cdm$person |> glimpse()
+#> Rows: 5
+#> Columns: 18
+#> $ person_id                   <int> 1, 2, 3, 4, 5
+#> $ gender_concept_id           <int> 8507, 8507, 8532, 8532, 8507
+#> $ year_of_birth               <int> 2010, 2011, 2007, 2018, 2015
+#> $ month_of_birth              <int> 8, 10, 8, 4, 11
+#> $ day_of_birth                <int> 29, 20, 30, 29, 11
+#> $ birth_datetime              <dttm> 2010-08-29, 2011-10-20, 2007-08-30, 2018-0…
+#> $ race_concept_id             <int> 38003576, 8515, 38003582, 38003577, 380036…
+#> $ ethnicity_concept_id        <int> 38003563, 38003564, 38003563, 38003564, 38…
+#> $ location_id                 <int> 0, 0, 0, 0, 0
+#> $ person_source_value         <chr> "", "", "", "", ""
+#> $ gender_source_value         <chr> "", "", "", "", ""
+#> $ gender_source_concept_id    <int> 0, 0, 0, 0, 0
+#> $ race_source_value           <chr> "", "", "", "", ""
+#> $ race_source_concept_id      <int> 0, 0, 0, 0, 0
+#> $ ethnicity_source_value      <chr> "", "", "", "", ""
+#> $ ethnicity_source_concept_id <int> 0, 0, 0, 0, 0
+#> $ provider_id                 <int> 0, 0, 0, 0, 0
+#> $ care_site_id                <int> 0, 0, 0, 0, 0
 # }
 ```

@@ -64,28 +64,31 @@ unique identifiers and demographic attributes.
 ``` r
 # \donttest{
 library(omock)
+library(dplyr)
 cdm <- mockPerson(cdm = mockCdmReference(), nPerson = 10)
 
 # View the generated person data
-print(cdm$person)
-#> # A tibble: 10 × 18
-#>    person_id gender_concept_id year_of_birth month_of_birth day_of_birth
-#>  *     <int>             <int>         <int>          <int>        <int>
-#>  1         1              8532          1963              2           27
-#>  2         2              8532          1964              7            4
-#>  3         3              8532          1981              5           31
-#>  4         4              8532          1973              1           26
-#>  5         5              8532          1976             10           26
-#>  6         6              8507          1990              2           11
-#>  7         7              8532          1994             10           25
-#>  8         8              8532          1981             12           12
-#>  9         9              8532          1990              2           19
-#> 10        10              8532          1971              5           23
-#> # ℹ 13 more variables: race_concept_id <int>, ethnicity_concept_id <int>,
-#> #   birth_datetime <dttm>, location_id <int>, provider_id <int>,
-#> #   care_site_id <int>, person_source_value <chr>, gender_source_value <chr>,
-#> #   gender_source_concept_id <int>, race_source_value <chr>,
-#> #   race_source_concept_id <int>, ethnicity_source_value <chr>,
-#> #   ethnicity_source_concept_id <int>
+cdm$person |>
+glimpse()
+#> Rows: 10
+#> Columns: 18
+#> $ person_id                   <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+#> $ gender_concept_id           <int> 8532, 8532, 8532, 8532, 8532, 8507, 8532, …
+#> $ year_of_birth               <int> 1963, 1964, 1981, 1973, 1976, 1990, 1994, …
+#> $ month_of_birth              <int> 2, 7, 5, 1, 10, 2, 10, 12, 2, 5
+#> $ day_of_birth                <int> 27, 4, 31, 26, 26, 11, 25, 12, 19, 23
+#> $ race_concept_id             <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ ethnicity_concept_id        <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ birth_datetime              <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ location_id                 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ provider_id                 <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ care_site_id                <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ person_source_value         <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ gender_source_value         <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ gender_source_concept_id    <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ race_source_value           <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ race_source_concept_id      <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ ethnicity_source_value      <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ ethnicity_source_concept_id <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 # }
 ```
