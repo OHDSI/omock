@@ -18,11 +18,11 @@ The available datasets are listed below:
 | datasetName                         | CDM name                            | CDM version | Size     | Number individuals | Number records | Number concepts | Link                                                                                                                       |
 |-------------------------------------|-------------------------------------|-------------|----------|--------------------|----------------|-----------------|----------------------------------------------------------------------------------------------------------------------------|
 | GiBleed                             | GiBleed                             | 5.3         | 6.44 MB  | 2,694              | 215,978        | 320             | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/GiBleed_5.3.zip)                             |
-| empty_cdm                           | empty_cdm                           | 5.3         | 783\. MB | 0                  | 0              | 0               | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.3.zip)                           |
+| empty_cdm_5.3                       | empty_cdm                           | 5.3         | 783\. MB | 0                  | 0              | 0               | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.3.zip)                           |
+| empty_cdm_5.4                       | empty_cdm                           | 5.4         | 736\. MB | 0                  | 0              | 0               | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.4.zip)                           |
 | synpuf-1k_5.3                       | synpuf-1k                           | 5.3         | 566\. MB | 1,000              | 290,059        | 16,131          | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.3.zip)                           |
 | synpuf-1k_5.4                       | synpuf-1k                           | 5.4         | 379\. MB | 1,000              | 290,059        | 16,131          | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.4.zip)                           |
 | synthea-allergies-10k               | synthea-allergies-10k               | 5.3         | 801\. MB | 10,703             | 354,551        | 46              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-allergies-10k_5.3.zip)               |
-| synthea-anemia-10k                  | synthea-anemia-10k                  | 5.3         | 801\. MB | 10,679             | 354,713        | 46              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-anemia-10k_5.3.zip)                  |
 | synthea-breast_cancer-10k           | synthea-breast_cancer-10k           | 5.3         | 802\. MB | 10,751             | 364,817        | 85              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-breast_cancer-10k_5.3.zip)           |
 | synthea-contraceptives-10k          | synthea-contraceptives-10k          | 5.3         | 803\. MB | 10,728             | 367,118        | 72              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-contraceptives-10k_5.3.zip)          |
 | synthea-covid19-10k                 | synthea-covid19-10k                 | 5.3         | 802\. MB | 10,754             | 371,322        | 105             | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-covid19-10k_5.3.zip)                 |
@@ -52,9 +52,9 @@ you can use with:
 
 ``` r
 availableMockDatasets()
-#>  [1] "GiBleed"                             "empty_cdm"                          
-#>  [3] "synpuf-1k_5.3"                       "synpuf-1k_5.4"                      
-#>  [5] "synthea-allergies-10k"               "synthea-anemia-10k"                 
+#>  [1] "GiBleed"                             "empty_cdm_5.3"                      
+#>  [3] "empty_cdm_5.4"                       "synpuf-1k_5.3"                      
+#>  [5] "synpuf-1k_5.4"                       "synthea-allergies-10k"              
 #>  [7] "synthea-breast_cancer-10k"           "synthea-contraceptives-10k"         
 #>  [9] "synthea-covid19-10k"                 "synthea-covid19-200k"               
 #> [11] "synthea-dermatitis-10k"              "synthea-heart-10k"                  
@@ -84,7 +84,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/RtmpyXNvOx/OMOP_DATASETS"
+#> [1] "/tmp/RtmpAkqrEx/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message

@@ -551,7 +551,7 @@ available and were created by the OHDSI community.</p>
 <td headers="Link" class="gt_row gt_left"><span class="gt_from_md"><a href="https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/GiBleed_5.3.zip" class="external-link">🔗</a></span></td>
 </tr>
 <tr>
-<td headers="datasetName" class="gt_row gt_left">empty_cdm</td>
+<td headers="datasetName" class="gt_row gt_left">empty_cdm_5.3</td>
 <td headers="CDM name" class="gt_row gt_left">empty_cdm</td>
 <td headers="CDM version" class="gt_row gt_right">5.3</td>
 <td headers="Size" class="gt_row gt_left">783. MB</td>
@@ -559,6 +559,16 @@ available and were created by the OHDSI community.</p>
 <td headers="Number records" class="gt_row gt_right">        0</td>
 <td headers="Number concepts" class="gt_row gt_right">     0</td>
 <td headers="Link" class="gt_row gt_left"><span class="gt_from_md"><a href="https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.3.zip" class="external-link">🔗</a></span></td>
+</tr>
+<tr>
+<td headers="datasetName" class="gt_row gt_left">empty_cdm_5.4</td>
+<td headers="CDM name" class="gt_row gt_left">empty_cdm</td>
+<td headers="CDM version" class="gt_row gt_right">5.4</td>
+<td headers="Size" class="gt_row gt_left">736. MB</td>
+<td headers="Number individuals" class="gt_row gt_right">      0</td>
+<td headers="Number records" class="gt_row gt_right">        0</td>
+<td headers="Number concepts" class="gt_row gt_right">     0</td>
+<td headers="Link" class="gt_row gt_left"><span class="gt_from_md"><a href="https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.4.zip" class="external-link">🔗</a></span></td>
 </tr>
 <tr>
 <td headers="datasetName" class="gt_row gt_left">synpuf-1k_5.3</td>
@@ -589,16 +599,6 @@ available and were created by the OHDSI community.</p>
 <td headers="Number records" class="gt_row gt_right">  354,551</td>
 <td headers="Number concepts" class="gt_row gt_right">    46</td>
 <td headers="Link" class="gt_row gt_left"><span class="gt_from_md"><a href="https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-allergies-10k_5.3.zip" class="external-link">🔗</a></span></td>
-</tr>
-<tr>
-<td headers="datasetName" class="gt_row gt_left">synthea-anemia-10k</td>
-<td headers="CDM name" class="gt_row gt_left">synthea-anemia-10k</td>
-<td headers="CDM version" class="gt_row gt_right">5.3</td>
-<td headers="Size" class="gt_row gt_left">801. MB</td>
-<td headers="Number individuals" class="gt_row gt_right"> 10,679</td>
-<td headers="Number records" class="gt_row gt_right">  354,713</td>
-<td headers="Number concepts" class="gt_row gt_right">    46</td>
-<td headers="Link" class="gt_row gt_left"><span class="gt_from_md"><a href="https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-anemia-10k_5.3.zip" class="external-link">🔗</a></span></td>
 </tr>
 <tr>
 <td headers="datasetName" class="gt_row gt_left">synthea-breast_cancer-10k</td>
@@ -789,9 +789,9 @@ that characterise those datasets.</p>
 that you can use with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/availableMockDatasets.html">availableMockDatasets</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "GiBleed"                             "empty_cdm"                          </span></span>
-<span><span class="co">#&gt;  [3] "synpuf-1k_5.3"                       "synpuf-1k_5.4"                      </span></span>
-<span><span class="co">#&gt;  [5] "synthea-allergies-10k"               "synthea-anemia-10k"                 </span></span>
+<span><span class="co">#&gt;  [1] "GiBleed"                             "empty_cdm_5.3"                      </span></span>
+<span><span class="co">#&gt;  [3] "empty_cdm_5.4"                       "synpuf-1k_5.3"                      </span></span>
+<span><span class="co">#&gt;  [5] "synpuf-1k_5.4"                       "synthea-allergies-10k"              </span></span>
 <span><span class="co">#&gt;  [7] "synthea-breast_cancer-10k"           "synthea-contraceptives-10k"         </span></span>
 <span><span class="co">#&gt;  [9] "synthea-covid19-10k"                 "synthea-covid19-200k"               </span></span>
 <span><span class="co">#&gt; [11] "synthea-dermatitis-10k"              "synthea-heart-10k"                  </span></span>
@@ -818,7 +818,7 @@ is used also by other packages. You can check the folder by using the
 following function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html" class="external-link">omopDataFolder</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpyXNvOx/OMOP_DATASETS"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpAkqrEx/OMOP_DATASETS"</span></span></code></pre></div>
 <p>Note that if you would have set up an environment variable the
 message of temporary folder would not appear and you would see the path
 to you folder.</p>

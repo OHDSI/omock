@@ -18,9 +18,9 @@ A character vector with the available datasets.
 library(omock)
 
 availableMockDatasets()
-#>  [1] "GiBleed"                             "empty_cdm"                          
-#>  [3] "synpuf-1k_5.3"                       "synpuf-1k_5.4"                      
-#>  [5] "synthea-allergies-10k"               "synthea-anemia-10k"                 
+#>  [1] "GiBleed"                             "empty_cdm_5.3"                      
+#>  [3] "empty_cdm_5.4"                       "synpuf-1k_5.3"                      
+#>  [5] "synpuf-1k_5.4"                       "synthea-allergies-10k"              
 #>  [7] "synthea-breast_cancer-10k"           "synthea-contraceptives-10k"         
 #>  [9] "synthea-covid19-10k"                 "synthea-covid19-200k"               
 #> [11] "synthea-dermatitis-10k"              "synthea-heart-10k"                  

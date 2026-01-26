@@ -55,17 +55,17 @@ A data frame with 4 variables:
 mockDatasets
 #> # A tibble: 24 × 9
 #>    dataset_name     url   cdm_name cdm_version   size size_mb number_individuals
-#>    <chr>            <chr> <chr>    <chr>        <dbl>   <dbl>              <int>
+#>    <chr>            <chr> <chr>    <chr>        <dbl>   <dbl>              <dbl>
 #>  1 GiBleed          http… GiBleed  5.3         6.75e6       6               2694
-#>  2 empty_cdm        http… empty_c… 5.3         8.21e8     783                  0
-#>  3 synpuf-1k_5.3    http… synpuf-… 5.3         5.93e8     566               1000
-#>  4 synpuf-1k_5.4    http… synpuf-… 5.4         3.97e8     379               1000
-#>  5 synthea-allergi… http… synthea… 5.3         8.40e8     801              10703
-#>  6 synthea-anemia-… http… synthea… 5.3         8.40e8     801              10679
+#>  2 empty_cdm_5.3    http… empty_c… 5.3         8.21e8     783                  0
+#>  3 empty_cdm_5.4    http… empty_c… 5.4         7.72e8     736                  0
+#>  4 synpuf-1k_5.3    http… synpuf-… 5.3         5.93e8     566               1000
+#>  5 synpuf-1k_5.4    http… synpuf-… 5.4         3.97e8     379               1000
+#>  6 synthea-allergi… http… synthea… 5.3         8.40e8     801              10703
 #>  7 synthea-breast_… http… synthea… 5.3         8.41e8     802              10751
 #>  8 synthea-contrac… http… synthea… 5.3         8.42e8     803              10728
 #>  9 synthea-covid19… http… synthea… 5.3         8.41e8     802              10754
 #> 10 synthea-covid19… http… synthea… 5.3         1.18e9    1124             213953
 #> # ℹ 14 more rows
-#> # ℹ 2 more variables: number_records <int>, number_concepts <int>
+#> # ℹ 2 more variables: number_records <dbl>, number_concepts <dbl>
 ```

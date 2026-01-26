@@ -19,11 +19,11 @@ library(omock)
 
 mockDatasetsStatus()
 #> ✖ GiBleed
-#> ✖ empty_cdm
+#> ✖ empty_cdm_5.3
+#> ✖ empty_cdm_5.4
 #> ✖ synpuf-1k_5.3
 #> ✖ synpuf-1k_5.4
 #> ✖ synthea-allergies-10k
-#> ✖ synthea-anemia-10k
 #> ✖ synthea-breast_cancer-10k
 #> ✖ synthea-contraceptives-10k
 #> ✖ synthea-covid19-10k
