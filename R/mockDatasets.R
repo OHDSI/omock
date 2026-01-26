@@ -226,7 +226,7 @@ downloadMockDataset <- function(datasetName = "GiBleed",
     url = url,
     destfile = datasetFile,
     datasetName = datasetName,
-    timeout = old_timeout
+    timeout = max(120, old_timeout)
   )
 
   if (!firstAttempt && rlang::is_interactive()) {
@@ -491,7 +491,7 @@ filterToVocab <- function(path) {
 
 ##attemptDownload
 attemptDownload <- function(url, destfile, datasetName,
-                            timeout = 300,
+                            timeout = 120,
                             quiet = TRUE) {
   # validate basic inputs
   url <- as.character(url)
