@@ -167,29 +167,30 @@ usethis::use_data(
 mockDatasets <- dplyr::tribble(
   ~dataset_name, ~url, ~cdm_name, ~cdm_version,
   "GiBleed", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/GiBleed_5.3.zip", "GiBleed", "5.3",
-  "synthea-allergies-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-allergies-10k_5.3.zip", "synthea-allergies-10k", "5.3",
-  "synthea-anemia-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-anemia-10k_5.3.zip", "synthea-anemia-10k", "5.3",
-  "synthea-breast_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-breast_cancer-10k_5.3.zip", "synthea-breast_cancer-10k", "5.3",
-  "synthea-contraceptives-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-contraceptives-10k_5.3.zip", "synthea-contraceptives-10k", "5.3",
-  "synthea-covid19-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-covid19-10k_5.3.zip", "synthea-covid19-10k", "5.3",
-  "synthea-covid19-200k", "https://cdmconnectordata.blob.core.windows.net/synthea-covid19-200k_5.3.zip", "synthea-covid19-200k", "5.3",
-  "synthea-dermatitis-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-dermatitis-10k_5.3.zip", "synthea-dermatitis-10k", "5.3",
-  "synthea-heart-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-heart-10k_5.3.zip", "synthea-heart-10k", "5.3",
-  "synthea-hiv-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-hiv-10k_5.3.zip", "synthea-hiv-10k", "5.3",
-  "synthea-lung_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-lung_cancer-10k_5.3.zip", "synthea-lung_cancer-10k", "5.3",
-  "synthea-medications-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-medications-10k_5.3.zip", "synthea-medications-10k", "5.3",
-  "synthea-metabolic_syndrome-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-metabolic_syndrome-10k_5.3.zip", "synthea-metabolic_syndrome-10k", "5.3",
-  "synthea-opioid_addiction-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-opioid_addiction-10k_5.3.zip", "synthea-opioid_addiction-10k", "5.3",
-  "synthea-rheumatoid_arthritis-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-rheumatoid_arthritis-10k_5.3.zip", "synthea-rheumatoid_arthritis-10k", "5.3",
-  "synthea-snf-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-snf-10k_5.3.zip", "synthea-snf-10k", "5.3",
-  "synthea-surgery-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-surgery-10k_5.3.zip", "synthea-surgery-10k", "5.3",
-  "synthea-total_joint_replacement-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-total_joint_replacement-10k_5.3.zip", "synthea-total_joint_replacement-10k", "5.3",
-  "synthea-veteran_prostate_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-veteran_prostate_cancer-10k_5.3.zip", "synthea-veteran_prostate_cancer-10k", "5.3",
-  "synthea-veterans-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-veterans-10k_5.3.zip", "synthea-veterans-10k", "5.3",
-  "synthea-weight_loss-10k", "https://cdmconnectordata.blob.core.windows.net/synthea-weight_loss-10k_5.3.zip", "synthea-weight_loss-10k", "5.3",
-  "synpuf-1k_5.3", "https://cdmconnectordata.blob.core.windows.net/synpuf-1k_5.3.zip", "synpuf-1k", "5.3",
-  "synpuf-1k_5.4", "https://cdmconnectordata.blob.core.windows.net/synpuf-1k_5.4.zip", "synpuf-1k", "5.4",
-  "empty_cdm", "https://cdmconnectordata.blob.core.windows.net/empty_cdm_5.4.zip", "empty_cdm", "5.3"
+  "synthea-allergies-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-allergies-10k_5.3.zip", "synthea-allergies-10k", "5.3",
+#  "synthea-anemia-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-anemia-10k_5.3.zip", "synthea-anemia-10k", "5.3",
+  "synthea-breast_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-breast_cancer-10k_5.3.zip", "synthea-breast_cancer-10k", "5.3",
+  "synthea-contraceptives-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-contraceptives-10k_5.3.zip", "synthea-contraceptives-10k", "5.3",
+  "synthea-covid19-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-covid19-10k_5.3.zip", "synthea-covid19-10k", "5.3",
+  "synthea-covid19-200k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-covid19-200k_5.3.zip", "synthea-covid19-200k", "5.3",
+  "synthea-dermatitis-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-dermatitis-10k_5.3.zip", "synthea-dermatitis-10k", "5.3",
+  "synthea-heart-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-heart-10k_5.3.zip", "synthea-heart-10k", "5.3",
+  "synthea-hiv-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-hiv-10k_5.3.zip", "synthea-hiv-10k", "5.3",
+  "synthea-lung_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-lung_cancer-10k_5.3.zip", "synthea-lung_cancer-10k", "5.3",
+  "synthea-medications-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-medications-10k_5.3.zip", "synthea-medications-10k", "5.3",
+  "synthea-metabolic_syndrome-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-metabolic_syndrome-10k_5.3.zip", "synthea-metabolic_syndrome-10k", "5.3",
+  "synthea-opioid_addiction-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-opioid_addiction-10k_5.3.zip", "synthea-opioid_addiction-10k", "5.3",
+  "synthea-rheumatoid_arthritis-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-rheumatoid_arthritis-10k_5.3.zip", "synthea-rheumatoid_arthritis-10k", "5.3",
+  "synthea-snf-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-snf-10k_5.3.zip", "synthea-snf-10k", "5.3",
+  "synthea-surgery-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-surgery-10k_5.3.zip", "synthea-surgery-10k", "5.3",
+  "synthea-total_joint_replacement-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-total_joint_replacement-10k_5.3.zip", "synthea-total_joint_replacement-10k", "5.3",
+  "synthea-veteran_prostate_cancer-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-veteran_prostate_cancer-10k_5.3.zip", "synthea-veteran_prostate_cancer-10k", "5.3",
+  "synthea-veterans-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-veterans-10k_5.3.zip", "synthea-veterans-10k", "5.3",
+  "synthea-weight_loss-10k", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-weight_loss-10k_5.3.zip", "synthea-weight_loss-10k", "5.3",
+  "synpuf-1k_5.3", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.3.zip", "synpuf-1k", "5.3",
+  "synpuf-1k_5.4", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.4.zip", "synpuf-1k", "5.4",
+  "empty_cdm_5.3", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.3.zip", "empty_cdm", "5.3",
+  "empty_cdm_5.4", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.4.zip", "empty_cdm", "5.4"
 )
 
 # get size
@@ -227,7 +228,8 @@ x <- mockDatasets$dataset_name |>
   }) |>
   dplyr::bind_rows()
 
+
 mockDatasets <- mockDatasets |>
-  dplyr::inner_join(x, by = "dataset_name")
+  dplyr::left_join(x, by = "dataset_name")
 
 usethis::use_data(mockDatasets, overwrite = TRUE)
