@@ -48,7 +48,7 @@ mockPerson <- function(cdm = mockCdmReference(),
     if (!interactive()) {
       cli::cli_abort(
         "CDM reference already contains a non-empty person table.\n\
-     Refusing to overwrite in non-interactive mode."
+     Please remove the current person table if you want this function to run non-interactive mode"
       )
     }
 
