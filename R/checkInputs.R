@@ -251,20 +251,3 @@ startDateColumn <- function(tableName) {
   }
 }
 
-
-
-#' change column name
-#'
-#' @noRd
-#'
-changeColumnsName <- function(table, tableName, version = "5.3") {
-  colToAdd <- base::setdiff(
-    omopgenerics::omopColumns(tableName, version = version), colnames(table)
-  )
-
-  for (col in colToAdd) {
-    table[[col]] <- NA
-  }
-
-  return(table)
-}
