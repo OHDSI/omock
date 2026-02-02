@@ -562,5 +562,5 @@ attemptDownload <- function(url, destfile, datasetName,
 
 #check if internal dataset exist
 has_internal_dataset <- function(name) {
-  name %in% data(package = "omock")$results[, "Item"]
+  name %in% utils::data(package = "omock")$results[, "Item"]
 }
