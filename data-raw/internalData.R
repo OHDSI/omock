@@ -1,6 +1,7 @@
 library(dplyr)
 library(here)
 library(readr)
+library(arrow)
 
 # add the default mock vocabulary data
 mockDrugStrength <- readr::read_csv(
@@ -150,6 +151,10 @@ namesTable <- dplyr::tribble(
   NA
 )
 
+#read in giBleed
+gibleed <- readTables(here::here("data-raw","GiBleed_5.3","GiBleed"), "5.3")
+
+
 usethis::use_data(
   mockDrugStrength,
   mockConcept,
@@ -167,8 +172,10 @@ usethis::use_data(
   eunomiaConceptSynonym,
   namesTable,
   cdmTable,
+  gibleed,
   internal = TRUE,
-  overwrite = TRUE
+  overwrite = TRUE,
+  compress = "xz"
 )
 
 mockDatasets <- dplyr::tribble(
@@ -240,3 +247,5 @@ mockDatasets <- mockDatasets |>
   dplyr::left_join(x, by = "dataset_name")
 
 usethis::use_data(mockDatasets, overwrite = TRUE)
+
+

@@ -23,6 +23,13 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
 
+
+
+
+  if (datasetName == "GiBleed") {
+    cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
+    tables <- gibleed
+  } else {
   # make dataset available
   datasetPath <- datasetAvailable(datasetName)
 
@@ -40,6 +47,8 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 
   # delete csv files
   unlink(x = tmpFolder, recursive = TRUE)
+
+  }
 
   # add drug strength
   cli::cli_inform(c(i = "Adding {.pkg drug_strength} table."))
@@ -549,3 +558,4 @@ attemptDownload <- function(url, destfile, datasetName,
 
   out
 }
+
