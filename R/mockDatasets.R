@@ -26,9 +26,8 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 
 
 
-  if (datasetName == "GiBleed" && has_internal_dataset("gibleed")) {
+  if (datasetName == "GiBleed") {
     cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
-    data("gibleed", package = "omock", envir = environment())
     tables <- gibleed
   } else {
   # make dataset available
@@ -560,7 +559,3 @@ attemptDownload <- function(url, destfile, datasetName,
   out
 }
 
-#check if internal dataset exist
-has_internal_dataset <- function(name) {
-  name %in% utils::data(package = "omock")$results[, "Item"]
-}
