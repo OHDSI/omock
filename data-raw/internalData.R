@@ -247,6 +247,7 @@ usethis::use_data(mockDatasets, overwrite = TRUE)
 #read in giBleed
 gibleed <- readTables(here::here("data-raw","GiBleed_5.3","GiBleed"), "5.3")
 
-usethis::use_data(gibleed,overwrite = TRUE)
+usethis::use_data(gibleed,  overwrite = TRUE,
+                  compress = "xz")
 
-save(gibleed, file = here::here("data","gibleed.rda"), compress = "xz")
+
