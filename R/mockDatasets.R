@@ -23,6 +23,14 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
 
+
+
+
+  if (datasetName == "GiBleed" && has_internal_dataset("gibleed")) {
+    cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
+    data("gibleed", package = "omock", envir = environment())
+    tables <- gibleed
+  } else {
   # make dataset available
   datasetPath <- datasetAvailable(datasetName)
 
@@ -40,6 +48,8 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 
   # delete csv files
   unlink(x = tmpFolder, recursive = TRUE)
+
+  }
 
   # add drug strength
   cli::cli_inform(c(i = "Adding {.pkg drug_strength} table."))
@@ -548,4 +558,9 @@ attemptDownload <- function(url, destfile, datasetName,
   )
 
   out
+}
+
+#check if internal dataset exist
+has_internal_dataset <- function(name) {
+  name %in% data(package = "omock")$results[, "Item"]
 }
