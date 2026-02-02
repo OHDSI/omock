@@ -72,7 +72,8 @@ To prevent having to download the dataset everytime that you want to use
 a dataset, it is recommended to set up a permanent folder where the
 synthetic datasets are stored. This allows the user to have to download
 each dataset only once. To set up a permanent location for your dataset
-please create an environmental variable (`usethis::edit_r_environ()`)
+please create an environmental variable
+([`usethis::edit_r_environ()`](https://usethis.r-lib.org/reference/edit.html))
 pointing to an existing folder like:
 
     OMOP_DATA_FOLDER="path/to/my/folder"
@@ -84,7 +85,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/Rtmp3QxEXr/OMOP_DATASETS"
+#> [1] "/tmp/RtmpgSuXNA/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message
@@ -120,7 +121,7 @@ function:
 
 ``` r
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
-#> ℹ Reading GiBleed tables.
+#> ℹ Loading bundled GiBleed tables from package data.
 #> ℹ Adding drug_strength table.
 #> ℹ Creating local <cdm_reference> object.
 cdm
@@ -144,7 +145,7 @@ downloaded in the process (in interactive sessions you will be asked):
 
 ``` r
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
-#> ℹ Reading GiBleed tables.
+#> ℹ Loading bundled GiBleed tables from package data.
 #> ℹ Adding drug_strength table.
 #> ℹ Creating local <cdm_reference> object.
 cdm
@@ -167,7 +168,7 @@ using the `source` argument:
 
 ``` r
 cdm <- mockCdmFromDataset(datasetName = "GiBleed", source = "duckdb")
-#> ℹ Reading GiBleed tables.
+#> ℹ Loading bundled GiBleed tables from package data.
 #> ℹ Adding drug_strength table.
 #> ℹ Creating local <cdm_reference> object.
 #> ℹ Inserting <cdm_reference> into duckdb.

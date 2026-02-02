@@ -1,5 +1,7 @@
 # Changelog
 
+## omock 0.6.1
+
 ## omock 0.6.0
 
 CRAN release: 2025-10-31

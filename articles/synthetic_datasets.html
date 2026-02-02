@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -810,7 +810,7 @@ use a dataset, it is recommended to set up a permanent folder where the
 synthetic datasets are stored. This allows the user to have to download
 each dataset only once. To set up a permanent location for your dataset
 please create an environmental variable
-(<code>usethis::edit_r_environ()</code>) pointing to an existing folder
+(<code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) pointing to an existing folder
 like:</p>
 <pre><code><span><span class="va">OMOP_DATA_FOLDER</span><span class="op">=</span><span class="st">"path/to/my/folder"</span></span></code></pre>
 <p>This folder is in fact defined by <a href="https://darwin-eu.github.io/omopgenerics/" class="external-link">omopgenerics</a> and it
@@ -818,7 +818,7 @@ is used also by other packages. You can check the folder by using the
 following function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html" class="external-link">omopDataFolder</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/Rtmp3QxEXr/OMOP_DATASETS"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpgSuXNA/OMOP_DATASETS"</span></span></code></pre></div>
 <p>Note that if you would have set up an environment variable the
 message of temporary folder would not appear and you would see the path
 to you folder.</p>
@@ -844,7 +844,7 @@ to store data.</p>
 <code><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset()</a></code> function:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Reading <span style="color: #0000BB;">GiBleed</span> tables.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Loading bundled <span style="color: #0000BB;">GiBleed</span> tables from package data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Adding <span style="color: #0000BB;">drug_strength</span> table.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating local <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> object.</span></span>
 <span><span class="va">cdm</span></span>
@@ -866,7 +866,7 @@ downloaded in the process (in interactive sessions you will be
 asked):</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Reading <span style="color: #0000BB;">GiBleed</span> tables.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Loading bundled <span style="color: #0000BB;">GiBleed</span> tables from package data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Adding <span style="color: #0000BB;">drug_strength</span> table.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating local <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> object.</span></span>
 <span><span class="va">cdm</span></span>
@@ -886,7 +886,7 @@ asked):</p>
 connection using the <code>source</code> argument:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mockCdmFromDataset.html">mockCdmFromDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span>, source <span class="op">=</span> <span class="st">"duckdb"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Reading <span style="color: #0000BB;">GiBleed</span> tables.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Loading bundled <span style="color: #0000BB;">GiBleed</span> tables from package data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Adding <span style="color: #0000BB;">drug_strength</span> table.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating local <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> object.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Inserting <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> into <span style="color: #0000BB;">duckdb</span>.</span></span>
