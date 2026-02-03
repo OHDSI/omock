@@ -2,15 +2,15 @@
 
 ## New Features and Improvements
 
-Improved dataset downloads with retry logic and timeout handling for more reliable fetching.
-Updated mock dataset URLs to a new storage location and improved join logic.
-Enhanced mock CDM examples, including clearer error handling and more robust behaviour.
-Added an internal GI Bleed dataset, along with the associated loading logic, for expanded example coverage.
+-  Improved dataset downloads with retry logic and timeout handling for more reliable fetching.
+-  Updated mock dataset URLs to a new storage location and improved join logic.
+-  Enhanced mock CDM examples, including clearer error handling and more robust behaviour.
+-  Added an internal GI Bleed dataset, along with the associated loading logic, for expanded example coverage.
 
 ## Bug Fixes
 
-Removed unused input validation and table-checking functions to simplify the codebase.
-Fixed the placement of rows_to_keep calculation in mockCohort to ensure correct behaviour.
+-  Removed unused input validation and table-checking functions to simplify the codebase.
+-  Fixed the placement of rows_to_keep calculation in mockCohort to ensure correct behaviour.
 
 # omock 0.6.0
 
