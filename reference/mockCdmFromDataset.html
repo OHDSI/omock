@@ -30,7 +30,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Create a <code>local</code> cdm_reference from a dataset.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/R/mockDatasets.R" class="external-link"><code>R/mockDatasets.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/v0.6.1/R/mockDatasets.R" class="external-link"><code>R/mockDatasets.R</code></a></small>
       <div class="d-none name"><code>mockCdmFromDataset.Rd</code></div>
     </div>
 
@@ -68,7 +68,7 @@ for possibilities.</p></dd>
 <span class="r-in"><span><span class="fu"><a href="mockDatasetsFolder.html">mockDatasetsFolder</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`mockDatasetsFolder()` was deprecated in omock 0.6.0.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `omopDataFolder()` instead.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpgSuXNA/mockDatasets"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmphpc7z9/mockDatasets"</span>
 <span class="r-in"><span><span class="fu"><a href="downloadMockDataset.html">downloadMockDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Attempting download with timeout = 120 seconds.</span>
 <span class="r-in"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu">mockCdmFromDataset</span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span></span>
