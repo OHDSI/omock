@@ -2,6 +2,8 @@
 
 ## omock 0.6.1
 
+CRAN release: 2026-02-03
+
 ### New Features and Improvements
 
 - Improved dataset downloads with retry logic and timeout handling for

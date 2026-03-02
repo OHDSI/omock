@@ -30,4 +30,5 @@ availableMockDatasets()
 #> [19] "synthea-snf-10k"                     "synthea-surgery-10k"                
 #> [21] "synthea-total_joint_replacement-10k" "synthea-veteran_prostate_cancer-10k"
 #> [23] "synthea-veterans-10k"                "synthea-weight_loss-10k"            
+#> [25] "delphi-100k_5.4"                    
 ```

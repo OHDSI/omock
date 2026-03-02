@@ -53,7 +53,7 @@ A data frame with 4 variables:
 
 ``` r
 mockDatasets
-#> # A tibble: 24 × 9
+#> # A tibble: 25 × 9
 #>    dataset_name     url   cdm_name cdm_version   size size_mb number_individuals
 #>    <chr>            <chr> <chr>    <chr>        <dbl>   <dbl>              <dbl>
 #>  1 GiBleed          http… GiBleed  5.3         6.75e6       6               2694
@@ -66,6 +66,6 @@ mockDatasets
 #>  8 synthea-contrac… http… synthea… 5.3         8.42e8     803              10728
 #>  9 synthea-covid19… http… synthea… 5.3         8.41e8     802              10754
 #> 10 synthea-covid19… http… synthea… 5.3         1.18e9    1124             213953
-#> # ℹ 14 more rows
+#> # ℹ 15 more rows
 #> # ℹ 2 more variables: number_records <dbl>, number_concepts <dbl>
 ```
