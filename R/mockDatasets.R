@@ -239,8 +239,11 @@ downloadMockDataset <- function(datasetName = "GiBleed",
   )
 
   if (!firstAttempt && rlang::is_interactive()) {
+
+    time_out <- max(120, old_timeout)
+
     cli::cli_inform(
-      "Download of `{datasetName}` timed out (or network failed) after `{timeout}` seconds."
+      "Download of `{datasetName}` timed out (or network failed) after `{time_out}` seconds."
     )
 
     retryTimeout <- max(old_timeout, 900)

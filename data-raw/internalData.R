@@ -204,7 +204,8 @@ mockDatasets <- dplyr::tribble(
   "synpuf-1k_5.3", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.3.zip", "synpuf-1k", "5.3",
   "synpuf-1k_5.4", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synpuf-1k_5.4.zip", "synpuf-1k", "5.4",
   "empty_cdm_5.3", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.3.zip", "empty_cdm", "5.3",
-  "empty_cdm_5.4", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.4.zip", "empty_cdm", "5.4"
+  "empty_cdm_5.4", "https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/empty_cdm_5.4.zip", "empty_cdm", "5.4",
+  "delphi-100k_5.4","https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/delphi-100k_5.4.zip","delphi-100k","5.4"
 )
 
 # get size
