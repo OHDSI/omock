@@ -9,3 +9,5 @@
 inst/doc
 docs
 Datasets/*.zip
+/doc/
+/Meta/

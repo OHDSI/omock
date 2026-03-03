@@ -13,3 +13,5 @@
 ^revdep$
 ^paper$
 Datasets/
+^doc$
+^Meta$

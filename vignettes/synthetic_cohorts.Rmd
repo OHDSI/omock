@@ -1,5 +1,5 @@
 ---
-title: "Creating synthetic cohorts"
+title: "Creating mock cohorts"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{synthetic_cohorts}
