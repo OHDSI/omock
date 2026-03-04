@@ -16,142 +16,99 @@
 #'
 #' # View cdm version
 #' cdmVersion(cdm)
-changeCdmVersion <- function(cdm, version = "5.4") {
-  checkInput(cdm = cdm, version = version)
-  current <- cdmVersion(cdm)
-  tableToChange <- tableToChange(current, version)
+changeCdmVersion <- function(cdm, cdmVersion = "5.4") {
+  # current cdm version
+  oldVersion <- cdmVersion(cdm)
 
-  tableToUpdate <- intersect(names(cdm), tableToChange)
-
-
-  # amend col names and add new
-  for (k in tableToUpdate) {
-    toChange <- columnToChange(current, version) |>
-      dplyr::filter(.data$cdm_table_name == k)
-
-    x1 <- toChange |>
-      dplyr::filter(.data$v1 == 1) |>
-      dplyr::pull(.data$cdm_field_name)
-    x2 <- toChange |>
-      dplyr::filter(.data$v2 == 1) |>
-      dplyr::pull(.data$cdm_field_name)
-
-    matchTable <- closestNameMatch(x1, x2)
-
-    newTable <- cdm[[k]] |>
-      changeColNames(matchTable) |>
-      addOtherColumns(tableName = k, version = version) |>
-      correctCdmFormat(tableName = k)
-
-    cdm <-
-      omopgenerics::insertTable(
-        cdm = cdm,
-        name = k,
-        table = newTable
-      )
+  if (oldVersion == cdmVersion) {
+    return(cdm)
   }
 
-  other <- setdiff(tableToUpdate, names(cdm))
+  # change vocabulary internally
+  attr(cdm, "cdm_version") <- cdmVersion
 
+  # new tables
+  cdm <- tablesToCreate(oldVersion = oldVersion, newVersion = cdmVersion) |>
+    createTables(cdm = cdm)
+
+  # remove tables
+  cdm <- tablesToDelete(oldVersion = oldVersion, newVersion = cdmVersion) |>
+    removeTables(cdm = cdm)
 
   # new columns
-  for (i in names(cdm)) {
-    newTable <- cdm[[i]] |>
-      addOtherColumns(tableName = i, version = version) |>
-      correctCdmFormat(tableName = i)
+  cdm <- columnsToCreate(oldVersion = oldVersion, newVersion = cdmVersion) |>
+    createNewColumns(cdm = cdm)
 
-    cdm <-
-      omopgenerics::insertTable(
-        cdm = cdm,
-        name = i,
-        table = newTable
-      )
-  }
+  # delete columns
+  cdm <- columnsToDelete(oldVersion = oldVersion, newVersion = cdmVersion) |>
+    deleteColumns(cdm = cdm)
 
+  # rename columns
+  cdm <- columnsToRename(oldVersion = oldVersion, newVersion = cdmVersion) |>
+    renameColumns(cdm = cdm)
 
-  cdm <- upDateCdmSource(cdm, version = version)
-
+  # update cdm source
+  cdm <- upDateCdmSource(cdm = cdm, version = cdmVersion)
 
   return(cdm)
 }
 
-# column with changes to make
-columnToChange <- function(current, version) {
-  changes <- omopgenerics::omopTableFields(current) |>
-    dplyr::mutate("v1" = 1) |>
-    dplyr::full_join(omopgenerics::omopTableFields(version) |>
-      dplyr::mutate("v2" = 1)) |>
-    dplyr::filter(is.na(.data$v1) | is.na(.data$v2))
-
-  return(changes)
+tablesToCreate <- function(oldVersion, newVersion) {
+  tablesOldVersion <- omopgenerics::omopTableFields(cdmVersion = oldVersion) |>
+    dplyr::distinct(.data$cdm_table_name) |>
+    dplyr::pull()
+  tablesNewVersion <- omopgenerics::omopTableFields(cdmVersion = newVersion) |>
+    dplyr::distinct(.data$cdm_table_name) |>
+    dplyr::pull()
+  setdiff(tablesNewVersion, tablesOldVersion)
 }
-
-# tables in current cdm need to amend
-tableToChange <- function(current, version) {
-  changes <- columnToChange(current, version)
-
-  inCurrent <- changes |>
-    dplyr::filter(.data$v1 == 1) |>
-    dplyr::pull("cdm_table_name") |>
-    unique()
-
-  inNew <- changes |>
-    dplyr::filter(.data$v2 == 1) |>
-    dplyr::pull("cdm_table_name") |>
-    unique()
-
-  return(intersect(inCurrent, inNew))
+createTables <- function(tablesToCreate, cdm) {
+  for (nw in tablesToCreate) {
+    cdm <- omopgenerics::emptyOmopTable(cdm = cdm, name = nw)
+  }
+  return(cdm)
 }
-
-# Get the closest match colnum name
-closestNameMatch <- function(x, candidates, max_distance = 0.3) {
-  best_matches <- vapply(x, function(term) {
-    # exact match
-    if (term %in% candidates) {
-      return(term)
-    }
-
-    hits <- agrep(term,
-      candidates,
-      max.distance = max_distance,
-      value = TRUE
-    )
-
-    # No matches → return NA
-    if (length(hits) == 0) {
-      return(NA_character_)
-    }
-
-    # Compute edit distances and choose the closest
-    d <- utils::adist(term, hits)
-    hits[which.min(d)]
-  }, FUN.VALUE = character(1))
-
-  # return tibble
-  dplyr::tibble(old_name = x, new_name = best_matches)
+tablesToDelete <- function(oldVersion, newVersion) {
+  tablesOldVersion <- omopgenerics::omopTableFields(cdmVersion = oldVersion) |>
+    dplyr::distinct(.data$cdm_table_name) |>
+    dplyr::pull()
+  tablesNewVersion <- omopgenerics::omopTableFields(cdmVersion = newVersion) |>
+    dplyr::distinct(.data$cdm_table_name) |>
+    dplyr::pull()
+  setdiff(tablesOldVersion, tablesNewVersion)
 }
-# function to replace change Colnum names
-changeColNames <- function(table, matchTable) {
-  dplyr::rename(
-    table,
-    !!!stats::setNames(matchTable$old_name, matchTable$new_name)
+removeTables <- function(tablesToDelete, cdm) {
+  for (rt in tablesToDelete) {
+    cdm[[rt]] <- NULL
+  }
+  return(cdm)
+}
+newColumns <- function(oldVersion, newVersion) {
+  dplyr::tibble(
+    table_name = character(),
+    new_column = character(),
+    value = character(),
+    value_type = character()
   )
 }
+createNewColumns <- function(newColumns, cdm) {
 
-# function to update cdmSource
-
+}
+deleteColumns <- function(oldVersion, newVersion) {
+  dplyr::tibble(
+    table_name = character(),
+    column_to_delete = character()
+  )
+}
+renameColumns <- function(oldVersion, newVersion) {
+  dplyr::tibble(
+    table_name = character(),
+    old_column = character(),
+    new_column = character()
+  )
+}
 upDateCdmSource <- function(cdm, version) {
-  table <- cdm[["cdm_source"]] |>
-    dplyr::mutate("cdm_version" = version)
-
-  cdm <-
-    omopgenerics::insertTable(
-      cdm = cdm,
-      name = "cdm_source",
-      table = table
-    )
-
-  attr(cdm, "cdm_version") <- version
-
+  cdm$cdm_source <- cdm$cdm_source |>
+    dplyr::mutate("cdm_version" = .env$version)
   return(cdm)
 }
