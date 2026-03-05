@@ -3,6 +3,7 @@
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
 #' for possibilities.
 #' @param source Choice between `local` or `duckdb`.
+#' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'.
 #'
 #' @return A local cdm_reference object.
 #' @export
@@ -16,7 +17,8 @@
 #' cdm
 #'
 mockCdmFromDataset <- function(datasetName = "GiBleed",
-                               source = "local") {
+                               source = "local",
+                               cdmVersion = NULL) {
   # initial check
   datasetName <- validateDatasetName(datasetName)
   omopgenerics::assertChoice(source, c("local", "duckdb"))
