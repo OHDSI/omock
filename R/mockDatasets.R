@@ -95,8 +95,8 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 prepareDatasetName <- function(datasetName, cdmVersion) {
   cdmVersion <- cdmVersion %||% "5.4"
   if (datasetName %in% omock::mockDatasets$cdm_name &
-      paste0(datasetName, "-", cdmVersion) %in% omock::mockDatasets$dataset_name) {
-    datasetName <- paste0(datasetName, "-", cdmVersion)
+      paste0(datasetName, "_", cdmVersion) %in% omock::mockDatasets$dataset_name) {
+    datasetName <- paste0(datasetName, "_", cdmVersion)
   }
   return(datasetName)
 }
