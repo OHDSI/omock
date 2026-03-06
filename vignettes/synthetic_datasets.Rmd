@@ -1,5 +1,5 @@
 ---
-title: "synthetic_datasets"
+title: "Synthetic datasets"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{synthetic_datasets}

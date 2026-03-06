@@ -1,5 +1,5 @@
 ---
-title: "Creating synthetic clinical tables"
+title: "Creating mock clinical tables"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{synthetic_clinical_tables}

@@ -1,5 +1,5 @@
 ---
-title: "Creating synthetic vocabulary Tables with omock"
+title: "Creating mock vocabulary tables"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{synthetic_vocabulary}

@@ -3,13 +3,14 @@ template:
   bootstrap: 5
 
 articles:
-  - title: "Articles"
-    contents:
-    - synthetic_clinical_tables
-    - synthetic_cohorts
-    - synthetic_vocabulary
-    - mock_from_tables
-    - synthetic_datasets
+- title:
+  navbar:
+  contents:
+  - synthetic_clinical_tables
+  - synthetic_cohorts
+  - synthetic_vocabulary
+  - mock_from_tables
+  - synthetic_datasets
 
 reference:
   - title: "Mock CDM Initialization"
