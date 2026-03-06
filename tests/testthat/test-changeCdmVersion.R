@@ -50,10 +50,11 @@ test_that("check update cdm version", {
   expect_true("procedure_end_date" %in% colnames(cdm2$procedure_occurrence))
   expect_true("procedure_end_datetime" %in% colnames(cdm2$procedure_occurrence))
 
-  expect_no_error(cdm3 <- mockCdmFromDataset(
+  expect_no_error(cdm4 <- mockCdmFromDataset(
     datasetName = "GiBleed",
     source = "local",
     cdmVersion = "5.4"
   ))
-  expect_true(cdmVersion(cdm) == "5.4")
+  expect_true(cdmVersion(cdm4) == "5.4")
+  expect_identical(cdm2, cdm4)
 })
