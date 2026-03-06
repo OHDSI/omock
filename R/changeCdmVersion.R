@@ -12,7 +12,8 @@
 #' # Create a mock CDM reference change to cdm version 5.3
 #' cdm <- mockCdmReference()
 #'
-#' cdm <- cdm |> changeCdmVersion(version = "5.4")
+#' cdm <- cdm |>
+#'   changeCdmVersion(cdmVersion = "5.4")
 #'
 #' # View cdm version
 #' cdmVersion(cdm)
@@ -21,6 +22,7 @@ changeCdmVersion <- function(cdm, cdmVersion = "5.4") {
   oldVersion <- cdmVersion(cdm)
 
   if (oldVersion == cdmVersion) {
+    cli::cli_inform(c(i = "Current version of the cdm already matches cdmVersion = {.pkg {cdmVersion}}. No changes made."))
     return(cdm)
   }
 
@@ -40,7 +42,7 @@ changeCdmVersion <- function(cdm, cdmVersion = "5.4") {
     # remove column
     removeColumn(diff$remove_column) |>
     # rename column
-    renameColumn(diff$rename_column)
+    renameColumn(diff$rename_column) |>
     # update cdm source
     upDateCdmSource(cdmVersion)
 }

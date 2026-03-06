@@ -1,5 +1,10 @@
 test_that("mock datasets cdm creation", {
-  expect_identical(availableMockDatasets(), omock::mockDatasets$dataset_name)
+  expect_identical(
+    availableMockDatasets(),
+    c(omock::mockDatasets$dataset_name, omock::mockDatasets$cdm_name) |>
+      unique() |>
+      sort()
+  )
 
   Sys.setenv("MOCK_DATASETS_FOLDER" = "")
   expect_no_error(mockDatasetsFolder())

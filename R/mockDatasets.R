@@ -3,7 +3,8 @@
 #' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
 #' for possibilities.
 #' @param source Choice between `local` or `duckdb`.
-#' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'.
+#' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'. By
+#' default if not specified in databaseName the cdmVersion will be '5.4'.
 #'
 #' @return A local cdm_reference object.
 #' @export
@@ -20,36 +21,37 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
                                source = "local",
                                cdmVersion = NULL) {
   # initial check
-  datasetName <- validateDatasetName(datasetName)
+  omopgenerics::assertCharacter(datasetName, length = 1)
+  omopgenerics::assertCharacter(cdmVersion, length = 1, null = TRUE)
   omopgenerics::assertChoice(source, c("local", "duckdb"))
+
+  datasetName <- prepareDatasetName(datasetName, cdmVersion)
+  datasetName <- validateDatasetName(datasetName)
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
-
-
-
+  cdmVersion <- cdmVersion %||% cv
 
   if (datasetName == "GiBleed") {
     cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
     tables <- gibleed
   } else {
-  # make dataset available
-  datasetPath <- datasetAvailable(datasetName)
+    # make dataset available
+    datasetPath <- datasetAvailable(datasetName)
 
-  # folder to unzip
-  tmpFolder <- file.path(tempdir(), omopgenerics::uniqueId())
-  if (dir.exists(tmpFolder)) {
+    # folder to unzip
+    tmpFolder <- file.path(tempdir(), omopgenerics::uniqueId())
+    if (dir.exists(tmpFolder)) {
+      unlink(x = tmpFolder, recursive = TRUE)
+    }
+    dir.create(tmpFolder)
+
+    # unzip
+    utils::unzip(zipfile = datasetPath, exdir = tmpFolder)
+    cli::cli_inform(c(i = "Reading {.pkg {datasetName}} tables."))
+    tables <- readTables(tmpFolder, cv)
+
+    # delete csv files
     unlink(x = tmpFolder, recursive = TRUE)
-  }
-  dir.create(tmpFolder)
-
-  # unzip
-  utils::unzip(zipfile = datasetPath, exdir = tmpFolder)
-  cli::cli_inform(c(i = "Reading {.pkg {datasetName}} tables."))
-  tables <- readTables(tmpFolder, cv)
-
-  # delete csv files
-  unlink(x = tmpFolder, recursive = TRUE)
-
   }
 
   # add drug strength
@@ -62,6 +64,11 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
 
   cli::cli_inform(c(i = "Creating local {.cls cdm_reference} object."))
   cdm <- omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
+
+  if (cv != cdmVersion) {
+    cli::cli_inform(c(i = "Addapting cdmVersion from {.pkg {cv}} to {.pkg {cdmVersion}}."))
+    cdm <- changeCdmVersion(cdm = cdm, cdmVersion = cdmVersion)
+  }
 
   if (identical(source, "duckdb")) {
     cli::cli_inform(c(i = "Inserting {.cls cdm_reference} into {.pkg duckdb}."))
@@ -84,6 +91,14 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   }
 
   return(cdm)
+}
+prepareDatasetName <- function(datasetName, cdmVersion) {
+  cdmVersion <- cdmVersion %||% "5.4"
+  if (datasetName %in% omock::mockDatasets$cdm_name &
+      paste0(datasetName, "-", cdmVersion) %in% omock::mockDatasets$dataset_name) {
+    datasetName <- paste0(datasetName, "-", cdmVersion)
+  }
+  return(datasetName)
 }
 readTables <- function(tmpFolder, cv, vocab = F) {
   tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.parquet$", recursive = TRUE)
@@ -339,7 +354,7 @@ isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
 #' availableMockDatasets()
 #'
 availableMockDatasets <- function() {
-  omock::mockDatasets$dataset_name
+  sort(unique(c(omock::mockDatasets$dataset_name, omock::mockDatasets$cdm_name)))
 }
 
 #' Check the availability of the OMOP CDM datasets.
