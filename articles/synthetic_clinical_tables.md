@@ -1,4 +1,4 @@
-# Creating synthetic clinical tables
+# Creating mock clinical tables
 
 The omock package provides functionality to quickly create a cdm
 reference containing synthetic data based on population settings

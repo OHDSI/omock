@@ -1,4 +1,4 @@
-# synthetic_datasets
+# Synthetic datasets
 
 ## Introduction
 
@@ -86,7 +86,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/RtmpYbgQuw/OMOP_DATASETS"
+#> [1] "/tmp/Rtmprt9M00/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message

@@ -1,4 +1,4 @@
-# Creating synthetic vocabulary Tables with omock
+# Creating mock vocabulary tables
 
 The `omock` R package provides functions to build and populate mock or
 user’s bespoke vocabulary tables for their mock cdm.In this vignette,

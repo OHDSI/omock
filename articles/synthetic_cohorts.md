@@ -1,4 +1,4 @@
-# Creating synthetic cohorts
+# Creating mock cohorts
 
 ``` r
 library(omock)
