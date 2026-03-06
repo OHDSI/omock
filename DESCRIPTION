@@ -57,3 +57,5 @@ RoxygenNote: 7.3.3
 BugReports: https://github.com/ohdsi/omock/issues
 LazyData: true
 Roxygen: list(markdown = TRUE)
+Remotes:
+    darwin-eu-dev/omopgenerics
