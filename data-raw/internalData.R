@@ -154,8 +154,47 @@ namesTable <- dplyr::tribble(
 #read in giBleed
 gibleed <- readTables(here::here("data-raw","GiBleed_5.3","GiBleed"), "5.3")
 
+x1 <- omopgenerics::omopTableFields("5.3")
+x2 <- omopgenerics::omopTableFields("5.4")
+
+tables <- intersect(unique(x1$cdm_table_name), unique(x2$cdm_table_name)) |>
+  rlang::set_names() |>
+  purrr::map(\(x) {
+    xx1 <- x1 |>
+      dplyr::filter(.data$cdm_table_name == .env$x)
+    xx2 <- x2 |>
+      dplyr::filter(.data$cdm_table_name == .env$x)
+    list(
+      new = xx1 |>
+        dplyr::anti_join(xx2),
+      old = xx2 |>
+        dplyr::anti_join(xx1)
+    )
+  })
+
+# different columns
+differentColumns
+
+cdm_source cdm_version_concept_id
+
+metadata, metadata_id
+metadata, value_as_number
+
+location country_concept_id
+location country_source_value
+latitude
+longitude
+
+note note_event_id
+note_event_field_concept_id
+
+
+# rename columns
+renameColumns
 
 usethis::use_data(
+  differentColumns,
+  renameColumns,
   mockDrugStrength,
   mockConcept,
   mockConceptAncestor,

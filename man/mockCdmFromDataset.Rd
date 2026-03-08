@@ -4,13 +4,20 @@
 \alias{mockCdmFromDataset}
 \title{Create a \code{local} cdm_reference from a dataset.}
 \usage{
-mockCdmFromDataset(datasetName = "GiBleed", source = "local")
+mockCdmFromDataset(
+  datasetName = "GiBleed",
+  source = "local",
+  cdmVersion = NULL
+)
 }
 \arguments{
 \item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
 for possibilities.}
 
 \item{source}{Choice between \code{local} or \code{duckdb}.}
+
+\item{cdmVersion}{Version of the OMOP CDM, can either be '5.3' or '5.4'. By
+default if not specified in databaseName the cdmVersion will be '5.4'.}
 }
 \value{
 A local cdm_reference object.
