@@ -172,29 +172,7 @@ tables <- intersect(unique(x1$cdm_table_name), unique(x2$cdm_table_name)) |>
     )
   })
 
-# different columns
-differentColumns
-
-cdm_source cdm_version_concept_id
-
-metadata, metadata_id
-metadata, value_as_number
-
-location country_concept_id
-location country_source_value
-latitude
-longitude
-
-note note_event_id
-note_event_field_concept_id
-
-
-# rename columns
-renameColumns
-
 usethis::use_data(
-  differentColumns,
-  renameColumns,
   mockDrugStrength,
   mockConcept,
   mockConceptAncestor,
