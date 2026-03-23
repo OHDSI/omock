@@ -1,3 +1,5 @@
+# omock 0.6.2
+
 # omock 0.6.1
 
 ## New Features and Improvements
