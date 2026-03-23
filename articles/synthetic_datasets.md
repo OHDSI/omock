@@ -53,19 +53,20 @@ you can use with:
 
 ``` r
 availableMockDatasets()
-#>  [1] "GiBleed"                             "empty_cdm_5.3"                      
-#>  [3] "empty_cdm_5.4"                       "synpuf-1k_5.3"                      
-#>  [5] "synpuf-1k_5.4"                       "synthea-allergies-10k"              
-#>  [7] "synthea-breast_cancer-10k"           "synthea-contraceptives-10k"         
-#>  [9] "synthea-covid19-10k"                 "synthea-covid19-200k"               
-#> [11] "synthea-dermatitis-10k"              "synthea-heart-10k"                  
-#> [13] "synthea-hiv-10k"                     "synthea-lung_cancer-10k"            
-#> [15] "synthea-medications-10k"             "synthea-metabolic_syndrome-10k"     
-#> [17] "synthea-opioid_addiction-10k"        "synthea-rheumatoid_arthritis-10k"   
-#> [19] "synthea-snf-10k"                     "synthea-surgery-10k"                
-#> [21] "synthea-total_joint_replacement-10k" "synthea-veteran_prostate_cancer-10k"
-#> [23] "synthea-veterans-10k"                "synthea-weight_loss-10k"            
-#> [25] "delphi-100k_5.4"
+#>  [1] "delphi-100k"                         "delphi-100k_5.4"                    
+#>  [3] "empty_cdm"                           "empty_cdm_5.3"                      
+#>  [5] "empty_cdm_5.4"                       "GiBleed"                            
+#>  [7] "synpuf-1k"                           "synpuf-1k_5.3"                      
+#>  [9] "synpuf-1k_5.4"                       "synthea-allergies-10k"              
+#> [11] "synthea-breast_cancer-10k"           "synthea-contraceptives-10k"         
+#> [13] "synthea-covid19-10k"                 "synthea-covid19-200k"               
+#> [15] "synthea-dermatitis-10k"              "synthea-heart-10k"                  
+#> [17] "synthea-hiv-10k"                     "synthea-lung_cancer-10k"            
+#> [19] "synthea-medications-10k"             "synthea-metabolic_syndrome-10k"     
+#> [21] "synthea-opioid_addiction-10k"        "synthea-rheumatoid_arthritis-10k"   
+#> [23] "synthea-snf-10k"                     "synthea-surgery-10k"                
+#> [25] "synthea-total_joint_replacement-10k" "synthea-veteran_prostate_cancer-10k"
+#> [27] "synthea-veterans-10k"                "synthea-weight_loss-10k"
 ```
 
 ## Download a dataset
@@ -86,7 +87,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/Rtmprt9M00/OMOP_DATASETS"
+#> [1] "/tmp/Rtmp3H4g8w/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message

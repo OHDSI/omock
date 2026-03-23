@@ -99,13 +99,13 @@ cdm$person |> glimpse()
 #> Rows: 5
 #> Columns: 18
 #> $ person_id                   <int> 1, 2, 3, 4, 5
-#> $ gender_concept_id           <int> 8507, 8507, 8532, 8532, 8507
-#> $ year_of_birth               <int> 2010, 2011, 2007, 2018, 2015
-#> $ month_of_birth              <int> 8, 10, 8, 4, 11
-#> $ day_of_birth                <int> 29, 20, 30, 29, 11
-#> $ birth_datetime              <dttm> 2010-08-29, 2011-10-20, 2007-08-30, 2018-0…
-#> $ race_concept_id             <int> 38003576, 8515, 38003582, 38003577, 380036…
-#> $ ethnicity_concept_id        <int> 38003563, 38003564, 38003563, 38003564, 38…
+#> $ gender_concept_id           <int> 8532, 8507, 8532, 8507, 8532
+#> $ year_of_birth               <int> 2001, 2015, 2001, 2007, 2012
+#> $ month_of_birth              <int> 9, 1, 3, 5, 8
+#> $ day_of_birth                <int> 21, 9, 6, 7, 29
+#> $ birth_datetime              <dttm> 2001-09-21, 2015-01-09, 2001-03-06, 2007-0…
+#> $ race_concept_id             <int> 38003603, 38003589, 38003591, 38003610, 38…
+#> $ ethnicity_concept_id        <int> 38003563, 38003563, 38003564, 38003564, 38…
 #> $ location_id                 <int> 0, 0, 0, 0, 0
 #> $ person_source_value         <chr> "", "", "", "", ""
 #> $ gender_source_value         <chr> "", "", "", "", ""

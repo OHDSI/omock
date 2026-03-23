@@ -47,7 +47,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mockCdmFromDataset</span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span>, source <span class="op">=</span> <span class="st">"local"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mockCdmFromDataset</span><span class="op">(</span></span>
+<span>  datasetName <span class="op">=</span> <span class="st">"GiBleed"</span>,</span>
+<span>  source <span class="op">=</span> <span class="st">"local"</span>,</span>
+<span>  cdmVersion <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,6 +66,11 @@ for possibilities.</p></dd>
 <dt id="arg-source">source<a class="anchor" aria-label="anchor" href="#arg-source"></a></dt>
 <dd><p>Choice between <code>local</code> or <code>duckdb</code>.</p></dd>
 
+
+<dt id="arg-cdmversion">cdmVersion<a class="anchor" aria-label="anchor" href="#arg-cdmversion"></a></dt>
+<dd><p>Version of the OMOP CDM, can either be '5.3' or '5.4'. By
+default if not specified in databaseName the cdmVersion will be '5.4'.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -75,7 +84,7 @@ for possibilities.</p></dd>
 <span class="r-in"><span><span class="fu"><a href="mockDatasetsFolder.html">mockDatasetsFolder</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`mockDatasetsFolder()` was deprecated in omock 0.6.0.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `omopDataFolder()` instead.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmprt9M00/mockDatasets"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp3H4g8w/mockDatasets"</span>
 <span class="r-in"><span><span class="fu"><a href="downloadMockDataset.html">downloadMockDataset</a></span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Attempting download with timeout = 120 seconds.</span>
 <span class="r-in"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu">mockCdmFromDataset</span><span class="op">(</span>datasetName <span class="op">=</span> <span class="st">"GiBleed"</span><span class="op">)</span></span></span>

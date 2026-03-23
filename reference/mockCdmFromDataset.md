@@ -5,7 +5,11 @@ Create a `local` cdm_reference from a dataset.
 ## Usage
 
 ``` r
-mockCdmFromDataset(datasetName = "GiBleed", source = "local")
+mockCdmFromDataset(
+  datasetName = "GiBleed",
+  source = "local",
+  cdmVersion = NULL
+)
 ```
 
 ## Arguments
@@ -20,6 +24,11 @@ mockCdmFromDataset(datasetName = "GiBleed", source = "local")
 
   Choice between `local` or `duckdb`.
 
+- cdmVersion:
+
+  Version of the OMOP CDM, can either be '5.3' or '5.4'. By default if
+  not specified in databaseName the cdmVersion will be '5.4'.
+
 ## Value
 
 A local cdm_reference object.
@@ -32,7 +41,7 @@ library(omock)
 mockDatasetsFolder(tempdir())
 #> Warning: `mockDatasetsFolder()` was deprecated in omock 0.6.0.
 #> ℹ Please use `omopDataFolder()` instead.
-#> [1] "/tmp/Rtmprt9M00/mockDatasets"
+#> [1] "/tmp/Rtmp3H4g8w/mockDatasets"
 downloadMockDataset(datasetName = "GiBleed")
 #> ℹ Attempting download with timeout = 120 seconds.
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")

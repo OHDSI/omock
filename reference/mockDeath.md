@@ -64,8 +64,8 @@ cdm$death |>
 glimpse()
 #> Rows: 10
 #> Columns: 7
-#> $ person_id               <int> 1, 5, 7, 2, 4, 6, 10, 3, 9, 8
-#> $ death_date              <date> 1985-04-23, 2016-11-04, 2015-07-24, 1998-01-21…
+#> $ person_id               <int> 9, 1, 5, 3, 8, 7, 4, 10, 6, 2
+#> $ death_date              <date> 1996-04-26, 2002-12-19, 1996-09-09, 2013-04-05…
 #> $ death_type_concept_id   <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 #> $ death_datetime          <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ cause_concept_id        <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
