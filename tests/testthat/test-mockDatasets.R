@@ -1,5 +1,10 @@
 test_that("mock datasets cdm creation", {
-  expect_identical(availableMockDatasets(), omock::mockDatasets$dataset_name)
+  expect_identical(
+    availableMockDatasets(),
+    c(omock::mockDatasets$dataset_name, omock::mockDatasets$cdm_name) |>
+      unique() |>
+      sort()
+  )
 
   Sys.setenv("MOCK_DATASETS_FOLDER" = "")
   expect_no_error(mockDatasetsFolder())
@@ -40,3 +45,19 @@ test_that("mock datasets cdm creation", {
 
   unlink(myFolder, recursive = TRUE)
 })
+
+test_that("synpuf-1k_5.4, skip cran", {
+  skip_on_cran()
+  myFolder <- file.path(tempdir(), "DATASETS")
+  expect_no_error(mockDatasetsFolder(myFolder))
+  expect_identical(mockDatasetsFolder(), file.path(myFolder, "mockDatasets"))
+
+  expect_no_error(cdm1 <- mockCdmFromDataset(datasetName = "synpuf-1k_5.4"))
+
+  expect_no_error(cdm2 <- mockCdmFromDataset(datasetName = "synpuf-1k", cdmVersion = "5.4"))
+
+  expect_identical(cdm1, cdm2)
+
+  unlink(myFolder, recursive = TRUE)
+})
+

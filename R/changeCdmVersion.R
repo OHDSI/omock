@@ -12,146 +12,195 @@
 #' # Create a mock CDM reference change to cdm version 5.3
 #' cdm <- mockCdmReference()
 #'
-#' cdm <- cdm |> changeCdmVersion(version = "5.4")
+#' cdm <- cdm |>
+#'   changeCdmVersion(cdmVersion = "5.4")
 #'
 #' # View cdm version
 #' cdmVersion(cdm)
-changeCdmVersion <- function(cdm, version = "5.4") {
-  checkInput(cdm = cdm, version = version)
-  current <- cdmVersion(cdm)
-  tableToChange <- tableToChange(current, version)
+changeCdmVersion <- function(cdm, cdmVersion = "5.4") {
+  # current cdm version
+  oldVersion <- cdmVersion(cdm)
 
-  tableToUpdate <- intersect(names(cdm), tableToChange)
-
-
-  # amend col names and add new
-  for (k in tableToUpdate) {
-    toChange <- columnToChange(current, version) |>
-      dplyr::filter(.data$cdm_table_name == k)
-
-    x1 <- toChange |>
-      dplyr::filter(.data$v1 == 1) |>
-      dplyr::pull(.data$cdm_field_name)
-    x2 <- toChange |>
-      dplyr::filter(.data$v2 == 1) |>
-      dplyr::pull(.data$cdm_field_name)
-
-    matchTable <- closestNameMatch(x1, x2)
-
-    newTable <- cdm[[k]] |>
-      changeColNames(matchTable) |>
-      addOtherColumns(tableName = k, version = version) |>
-      correctCdmFormat(tableName = k)
-
-    cdm <-
-      omopgenerics::insertTable(
-        cdm = cdm,
-        name = k,
-        table = newTable
-      )
+  if (oldVersion == cdmVersion) {
+    cli::cli_inform(c(i = "Current version of the cdm already matches cdmVersion = {.pkg {cdmVersion}}. No changes made."))
+    return(cdm)
   }
 
-  other <- setdiff(tableToUpdate, names(cdm))
+  # change vocabulary internally
+  attr(cdm, "cdm_version") <- cdmVersion
 
+  # version differences
+  diff <- cdmDifferences(oldVersion = oldVersion, newVersion = cdmVersion)
+
+  cdm |>
+    # new table
+    newTable(diff$new_table) |>
+    # remove table
+    removeTable(diff$remove_table) |>
+    # new column
+    newColumn(diff$new_column) |>
+    # remove column
+    removeColumn(diff$remove_column) |>
+    # rename column
+    renameColumn(diff$rename_column) |>
+    # update cdm source
+    upDateCdmSource(cdmVersion)
+}
+
+cdmDifferences <- function(oldVersion, newVersion) {
+  colsOld <- omopgenerics::omopTableFields(cdmVersion = oldVersion)
+  tablesOld <- unique(colsOld$cdm_table_name)
+
+  colsNew <- omopgenerics::omopTableFields(cdmVersion = newVersion)
+  tablesNew <- unique(colsNew$cdm_table_name)
+
+  result <- list()
+
+  # new tables
+  result$new_table <- tablesNew[!tablesNew %in% tablesOld]
+
+  # remove tables
+  result$remove_table <- tablesOld[!tablesOld %in% tablesNew]
 
   # new columns
-  for (i in names(cdm)) {
-    newTable <- cdm[[i]] |>
-      addOtherColumns(tableName = i, version = version) |>
-      correctCdmFormat(tableName = i)
+  dif <- intersect(tablesOld, tablesNew) |>
+    rlang::set_names() |>
+    purrr::map(\(x) {
+      columnsNew <- colsNew |>
+        dplyr::filter(.data$cdm_table_name == .env$x) |>
+        dplyr::pull("cdm_field_name")
+      columnsOld <- colsOld |>
+        dplyr::filter(.data$cdm_table_name == .env$x) |>
+        dplyr::pull("cdm_field_name")
+      inNew <- columnsNew[!columnsNew %in% columnsOld]
+      inOld <- columnsOld[!columnsOld %in% columnsNew]
+      list(in_new = inNew, in_old = inOld)
+    }) |>
+    purrr::keep(\(x) length(x$in_new) > 0 | length(x$in_old) > 0)
 
-    cdm <-
-      omopgenerics::insertTable(
-        cdm = cdm,
-        name = i,
-        table = newTable
+  # possible changes till the moment
+  changes <- dplyr::tribble(
+    ~from, ~to,
+    "admitting_source_value", "admitted_from_source_value",
+    "discharge_to_concept_id", "discharged_to_concept_id",
+    "discharge_to_source_value", "discharged_to_source_value",
+    "admitting_source_concept_id", "admitted_from_concept_id",
+    "visit_detail_parent_id", "parent_visit_detail_id"
+  )
+  changes <- changes |>
+    dplyr::union_all(
+      changes |>
+        dplyr::rename("from" = "to", "to" = "from")
+    )
+
+  # columns to rename
+  result$rename_column <- dif |>
+    purrr::map(\(x) {
+      changes |>
+        dplyr::filter(
+          .data$from %in% .env$x$in_old & .data$to %in% .env$x$in_new
+        )
+    }) |>
+    dplyr::bind_rows(.id = "table_name")
+
+  # columns to remove
+  result$remove_column <- dif |>
+    purrr::map(\(x) dplyr::tibble(column = x$in_old)) |>
+    dplyr::bind_rows(.id = "table_name") |>
+    dplyr::anti_join(
+      result$rename_column |>
+        dplyr::select("table_name", "column" = "from"),
+      by = c("table_name", "column")
+    )
+
+  # new columns
+  result$new_column <- dif |>
+    purrr::map(\(x) dplyr::tibble(column = x$in_new)) |>
+    dplyr::bind_rows(.id = "table_name") |>
+    dplyr::anti_join(
+      result$rename_column |>
+        dplyr::select("table_name", "column" = "to"),
+      by = c("table_name", "column")
+    ) |>
+    dplyr::inner_join(
+      colsNew |>
+        dplyr::rename("table_name" = "cdm_table_name", "column" = "cdm_field_name"),
+      by = c("table_name", "column")
+    ) |>
+    dplyr::mutate(
+      cdm_datatype = dplyr::if_else(
+        grepl("varchar", .data$cdm_datatype), "character", .data$cdm_datatype
+      ),
+      value = dplyr::case_when(
+        .data$is_required & .data$cdm_datatype == "integer" ~ "0L",
+        .data$is_required & .data$cdm_datatype == "datetime" ~ 'as.Date("1970-01-01")',
+        .data$is_required & .data$cdm_datatype == "date" ~ 'as.Date("1970-01-01")',
+        .data$is_required & .data$cdm_datatype == "float" ~ "0",
+        .data$is_required & .data$cdm_datatype == "logical" ~ "FALSE",
+        .data$is_required & .data$cdm_datatype == "character" ~ '""',
+        !.data$is_required & .data$cdm_datatype == "integer" ~ "NA_integer_",
+        !.data$is_required & .data$cdm_datatype == "datetime" ~ 'as.Date(NA)',
+        !.data$is_required & .data$cdm_datatype == "date" ~ 'as.Date(NA)',
+        !.data$is_required & .data$cdm_datatype == "float" ~ "NA_real_",
+        !.data$is_required & .data$cdm_datatype == "logical" ~ "NA",
+        !.data$is_required & .data$cdm_datatype == "character" ~ "NA_character_",
+        .default = "NA"
       )
+    ) |>
+    dplyr::select("table_name", "column", "value")
+
+  return(result)
+}
+newTable <- function(cdm, tablesToCreate) {
+  for (nw in tablesToCreate) {
+    cdm <- omopgenerics::emptyOmopTable(cdm = cdm, name = nw)
   }
-
-
-  cdm <- upDateCdmSource(cdm, version = version)
-
-
   return(cdm)
 }
-
-# column with changes to make
-columnToChange <- function(current, version) {
-  changes <- omopgenerics::omopTableFields(current) |>
-    dplyr::mutate("v1" = 1) |>
-    dplyr::full_join(omopgenerics::omopTableFields(version) |>
-      dplyr::mutate("v2" = 1)) |>
-    dplyr::filter(is.na(.data$v1) | is.na(.data$v2))
-
-  return(changes)
+removeTable <- function(cdm, tablesToDelete) {
+  tablesToDelete <- tablesToDelete[tablesToDelete %in% names(cdm)]
+  for (rt in tablesToDelete) {
+    cdm[[rt]] <- NULL
+  }
+  return(cdm)
 }
-
-# tables in current cdm need to amend
-tableToChange <- function(current, version) {
-  changes <- columnToChange(current, version)
-
-  inCurrent <- changes |>
-    dplyr::filter(.data$v1 == 1) |>
-    dplyr::pull("cdm_table_name") |>
-    unique()
-
-  inNew <- changes |>
-    dplyr::filter(.data$v2 == 1) |>
-    dplyr::pull("cdm_table_name") |>
-    unique()
-
-  return(intersect(inCurrent, inNew))
+newColumn <- function(cdm, newColumns) {
+  tbls <- unique(newColumns$table_name)
+  tbls <- tbls[tbls %in% names(cdm)]
+  for (tb in tbls) {
+    id <- newColumns$table_name == tb
+    q <- newColumns$value[id] |>
+      rlang::parse_exprs() |>
+      rlang::set_names(newColumns$column[id])
+    cdm[[tb]] <- cdm[[tb]] |>
+      dplyr::mutate(!!!q)
+  }
+  return(cdm)
 }
-
-# Get the closest match colnum name
-closestNameMatch <- function(x, candidates, max_distance = 0.3) {
-  best_matches <- vapply(x, function(term) {
-    # exact match
-    if (term %in% candidates) {
-      return(term)
-    }
-
-    hits <- agrep(term,
-      candidates,
-      max.distance = max_distance,
-      value = TRUE
-    )
-
-    # No matches → return NA
-    if (length(hits) == 0) {
-      return(NA_character_)
-    }
-
-    # Compute edit distances and choose the closest
-    d <- utils::adist(term, hits)
-    hits[which.min(d)]
-  }, FUN.VALUE = character(1))
-
-  # return tibble
-  dplyr::tibble(old_name = x, new_name = best_matches)
+renameColumn <- function(cdm, colsToRename) {
+  tbls <- unique(colsToRename$table_name)
+  tbls <- tbls[tbls %in% names(cdm)]
+  for (tb in tbls) {
+    id <- colsToRename$table_name == tb
+    q <- colsToRename$from[id] |>
+      rlang::set_names(colsToRename$to[id])
+    cdm[[tb]] <- cdm[[tb]] |>
+      dplyr::rename(dplyr::any_of(q))
+  }
+  return(cdm)
 }
-# function to replace change Colnum names
-changeColNames <- function(table, matchTable) {
-  dplyr::rename(
-    table,
-    !!!stats::setNames(matchTable$old_name, matchTable$new_name)
-  )
+removeColumn <- function(cdm, colsToRemove) {
+  tbls <- unique(colsToRemove$table_name)
+  tbls <- tbls[tbls %in% names(cdm)]
+  for (tb in tbls) {
+    q <- colsToRemove$from[colsToRemove$table_name == tb]
+    cdm[[tb]] <- cdm[[tb]] |>
+      dplyr::select(!dplyr::any_of(q))
+  }
+  return(cdm)
 }
-
-# function to update cdmSource
-
 upDateCdmSource <- function(cdm, version) {
-  table <- cdm[["cdm_source"]] |>
-    dplyr::mutate("cdm_version" = version)
-
-  cdm <-
-    omopgenerics::insertTable(
-      cdm = cdm,
-      name = "cdm_source",
-      table = table
-    )
-
-  attr(cdm, "cdm_version") <- version
-
+  cdm$cdm_source <- cdm$cdm_source |>
+    dplyr::mutate("cdm_version" = .env$version)
   return(cdm)
 }

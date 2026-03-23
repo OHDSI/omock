@@ -154,6 +154,23 @@ namesTable <- dplyr::tribble(
 #read in giBleed
 gibleed <- readTables(here::here("data-raw","GiBleed_5.3","GiBleed"), "5.3")
 
+x1 <- omopgenerics::omopTableFields("5.3")
+x2 <- omopgenerics::omopTableFields("5.4")
+
+tables <- intersect(unique(x1$cdm_table_name), unique(x2$cdm_table_name)) |>
+  rlang::set_names() |>
+  purrr::map(\(x) {
+    xx1 <- x1 |>
+      dplyr::filter(.data$cdm_table_name == .env$x)
+    xx2 <- x2 |>
+      dplyr::filter(.data$cdm_table_name == .env$x)
+    list(
+      new = xx1 |>
+        dplyr::anti_join(xx2),
+      old = xx2 |>
+        dplyr::anti_join(xx1)
+    )
+  })
 
 usethis::use_data(
   mockDrugStrength,
