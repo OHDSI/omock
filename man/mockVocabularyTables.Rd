@@ -13,7 +13,8 @@ mockVocabularyTables(
   conceptRelationship = NULL,
   conceptSynonym = NULL,
   conceptAncestor = NULL,
-  drugStrength = NULL
+  drugStrength = NULL,
+  conceptSet = NULL
 )
 }
 \arguments{
@@ -51,6 +52,12 @@ If provided, it will be used directly; if NULL, a mock table will be generated.}
 
 \item{drugStrength}{An optional data frame representing the drug strength table.
 If provided, it will be used directly; if NULL, a mock table will be generated.}
+
+\item{conceptSet}{An optional numeric vector of concept IDs used to subset
+the vocabulary after it has been assembled. When supplied,
+the function keeps the requested concepts and directly
+related vocabulary rows such as synonyms, relationships,
+ancestors, and drug strength records.}
 }
 \value{
 Returns the modified \code{cdm} object with the new or provided vocabulary tables added.

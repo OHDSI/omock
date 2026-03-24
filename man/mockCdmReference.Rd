@@ -4,7 +4,11 @@
 \alias{mockCdmReference}
 \title{Creates an empty CDM (Common Data Model) reference for a mock database.}
 \usage{
-mockCdmReference(cdmName = "mock database", vocabularySet = "mock")
+mockCdmReference(
+  cdmName = "mock database",
+  vocabularySet = "mock",
+  conceptSet = NULL
+)
 }
 \arguments{
 \item{cdmName}{A character string specifying the name of the CDM object to
@@ -22,6 +26,9 @@ names or relationships.
 \item "eunomia": Uses the vocabulary from the Eunomia test database,
 which contains real vocabularies available from ATHENA.
 }}
+
+\item{conceptSet}{An optional numeric vector of concept IDs used to subset
+the vocabulary tables attached to the returned CDM.}
 }
 \value{
 Returns a CDM object that is initially empty but includes mock

@@ -13,26 +13,11 @@ test_that("test mock condition occurrence", {
       colnames(cdm$condition_occurrence)
   ))
 
-  concept_id <-
-    cdm$concept |>
-    dplyr::filter(
-      .data$domain_id == "Condition",
-      .data$standard_concept == "S"
-    ) |>
-    dplyr::select("concept_id") |>
-    dplyr::pull() |>
-    unique()
-
-  # concept count
-  concept_count <- length(concept_id)
-
-  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10)
+  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == 10)
 
   cdm <- cdm |> mockConditionOccurrence(recordPerson = 2)
 
-  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == concept_count *
-    10 * 2)
+  expect_true(cdm$condition_occurrence |> dplyr::tally() |> dplyr::pull() == 20)
 
   # concept type
   conceptTable <- dplyr::tibble(
@@ -52,6 +37,41 @@ test_that("test mock condition occurrence", {
 
   expect_true(all(cdm$condition_occurrence |> dplyr::pull("condition_type_concept_id") |>
     unique() %in% c(136, 138)))
+})
+
+test_that("record count scales with people, not number of concepts", {
+  concept_table <- dplyr::tibble(
+    concept_id = c(101:110, 201L),
+    concept_name = letters[1:11],
+    domain_id = c(rep("Condition", 10), "Condition Type"),
+    standard_concept = "S"
+  )
+
+  cdm <- omock::mockVocabularyTables(concept = concept_table) |>
+    omock::mockPerson(nPerson = 5, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence(recordPerson = 2, seed = 1)
+
+  expect_equal(nrow(cdm$condition_occurrence), 10)
+  expect_true(all(cdm$condition_occurrence$condition_concept_id %in% 101:110))
+})
+
+test_that("single condition concept still yields person-scaled rows", {
+  concept_table <- dplyr::tibble(
+    concept_id = c(101L, 201L),
+    concept_name = c("only condition", "condition type"),
+    domain_id = c("Condition", "Condition Type"),
+    standard_concept = "S"
+  )
+
+  cdm <- omock::mockVocabularyTables(concept = concept_table) |>
+    omock::mockPerson(nPerson = 4, seed = 1) |>
+    omock::mockObservationPeriod(seed = 1) |>
+    omock::mockConditionOccurrence(recordPerson = 1.5, seed = 1)
+
+  expect_equal(nrow(cdm$condition_occurrence), 6)
+  expect_true(all(cdm$condition_occurrence$condition_concept_id == 101L))
+  expect_true(all(cdm$condition_occurrence$condition_type_concept_id == 201L))
 })
 
 

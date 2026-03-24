@@ -39,6 +39,12 @@
 #' @param drugStrength An optional data frame representing the drug strength table.
 #'                     If provided, it will be used directly; if NULL, a mock table will be generated.
 #'
+#' @param conceptSet An optional numeric vector of concept IDs used to subset
+#'                   the vocabulary after it has been assembled. When supplied,
+#'                   the function keeps the requested concepts and directly
+#'                   related vocabulary rows such as synonyms, relationships,
+#'                   ancestors, and drug strength records.
+#'
 #' @return Returns the modified `cdm` object with the new or provided vocabulary tables added.
 #'
 #' @export
@@ -59,7 +65,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptRelationship = NULL,
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
-                                 drugStrength = NULL) {
+                                 drugStrength = NULL,
+                                 conceptSet = NULL) {
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -107,6 +114,11 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
         correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     }
   }
+
+  cdmTables <- subsetVocabularyTables(
+    cdmTables = cdmTables,
+    conceptSet = conceptSet
+  )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
 
