@@ -284,11 +284,11 @@ test_that("test vocabulary subset by concept set", {
     conceptSet = c(2L, 10L)
   )
 
-  expect_setequal(cdm$concept$concept_id, c(2L, 7L, 10L, 11L))
+  expect_setequal(cdm$concept$concept_id, c(2L, 3L, 7L, 10L, 11L))
   expect_setequal(cdm$vocabulary$vocabulary_id, c("SNOMED", "RxNorm"))
   expect_setequal(cdm$concept_synonym$concept_id, c(2L, 10L))
   expect_equal(nrow(cdm$concept_relationship), 2)
-  expect_equal(nrow(cdm$concept_ancestor), 0)
+  expect_equal(nrow(cdm$concept_ancestor), 1)
   expect_equal(nrow(cdm$drug_strength), 1)
 })
 
@@ -301,10 +301,10 @@ test_that("test vocabulary subset fails for absent concepts", {
 
 test_that("test vocabulary subset warns and keeps present concepts", {
   cdm <- expect_warning(
-    omock::mockVocabularyTables(conceptSet = c(2L, 10L, 999999L)),
+    omock::mockVocabularyTables(conceptSet = c(8507L, 8532L, 999999L)),
     "Ignoring 1 concept ID"
   )
 
-  expect_true(all(c(2L, 10L) %in% cdm$concept$concept_id))
+  expect_true(all(c(8507L, 8532L) %in% cdm$concept$concept_id))
   expect_false(999999L %in% cdm$concept$concept_id)
 })

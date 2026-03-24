@@ -17,9 +17,9 @@ test_that("check concept set is passed through to vocabulary creation", {
   cdm <- omock::mockCdmReference(
     cdmName = "liverpool",
     vocabularySet = "mock",
-    conceptSet = c(2L, 10L)
+    conceptSet = c(8507L, 8532L)
   )
 
-  expect_true(all(c(2L, 10L) %in% cdm$concept$concept_id))
+  expect_true(all(c(8507L, 8532L) %in% cdm$concept$concept_id))
   expect_true(nrow(cdm$concept) <= nrow(omock::mockCdmReference(cdmName = "full mock")$concept))
 })
