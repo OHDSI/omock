@@ -1,5 +1,7 @@
 # Changelog
 
+## omock (development version)
+
 ## omock 0.6.2
 
 CRAN release: 2026-03-23
