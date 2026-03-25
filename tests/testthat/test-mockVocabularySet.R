@@ -23,8 +23,8 @@ test_that("mockVocabularySet concept subset works for mock vocabulary", {
 })
 
 test_that("mockVocabularySet concept subset warns for missing mock concepts", {
-  cdm <- expect_warning(
-    mockVocabularySet(vocabularySet = "mock", conceptSet = c(8507L, 999999L)),
+  expect_warning(
+    cdm <- mockVocabularySet(vocabularySet = "mock", conceptSet = c(8507L, 999999L)),
     "Ignoring 1 concept ID"
   )
 

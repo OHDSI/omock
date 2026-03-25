@@ -29,7 +29,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   datasetName <- validateDatasetName(datasetName)
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
-  cdmVersion <- cdmVersion %||% cv
+  cdmVersion <- rlang::`%||%`(cdmVersion, cv)
 
   if (datasetName == "GiBleed") {
     cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
@@ -93,7 +93,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   return(cdm)
 }
 prepareDatasetName <- function(datasetName, cdmVersion) {
-  cdmVersion <- cdmVersion %||% "5.4"
+  cdmVersion <- rlang::`%||%`(cdmVersion, "5.4")
   if (datasetName %in% omock::mockDatasets$cdm_name &
       paste0(datasetName, "_", cdmVersion) %in% omock::mockDatasets$dataset_name) {
     datasetName <- paste0(datasetName, "_", cdmVersion)

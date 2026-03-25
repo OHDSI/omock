@@ -300,8 +300,8 @@ test_that("test vocabulary subset fails for absent concepts", {
 })
 
 test_that("test vocabulary subset warns and keeps present concepts", {
-  cdm <- expect_warning(
-    omock::mockVocabularyTables(conceptSet = c(8507L, 8532L, 999999L)),
+  expect_warning(
+    cdm <- omock::mockVocabularyTables(conceptSet = c(8507L, 8532L, 999999L)),
     "Ignoring 1 concept ID"
   )
 
