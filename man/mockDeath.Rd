@@ -7,11 +7,7 @@
 mockDeath(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object that must already include 'person' and
-'observation_period' tables.This object is the base CDM structure
-where the death data will be added. It is essential that the
-'person' and 'observation_period' tables are populated as they
-provide necessary context for generating death records.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{recordPerson}{An integer specifying the expected number of death
 records to generate per person. This parameter helps
@@ -21,17 +17,10 @@ seen in real-world medical data. Typically, this would
 be set to 1 or 0, assuming most datasets would only
 record a single death date per individual if at all.}
 
-\item{seed}{An optional integer used to set the seed for random number
-generation, ensuring reproducibility of the generated data. If
-provided, it allows the function to produce the same results
-each time it is run with the same inputs. If 'NULL', the seed is
-not set, which can result in different outputs on each run.}
+\item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }
 \value{
-Returns the modified \code{cdm} object with the new 'death' table added.
-This table includes the simulated death data for each person,
-ensuring that each record is linked correctly to individuals in the '
-person' table and falls within valid observation periods.
+A modified \code{cdm_reference} object.
 }
 \description{
 This function simulates death records for individuals within a specified

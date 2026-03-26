@@ -1,9 +1,9 @@
 #' Function to change cdm version
 #'
-#' @param cdm A `cdm_reference` object where you want to amend the cdm version
+#' @template param-cdm
 #' @param version cdm version to convert to e.g. version 5.4
 #'
-#' @returns Returns the modified `cdm` object with updated version
+#' @template return-cdm
 #' @noRd
 #'
 #' @examples

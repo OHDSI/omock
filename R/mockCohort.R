@@ -5,9 +5,7 @@
 #' specified properties and simulates the frequency of observations for
 #' individuals.
 #'
-#' @param cdm A CDM reference object where the synthetic cohort data will be
-#' stored. This object should already include necessary tables such as `person`
-#' and `observation_period`.
+#' @template param-cdm
 #' @param name A string specifying the name of the table within the CDM where
 #' the cohort data will be stored. Defaults to "cohort". This name will be used
 #' to reference the new table in the CDM.
@@ -25,13 +23,9 @@
 #' length must match the value of `numberCohorts`. This parameter helps
 #' simulate the frequency of observations for individuals in each cohort,
 #' allowing for realistic variability in data.
-#' @param seed An integer specifying the random seed for reproducibility of the
-#' generated data. Setting a seed ensures that the same synthetic data can be
-#' generated again, facilitating consistent results across different runs.
+#' @template param-seed
 #'
-#' @return A CDM reference object with the mock cohort tables added. The new
-#' table will contain synthetic data representing the specified cohorts, each
-#' with its own set of observation records.
+#' @template return-cdm
 #' @examples
 #' library(omock)
 #' cdm <- mockCdmReference() |>

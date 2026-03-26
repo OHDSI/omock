@@ -7,8 +7,7 @@
 downloadMockDataset(datasetName = "GiBleed", path = NULL, overwrite = NULL)
 }
 \arguments{
-\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
-for possibilities.}
+\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()} for supported values.}
 
 \item{path}{Path where to download the dataset.}
 

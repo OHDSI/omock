@@ -11,8 +11,7 @@ mockCdmFromDataset(
 )
 }
 \arguments{
-\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
-for possibilities.}
+\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()} for supported values.}
 
 \item{source}{Choice between \code{local} or \code{duckdb}.}
 

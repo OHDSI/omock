@@ -5,8 +5,7 @@
 #' periods and that all individual records are consistent with the entries in the person table. This is useful for
 #' creating reliable and realistic healthcare data simulations for development and testing within the OMOP CDM framework.
 #'
-#' @param cdm A `cdm_reference` object, which serves as the base structure where all additional tables will be integrated.
-#'            This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.
+#' @template param-cdm
 #'
 #' @param tables A named list of data frames representing additional tables to be integrated into the CDM.
 #'               These tables can include both standard OMOP tables such as 'drug_exposure' or 'condition_occurrence',
@@ -17,12 +16,9 @@
 #'        This value ensures that `observation_period_end_date` values do not exceed the current calendar date.
 #'
 #'
-#' @param seed An optional integer that sets the seed for random number generation used in creating mock data entries.
-#'             Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
-#'             If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.
+#' @template param-seed
 #'
-#' @return Returns the updated `cdm` object with all the new tables added and integrated, ensuring consistency
-#'         across the observational periods and the person entries.
+#' @template return-cdm
 #'
 #' @export
 #'
