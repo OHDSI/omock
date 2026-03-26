@@ -14,9 +14,7 @@ mockCohort(
 )
 }
 \arguments{
-\item{cdm}{A CDM reference object where the synthetic cohort data will be
-stored. This object should already include necessary tables such as \code{person}
-and \code{observation_period}.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{name}{A string specifying the name of the table within the CDM where
 the cohort data will be stored. Defaults to "cohort". This name will be used
@@ -39,14 +37,10 @@ length must match the value of \code{numberCohorts}. This parameter helps
 simulate the frequency of observations for individuals in each cohort,
 allowing for realistic variability in data.}
 
-\item{seed}{An integer specifying the random seed for reproducibility of the
-generated data. Setting a seed ensures that the same synthetic data can be
-generated again, facilitating consistent results across different runs.}
+\item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }
 \value{
-A CDM reference object with the mock cohort tables added. The new
-table will contain synthetic data representing the specified cohorts, each
-with its own set of observation records.
+A modified \code{cdm_reference} object.
 }
 \description{
 This function generates synthetic cohort data and adds it to a given CDM

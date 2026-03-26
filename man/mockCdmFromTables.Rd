@@ -12,8 +12,7 @@ mockCdmFromTables(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object, which serves as the base structure where all additional tables will be integrated.
-This parameter should already be initialized and can contain pre-existing standard or cohort-specific OMOP tables.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{tables}{A named list of data frames representing additional tables to be integrated into the CDM.
 These tables can include both standard OMOP tables such as 'drug_exposure' or 'condition_occurrence',
@@ -23,13 +22,10 @@ Each table should be named according to its intended table name in the CDM struc
 \item{maxObservationalPeriodEndDate}{A \code{Date} object specifying the latest allowable end date for the observation period.
 This value ensures that \code{observation_period_end_date} values do not exceed the current calendar date.}
 
-\item{seed}{An optional integer that sets the seed for random number generation used in creating mock data entries.
-Setting a seed ensures that the generated mock data are reproducible across different runs of the function.
-If 'NULL', the seed is not set, leading to non-deterministic behavior in data generation.}
+\item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }
 \value{
-Returns the updated \code{cdm} object with all the new tables added and integrated, ensuring consistency
-across the observational periods and the person entries.
+A modified \code{cdm_reference} object.
 }
 \description{
 This function takes an existing CDM reference (which can be empty) and a list of additional named tables to create

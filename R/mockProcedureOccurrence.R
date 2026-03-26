@@ -7,11 +7,7 @@
 #' periods to ensure that all conditions are recorded within valid observation
 #' windows.
 #'
-#' @param cdm A `cdm_reference` object that should already include 'person',
-#'           'observation_period', and 'concept' tables.This object is the base
-#'           CDM structure where the procedure occurrence data will be added.
-#'            It is essential that these tables are not empty as they provide
-#'            the necessary context for generating condition data.
+#' @template param-cdm
 #'
 #' @param recordPerson An integer specifying the expected number of condition
 #'                     records to generate per person.This parameter allows
@@ -20,17 +16,9 @@
 #'                     reflecting the variability seen in real-world medical
 #'                     data.
 #'
-#' @param seed An optional integer used to set the seed for random number
-#'             generation, ensuring reproducibility of the generated data.If
-#'             provided, it allows the function to produce the same results
-#'             each time it is run with the same inputs.If 'NULL', the seed is
-#'             not set, resulting in different outputs on each run.
+#' @template param-seed
 #'
-#' @return Returns the modified `cdm` object with the new
-#'         'condition_occurrence' table added. This table includes the
-#'         simulated condition data for each person, ensuring that each
-#'         record is within the valid observation periods and linked to the
-#'         correct individuals in the 'person' table.
+#' @template return-cdm
 #'
 #' @export
 #'

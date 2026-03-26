@@ -7,8 +7,7 @@
 isMockDatasetDownloaded(datasetName = "GiBleed")
 }
 \arguments{
-\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()}
-for possibilities.}
+\item{datasetName}{Name of the mock dataset. See \code{availableMockDatasets()} for supported values.}
 }
 \value{
 Whether the dataset is available or not.

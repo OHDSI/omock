@@ -9,9 +9,7 @@
 #' unintended data loss.
 #'
 #'
-#' @param cdm A CDM object that represents a common data model containing at
-#'            least a concept table.This object will be modified in-place to
-#'            include the new or updated concept entries.
+#' @template param-cdm
 #'
 #' @param conceptSet A numeric vector of concept IDs to be added or updated in
 #'                   the concept table.These IDs should be unique within the
@@ -23,14 +21,9 @@
 #'               "Observation". This defines under which category the concepts
 #'               fall and affects which vocabulary is used for them.
 #'
-#' @param seed An optional integer value used to set the random seed for
-#'            generating reproducible concept attributes like `vocabulary_id`
-#'            and `concept_class_id`. Useful for testing or when consistent
-#'            output is required.
+#' @template param-seed
 #'
-#' @return Returns the modified CDM object with the updated concept table
-#'         reflecting the newly added concepts.The function directly modifies
-#'         the provided CDM object.
+#' @template return-cdm
 #' @export
 #'
 #' @examples
