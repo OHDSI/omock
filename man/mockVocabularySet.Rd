@@ -4,7 +4,12 @@
 \alias{mockVocabularySet}
 \title{Creates an empty mock CDM database populated with various vocabulary tables set.}
 \usage{
-mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
+mockVocabularySet(
+  cdm = mockCdmReference(),
+  vocabularySet = "GiBleed",
+  conceptSet = NULL,
+  includeRelated = TRUE
+)
 }
 \arguments{
 \item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding vocabulary tables.
@@ -12,6 +17,13 @@ This should be an existing or a newly created CDM object, typically initialized 
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}
+
+\item{conceptSet}{An optional numeric vector of concept IDs used to subset
+the loaded vocabulary tables.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
 }
 \value{
 Returns the modified \code{cdm} object with the provided vocabulary set tables.

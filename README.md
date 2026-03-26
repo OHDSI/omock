@@ -18,9 +18,9 @@ coverage](https://codecov.io/gh/OHDSI/omock/branch/main/graph/badge.svg)](https:
 
 The primary objective of the omock package is to generate mock OMOP CDM
 (Observational Medical Outcomes Partnership Common Data Model) data to
-facilitating the testing of various packages within the OMOPverse
-ecosystem. For more information on the package please see our paper in
-Journal of Open Source Software.
+facilitate testing of packages within the OMOPverse ecosystem. For more
+information on the package, please see our paper in the Journal of Open
+Source Software.
 
     #> To cite omock in publications please use:
     #> 
@@ -101,7 +101,7 @@ cdm$observation_period %>%
 #> $ period_type_concept_id        <int>
 ```
 
-Once we have have our empty cdm reference, we can quickly add a person
+Once we have our empty cdm reference, we can quickly add a person
 table with a specific number of individuals.
 
 ``` r

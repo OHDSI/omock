@@ -6,6 +6,11 @@
 #'
 #' @param vocabularySet A character string that specifies a prefix or a set name used to initialize mock data tables.
 #'                      This allows for customization of the source data or structure names when generating vocabulary tables.
+#' @param conceptSet An optional numeric vector of concept IDs used to subset
+#'                   the loaded vocabulary tables.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
 #' @return Returns the modified `cdm` object with the provided vocabulary set tables.
 #'
 #' @export
@@ -19,10 +24,16 @@
 #' # View the names of the tables added to the CDM
 #' names(cdm)
 mockVocabularySet <- function(cdm = mockCdmReference(),
-                              vocabularySet = "GiBleed") {
+                              vocabularySet = "GiBleed",
+                              conceptSet = NULL,
+                              includeRelated = TRUE) {
   # read off mock
   if (vocabularySet == "mock") {
-    cdm <- cdm |> mockVocabularyTables(vocabularySet = vocabularySet)
+    cdm <- cdm |> mockVocabularyTables(
+      vocabularySet = vocabularySet,
+      conceptSet = conceptSet,
+      includeRelated = includeRelated
+    )
     return(cdm)
   }
   # initial check
@@ -82,6 +93,12 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
         correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     }
   }
+
+  cdmTables <- subsetVocabularyTables(
+    cdmTables = cdmTables,
+    conceptSet = conceptSet,
+    includeRelated = includeRelated
+  )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
 
