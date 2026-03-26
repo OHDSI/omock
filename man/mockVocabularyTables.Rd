@@ -14,7 +14,8 @@ mockVocabularyTables(
   conceptSynonym = NULL,
   conceptAncestor = NULL,
   drugStrength = NULL,
-  conceptSet = NULL
+  conceptSet = NULL,
+  includeRelated = TRUE
 )
 }
 \arguments{
@@ -58,6 +59,10 @@ the vocabulary after it has been assembled. When supplied,
 the function keeps the requested concepts and directly
 related vocabulary rows such as synonyms, relationships,
 ancestors, and drug strength records.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
 }
 \value{
 Returns the modified \code{cdm} object with the new or provided vocabulary tables added.

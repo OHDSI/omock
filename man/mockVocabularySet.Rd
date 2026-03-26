@@ -7,7 +7,8 @@
 mockVocabularySet(
   cdm = mockCdmReference(),
   vocabularySet = "GiBleed",
-  conceptSet = NULL
+  conceptSet = NULL,
+  includeRelated = TRUE
 )
 }
 \arguments{
@@ -19,6 +20,10 @@ This allows for customization of the source data or structure names when generat
 
 \item{conceptSet}{An optional numeric vector of concept IDs used to subset
 the loaded vocabulary tables.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
 }
 \value{
 Returns the modified \code{cdm} object with the provided vocabulary set tables.

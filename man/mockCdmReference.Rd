@@ -7,7 +7,8 @@
 mockCdmReference(
   cdmName = "mock database",
   vocabularySet = "mock",
-  conceptSet = NULL
+  conceptSet = NULL,
+  includeRelated = TRUE
 )
 }
 \arguments{
@@ -29,6 +30,10 @@ which contains real vocabularies available from ATHENA.
 
 \item{conceptSet}{An optional numeric vector of concept IDs used to subset
 the vocabulary tables attached to the returned CDM.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
 }
 \value{
 Returns a CDM object that is initially empty but includes mock

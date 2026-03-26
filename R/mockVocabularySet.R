@@ -8,6 +8,9 @@
 #'                      This allows for customization of the source data or structure names when generating vocabulary tables.
 #' @param conceptSet An optional numeric vector of concept IDs used to subset
 #'                   the loaded vocabulary tables.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
 #' @return Returns the modified `cdm` object with the provided vocabulary set tables.
 #'
 #' @export
@@ -22,12 +25,14 @@
 #' names(cdm)
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed",
-                              conceptSet = NULL) {
+                              conceptSet = NULL,
+                              includeRelated = TRUE) {
   # read off mock
   if (vocabularySet == "mock") {
     cdm <- cdm |> mockVocabularyTables(
       vocabularySet = vocabularySet,
-      conceptSet = conceptSet
+      conceptSet = conceptSet,
+      includeRelated = includeRelated
     )
     return(cdm)
   }
@@ -91,7 +96,8 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
 
   cdmTables <- subsetVocabularyTables(
     cdmTables = cdmTables,
-    conceptSet = conceptSet
+    conceptSet = conceptSet,
+    includeRelated = includeRelated
   )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))

@@ -23,6 +23,9 @@
 #'
 #' @param conceptSet An optional numeric vector of concept IDs used to subset
 #'                   the vocabulary tables attached to the returned CDM.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
 #'
 #' @return Returns a CDM object that is initially empty but includes mock
 #'         vocabulary tables.The object structure is compliant with OMOP CDM
@@ -41,12 +44,14 @@
 #' @export
 mockCdmReference <- function(cdmName = "mock database",
                              vocabularySet = "mock",
-                             conceptSet = NULL) {
+                             conceptSet = NULL,
+                             includeRelated = TRUE) {
   checkInput(tableName = cdmName)
 
   omopgenerics::emptyCdmReference(cdmName = cdmName) |>
     mockVocabularySet(
       vocabularySet = vocabularySet,
-      conceptSet = conceptSet
+      conceptSet = conceptSet,
+      includeRelated = includeRelated
     )
 }

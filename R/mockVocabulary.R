@@ -44,6 +44,9 @@
 #'                   the function keeps the requested concepts and directly
 #'                   related vocabulary rows such as synonyms, relationships,
 #'                   ancestors, and drug strength records.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
 #'
 #' @return Returns the modified `cdm` object with the new or provided vocabulary tables added.
 #'
@@ -66,7 +69,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
                                  drugStrength = NULL,
-                                 conceptSet = NULL) {
+                                 conceptSet = NULL,
+                                 includeRelated = TRUE) {
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -117,7 +121,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
 
   cdmTables <- subsetVocabularyTables(
     cdmTables = cdmTables,
-    conceptSet = conceptSet
+    conceptSet = conceptSet,
+    includeRelated = includeRelated
   )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
