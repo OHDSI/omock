@@ -41,7 +41,7 @@ The available datasets are listed below:
 | synthea-veteran_prostate_cancer-10k | synthea-veteran_prostate_cancer-10k | 5.3         | 801\. MB | 10,718             | 356,324        | 46              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-veteran_prostate_cancer-10k_5.3.zip) |
 | synthea-veterans-10k                | synthea-veterans-10k                | 5.3         | 801\. MB | 10,678             | 354,791        | 46              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-veterans-10k_5.3.zip)                |
 | synthea-weight_loss-10k             | synthea-weight_loss-10k             | 5.3         | 801\. MB | 10,677             | 354,689        | 46              | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/synthea-weight_loss-10k_5.3.zip)             |
-| delphi-100k_5.4                     | delphi-100k                         | 5.4         | 1.40 GB  | 99,523             | 15,825,060     | 950             | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/delphi-100k_5.4.zip)                         |
+| delphi-100k_5.4                     | delphi-100k                         | 5.4         | 1.46 GB  | 99,523             | 15,825,060     | 950             | [🔗](https://cdmconnectordata.blob.core.windows.net/cdmconnector-example-data/delphi-100k_5.4.zip)                         |
 
 For more details on those synthetic datasets you can check the
 [OmopSketch](https://ohdsi.github.io/OmopSketch/) ShinyApp:
@@ -87,7 +87,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/Rtmpz3TMMK/OMOP_DATASETS"
+#> [1] "/tmp/RtmpmKHJ7f/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message
