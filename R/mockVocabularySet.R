@@ -1,8 +1,7 @@
 #' Creates an empty mock CDM database populated with various vocabulary tables set.
 #'
 #' This function create specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
-#' @param cdm A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
-#'            This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.
+#' @template param-cdm
 #'
 #' @param vocabularySet A character string that specifies a prefix or a set name used to initialize mock data tables.
 #'                      This allows for customization of the source data or structure names when generating vocabulary tables.
@@ -14,7 +13,7 @@
 #' @param keepDomains Character vector of `domain_id` values to always retain
 #'                    when subsetting vocabulary tables. Defaults to
 #'                    `c("Unit", "Visit", "Gender")`.
-#' @return Returns the modified `cdm` object with the provided vocabulary set tables.
+#' @template return-cdm
 #'
 #' @export
 #'

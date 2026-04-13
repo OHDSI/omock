@@ -20,8 +20,7 @@ mockVocabularyTables(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding vocabulary tables.
-This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string specifying the name of the vocabulary set
 to be used when creating the vocabulary tables for the CDM.
@@ -70,7 +69,7 @@ when subsetting vocabulary tables. Defaults to
 \code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
-Returns the modified \code{cdm} object with the new or provided vocabulary tables added.
+A modified \code{cdm_reference} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

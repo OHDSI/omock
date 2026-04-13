@@ -13,8 +13,7 @@ mockVocabularySet(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object that serves as the base structure for adding vocabulary tables.
-This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}
@@ -31,7 +30,7 @@ when subsetting vocabulary tables. Defaults to
 \code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
-Returns the modified \code{cdm} object with the provided vocabulary set tables.
+A modified \code{cdm_reference} object.
 }
 \description{
 This function create specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.

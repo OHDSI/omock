@@ -2,21 +2,15 @@
 #'
 #' This function simulates measurement records for individuals within a specified cohort. It creates a realistic dataset by generating measurement records based on the specified number of records per person. Each measurement record is correctly associated with an individual within valid observation periods, ensuring the integrity of the data.
 #'
-#' @param cdm A `cdm_reference` object that must already include 'person' and 'observation_period' tables.
-#'            This object serves as the base CDM structure where the measurement data will be added.
-#'            The 'person' and 'observation_period' tables must be populated as they are necessary for generating accurate measurement records.
+#' @template param-cdm
 #'
 #' @param recordPerson An integer specifying the expected number of measurement records to generate per person.
 #'                     This parameter allows for the simulation of varying frequencies of health measurements among individuals in the cohort,
 #'                     reflecting real-world variability in patient monitoring and diagnostic testing.
 #'
-#' @param seed An optional integer used to set the seed for random number generation, ensuring reproducibility of the generated data.
-#'             If provided, this seed enables the function to produce consistent results each time it is run with the same inputs.
-#'             If 'NULL', the seed is not set, which can lead to different outputs on each run.
+#' @template param-seed
 #'
-#' @return Returns the modified `cdm` object with the new 'measurement' table added. This table includes the simulated
-#'         measurement data for each person, ensuring that each record is correctly linked to individuals in the 'person' table
-#'         and falls within valid observation periods.
+#' @template return-cdm
 #'
 #' @export
 #'

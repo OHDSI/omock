@@ -7,16 +7,15 @@
 mockVisitOccurrence(cdm, seed = NULL, visitDetail = FALSE)
 }
 \arguments{
-\item{cdm}{the CDM reference into which the  mock visit occurrence table will
-be added}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
-\item{seed}{A random seed to ensure reproducibility of the generated data.}
+\item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 
 \item{visitDetail}{TRUE/FALSE it add the corresponding visit_detail table for
 the mock visit occurrence created.}
 }
 \value{
-A cdm reference with the visit_occurrence tables added
+A modified \code{cdm_reference} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

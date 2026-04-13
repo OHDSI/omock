@@ -2,13 +2,12 @@
 #'
 #' `r lifecycle::badge('experimental')`
 #'
-#' @param cdm the CDM reference into which the  mock visit occurrence table will
-#' be added
-#' @param seed A random seed to ensure reproducibility of the generated data.
+#' @template param-cdm
+#' @template param-seed
 #' @param visitDetail TRUE/FALSE it add the corresponding visit_detail table for
 #' the mock visit occurrence created.
 #'
-#' @return A cdm reference with the visit_occurrence tables added
+#' @template return-cdm
 #' @export
 #'
 #' @examples

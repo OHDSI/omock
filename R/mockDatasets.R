@@ -1,7 +1,6 @@
 #' Create a `local` cdm_reference from a dataset.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #' @param source Choice between `local` or `duckdb`.
 #' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'. By
 #' default if not specified in databaseName the cdmVersion will be '5.4'.
@@ -189,8 +188,7 @@ getDrugStrength <- function() {
 
 #' Download an OMOP Synthetic dataset.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #' @param path Path where to download the dataset.
 #' @param overwrite Whether to overwrite the dataset if it is already
 #' downloaded. If NULL the used is asked whether to overwrite.
@@ -299,8 +297,7 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 
 #' Check if a certain dataset is downloaded.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #'
 #' @return Whether the dataset is available or not.
 #' @export

@@ -7,9 +7,7 @@
 mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 }
 \arguments{
-\item{cdm}{A CDM object that represents a common data model containing at
-least a concept table.This object will be modified in-place to
-include the new or updated concept entries.}
+\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
 
 \item{conceptSet}{A numeric vector of concept IDs to be added or updated in
 the concept table.These IDs should be unique within the
@@ -21,15 +19,10 @@ added.Only accepts "Condition", "Drug", "Measurement", or
 "Observation". This defines under which category the concepts
 fall and affects which vocabulary is used for them.}
 
-\item{seed}{An optional integer value used to set the random seed for
-generating reproducible concept attributes like \code{vocabulary_id}
-and \code{concept_class_id}. Useful for testing or when consistent
-output is required.}
+\item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }
 \value{
-Returns the modified CDM object with the updated concept table
-reflecting the newly added concepts.The function directly modifies
-the provided CDM object.
+A modified \code{cdm_reference} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
