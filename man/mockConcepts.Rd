@@ -7,7 +7,7 @@
 mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{conceptSet}{A numeric vector of concept IDs to be added or updated in
 the concept table.These IDs should be unique within the

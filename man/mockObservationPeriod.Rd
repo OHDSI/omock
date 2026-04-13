@@ -7,7 +7,7 @@
 mockObservationPeriod(cdm, seed = NULL)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }

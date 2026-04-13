@@ -38,7 +38,6 @@
 #' @param drugStrength An optional data frame representing the drug strength table.
 #'                     If provided, it will be used directly; if NULL, a mock table will be generated.
 #'
-<<<<<<< codex_test
 #' @param conceptSet An optional numeric vector of concept IDs used to subset
 #'                   the vocabulary after it has been assembled. When supplied,
 #'                   the function keeps the requested concepts and directly
@@ -51,10 +50,7 @@
 #'                    when subsetting vocabulary tables. Defaults to
 #'                    `c("Unit", "Visit", "Gender")`.
 #'
-#' @return Returns the modified `cdm` object with the new or provided vocabulary tables added.
-=======
 #' @template return-cdm
->>>>>>> main
 #'
 #' @export
 #'

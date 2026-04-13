@@ -20,7 +20,7 @@ mockVocabularyTables(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string specifying the name of the vocabulary set
 to be used when creating the vocabulary tables for the CDM.
