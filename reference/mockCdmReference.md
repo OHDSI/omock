@@ -9,7 +9,12 @@ framework.
 ## Usage
 
 ``` r
-mockCdmReference(cdmName = "mock database", vocabularySet = "mock")
+mockCdmReference(
+  cdmName = "mock database",
+  vocabularySet = "mock",
+  conceptSet = NULL,
+  includeRelated = TRUE
+)
 ```
 
 ## Arguments
@@ -32,6 +37,17 @@ mockCdmReference(cdmName = "mock database", vocabularySet = "mock")
 
   - "eunomia": Uses the vocabulary from the Eunomia test database, which
     contains real vocabularies available from ATHENA.
+
+- conceptSet:
+
+  An optional numeric vector of concept IDs used to subset the
+  vocabulary tables attached to the returned CDM.
+
+- includeRelated:
+
+  Whether to retain vocabulary concepts directly related to
+  `conceptSet`. Defaults to `TRUE`. If `FALSE`, only the requested
+  concept IDs are kept.
 
 ## Value
 

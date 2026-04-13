@@ -17,14 +17,14 @@ mockConditionOccurrence(cdm, recordPerson = 1, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object used as the base structure to update.
+  A local `cdm_reference` object used as the base structure to update.
 
 - recordPerson:
 
-  An integer specifying the expected number of condition records to
-  generate per person.This parameter allows the simulation of varying
-  frequencies of condition occurrences among individuals in the cohort,
-  reflecting the variability seen in real-world medical data.
+  Numeric multiplier used to determine how many condition occurrence
+  records to generate relative to the number of people in `cdm$person`.
+  The function creates `round(recordPerson * nrow(cdm$person))` rows,
+  then samples people with replacement to assign those records.
 
 - seed:
 
@@ -50,12 +50,12 @@ cdm <- mockCdmReference() |>
 # View the generated condition occurrence data
 cdm$condition_occurrence |>
 glimpse()
-#> Rows: 120
+#> Rows: 20
 #> Columns: 16
-#> $ condition_concept_id          <int> 194152, 194152, 194152, 194152, 194152, …
-#> $ person_id                     <int> 9, 1, 6, 3, 5, 4, 10, 10, 6, 5, 4, 6, 5,…
-#> $ condition_start_date          <date> 2016-05-17, 2014-09-23, 1993-01-11, 199…
-#> $ condition_end_date            <date> 2017-02-16, 2014-11-01, 2003-03-12, 199…
+#> $ condition_concept_id          <int> 194152, 194152, 4304866, 4304866, 371104…
+#> $ person_id                     <int> 5, 1, 5, 2, 3, 2, 10, 5, 7, 1, 6, 10, 1,…
+#> $ condition_start_date          <date> 2013-07-10, 2014-08-15, 2013-08-15, 197…
+#> $ condition_end_date            <date> 2013-09-27, 2014-09-28, 2013-09-24, 197…
 #> $ condition_occurrence_id       <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1…
 #> $ condition_type_concept_id     <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 #> $ condition_start_datetime      <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…

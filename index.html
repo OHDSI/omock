@@ -71,7 +71,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitating the testing of various packages within the OMOPverse ecosystem. For more information on the package please see our paper in Journal of Open Source Software.</p>
+<p>The primary objective of the omock package is to generate mock OMOP CDM (Observational Medical Outcomes Partnership Common Data Model) data to facilitate testing of packages within the OMOPverse ecosystem. For more information on the package, please see our paper in the Journal of Open Source Software.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#&gt; To cite omock in publications please use:</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;   Du, Mike, Mercadé-Besora, Núria, Alcalde-Herraiz, Marta, Chen,</span></span>
@@ -142,7 +142,7 @@
 <span><span class="co">#&gt; $ observation_period_start_date &lt;date&gt; </span></span>
 <span><span class="co">#&gt; $ observation_period_end_date   &lt;date&gt; </span></span>
 <span><span class="co">#&gt; $ period_type_concept_id        &lt;int&gt;</span></span></code></pre></div>
-<p>Once we have have our empty cdm reference, we can quickly add a person table with a specific number of individuals.</p>
+<p>Once we have our empty cdm reference, we can quickly add a person table with a specific number of individuals.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="va">cdm</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">omock</span><span class="fu">::</span><span class="fu"><a href="reference/mockPerson.html">mockPerson</a></span><span class="op">(</span>nPerson <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>

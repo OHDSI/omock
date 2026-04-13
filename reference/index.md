@@ -81,6 +81,8 @@ This group includes functions that set up vocabulary tables.
 - [`mockVocabularySet()`](https://ohdsi.github.io/omock/reference/mockVocabularySet.md)
   : Creates an empty mock CDM database populated with various vocabulary
   tables set.
+- [`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md)
+  : Subset vocabulary tables in a CDM
 
 ## Cohort Tables Creation
 

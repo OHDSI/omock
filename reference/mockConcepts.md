@@ -12,7 +12,7 @@ mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object used as the base structure to update.
+  A local `cdm_reference` object used as the base structure to update.
 
 - conceptSet:
 

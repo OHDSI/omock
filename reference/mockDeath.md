@@ -16,7 +16,7 @@ mockDeath(cdm, recordPerson = 1, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object used as the base structure to update.
+  A local `cdm_reference` object used as the base structure to update.
 
 - recordPerson:
 
@@ -54,8 +54,8 @@ cdm$death |>
 glimpse()
 #> Rows: 10
 #> Columns: 7
-#> $ person_id               <int> 9, 1, 5, 3, 8, 7, 4, 10, 6, 2
-#> $ death_date              <date> 1996-04-26, 2002-12-19, 1996-09-09, 2013-04-05…
+#> $ person_id               <int> 8, 1, 4, 9, 7, 5, 2, 10, 3, 6
+#> $ death_date              <date> 2012-08-31, 2010-01-19, 1986-11-16, 2007-02-24…
 #> $ death_type_concept_id   <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 #> $ death_datetime          <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ cause_concept_id        <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA

@@ -12,7 +12,7 @@ mockVisitOccurrence(cdm, seed = NULL, visitDetail = FALSE)
 
 - cdm:
 
-  A `cdm_reference` object used as the base structure to update.
+  A local `cdm_reference` object used as the base structure to update.
 
 - seed:
 

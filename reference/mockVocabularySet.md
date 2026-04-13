@@ -8,20 +8,43 @@ environment with controlled vocabulary data.
 ## Usage
 
 ``` r
-mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
+mockVocabularySet(
+  cdm = mockCdmReference(),
+  vocabularySet = "GiBleed",
+  conceptSet = NULL,
+  includeRelated = TRUE,
+  keepDomains = c("Unit", "Visit", "Gender")
+)
 ```
 
 ## Arguments
 
 - cdm:
 
-  A `cdm_reference` object used as the base structure to update.
+  A local `cdm_reference` object used as the base structure to update.
 
 - vocabularySet:
 
   A character string that specifies a prefix or a set name used to
   initialize mock data tables. This allows for customization of the
   source data or structure names when generating vocabulary tables.
+
+- conceptSet:
+
+  An optional numeric vector of concept IDs used to subset the loaded
+  vocabulary tables.
+
+- includeRelated:
+
+  Whether to retain vocabulary concepts directly related to
+  `conceptSet`. Defaults to `TRUE`. If `FALSE`, only the requested
+  concept IDs are kept.
+
+- keepDomains:
+
+  Character vector of `domain_id` values to always retain when
+  subsetting vocabulary tables. Defaults to
+  `c("Unit", "Visit", "Gender")`.
 
 ## Value
 

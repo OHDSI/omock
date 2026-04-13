@@ -56,7 +56,10 @@
 <span>  conceptRelationship <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  conceptSynonym <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  conceptAncestor <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  drugStrength <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  drugStrength <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  conceptSet <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  includeRelated <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  keepDomains <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unit"</span>, <span class="st">"Visit"</span>, <span class="st">"Gender"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -65,7 +68,7 @@
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A <code>cdm_reference</code> object used as the base structure to update.</p></dd>
+<dd><p>A local <code>cdm_reference</code> object used as the base structure to update.</p></dd>
 
 
 <dt id="arg-vocabularyset">vocabularySet<a class="anchor" aria-label="anchor" href="#arg-vocabularyset"></a></dt>
@@ -112,6 +115,26 @@ If provided, it will be used directly; if NULL, a mock table will be generated.<
 <dt id="arg-drugstrength">drugStrength<a class="anchor" aria-label="anchor" href="#arg-drugstrength"></a></dt>
 <dd><p>An optional data frame representing the drug strength table.
 If provided, it will be used directly; if NULL, a mock table will be generated.</p></dd>
+
+
+<dt id="arg-conceptset">conceptSet<a class="anchor" aria-label="anchor" href="#arg-conceptset"></a></dt>
+<dd><p>An optional numeric vector of concept IDs used to subset
+the vocabulary after it has been assembled. When supplied,
+the function keeps the requested concepts and directly
+related vocabulary rows such as synonyms, relationships,
+ancestors, and drug strength records.</p></dd>
+
+
+<dt id="arg-includerelated">includeRelated<a class="anchor" aria-label="anchor" href="#arg-includerelated"></a></dt>
+<dd><p>Whether to retain vocabulary concepts directly related
+to <code>conceptSet</code>. Defaults to <code>TRUE</code>. If <code>FALSE</code>, only
+the requested concept IDs are kept.</p></dd>
+
+
+<dt id="arg-keepdomains">keepDomains<a class="anchor" aria-label="anchor" href="#arg-keepdomains"></a></dt>
+<dd><p>Character vector of <code>domain_id</code> values to always retain
+when subsetting vocabulary tables. Defaults to
+<code>c("Unit", "Visit", "Gender")</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
