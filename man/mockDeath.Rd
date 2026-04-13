@@ -7,7 +7,7 @@
 mockDeath(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{recordPerson}{An integer specifying the expected number of death
 records to generate per person. This parameter helps

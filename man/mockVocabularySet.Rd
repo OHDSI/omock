@@ -7,7 +7,7 @@
 mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}

@@ -14,7 +14,7 @@ mockCohort(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{name}{A string specifying the name of the table within the CDM where
 the cohort data will be stored. Defaults to "cohort". This name will be used

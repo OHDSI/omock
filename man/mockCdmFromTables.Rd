@@ -12,7 +12,7 @@ mockCdmFromTables(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{tables}{A named list of data frames representing additional tables to be integrated into the CDM.
 These tables can include both standard OMOP tables such as 'drug_exposure' or 'condition_occurrence',
