@@ -4,13 +4,30 @@
 \alias{mockVocabularySet}
 \title{Creates an empty mock CDM database populated with various vocabulary tables set.}
 \usage{
-mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
+mockVocabularySet(
+  cdm = mockCdmReference(),
+  vocabularySet = "GiBleed",
+  conceptSet = NULL,
+  includeRelated = TRUE,
+  keepDomains = c("Unit", "Visit", "Gender")
+)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string that specifies a prefix or a set name used to initialize mock data tables.
 This allows for customization of the source data or structure names when generating vocabulary tables.}
+
+\item{conceptSet}{An optional numeric vector of concept IDs used to subset
+the loaded vocabulary tables.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
+
+\item{keepDomains}{Character vector of \code{domain_id} values to always retain
+when subsetting vocabulary tables. Defaults to
+\code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
 A modified \code{cdm_reference} object.

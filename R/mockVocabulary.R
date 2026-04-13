@@ -38,6 +38,18 @@
 #' @param drugStrength An optional data frame representing the drug strength table.
 #'                     If provided, it will be used directly; if NULL, a mock table will be generated.
 #'
+#' @param conceptSet An optional numeric vector of concept IDs used to subset
+#'                   the vocabulary after it has been assembled. When supplied,
+#'                   the function keeps the requested concepts and directly
+#'                   related vocabulary rows such as synonyms, relationships,
+#'                   ancestors, and drug strength records.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
+#' @param keepDomains Character vector of `domain_id` values to always retain
+#'                    when subsetting vocabulary tables. Defaults to
+#'                    `c("Unit", "Visit", "Gender")`.
+#'
 #' @template return-cdm
 #'
 #' @export
@@ -58,7 +70,10 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptRelationship = NULL,
                                  conceptSynonym = NULL,
                                  conceptAncestor = NULL,
-                                 drugStrength = NULL) {
+                                 drugStrength = NULL,
+                                 conceptSet = NULL,
+                                 includeRelated = TRUE,
+                                 keepDomains = c("Unit", "Visit", "Gender")) {
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -106,6 +121,13 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
         correctCdmFormat(tableName = omopgenerics::toSnakeCase(nam))
     }
   }
+
+  cdmTables <- subsetVocabularyTables(
+    cdmTables = cdmTables,
+    conceptSet = conceptSet,
+    includeRelated = includeRelated,
+    keepDomains = keepDomains
+  )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
 

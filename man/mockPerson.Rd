@@ -13,7 +13,7 @@ mockPerson(
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{nPerson}{An integer specifying the number of mock persons to create in the person table.
 This defines the scale of the simulation and allows for the creation of datasets

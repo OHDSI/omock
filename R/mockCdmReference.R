@@ -21,6 +21,12 @@
 #' - "eunomia": Uses the vocabulary from the Eunomia test database,
 #'   which contains real vocabularies available from ATHENA.
 #'
+#' @param conceptSet An optional numeric vector of concept IDs used to subset
+#'                   the vocabulary tables attached to the returned CDM.
+#' @param includeRelated Whether to retain vocabulary concepts directly related
+#'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
+#'                       the requested concept IDs are kept.
+#'
 #' @return Returns a CDM object that is initially empty but includes mock
 #'         vocabulary tables.The object structure is compliant with OMOP CDM
 #'         standards, making it suitable for further population with mock data
@@ -37,9 +43,15 @@
 #'
 #' @export
 mockCdmReference <- function(cdmName = "mock database",
-                             vocabularySet = "mock") {
+                             vocabularySet = "mock",
+                             conceptSet = NULL,
+                             includeRelated = TRUE) {
   checkInput(tableName = cdmName)
 
   omopgenerics::emptyCdmReference(cdmName = cdmName) |>
-    mockVocabularySet(vocabularySet = vocabularySet)
+    mockVocabularySet(
+      vocabularySet = vocabularySet,
+      conceptSet = conceptSet,
+      includeRelated = includeRelated
+    )
 }

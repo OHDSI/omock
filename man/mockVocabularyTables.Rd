@@ -13,11 +13,14 @@ mockVocabularyTables(
   conceptRelationship = NULL,
   conceptSynonym = NULL,
   conceptAncestor = NULL,
-  drugStrength = NULL
+  drugStrength = NULL,
+  conceptSet = NULL,
+  includeRelated = TRUE,
+  keepDomains = c("Unit", "Visit", "Gender")
 )
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
 \item{vocabularySet}{A character string specifying the name of the vocabulary set
 to be used when creating the vocabulary tables for the CDM.
@@ -50,6 +53,20 @@ If provided, it will be used directly; if NULL, a mock table will be generated.}
 
 \item{drugStrength}{An optional data frame representing the drug strength table.
 If provided, it will be used directly; if NULL, a mock table will be generated.}
+
+\item{conceptSet}{An optional numeric vector of concept IDs used to subset
+the vocabulary after it has been assembled. When supplied,
+the function keeps the requested concepts and directly
+related vocabulary rows such as synonyms, relationships,
+ancestors, and drug strength records.}
+
+\item{includeRelated}{Whether to retain vocabulary concepts directly related
+to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
+the requested concept IDs are kept.}
+
+\item{keepDomains}{Character vector of \code{domain_id} values to always retain
+when subsetting vocabulary tables. Defaults to
+\code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
 A modified \code{cdm_reference} object.

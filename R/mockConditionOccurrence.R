@@ -9,12 +9,11 @@
 #'
 #' @template param-cdm
 #'
-#' @param recordPerson An integer specifying the expected number of condition
-#'                     records to generate per person.This parameter allows
-#'                     the simulation of varying frequencies of condition
-#'                     occurrences among individuals in the cohort,
-#'                     reflecting the variability seen in real-world medical
-#'                     data.
+#' @param recordPerson Numeric multiplier used to determine how many condition
+#'                     occurrence records to generate relative to the number of
+#'                     people in `cdm$person`. The function creates
+#'                     `round(recordPerson * nrow(cdm$person))` rows, then
+#'                     samples people with replacement to assign those records.
 #'
 #' @template param-seed
 #'
@@ -62,30 +61,25 @@ mockConditionOccurrence <- function(cdm,
   concept_id <- getConceptId(cdm = cdm, type = "Condition")
   type_id <- getConceptId(cdm = cdm, type = "Condition Type")
 
-  # number of rows per concept_id
-  numberRows <- round(recordPerson * (nrow(cdm$person)))
+  numberRows <- round(recordPerson * nrow(cdm$person))
 
-  con <- list()
-
-  for (i in seq_along(concept_id)) {
-    num <- numberRows
-    con[[i]] <- dplyr::tibble(
-      condition_concept_id = concept_id[i],
-      subject_id = sample(
-        x = cdm$person |> dplyr::pull("person_id"),
-        size = num,
-        replace = TRUE
-      )
+  con <- dplyr::tibble(
+    condition_concept_id = if (length(concept_id) > 1) {
+      sample(concept_id, size = numberRows, replace = TRUE)
+    } else {
+      rep(concept_id, numberRows)
+    },
+    subject_id = sample(
+      x = cdm$person |> dplyr::pull("person_id"),
+      size = numberRows,
+      replace = TRUE
+    )
+  ) |>
+    addCohortDates(
+      start = "condition_start_date",
+      end = "condition_end_date",
+      observationPeriod = cdm$observation_period
     ) |>
-      addCohortDates(
-        start = "condition_start_date",
-        end = "condition_end_date",
-        observationPeriod = cdm$observation_period
-      )
-  }
-
-  con <- con |>
-    dplyr::bind_rows() |>
     dplyr::mutate(
       condition_occurrence_id = dplyr::row_number(),
       condition_type_concept_id = if (length(type_id) > 1) {

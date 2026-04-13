@@ -7,14 +7,13 @@
 mockConditionOccurrence(cdm, recordPerson = 1, seed = NULL)
 }
 \arguments{
-\item{cdm}{A \code{cdm_reference} object used as the base structure to update.}
+\item{cdm}{A local \code{cdm_reference} object used as the base structure to update.}
 
-\item{recordPerson}{An integer specifying the expected number of condition
-records to generate per person.This parameter allows
-the simulation of varying frequencies of condition
-occurrences among individuals in the cohort,
-reflecting the variability seen in real-world medical
-data.}
+\item{recordPerson}{Numeric multiplier used to determine how many condition
+occurrence records to generate relative to the number of
+people in \code{cdm$person}. The function creates
+\code{round(recordPerson * nrow(cdm$person))} rows, then
+samples people with replacement to assign those records.}
 
 \item{seed}{An optional integer used to set the random seed for reproducibility. If \code{NULL}, the seed is not set.}
 }
