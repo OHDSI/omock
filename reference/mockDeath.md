@@ -16,11 +16,7 @@ mockDeath(cdm, recordPerson = 1, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object that must already include 'person' and
-  'observation_period' tables.This object is the base CDM structure
-  where the death data will be added. It is essential that the 'person'
-  and 'observation_period' tables are populated as they provide
-  necessary context for generating death records.
+  A `cdm_reference` object used as the base structure to update.
 
 - recordPerson:
 
@@ -33,18 +29,12 @@ mockDeath(cdm, recordPerson = 1, seed = NULL)
 
 - seed:
 
-  An optional integer used to set the seed for random number generation,
-  ensuring reproducibility of the generated data. If provided, it allows
-  the function to produce the same results each time it is run with the
-  same inputs. If 'NULL', the seed is not set, which can result in
-  different outputs on each run.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the modified `cdm` object with the new 'death' table added. This
-table includes the simulated death data for each person, ensuring that
-each record is linked correctly to individuals in the ' person' table
-and falls within valid observation periods.
+A modified `cdm_reference` object.
 
 ## Examples
 

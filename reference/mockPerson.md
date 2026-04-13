@@ -22,9 +22,7 @@ mockPerson(
 
 - cdm:
 
-  A `cdm_reference` object that serves as the base structure for adding
-  the person table. This parameter should be an existing or newly
-  created CDM object that does not yet contain a 'person' table.
+  A `cdm_reference` object used as the base structure to update.
 
 - nPerson:
 
@@ -47,17 +45,12 @@ mockPerson(
 
 - seed:
 
-  An optional integer used to set the seed for random number generation,
-  ensuring reproducibility of the generated data. If provided, this seed
-  allows the function to produce consistent results each time it is run
-  with the same inputs. If 'NULL', the seed is not set, which can lead
-  to different outputs on each run.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-A modified `cdm` object with the new 'person' table added. This table
-includes simulated person data for each generated individual, with
-unique identifiers and demographic attributes.
+A modified `cdm_reference` object.
 
 ## Examples
 

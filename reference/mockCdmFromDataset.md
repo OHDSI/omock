@@ -18,7 +18,7 @@ mockCdmFromDataset(
 
   Name of the mock dataset. See
   [`availableMockDatasets()`](https://ohdsi.github.io/omock/reference/availableMockDatasets.md)
-  for possibilities.
+  for supported values.
 
 - source:
 
@@ -41,7 +41,7 @@ library(omock)
 mockDatasetsFolder(tempdir())
 #> Warning: `mockDatasetsFolder()` was deprecated in omock 0.6.0.
 #> ℹ Please use `omopDataFolder()` instead.
-#> [1] "/tmp/Rtmp7IS9Tx/mockDatasets"
+#> [1] "/tmp/Rtmpav1hgo/mockDatasets"
 downloadMockDataset(datasetName = "GiBleed")
 #> ℹ Attempting download with timeout = 120 seconds.
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")

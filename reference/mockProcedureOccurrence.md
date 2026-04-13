@@ -17,11 +17,7 @@ mockProcedureOccurrence(cdm, recordPerson = 1, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object that should already include 'person',
-  'observation_period', and 'concept' tables.This object is the base CDM
-  structure where the procedure occurrence data will be added. It is
-  essential that these tables are not empty as they provide the
-  necessary context for generating condition data.
+  A `cdm_reference` object used as the base structure to update.
 
 - recordPerson:
 
@@ -32,18 +28,12 @@ mockProcedureOccurrence(cdm, recordPerson = 1, seed = NULL)
 
 - seed:
 
-  An optional integer used to set the seed for random number generation,
-  ensuring reproducibility of the generated data.If provided, it allows
-  the function to produce the same results each time it is run with the
-  same inputs.If 'NULL', the seed is not set, resulting in different
-  outputs on each run.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the modified `cdm` object with the new 'condition_occurrence'
-table added. This table includes the simulated condition data for each
-person, ensuring that each record is within the valid observation
-periods and linked to the correct individuals in the 'person' table.
+A modified `cdm_reference` object.
 
 ## Examples
 

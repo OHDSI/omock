@@ -12,12 +12,12 @@ mockVisitOccurrence(cdm, seed = NULL, visitDetail = FALSE)
 
 - cdm:
 
-  the CDM reference into which the mock visit occurrence table will be
-  added
+  A `cdm_reference` object used as the base structure to update.
 
 - seed:
 
-  A random seed to ensure reproducibility of the generated data.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 - visitDetail:
 
@@ -26,7 +26,7 @@ mockVisitOccurrence(cdm, seed = NULL, visitDetail = FALSE)
 
 ## Value
 
-A cdm reference with the visit_occurrence tables added
+A modified `cdm_reference` object.
 
 ## Examples
 

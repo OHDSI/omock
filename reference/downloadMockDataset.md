@@ -14,7 +14,7 @@ downloadMockDataset(datasetName = "GiBleed", path = NULL, overwrite = NULL)
 
   Name of the mock dataset. See
   [`availableMockDatasets()`](https://ohdsi.github.io/omock/reference/availableMockDatasets.md)
-  for possibilities.
+  for supported values.
 
 - path:
 

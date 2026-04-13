@@ -23,10 +23,7 @@ mockCdmFromTables(
 
 - cdm:
 
-  A `cdm_reference` object, which serves as the base structure where all
-  additional tables will be integrated. This parameter should already be
-  initialized and can contain pre-existing standard or cohort-specific
-  OMOP tables.
+  A `cdm_reference` object used as the base structure to update.
 
 - tables:
 
@@ -46,17 +43,12 @@ mockCdmFromTables(
 
 - seed:
 
-  An optional integer that sets the seed for random number generation
-  used in creating mock data entries. Setting a seed ensures that the
-  generated mock data are reproducible across different runs of the
-  function. If 'NULL', the seed is not set, leading to non-deterministic
-  behavior in data generation.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the updated `cdm` object with all the new tables added and
-integrated, ensuring consistency across the observational periods and
-the person entries.
+A modified `cdm_reference` object.
 
 ## Examples
 

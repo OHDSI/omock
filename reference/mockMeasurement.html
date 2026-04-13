@@ -55,9 +55,7 @@
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A <code>cdm_reference</code> object that must already include 'person' and 'observation_period' tables.
-This object serves as the base CDM structure where the measurement data will be added.
-The 'person' and 'observation_period' tables must be populated as they are necessary for generating accurate measurement records.</p></dd>
+<dd><p>A <code>cdm_reference</code> object used as the base structure to update.</p></dd>
 
 
 <dt id="arg-recordperson">recordPerson<a class="anchor" aria-label="anchor" href="#arg-recordperson"></a></dt>
@@ -67,16 +65,12 @@ reflecting real-world variability in patient monitoring and diagnostic testing.<
 
 
 <dt id="arg-seed">seed<a class="anchor" aria-label="anchor" href="#arg-seed"></a></dt>
-<dd><p>An optional integer used to set the seed for random number generation, ensuring reproducibility of the generated data.
-If provided, this seed enables the function to produce consistent results each time it is run with the same inputs.
-If 'NULL', the seed is not set, which can lead to different outputs on each run.</p></dd>
+<dd><p>An optional integer used to set the random seed for reproducibility. If <code>NULL</code>, the seed is not set.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns the modified <code>cdm</code> object with the new 'measurement' table added. This table includes the simulated
-measurement data for each person, ensuring that each record is correctly linked to individuals in the 'person' table
-and falls within valid observation periods.</p>
+    <p>A modified <code>cdm_reference</code> object.</p>
     </div>
 
     <div class="section level2">

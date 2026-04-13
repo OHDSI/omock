@@ -16,11 +16,7 @@ mockDrugExposure(cdm, recordPerson = 1, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object that must already include 'person' and
-  'observation_period' tables. This object serves as the base CDM
-  structure where the drug exposure data will be added. The 'person' and
-  'observation_period' tables must be populated as they are necessary
-  for generating accurate drug exposure records.
+  A `cdm_reference` object used as the base structure to update.
 
 - recordPerson:
 
@@ -31,18 +27,12 @@ mockDrugExposure(cdm, recordPerson = 1, seed = NULL)
 
 - seed:
 
-  An optional integer used to set the seed for random number generation,
-  ensuring reproducibility of the generated data. If provided, this seed
-  enables the function to produce consistent results each time it is run
-  with the same inputs. If 'NULL', the seed is not set, which can lead
-  to different outputs on each run.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the modified `cdm` object with the new 'drug_exposure' table
-added. This table includes the simulated drug exposure data for each
-person, ensuring that each record is correctly linked to individuals in
-the 'person' table and falls within valid observation periods.
+A modified `cdm_reference` object.
 
 ## Examples
 

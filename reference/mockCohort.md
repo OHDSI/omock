@@ -22,9 +22,7 @@ mockCohort(
 
 - cdm:
 
-  A CDM reference object where the synthetic cohort data will be stored.
-  This object should already include necessary tables such as `person`
-  and `observation_period`.
+  A `cdm_reference` object used as the base structure to update.
 
 - name:
 
@@ -57,16 +55,12 @@ mockCohort(
 
 - seed:
 
-  An integer specifying the random seed for reproducibility of the
-  generated data. Setting a seed ensures that the same synthetic data
-  can be generated again, facilitating consistent results across
-  different runs.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-A CDM reference object with the mock cohort tables added. The new table
-will contain synthetic data representing the specified cohorts, each
-with its own set of observation records.
+A modified `cdm_reference` object.
 
 ## Examples
 

@@ -67,11 +67,7 @@ to maintain the integrity of the data.</p>
 
 
 <dl><dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A <code>cdm_reference</code> object that must already include 'person' and
-'observation_period' tables.This object is the base CDM structure
-where the death data will be added. It is essential that the
-'person' and 'observation_period' tables are populated as they
-provide necessary context for generating death records.</p></dd>
+<dd><p>A <code>cdm_reference</code> object used as the base structure to update.</p></dd>
 
 
 <dt id="arg-recordperson">recordPerson<a class="anchor" aria-label="anchor" href="#arg-recordperson"></a></dt>
@@ -85,19 +81,12 @@ record a single death date per individual if at all.</p></dd>
 
 
 <dt id="arg-seed">seed<a class="anchor" aria-label="anchor" href="#arg-seed"></a></dt>
-<dd><p>An optional integer used to set the seed for random number
-generation, ensuring reproducibility of the generated data. If
-provided, it allows the function to produce the same results
-each time it is run with the same inputs. If 'NULL', the seed is
-not set, which can result in different outputs on each run.</p></dd>
+<dd><p>An optional integer used to set the random seed for reproducibility. If <code>NULL</code>, the seed is not set.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Returns the modified <code>cdm</code> object with the new 'death' table added.
-This table includes the simulated death data for each person,
-ensuring that each record is linked correctly to individuals in the '
-person' table and falls within valid observation periods.</p>
+    <p>A modified <code>cdm_reference</code> object.</p>
     </div>
 
     <div class="section level2">

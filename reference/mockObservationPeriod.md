@@ -15,26 +15,16 @@ mockObservationPeriod(cdm, seed = NULL)
 
 - cdm:
 
-  A `cdm_reference` object that must include a 'person' table with valid
-  dates of birth. This object serves as the base CDM structure where the
-  observation period data will be added. The function checks to ensure
-  that the 'person' table is populated and uses the date of birth to
-  generate observation periods.
+  A `cdm_reference` object used as the base structure to update.
 
 - seed:
 
-  An optional integer used to set the seed for random number generation,
-  ensuring reproducibility of the generated data. If provided, this seed
-  allows the function to produce consistent results each time it is run
-  with the same inputs. If 'NULL', the seed is not set, which can lead
-  to different outputs on each run.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the modified `cdm` object with the new 'observation_period'
-table added. This table includes the simulated observation periods for
-each person, ensuring that each record spans a realistic timeframe based
-on the person's date of birth.
+A modified `cdm_reference` object.
 
 ## Examples
 

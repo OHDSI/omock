@@ -15,9 +15,7 @@ mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
 
 - cdm:
 
-  A `cdm_reference` object that serves as the base structure for adding
-  vocabulary tables. This should be an existing or a newly created CDM
-  object, typically initialized without any vocabulary tables.
+  A `cdm_reference` object used as the base structure to update.
 
 - vocabularySet:
 
@@ -27,8 +25,7 @@ mockVocabularySet(cdm = mockCdmReference(), vocabularySet = "GiBleed")
 
 ## Value
 
-Returns the modified `cdm` object with the provided vocabulary set
-tables.
+A modified `cdm_reference` object.
 
 ## Examples
 

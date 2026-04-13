@@ -12,9 +12,7 @@ mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 
 - cdm:
 
-  A CDM object that represents a common data model containing at least a
-  concept table.This object will be modified in-place to include the new
-  or updated concept entries.
+  A `cdm_reference` object used as the base structure to update.
 
 - conceptSet:
 
@@ -32,16 +30,12 @@ mockConcepts(cdm, conceptSet, domain = "Condition", seed = NULL)
 
 - seed:
 
-  An optional integer value used to set the random seed for generating
-  reproducible concept attributes like `vocabulary_id` and
-  `concept_class_id`. Useful for testing or when consistent output is
-  required.
+  An optional integer used to set the random seed for reproducibility.
+  If `NULL`, the seed is not set.
 
 ## Value
 
-Returns the modified CDM object with the updated concept table
-reflecting the newly added concepts.The function directly modifies the
-provided CDM object.
+A modified `cdm_reference` object.
 
 ## Details
 
