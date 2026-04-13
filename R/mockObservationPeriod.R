@@ -24,53 +24,59 @@
 mockObservationPeriod <- function(cdm,
                                   seed = NULL) {
   checkInput(cdm = cdm)
-  if (nrow(cdm$person) != 0) {
-    if (nrow(cdm$observation_period) != 0) {
-      cli::cli_inform("The observation period table has been overwritten.")
-    }
-
-    if (!is.null(seed)) {
-      set.seed(seed = seed)
-    }
-    # pull date of birth from person table
-    dob <- cdm$person |>
-      dplyr::mutate(dob = as.Date(sprintf(
-        "%i-%02i-%02i",
-        .data$year_of_birth,
-        .data$month_of_birth,
-        .data$day_of_birth
-      ))) |>
-      dplyr::pull("dob")
-
-    # generate observation date from dob
-    maxObservationDate <- max(as.Date("2020-01-01"), max(as.Date(dob)))
-    observationDate <- obsDate(dob = dob, max = maxObservationDate)
-
-    person_id <- cdm$person |>
-      dplyr::pull("person_id")
-
-    # type concept id
-    typeConceptId <- as.integer(getObsTypes(tables = cdm))
-
-    # define observation period table
-    observationPeriod <- dplyr::tibble(
-      person_id = person_id,
-      observation_period_start_date = as.Date(observationDate$start),
-      observation_period_end_date = as.Date(observationDate$end)
-    ) |>
-      dplyr::mutate(
-        observation_period_id = dplyr::row_number(),
-        period_type_concept_id = sample(.env$typeConceptId, size = dplyr::n(), replace = TRUE)
-      ) |>
-      addOtherColumns(tableName = "observation_period") |>
-      correctCdmFormat(tableName = "observation_period")
-
-    cdm <- omopgenerics::insertTable(
-      cdm = cdm,
-      name = "observation_period",
-      table = observationPeriod
-    )
+  if (nrow(cdm$person) == 0) {
+    cli::cli_inform(c(
+      "i" = "The person table is empty, so the observation_period table will remain empty.",
+      "i" = "Create a person table first with {.run mockPerson()} before calling {.run mockObservationPeriod()}."
+    ))
+    return(cdm)
   }
+
+  if (nrow(cdm$observation_period) != 0) {
+    cli::cli_inform("The observation period table has been overwritten.")
+  }
+
+  if (!is.null(seed)) {
+    set.seed(seed = seed)
+  }
+  # pull date of birth from person table
+  dob <- cdm$person |>
+    dplyr::mutate(dob = as.Date(sprintf(
+      "%i-%02i-%02i",
+      .data$year_of_birth,
+      .data$month_of_birth,
+      .data$day_of_birth
+    ))) |>
+    dplyr::pull("dob")
+
+  # generate observation date from dob
+  maxObservationDate <- max(as.Date("2020-01-01"), max(as.Date(dob)))
+  observationDate <- obsDate(dob = dob, max = maxObservationDate)
+
+  person_id <- cdm$person |>
+    dplyr::pull("person_id")
+
+  # type concept id
+  typeConceptId <- as.integer(getObsTypes(tables = cdm))
+
+  # define observation period table
+  observationPeriod <- dplyr::tibble(
+    person_id = person_id,
+    observation_period_start_date = as.Date(observationDate$start),
+    observation_period_end_date = as.Date(observationDate$end)
+  ) |>
+    dplyr::mutate(
+      observation_period_id = dplyr::row_number(),
+      period_type_concept_id = sample(.env$typeConceptId, size = dplyr::n(), replace = TRUE)
+    ) |>
+    addOtherColumns(tableName = "observation_period") |>
+    correctCdmFormat(tableName = "observation_period")
+
+  cdm <- omopgenerics::insertTable(
+    cdm = cdm,
+    name = "observation_period",
+    table = observationPeriod
+  )
 
   return(cdm)
 }
