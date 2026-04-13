@@ -4,8 +4,7 @@
 #'
 #' This function adds specified vocabulary tables to a CDM object. It can either populate the tables with provided data frames or initialize empty tables if no data is provided. This is useful for setting up a testing environment with controlled vocabulary data.
 #'
-#' @param cdm A `cdm_reference` object that serves as the base structure for adding vocabulary tables.
-#'            This should be an existing or a newly created CDM object, typically initialized without any vocabulary tables.
+#' @template param-cdm
 #'
 #' @param vocabularySet A character string specifying the name of the vocabulary set
 #'                    to be used when creating the vocabulary tables for the CDM.
@@ -39,7 +38,7 @@
 #' @param drugStrength An optional data frame representing the drug strength table.
 #'                     If provided, it will be used directly; if NULL, a mock table will be generated.
 #'
-#' @return Returns the modified `cdm` object with the new or provided vocabulary tables added.
+#' @template return-cdm
 #'
 #' @export
 #'

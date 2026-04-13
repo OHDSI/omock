@@ -1,7 +1,6 @@
 #' Create a `local` cdm_reference from a dataset.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #' @param source Choice between `local` or `duckdb`.
 #' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'. By
 #' default if not specified in databaseName the cdmVersion will be '5.4'.
@@ -29,7 +28,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   datasetName <- validateDatasetName(datasetName)
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
-  cdmVersion <- cdmVersion %||% cv
+  cdmVersion <- rlang::`%||%`(cdmVersion, cv)
 
   if (datasetName == "GiBleed") {
     cli::cli_inform(c(i = "Loading bundled {.pkg {datasetName}} tables from package data."))
@@ -93,7 +92,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   return(cdm)
 }
 prepareDatasetName <- function(datasetName, cdmVersion) {
-  cdmVersion <- cdmVersion %||% "5.4"
+  cdmVersion <- rlang::`%||%`(cdmVersion, "5.4")
   if (datasetName %in% omock::mockDatasets$cdm_name &
       paste0(datasetName, "_", cdmVersion) %in% omock::mockDatasets$dataset_name) {
     datasetName <- paste0(datasetName, "_", cdmVersion)
@@ -189,8 +188,7 @@ getDrugStrength <- function() {
 
 #' Download an OMOP Synthetic dataset.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #' @param path Path where to download the dataset.
 #' @param overwrite Whether to overwrite the dataset if it is already
 #' downloaded. If NULL the used is asked whether to overwrite.
@@ -299,8 +297,7 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 
 #' Check if a certain dataset is downloaded.
 #'
-#' @param datasetName Name of the mock dataset. See `availableMockDatasets()`
-#' for possibilities.
+#' @template param-dataset-name
 #'
 #' @return Whether the dataset is available or not.
 #' @export
