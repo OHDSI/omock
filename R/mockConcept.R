@@ -54,6 +54,8 @@ mockConcepts <- function(cdm,
     set.seed(seed = seed)
   }
 
+  conceptSet <- as.integer(conceptSet)
+
 
   if (!domain %in% c("Condition", "Drug", "Measurement", "Observation")) {
     cli::cli_abort("This function only supports concept in the Condtion,
@@ -65,7 +67,7 @@ mockConcepts <- function(cdm,
   }
 
   countConcept <- cdm$concept |>
-    dplyr::filter("concept_id" %in% conceptSet) |>
+    dplyr::filter(.data$concept_id %in% .env$conceptSet) |>
     dplyr::tally() |>
     dplyr::pull()
 
@@ -74,7 +76,8 @@ mockConcepts <- function(cdm,
                   table. This will overwrite the existing entry.")
   }
 
-  cdm$concept <- cdm$concept |> dplyr::filter(!"concept_id" %in% conceptSet)
+  cdm$concept <- cdm$concept |>
+    dplyr::filter(!.data$concept_id %in% .env$conceptSet)
 
   # generate vocabulary_id
 

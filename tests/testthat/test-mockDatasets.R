@@ -7,10 +7,13 @@ test_that("mock datasets cdm creation", {
   )
 
   Sys.setenv("MOCK_DATASETS_FOLDER" = "")
-  expect_no_error(mockDatasetsFolder())
+  expect_no_warning(expect_no_error(suppressWarnings(mockDatasetsFolder())))
   myFolder <- file.path(tempdir(), "DATASETS")
-  expect_no_error(mockDatasetsFolder(myFolder))
-  expect_identical(mockDatasetsFolder(), file.path(myFolder, "mockDatasets"))
+  expect_no_warning(expect_no_error(suppressWarnings(mockDatasetsFolder(myFolder))))
+  expect_no_warning(expect_identical(
+    suppressWarnings(mockDatasetsFolder()),
+    file.path(myFolder, "mockDatasets")
+  ))
 
   expect_false(isMockDatasetDownloaded("GiBleed"))
   expect_no_error(downloadMockDataset("GiBleed"))
@@ -49,8 +52,11 @@ test_that("mock datasets cdm creation", {
 test_that("synpuf-1k_5.4, skip cran", {
   skip_on_cran()
   myFolder <- file.path(tempdir(), "DATASETS")
-  expect_no_error(mockDatasetsFolder(myFolder))
-  expect_identical(mockDatasetsFolder(), file.path(myFolder, "mockDatasets"))
+  expect_no_warning(expect_no_error(suppressWarnings(mockDatasetsFolder(myFolder))))
+  expect_no_warning(expect_identical(
+    suppressWarnings(mockDatasetsFolder()),
+    file.path(myFolder, "mockDatasets")
+  ))
 
   expect_no_error(cdm1 <- mockCdmFromDataset(datasetName = "synpuf-1k_5.4"))
 
