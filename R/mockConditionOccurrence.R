@@ -13,12 +13,11 @@
 #'            It is essential that these tables are not empty as they provide
 #'            the necessary context for generating condition data.
 #'
-#' @param recordPerson An integer specifying the expected number of condition
-#'                     records to generate per person.This parameter allows
-#'                     the simulation of varying frequencies of condition
-#'                     occurrences among individuals in the cohort,
-#'                     reflecting the variability seen in real-world medical
-#'                     data.
+#' @param recordPerson Numeric multiplier used to determine how many condition
+#'                     occurrence records to generate relative to the number of
+#'                     people in `cdm$person`. The function creates
+#'                     `round(recordPerson * nrow(cdm$person))` rows, then
+#'                     samples people with replacement to assign those records.
 #'
 #' @param seed An optional integer used to set the seed for random number
 #'             generation, ensuring reproducibility of the generated data.If

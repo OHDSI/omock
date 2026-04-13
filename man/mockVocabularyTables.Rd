@@ -15,7 +15,8 @@ mockVocabularyTables(
   conceptAncestor = NULL,
   drugStrength = NULL,
   conceptSet = NULL,
-  includeRelated = TRUE
+  includeRelated = TRUE,
+  keepDomains = c("Unit", "Visit", "Gender")
 )
 }
 \arguments{
@@ -63,6 +64,10 @@ ancestors, and drug strength records.}
 \item{includeRelated}{Whether to retain vocabulary concepts directly related
 to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
 the requested concept IDs are kept.}
+
+\item{keepDomains}{Character vector of \code{domain_id} values to always retain
+when subsetting vocabulary tables. Defaults to
+\code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
 Returns the modified \code{cdm} object with the new or provided vocabulary tables added.

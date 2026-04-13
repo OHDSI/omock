@@ -8,7 +8,8 @@ mockVocabularySet(
   cdm = mockCdmReference(),
   vocabularySet = "GiBleed",
   conceptSet = NULL,
-  includeRelated = TRUE
+  includeRelated = TRUE,
+  keepDomains = c("Unit", "Visit", "Gender")
 )
 }
 \arguments{
@@ -24,6 +25,10 @@ the loaded vocabulary tables.}
 \item{includeRelated}{Whether to retain vocabulary concepts directly related
 to \code{conceptSet}. Defaults to \code{TRUE}. If \code{FALSE}, only
 the requested concept IDs are kept.}
+
+\item{keepDomains}{Character vector of \code{domain_id} values to always retain
+when subsetting vocabulary tables. Defaults to
+\code{c("Unit", "Visit", "Gender")}.}
 }
 \value{
 Returns the modified \code{cdm} object with the provided vocabulary set tables.

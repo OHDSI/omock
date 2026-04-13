@@ -11,6 +11,9 @@
 #' @param includeRelated Whether to retain vocabulary concepts directly related
 #'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
 #'                       the requested concept IDs are kept.
+#' @param keepDomains Character vector of `domain_id` values to always retain
+#'                    when subsetting vocabulary tables. Defaults to
+#'                    `c("Unit", "Visit", "Gender")`.
 #' @return Returns the modified `cdm` object with the provided vocabulary set tables.
 #'
 #' @export
@@ -26,13 +29,15 @@
 mockVocabularySet <- function(cdm = mockCdmReference(),
                               vocabularySet = "GiBleed",
                               conceptSet = NULL,
-                              includeRelated = TRUE) {
+                              includeRelated = TRUE,
+                              keepDomains = c("Unit", "Visit", "Gender")) {
   # read off mock
   if (vocabularySet == "mock") {
     cdm <- cdm |> mockVocabularyTables(
       vocabularySet = vocabularySet,
       conceptSet = conceptSet,
-      includeRelated = includeRelated
+      includeRelated = includeRelated,
+      keepDomains = keepDomains
     )
     return(cdm)
   }
@@ -97,7 +102,8 @@ mockVocabularySet <- function(cdm = mockCdmReference(),
   cdmTables <- subsetVocabularyTables(
     cdmTables = cdmTables,
     conceptSet = conceptSet,
-    includeRelated = includeRelated
+    includeRelated = includeRelated,
+    keepDomains = keepDomains
   )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))

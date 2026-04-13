@@ -1,8 +1,33 @@
-# subset vocabulary tables to a concept set while preserving directly related rows
+#' Subset vocabulary tables in a CDM
+#'
+#' Restricts the vocabulary tables in a `cdm_reference` to a target concept set
+#' while optionally retaining directly related concepts and selected
+#' `domain_id` values. Non-vocabulary OMOP tables are then filtered so rows that
+#' reference removed concepts are also dropped.
+#'
+#' @param cdm A `cdm_reference` object used as the base structure to update.
+#' @param conceptSet Numeric vector of concept IDs to retain.
+#' @param cdmTables Optional named list of vocabulary tables to subset instead
+#'   of a full `cdm_reference`. This is mainly used internally.
+#' @param includeRelated Whether to retain concepts directly related to
+#'   `conceptSet`. Defaults to `TRUE`.
+#' @param keepDomains Character vector of `domain_id` values to always retain
+#'   when subsetting vocabulary tables. Defaults to
+#'   `c("Unit", "Visit", "Gender")`.
+#'
+#' @return A modified `cdm_reference` object.
+#' @export
+#'
+#' @examples
+#' \donttest{
+#' cdm <- mockCdmFromDataset()
+#' cdm <- cdm |> subsetVocabularyTables(conceptSet = c(35208414))
+#' }
 subsetVocabularyTables <- function(cdm = NULL,
                                    conceptSet = NULL,
                                    cdmTables = NULL,
-                                   includeRelated = TRUE) {
+                                   includeRelated = TRUE,
+                                   keepDomains = c("Unit", "Visit", "Gender")) {
   if (is.null(cdmTables)) {
     if (is.null(cdm)) {
       cli::cli_abort("Either `cdm` or `cdmTables` must be supplied.")
@@ -33,7 +58,11 @@ subsetVocabularyTables <- function(cdm = NULL,
 
   checkConceptSet(conceptSet)
   omopgenerics::assertLogical(includeRelated, length = 1, null = FALSE)
+  if (!is.character(keepDomains)) {
+    cli::cli_abort("`keepDomains` must be a character vector of domain IDs.")
+  }
   conceptSet <- unique(as.integer(conceptSet))
+  keepDomains <- unique(keepDomains)
 
   availableConcepts <- unique(cdmTables$concept$concept_id)
   missingConcepts <- setdiff(conceptSet, availableConcepts)
@@ -51,6 +80,10 @@ subsetVocabularyTables <- function(cdm = NULL,
   }
 
   conceptSet <- intersect(conceptSet, availableConcepts)
+  keepConcepts <- cdmTables$concept |>
+    dplyr::filter(.data$domain_id %in% .env$keepDomains) |>
+    dplyr::pull("concept_id") |>
+    unique()
 
   concept_relationship <- cdmTables$conceptRelationship |>
     dplyr::filter(
@@ -76,6 +109,7 @@ subsetVocabularyTables <- function(cdm = NULL,
   relatedConcepts <- if (isTRUE(includeRelated)) {
     unique(c(
       conceptSet,
+      keepConcepts,
       concept_relationship$concept_id_1,
       concept_relationship$concept_id_2,
       concept_ancestor$ancestor_concept_id,
@@ -84,7 +118,7 @@ subsetVocabularyTables <- function(cdm = NULL,
       drug_strength$ingredient_concept_id
     ))
   } else {
-    conceptSet
+    unique(c(conceptSet, keepConcepts))
   }
 
   cdmTables$concept <- cdmTables$concept |>

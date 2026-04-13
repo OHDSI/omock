@@ -395,7 +395,7 @@ test_that("test vocabulary subset warns and keeps present concepts", {
 
 test_that("test vocabulary subset can be applied to an existing cdm", {
   cdm <- omock::mockCdmReference(vocabularySet = "mock")
-  cdm <- cdm |> omock:::subsetVocabularyTables(conceptSet = c(8507L, 8532L))
+  cdm <- cdm |> omock::subsetVocabularyTables(conceptSet = c(8507L, 8532L))
 
   expect_true(all(c(8507L, 8532L) %in% cdm$concept$concept_id))
   expect_true(all(cdm$vocabulary$vocabulary_id %in% unique(cdm$concept$vocabulary_id)))
@@ -423,9 +423,10 @@ test_that("test vocabulary subset strict mode works on an existing cdm", {
         year_of_birth = c(1990L, 1991L)
       )
     )) |>
-    omock:::subsetVocabularyTables(
+    omock::subsetVocabularyTables(
       conceptSet = 8507L,
-      includeRelated = FALSE
+      includeRelated = FALSE,
+      keepDomains = character(0)
     )
 
   expect_equal(cdm$concept$concept_id, 8507L)
@@ -462,10 +463,82 @@ test_that("test vocabulary subset removes rows from other tables with filtered c
       )
     ))
 
-  cdm <- cdm |> omock:::subsetVocabularyTables(conceptSet = 8507L)
-
+  cdm <- cdm |> omock::subsetVocabularyTables(
+    conceptSet = 8507L,
+    keepDomains = character(0)
+  )
   expect_equal(cdm$concept$concept_id, 8507L)
   expect_equal(cdm$person$person_id, 1L)
   expect_equal(cdm$person$gender_concept_id, 8507L)
   expect_equal(cdm$observation_period$person_id, integer())
+})
+
+test_that("test vocabulary subset keeps configured domains by default", {
+  cdm <- omock::mockVocabularyTables(
+    concept = dplyr::tibble(
+      concept_id = c(1L, 2L, 3L, 4L),
+      concept_name = c("condition", "male", "outpatient visit", "mg"),
+      domain_id = c("Condition", "Gender", "Visit", "Unit"),
+      vocabulary_id = c("SNOMED", "Gender", "Visit", "UCUM"),
+      standard_concept = "S",
+      concept_class_id = c("Clinical Finding", "Gender", "Visit", "Unit"),
+      concept_code = "1",
+      valid_start_date = NA,
+      valid_end_date = NA,
+      invalid_reason = NA
+    ),
+    conceptSet = 1L,
+    includeRelated = FALSE
+  )
+
+  expect_setequal(cdm$concept$concept_id, c(1L, 2L, 3L, 4L))
+  expect_setequal(cdm$concept$domain_id, c("Condition", "Gender", "Visit", "Unit"))
+})
+
+test_that("test subsetVocabularyTables exported function returns unchanged cdm when conceptSet is NULL", {
+  cdm <- omock::mockVocabularyTables()
+  cdm_subset <- omock::subsetVocabularyTables(cdm = cdm, conceptSet = NULL)
+
+  expect_identical(cdm_subset$concept$concept_id, cdm$concept$concept_id)
+  expect_identical(cdm_subset$vocabulary$vocabulary_id, cdm$vocabulary$vocabulary_id)
+})
+
+test_that("test subsetVocabularyTables validates keepDomains", {
+  cdm <- omock::mockVocabularyTables()
+
+  expect_error(
+    omock::subsetVocabularyTables(
+      cdm = cdm,
+      conceptSet = 8507L,
+      keepDomains = 1
+    ),
+    "`keepDomains` must be a character vector"
+  )
+})
+
+test_that("test subsetVocabularyTables can drop default kept domains", {
+  cdm <- omock::mockVocabularyTables(
+    concept = dplyr::tibble(
+      concept_id = c(1L, 2L, 3L),
+      concept_name = c("condition", "male", "visit"),
+      domain_id = c("Condition", "Gender", "Visit"),
+      vocabulary_id = c("SNOMED", "Gender", "Visit"),
+      standard_concept = "S",
+      concept_class_id = c("Clinical Finding", "Gender", "Visit"),
+      concept_code = "1",
+      valid_start_date = NA,
+      valid_end_date = NA,
+      invalid_reason = NA
+    )
+  )
+
+  cdm <- omock::subsetVocabularyTables(
+    cdm = cdm,
+    conceptSet = 1L,
+    includeRelated = FALSE,
+    keepDomains = character(0)
+  )
+
+  expect_equal(cdm$concept$concept_id, 1L)
+  expect_equal(cdm$concept$domain_id, "Condition")
 })

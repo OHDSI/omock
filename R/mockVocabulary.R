@@ -47,6 +47,9 @@
 #' @param includeRelated Whether to retain vocabulary concepts directly related
 #'                       to `conceptSet`. Defaults to `TRUE`. If `FALSE`, only
 #'                       the requested concept IDs are kept.
+#' @param keepDomains Character vector of `domain_id` values to always retain
+#'                    when subsetting vocabulary tables. Defaults to
+#'                    `c("Unit", "Visit", "Gender")`.
 #'
 #' @return Returns the modified `cdm` object with the new or provided vocabulary tables added.
 #'
@@ -70,7 +73,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
                                  conceptAncestor = NULL,
                                  drugStrength = NULL,
                                  conceptSet = NULL,
-                                 includeRelated = TRUE) {
+                                 includeRelated = TRUE,
+                                 keepDomains = c("Unit", "Visit", "Gender")) {
   # create the list of tables
   cdmTables <- list(
     cdmSource = cdmSource,
@@ -122,7 +126,8 @@ mockVocabularyTables <- function(cdm = mockCdmReference(),
   cdmTables <- subsetVocabularyTables(
     cdmTables = cdmTables,
     conceptSet = conceptSet,
-    includeRelated = includeRelated
+    includeRelated = includeRelated,
+    keepDomains = keepDomains
   )
 
   names(cdmTables) <- omopgenerics::toSnakeCase(names(cdmTables))
