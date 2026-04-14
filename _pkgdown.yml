@@ -11,6 +11,7 @@ articles:
   - synthetic_vocabulary
   - mock_from_tables
   - synthetic_datasets
+  - subset_concepts
 
 reference:
   - title: "Mock CDM Initialization"

@@ -1,0 +1,162 @@
+---
+title: "Subsetting concepts"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{subset_concepts}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+`subsetVocabularyTables()` lets you reduce a CDM vocabulary to a smaller set of concept IDs while keeping the vocabulary tables internally consistent.
+
+This is useful when you want:
+
+- a smaller mock CDM for package tests
+- to focus on one clinical concept or code set
+- to drop unused vocabulary rows after building a mock dataset
+
+```{r}
+library(omock)
+library(dplyr)
+```
+
+## Start with a mock CDM
+
+We first create a simple mock CDM with vocabulary tables.
+
+```{r}
+cdm <- mockCdmReference() |>
+  mockVocabularyTables()
+
+cdm$concept |>
+  tally()
+```
+
+## Keep a target concept set
+
+Now we subset the vocabulary to two concept IDs.
+
+```{r}
+cdm_subset <- cdm |>
+  subsetVocabularyTables(conceptSet = c(8507L, 8532L))
+
+cdm_subset$concept |>
+  select(concept_id, concept_name, domain_id, vocabulary_id)
+```
+
+By default, `subsetVocabularyTables()` also keeps:
+
+- concepts directly related to `conceptSet`
+- concepts in `Unit`, `Visit`, and `Gender` domains
+
+This behaviour helps preserve a usable mock CDM after vocabulary subsetting.
+
+## Exclude directly related concepts
+
+If you want to keep only the requested concept IDs plus the configured kept domains, set `includeRelated = FALSE`.
+
+```{r}
+cdm_strict <- cdm |>
+  subsetVocabularyTables(
+    conceptSet = c(8507L, 8532L),
+    includeRelated = FALSE
+  )
+
+cdm_strict$concept |>
+  count(domain_id)
+```
+
+## Control which domains are always retained
+
+You can override the default kept domains with `keepDomains`.
+
+```{r}
+cdm_no_defaults <- cdm |>
+  subsetVocabularyTables(
+    conceptSet = c(8507L, 8532L),
+    includeRelated = FALSE,
+    keepDomains = character(0)
+  )
+
+cdm_no_defaults$concept |>
+  select(concept_id, concept_name, domain_id)
+```
+
+This is useful when you want the smallest possible vocabulary subset.
+
+## Apply subsetting after building a CDM
+
+The function is also useful after creating a CDM with clinical tables. In that case, rows in other OMOP tables that reference removed concepts are also filtered.
+
+```{r}
+cdm_clinical <- mockVocabularyTables() |>
+  mockPerson(nPerson = 10, seed = 1) |>
+  mockObservationPeriod(seed = 1) |>
+  mockConditionOccurrence(seed = 1)
+
+cdm_clinical_small <- cdm_clinical |>
+  subsetVocabularyTables(conceptSet = c(8507L, 8532L))
+
+cdm_clinical_small$concept |>
+  tally()
+```
+
+If your chosen concept set removes concepts used by clinical tables, the corresponding rows are dropped so the resulting CDM stays consistent.
+
+For example, imagine a `condition_occurrence` row uses `condition_concept_id = 123`, but after subsetting the vocabulary, concept `123` is no longer present in `cdm$concept`. In that case, that `condition_occurrence` row is removed as well.
+
+```{r}
+cdm_example <- mockVocabularyTables(
+  concept = dplyr::tibble(
+    concept_id = c(1L, 2L, 3L),
+    concept_name = c("condition a", "condition b", "gender"),
+    domain_id = c("Condition", "Condition", "Gender"),
+    vocabulary_id = c("SNOMED", "SNOMED", "Gender"),
+    standard_concept = "S",
+    concept_class_id = c("Clinical Finding", "Clinical Finding", "Gender"),
+    concept_code = "1",
+    valid_start_date = as.Date(NA),
+    valid_end_date = as.Date(NA),
+    invalid_reason = NA_character_
+  )
+) |>
+  mockCdmFromTables(tables = list(
+    person = dplyr::tibble(
+      person_id = c(1L, 2L),
+      gender_concept_id = c(3L, 3L),
+      year_of_birth = c(1990L, 1991L)
+    ),
+    condition_occurrence = dplyr::tibble(
+      condition_occurrence_id = c(1L, 2L),
+      person_id = c(1L, 2L),
+      condition_concept_id = c(1L, 2L),
+      condition_start_date = as.Date(c("2020-01-01", "2020-01-02")),
+      condition_end_date = as.Date(c("2020-01-01", "2020-01-02")),
+      condition_type_concept_id = c(0L, 0L)
+    )
+  ))
+
+cdm_example_small <- cdm_example |>
+  subsetVocabularyTables(
+    conceptSet = 1L,
+    includeRelated = FALSE,
+    keepDomains = "Gender"
+  )
+
+cdm_example_small$concept |>
+  select(concept_id, domain_id)
+
+cdm_example_small$condition_occurrence |>
+  select(person_id, condition_concept_id)
+```
+
+In this example, the row using `condition_concept_id = 2` is removed because concept `2` is no longer present after subsetting.
