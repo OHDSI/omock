@@ -55,8 +55,6 @@ library(dplyr)
 cdm <- mockCdmReference() |> mockConcepts(
   conceptSet = c(100, 200), domain = "Condition"
 )
-#> Warning: ! 1 casted column in concept as do not match expected column type:
-#> • `concept_id` from numeric to integer
 
 # View the updated concept entries for the 'Condition' domain
 cdm$concept |> filter(domain_id == "Condition")
