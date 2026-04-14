@@ -200,7 +200,7 @@ test_that("check NA", {
     )
   )))
 
-  cdm <- omock::mockCdmFromTables(tables = list(
+  cdm <- omock::mockCdmFromTables(cdm = omock::emptyCdmReference(cdmName = "mock"), tables = list(
     cohort = dplyr::tibble(
       "cohort_definition_id" = 1L,
       "subject_id" = 1L,

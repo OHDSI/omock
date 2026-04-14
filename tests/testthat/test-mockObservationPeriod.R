@@ -25,6 +25,17 @@ test_that("mockObservationPeriod", {
     cdm$observation_period$person_id))
 })
 
+test_that("mockObservationPeriod informs when person table is empty", {
+  expect_message(
+    cdm <- emptyCdmReference(cdmName = "test") |>
+      mockObservationPeriod(),
+    "person table is empty"
+  )
+
+  expect_equal(nrow(cdm$person), 0)
+  expect_equal(nrow(cdm$observation_period), 0)
+})
+
 test_that("seed test", {
   cdm1 <- omock::mockPerson(nPerson = 10, seed = 1) |>
     omock::mockObservationPeriod(seed = 1)

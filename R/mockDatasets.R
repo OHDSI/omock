@@ -118,7 +118,7 @@ readTables <- function(tmpFolder, cv, vocab = F) {
   tables
 }
 getDrugStrength <- function() {
-  drugStregthFile <- file.path(mockDatasetsFolder(), "drug_strength.rds")
+  drugStregthFile <- file.path(mockFolder(), "drug_strength.rds")
 
   # download if it does not exist
   if (!file.exists(drugStregthFile)) {
