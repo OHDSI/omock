@@ -9,7 +9,7 @@ subsetVocabularyTables(
   conceptSet = NULL,
   cdmTables = NULL,
   includeRelated = TRUE,
-  keepDomains = c("Unit", "Visit", "Gender")
+  keepDomains = c("Unit", "Visit", "Gender", "Type Concept")
 )
 }
 \arguments{

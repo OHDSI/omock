@@ -89,10 +89,12 @@ mockCdmFromTables <- function(cdm = mockCdmReference(),
   # append cdm tables to tables
   tables <- mergeTables(tables, cdm)
 
+  validateObservationDates(tables)
+
   # summarise individuals observation
   individuals <- summariseObservations(tables)
 
-  if (max(individuals$last_observation) > maxObservationalPeriodEndDate) {
+  if (max(individuals$last_observation, na.rm = TRUE) > maxObservationalPeriodEndDate) {
     cli::cli_abort(
       "tables provided contain date greater than `maxObservationalPeriodEndDate`",
       call = parent.frame()
@@ -255,6 +257,48 @@ getEndDate <- function(tableName) {
   }
   return(x)
 }
+validateObservationDates <- function(tables, call = parent.frame()) {
+  missingDates <- character()
+
+  for (k in seq_along(tables)) {
+    tableName <- names(tables)[k]
+
+    if (tableName == "person") {
+      next
+    }
+
+    personId <- getPersonId(tableName)
+
+    if (!is.na(personId)) {
+      dateColumns <- unique(c(getStartDate(tableName), getEndDate(tableName)))
+      dateColumns <- dateColumns[dateColumns %in% colnames(tables[[k]])]
+      colsWithMissingDates <- dateColumns[purrr::map_lgl(
+        dateColumns,
+        ~ any(is.na(tables[[k]][[.x]]))
+      )]
+
+      if (length(colsWithMissingDates) > 0) {
+        missingDates <- c(
+          missingDates,
+          paste0(tableName, "$", colsWithMissingDates)
+        )
+      }
+    }
+  }
+
+  if (length(missingDates) > 0) {
+    cli::cli_abort(
+      c(
+        "Input tables contain missing dates in columns used to derive observation periods.",
+        "i" = "Provide non-missing values for these date columns or remove the affected records.",
+        "x" = "{missingDates}"
+      ),
+      call = call
+    )
+  }
+
+  return(invisible(NULL))
+}
 summariseObservations <- function(tables) {
   individuals <- dplyr::tibble(
     "person_id" = integer(), "date" = as.Date(character())
@@ -316,8 +360,8 @@ summariseObservations <- function(tables) {
   individuals <- individuals |>
     dplyr::group_by(.data$person_id) |>
     dplyr::summarise(
-      "first_observation" = min(.data$date),
-      "last_observation" = max(.data$date)
+      "first_observation" = min(.data$date, na.rm = TRUE),
+      "last_observation" = max(.data$date, na.rm = TRUE)
     )
 
   return(individuals)
