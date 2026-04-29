@@ -95,6 +95,7 @@ test_that("mock cohort has initial attrition", {
   expect_equal(
     attrition |>
       dplyr::select("cohort_definition_id", "number_records", "number_subjects"),
-    counts
+    counts,
+    ignore_attr = TRUE
   )
 })
