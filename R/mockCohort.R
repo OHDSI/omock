@@ -167,13 +167,35 @@ mockCohort <- function(cdm,
     cohort_definition_id = cohortId,
     cohort_name = cohortName
   )
+
+  cohortAttritionTable <- cohortSetTable |>
+    dplyr::select("cohort_definition_id") |>
+    dplyr::left_join(
+      cohort |>
+        dplyr::group_by(.data$cohort_definition_id) |>
+        dplyr::summarise(
+          number_records = dplyr::n(),
+          number_subjects = dplyr::n_distinct(.data$subject_id),
+          .groups = "drop"
+        ),
+      by = "cohort_definition_id"
+    ) |>
+    dplyr::mutate(
+      number_records = dplyr::coalesce(.data$number_records, 0L),
+      number_subjects = dplyr::coalesce(.data$number_subjects, 0L),
+      reason_id = 1L,
+      reason = "Initial qualifying events",
+      excluded_records = 0L,
+      excluded_subjects = 0L
+    )
+
   # create class
 
   cdm <- omopgenerics::insertTable(cdm = cdm, name = name, table = cohort)
   cdm[[name]] <- cdm[[name]] |>
     omopgenerics::newCohortTable(
       cohortSetRef = cohortSetTable,
-      cohortAttritionRef = attr(cohort, "cohort_attrition")
+      cohortAttritionRef = cohortAttritionTable
     )
 
   return(cdm)
