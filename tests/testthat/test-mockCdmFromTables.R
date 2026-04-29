@@ -119,6 +119,32 @@ test_that("check cdm object get created", {
 
 
 test_that("check NA", {
+  expect_error(
+    omock::mockCdmFromTables(
+      tables = list(
+        person = dplyr::tibble(
+          person_id = 1:3L,
+          gender_concept_id = 0L,
+          year_of_birth = 2000L
+        ),
+        drug_exposure = dplyr::tibble(
+          person_id = 1:2L,
+          drug_exposure_start_date = as.Date("2020-01-01"),
+          drug_exposure_end_date = as.Date("2020-01-01")
+        ),
+        condition_occurrence = dplyr::tibble(
+          person_id = 4L,
+          condition_start_date = as.Date("2020-01-01")
+        ),
+        measurement = dplyr::tibble(
+          person_id = c(1L, 3L, 5L, 7L, 8L),
+          measurement_date = as.Date("2020-01-01")
+        )
+      )
+    ),
+    "condition_occurrence\\$condition_end_date"
+  )
+
   expect_error(omock::mockCdmFromTables(
     tables = list(
       visit_occurrence = dplyr::tibble(

@@ -27,7 +27,7 @@ subsetVocabularyTables <- function(cdm = NULL,
                                    conceptSet = NULL,
                                    cdmTables = NULL,
                                    includeRelated = TRUE,
-                                   keepDomains = c("Unit", "Visit", "Gender")) {
+                                   keepDomains = c("Unit", "Visit", "Gender", "Type Concept")) {
   if (is.null(cdmTables)) {
     if (is.null(cdm)) {
       cli::cli_abort("Either `cdm` or `cdmTables` must be supplied.")
