@@ -68,3 +68,33 @@ test_that("cohort count", {
       dplyr::pull(n) == c(100, 100, 100)
   ))
 })
+
+test_that("mock cohort has initial attrition", {
+  cdm <- omock::emptyCdmReference(cdmName = "mock") |>
+    omock::mockPerson(nPerson = 100) |>
+    omock::mockObservationPeriod() |>
+    omock::mockCohort(
+      recordPerson = 1,
+      numberCohorts = 3,
+      seed = 1
+    )
+
+  attrition <- omopgenerics::attrition(cdm$cohort)
+  counts <- cdm$cohort |>
+    dplyr::group_by(.data$cohort_definition_id) |>
+    dplyr::summarise(
+      number_records = dplyr::n(),
+      number_subjects = dplyr::n_distinct(.data$subject_id),
+      .groups = "drop"
+    )
+
+  expect_true(all(attrition$reason_id == 1L))
+  expect_true(all(attrition$reason == "Initial qualifying events"))
+  expect_true(all(attrition$excluded_records == 0L))
+  expect_true(all(attrition$excluded_subjects == 0L))
+  expect_equal(
+    attrition |>
+      dplyr::select("cohort_definition_id", "number_records", "number_subjects"),
+    counts
+  )
+})
