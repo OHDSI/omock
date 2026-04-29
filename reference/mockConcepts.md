@@ -55,6 +55,10 @@ library(dplyr)
 cdm <- mockCdmReference() |> mockConcepts(
   conceptSet = c(100, 200), domain = "Condition"
 )
+#> Warning: `mockConcepts()` was deprecated in omock 0.6.2.9000.
+#> ℹ `mockConcepts()` creates placeholder concept rows that may be mistaken for
+#>   real OMOP vocabulary content. Use `mockCdmReference()` with `vocabularySet =
+#>   "eunomia"`, `mockVocabularyTables()`, or `subsetVocabularyTables()` instead.
 
 # View the updated concept entries for the 'Condition' domain
 cdm$concept |> filter(domain_id == "Condition")

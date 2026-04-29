@@ -2,6 +2,16 @@
 
 ## omock (development version)
 
+- Deprecated
+  [`mockConcepts()`](https://ohdsi.github.io/omock/reference/mockConcepts.md)
+  because it creates placeholder concept rows that may be mistaken for
+  real OMOP vocabulary content. Use
+  `mockCdmReference(vocabularySet = "eunomia")`,
+  [`mockVocabularyTables()`](https://ohdsi.github.io/omock/reference/mockVocabularyTables.md),
+  or
+  [`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md)
+  instead.
+
 ## omock 0.6.2
 
 CRAN release: 2026-03-23
