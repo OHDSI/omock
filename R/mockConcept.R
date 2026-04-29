@@ -1,12 +1,11 @@
 #' Adds mock concept data to a concept table within a Common Data Model (CDM) object.
 #'
-#' `r lifecycle::badge('experimental')`
+#' `r lifecycle::badge('deprecated')`
 #'
-#' This function inserts new concept entries into a specified domain within
-#' the concept table of a CDM object.It supports four domains: Condition, Drug,
-#' Measurement, and Observation. Existing entries with the same concept IDs
-#' will be overwritten, so caution should be used when adding data to prevent
-#' unintended data loss.
+#' `mockConcepts()` is deprecated because it creates placeholder concept rows
+#' that may be mistaken for real OMOP vocabulary content. Prefer using
+#' `mockCdmReference()` with `vocabularySet = "eunomia"`,
+#' `mockVocabularyTables()`, or `subsetVocabularyTables()`.
 #'
 #'
 #' @template param-cdm
@@ -42,6 +41,17 @@ mockConcepts <- function(cdm,
                          conceptSet,
                          domain = "Condition",
                          seed = NULL) {
+  lifecycle::deprecate_warn(
+    when = "0.6.2.9000",
+    what = "mockConcepts()",
+    details = paste(
+      "`mockConcepts()` creates placeholder concept rows that may be mistaken",
+      "for real OMOP vocabulary content. Use `mockCdmReference()` with",
+      "`vocabularySet = \"eunomia\"`, `mockVocabularyTables()`, or",
+      "`subsetVocabularyTables()` instead."
+    )
+  )
+
   # initial checks
   checkInput(
     cdm = cdm,

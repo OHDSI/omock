@@ -1,5 +1,10 @@
 # omock (development version)
 
+-   Deprecated `mockConcepts()` because it creates placeholder concept rows that
+    may be mistaken for real OMOP vocabulary content. Use
+    `mockCdmReference(vocabularySet = "eunomia")`, `mockVocabularyTables()`, or
+    `subsetVocabularyTables()` instead.
+
 # omock 0.6.2
 
 # omock 0.6.1
