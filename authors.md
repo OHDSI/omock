@@ -24,7 +24,7 @@ Guo, Yuchen, López-Güell, Kim, Burn, Edward, Català, Martí (2025).
 “omock: A R package for Mock Data Generation for the Observational
 Medical Outcomes Partnership Common Data Model.” *Journal of Open Source
 Software*.
-[doi:10.21105/joss.08178](https://doi.org/10.21105/joss.08178),
+[doi:10.21105/joss.08178](https://doi.org/10.21105/joss.08178).
 <https://joss.theoj.org/papers/10.21105/joss.08178>.
 
     @Article{,

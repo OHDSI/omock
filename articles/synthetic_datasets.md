@@ -87,7 +87,7 @@ function:
 
 ``` r
 omopDataFolder()
-#> [1] "/tmp/RtmpEjdvyi/OMOP_DATASETS"
+#> [1] "/tmp/Rtmp9Kx1jW/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message
