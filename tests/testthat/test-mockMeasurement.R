@@ -35,6 +35,27 @@ test_that("mock Measurement", {
 
   expect_true(cdm$measurement |> dplyr::tally() |> dplyr::pull() == concept_count *
     10 * 2)
+  expect_false(any(is.na(cdm$measurement$value_as_number)))
+  expect_false(any(is.na(cdm$measurement$unit_concept_id)))
+  expect_false(any(is.na(cdm$measurement$value_as_concept_id)))
+  expect_type(cdm$measurement$value_as_number, "double")
+  expect_true(all(cdm$measurement$value_as_number %% 1 == 0))
+
+  unit_concepts <- cdm$concept |>
+    dplyr::filter(.data$domain_id == "Unit") |>
+    dplyr::pull("concept_id")
+
+  value_concepts <- cdm$concept |>
+    dplyr::filter(.data$domain_id == "Meas Value") |>
+    dplyr::pull("concept_id")
+
+  expect_true(all(
+    unique(cdm$measurement$unit_concept_id) %in% unit_concepts
+  ))
+
+  expect_true(all(
+    unique(cdm$measurement$value_as_concept_id) %in% value_concepts
+  ))
 
 
   # concept type
@@ -55,6 +76,12 @@ test_that("mock Measurement", {
 
   expect_true(all(cdm$measurement |> dplyr::pull("measurement_type_concept_id") |>
     unique() %in% c(136, 138)))
+
+  expect_true(all(cdm$measurement |> dplyr::pull("unit_concept_id") |>
+    unique() == 0L))
+
+  expect_true(all(cdm$measurement |> dplyr::pull("value_as_concept_id") |>
+    unique() == 0L))
 })
 
 test_that("seed test", {
