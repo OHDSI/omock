@@ -3,7 +3,8 @@
 #' @template param-dataset-name
 #' @param source Choice between `local` or `duckdb`.
 #' @param cdmVersion Version of the OMOP CDM, can either be '5.3' or '5.4'. By
-#' default if not specified in databaseName the cdmVersion will be '5.4'.
+#' default, the dataset's original CDM version is used. If a different version
+#' is requested, the returned CDM is converted with `changeCdmVersion()`.
 #'
 #' @return A local cdm_reference object.
 #' @export
@@ -21,7 +22,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
                                cdmVersion = NULL) {
   # initial check
   omopgenerics::assertCharacter(datasetName, length = 1)
-  omopgenerics::assertCharacter(cdmVersion, length = 1, null = TRUE)
+  omopgenerics::assertChoice(cdmVersion, c("5.3", "5.4"), null = TRUE)
   omopgenerics::assertChoice(source, c("local", "duckdb"))
 
   datasetName <- prepareDatasetName(datasetName, cdmVersion)
@@ -65,7 +66,7 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   cdm <- omopgenerics::cdmFromTables(tables = tables, cdmName = cn, cdmVersion = cv)
 
   if (cv != cdmVersion) {
-    cli::cli_inform(c(i = "Addapting cdmVersion from {.pkg {cv}} to {.pkg {cdmVersion}}."))
+    cli::cli_inform(c(i = "Adapting cdmVersion from {.pkg {cv}} to {.pkg {cdmVersion}}."))
     cdm <- changeCdmVersion(cdm = cdm, cdmVersion = cdmVersion)
   }
 
@@ -322,15 +323,16 @@ isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   if (isTRUE(result)) {
     expectedSize <- omock::mockDatasets$size[omock::mockDatasets$dataset_name == datasetName]
     actualSize <- file.size(filePath)
-    if (actualSize != expectedSize) {
-      cli::cli_warn(c("!" = "There is a downloaded dataset in {.path {filePath}}
-                      but its size ({actualSize} B) is not the expected {expectedSize} B."))
-      if (question("Do you want to delete prior dataset? Y/n")) {
+    if (!isDatasetSizeOk(actualSize = actualSize, expectedSize = expectedSize)) {
+      cli::cli_warn(c(
+        "!" = "The downloaded dataset in {.path {filePath}} appears incomplete.",
+        "i" = "Its size is {actualSize} B, but the expected size is {expectedSize} B."
+      ))
+      if (question("Delete the incomplete dataset and download it again? Y/n")) {
         file.remove(filePath)
         cli::cli_inform(c(
           "v" = "Incomplete prior dataset deleted.",
-          "i" = "Probably connection was trucaded due to small timeout, do you
-          want to set a bigger timeout? {.run options(timeout = 1200)}"
+          "i" = "If this was caused by a timeout, try increasing it with {.run options(timeout = 1200)}."
         ))
         result <- FALSE
       }
@@ -338,6 +340,13 @@ isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   }
 
   return(result)
+}
+isDatasetSizeOk <- function(actualSize, expectedSize, tolerance = 0.0001) {
+  if (length(actualSize) != 1 || length(expectedSize) != 1 ||
+      is.na(actualSize) || is.na(expectedSize)) {
+    return(FALSE)
+  }
+  actualSize >= expectedSize * (1 - tolerance)
 }
 
 #' List the available datasets

@@ -25,14 +25,13 @@ fall and affects which vocabulary is used for them.}
 A modified \code{cdm_reference} object.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }
 \details{
-This function inserts new concept entries into a specified domain within
-the concept table of a CDM object.It supports four domains: Condition, Drug,
-Measurement, and Observation. Existing entries with the same concept IDs
-will be overwritten, so caution should be used when adding data to prevent
-unintended data loss.
+\code{mockConcepts()} is deprecated because it creates placeholder concept rows
+that may be mistaken for real OMOP vocabulary content. Prefer using
+\code{mockCdmReference()} with \code{vocabularySet = "eunomia"},
+\code{mockVocabularyTables()}, or \code{subsetVocabularyTables()}.
 }
 \examples{
 library(omock)

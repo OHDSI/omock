@@ -5,6 +5,8 @@ test_that("check update cdm version", {
     datasetName = "GiBleed",
     source = "local"
   )
+  cdm$person <- cdm$person |>
+    dplyr::mutate("extra_column" = 1L)
   expect_true(cdmVersion(cdm) == "5.3")
   cdm2 <- changeCdmVersion(cdm = cdm, cdmVersion = "5.4")
   expect_true(cdmVersion(cdm2) == "5.4")
@@ -14,17 +16,27 @@ test_that("check update cdm version", {
 
   # extra colnums
   expect_true("cdm_version_concept_id" %in% colnames(cdm2$cdm_source))
+  expect_false("extra_column" %in% colnames(cdm2$person))
 
   expect_true("admitted_from_source_value" %in% colnames(cdm2$visit_detail))
   expect_true("admitted_from_concept_id" %in% colnames(cdm2$visit_detail))
   expect_true("discharged_to_concept_id" %in% colnames(cdm2$visit_detail))
   expect_true("discharged_to_source_value" %in% colnames(cdm2$visit_detail))
   expect_true("parent_visit_detail_id" %in% colnames(cdm2$visit_detail))
+  expect_false("admitting_source_value" %in% colnames(cdm2$visit_detail))
+  expect_false("admitting_source_concept_id" %in% colnames(cdm2$visit_detail))
+  expect_false("discharge_to_concept_id" %in% colnames(cdm2$visit_detail))
+  expect_false("discharge_to_source_value" %in% colnames(cdm2$visit_detail))
+  expect_false("visit_detail_parent_id" %in% colnames(cdm2$visit_detail))
 
   expect_true("admitted_from_concept_id" %in% colnames(cdm2$visit_occurrence))
   expect_true("admitted_from_source_value" %in% colnames(cdm2$visit_occurrence))
   expect_true("admitted_from_source_value" %in% colnames(cdm2$visit_occurrence))
   expect_true("discharged_to_source_value" %in% colnames(cdm2$visit_occurrence))
+  expect_false("admitting_source_value" %in% colnames(cdm2$visit_occurrence))
+  expect_false("admitting_source_concept_id" %in% colnames(cdm2$visit_occurrence))
+  expect_false("discharge_to_concept_id" %in% colnames(cdm2$visit_occurrence))
+  expect_false("discharge_to_source_value" %in% colnames(cdm2$visit_occurrence))
 
   expect_true("production_id" %in% colnames(cdm2$device_exposure))
   expect_true("unit_concept_id" %in% colnames(cdm2$device_exposure))

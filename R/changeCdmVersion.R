@@ -43,85 +43,58 @@ changeCdmVersion <- function(cdm, cdmVersion = "5.4") {
     removeColumn(diff$remove_column) |>
     # rename column
     renameColumn(diff$rename_column) |>
+    # align columns
+    alignColumns(cdmVersion) |>
     # update cdm source
     upDateCdmSource(cdmVersion)
 }
 
 cdmDifferences <- function(oldVersion, newVersion) {
-  colsOld <- omopgenerics::omopTableFields(cdmVersion = oldVersion)
-  tablesOld <- unique(colsOld$cdm_table_name)
-
   colsNew <- omopgenerics::omopTableFields(cdmVersion = newVersion)
-  tablesNew <- unique(colsNew$cdm_table_name)
+  changes <- omopgenerics::compareOmopTableFields(
+    cdmVersionReference = oldVersion,
+    cdmVersionComparator = newVersion
+  ) |>
+    dplyr::mutate(
+      table_name = sub("-.*$", "", .data$field),
+      column = sub("^[^-]+-", "", .data$field)
+    )
 
   result <- list()
 
   # new tables
-  result$new_table <- tablesNew[!tablesNew %in% tablesOld]
+  result$new_table <- changes |>
+    dplyr::filter(.data$change == "new table") |>
+    dplyr::pull("table_name") |>
+    unique()
 
   # remove tables
-  result$remove_table <- tablesOld[!tablesOld %in% tablesNew]
-
-  # new columns
-  dif <- intersect(tablesOld, tablesNew) |>
-    rlang::set_names() |>
-    purrr::map(\(x) {
-      columnsNew <- colsNew |>
-        dplyr::filter(.data$cdm_table_name == .env$x) |>
-        dplyr::pull("cdm_field_name")
-      columnsOld <- colsOld |>
-        dplyr::filter(.data$cdm_table_name == .env$x) |>
-        dplyr::pull("cdm_field_name")
-      inNew <- columnsNew[!columnsNew %in% columnsOld]
-      inOld <- columnsOld[!columnsOld %in% columnsNew]
-      list(in_new = inNew, in_old = inOld)
-    }) |>
-    purrr::keep(\(x) length(x$in_new) > 0 | length(x$in_old) > 0)
-
-  # possible changes till the moment
-  changes <- dplyr::tribble(
-    ~from, ~to,
-    "admitting_source_value", "admitted_from_source_value",
-    "discharge_to_concept_id", "discharged_to_concept_id",
-    "discharge_to_source_value", "discharged_to_source_value",
-    "admitting_source_concept_id", "admitted_from_concept_id",
-    "visit_detail_parent_id", "parent_visit_detail_id"
-  )
-  changes <- changes |>
-    dplyr::union_all(
-      changes |>
-        dplyr::rename("from" = "to", "to" = "from")
-    )
+  result$remove_table <- changes |>
+    dplyr::filter(.data$change == "eliminated table") |>
+    dplyr::pull("table_name") |>
+    unique()
 
   # columns to rename
-  result$rename_column <- dif |>
-    purrr::map(\(x) {
-      changes |>
-        dplyr::filter(
-          .data$from %in% .env$x$in_old & .data$to %in% .env$x$in_new
-        )
-    }) |>
-    dplyr::bind_rows(.id = "table_name")
+  result$rename_column <- changes |>
+    dplyr::filter(grepl("^changed from: ", .data$change)) |>
+    dplyr::mutate(
+      from_field = sub("^changed from: ", "", .data$change),
+      from_table = sub("-.*$", "", .data$from_field),
+      from = sub("^[^-]+-", "", .data$from_field),
+      to = .data$column
+    ) |>
+    dplyr::filter(.data$table_name == .data$from_table, .data$from != .data$to) |>
+    dplyr::select("table_name", "from", "to")
 
   # columns to remove
-  result$remove_column <- dif |>
-    purrr::map(\(x) dplyr::tibble(column = x$in_old)) |>
-    dplyr::bind_rows(.id = "table_name") |>
-    dplyr::anti_join(
-      result$rename_column |>
-        dplyr::select("table_name", "column" = "from"),
-      by = c("table_name", "column")
-    )
+  result$remove_column <- changes |>
+    dplyr::filter(.data$change == "eliminated field") |>
+    dplyr::select("table_name", "column")
 
   # new columns
-  result$new_column <- dif |>
-    purrr::map(\(x) dplyr::tibble(column = x$in_new)) |>
-    dplyr::bind_rows(.id = "table_name") |>
-    dplyr::anti_join(
-      result$rename_column |>
-        dplyr::select("table_name", "column" = "to"),
-      by = c("table_name", "column")
-    ) |>
+  result$new_column <- changes |>
+    dplyr::filter(.data$change == "new field") |>
+    dplyr::select("table_name", "column") |>
     dplyr::inner_join(
       colsNew |>
         dplyr::rename("table_name" = "cdm_table_name", "column" = "cdm_field_name"),
@@ -193,9 +166,21 @@ removeColumn <- function(cdm, colsToRemove) {
   tbls <- unique(colsToRemove$table_name)
   tbls <- tbls[tbls %in% names(cdm)]
   for (tb in tbls) {
-    q <- colsToRemove$from[colsToRemove$table_name == tb]
+    q <- colsToRemove$column[colsToRemove$table_name == tb]
     cdm[[tb]] <- cdm[[tb]] |>
       dplyr::select(!dplyr::any_of(q))
+  }
+  return(cdm)
+}
+alignColumns <- function(cdm, version) {
+  fields <- omopgenerics::omopTableFields(cdmVersion = version)
+  tbls <- intersect(names(cdm), unique(fields$cdm_table_name))
+  for (tb in tbls) {
+    columns <- fields |>
+      dplyr::filter(.data$cdm_table_name == .env$tb) |>
+      dplyr::pull("cdm_field_name")
+    cdm[[tb]] <- cdm[[tb]] |>
+      dplyr::select(dplyr::any_of(columns))
   }
   return(cdm)
 }
