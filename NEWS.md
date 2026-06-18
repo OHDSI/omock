@@ -4,6 +4,15 @@
     may be mistaken for real OMOP vocabulary content. Use
     `mockCdmReference(vocabularySet = "eunomia")`, `mockVocabularyTables()`, or
     `subsetVocabularyTables()` instead.
+-   `changeCdmVersion()` now uses `omopgenerics::compareOmopTableFields()` and
+    aligns local OMOP tables to the target CDM version fields.
+-   `mockCdmFromDataset()` now validates `cdmVersion` and converts loaded
+    datasets to the requested CDM version when needed.
+-   Downloaded mock datasets within 99.99% of their expected size are now
+    reused; users are only asked to delete a dataset when it appears incomplete.
+-   Mock dataset CDM names now resolve to a downloadable dataset version before
+    download, avoiding invalid URL errors when a requested target CDM version is
+    not directly hosted.
 
 # omock 0.6.2
 

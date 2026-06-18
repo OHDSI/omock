@@ -39,6 +39,11 @@ test_that("mock datasets cdm creation", {
   dbName <- "GiBleed"
   expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName))
   expect_no_error(omopgenerics::validateCdmArgument(cdm))
+  expect_true(omopgenerics::cdmVersion(cdm) == "5.3")
+
+  expect_no_error(cdm54 <- mockCdmFromDataset(datasetName = dbName, cdmVersion = "5.4"))
+  expect_true(omopgenerics::cdmVersion(cdm54) == "5.4")
+  expect_error(mockCdmFromDataset(datasetName = dbName, cdmVersion = "5.5"))
 
   expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName))
 
@@ -47,6 +52,29 @@ test_that("mock datasets cdm creation", {
   expect_no_error(cdm <- mockCdmFromDataset(datasetName = dbName, source = "duckdb"))
 
   unlink(myFolder, recursive = TRUE)
+})
+
+test_that("mockCdmFromDataset converts requested cdm version", {
+  cdm <- mockCdmFromDataset(datasetName = "GiBleed", cdmVersion = "5.4")
+
+  expect_true(omopgenerics::cdmVersion(cdm) == "5.4")
+  expect_true("cdm_version_concept_id" %in% colnames(cdm$cdm_source))
+  expect_true("admitted_from_source_value" %in% colnames(cdm$visit_occurrence))
+  expect_false("admitting_source_value" %in% colnames(cdm$visit_occurrence))
+  expect_error(mockCdmFromDataset(datasetName = "GiBleed", cdmVersion = "5.5"))
+})
+
+test_that("dataset size check allows small size differences", {
+  expect_true(isDatasetSizeOk(actualSize = 10000, expectedSize = 10000))
+  expect_true(isDatasetSizeOk(actualSize = 9999, expectedSize = 10000))
+  expect_false(isDatasetSizeOk(actualSize = 9998, expectedSize = 10000))
+})
+
+test_that("dataset cdm names resolve to downloadable dataset names", {
+  expect_identical(prepareDatasetName("delphi-100k", "5.3"), "delphi-100k_5.4")
+  expect_true(
+    prepareDatasetName("delphi-100k", "5.3") %in% omock::mockDatasets$dataset_name
+  )
 })
 
 test_that("synpuf-1k_5.4, skip cran", {

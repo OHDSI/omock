@@ -16,7 +16,8 @@ mockCdmFromDataset(
 \item{source}{Choice between \code{local} or \code{duckdb}.}
 
 \item{cdmVersion}{Version of the OMOP CDM, can either be '5.3' or '5.4'. By
-default if not specified in databaseName the cdmVersion will be '5.4'.}
+default, the dataset's original CDM version is used. If a different version
+is requested, the returned CDM is converted with \code{changeCdmVersion()}.}
 }
 \value{
 A local cdm_reference object.
