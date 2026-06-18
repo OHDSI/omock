@@ -70,6 +70,13 @@ test_that("dataset size check allows small size differences", {
   expect_false(isDatasetSizeOk(actualSize = 9998, expectedSize = 10000))
 })
 
+test_that("dataset cdm names resolve to downloadable dataset names", {
+  expect_identical(prepareDatasetName("delphi-100k", "5.3"), "delphi-100k_5.4")
+  expect_true(
+    prepareDatasetName("delphi-100k", "5.3") %in% omock::mockDatasets$dataset_name
+  )
+})
+
 test_that("synpuf-1k_5.4, skip cran", {
   skip_on_cran()
   myFolder <- file.path(tempdir(), "DATASETS")

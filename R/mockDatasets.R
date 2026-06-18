@@ -26,7 +26,6 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   omopgenerics::assertChoice(source, c("local", "duckdb"))
 
   datasetName <- prepareDatasetName(datasetName, cdmVersion)
-  datasetName <- validateDatasetName(datasetName)
   cn <- omock::mockDatasets$cdm_name[omock::mockDatasets$dataset_name == datasetName]
   cv <- omock::mockDatasets$cdm_version[omock::mockDatasets$dataset_name == datasetName]
   cdmVersion <- rlang::`%||%`(cdmVersion, cv)
@@ -93,12 +92,25 @@ mockCdmFromDataset <- function(datasetName = "GiBleed",
   return(cdm)
 }
 prepareDatasetName <- function(datasetName, cdmVersion) {
-  cdmVersion <- rlang::`%||%`(cdmVersion, "5.4")
-  if (datasetName %in% omock::mockDatasets$cdm_name &
-      paste0(datasetName, "_", cdmVersion) %in% omock::mockDatasets$dataset_name) {
-    datasetName <- paste0(datasetName, "_", cdmVersion)
+  datasetName <- validateDatasetName(datasetName)
+  if (datasetName %in% omock::mockDatasets$dataset_name) {
+    return(datasetName)
   }
-  return(datasetName)
+
+  cdmVersion <- rlang::`%||%`(cdmVersion, "5.4")
+  availableDatasets <- omock::mockDatasets |>
+    dplyr::filter(.data$cdm_name == .env$datasetName)
+
+  requestedDataset <- availableDatasets |>
+    dplyr::filter(.data$cdm_version == .env$cdmVersion)
+  if (nrow(requestedDataset) > 0) {
+    return(requestedDataset$dataset_name[[1]])
+  }
+
+  availableDatasets |>
+    dplyr::arrange(dplyr::desc(.data$cdm_version)) |>
+    dplyr::pull("dataset_name") |>
+    dplyr::first()
 }
 readTables <- function(tmpFolder, cv, vocab = F) {
   tables <- list.files(tmpFolder, full.names = TRUE, pattern = "\\.parquet$", recursive = TRUE)
@@ -210,7 +222,7 @@ downloadMockDataset <- function(datasetName = "GiBleed",
                                 path = NULL,
                                 overwrite = NULL) {
   # initial checks
-  datasetName <- validateDatasetName(datasetName)
+  datasetName <- prepareDatasetName(datasetName, cdmVersion = NULL)
   if (is.null(path)) {
     path <- mockFolder()
   }
@@ -314,7 +326,7 @@ downloadMockDataset <- function(datasetName = "GiBleed",
 #'
 isMockDatasetDownloaded <- function(datasetName = "GiBleed") {
   # initial checks
-  datasetName <- validateDatasetName(datasetName)
+  datasetName <- prepareDatasetName(datasetName, cdmVersion = NULL)
 
   filePath <- file.path(mockFolder(), paste0(datasetName, ".zip"))
   result <- file.exists(filePath)
@@ -440,6 +452,7 @@ mockFolder <- function(path = NULL) {
   return(datasetsPath)
 }
 datasetAvailable <- function(datasetName, call = parent.frame()) {
+  datasetName <- prepareDatasetName(datasetName, cdmVersion = NULL)
   if (!isMockDatasetDownloaded(datasetName = datasetName)) {
     if (question(paste0("`", datasetName, "` is not downloaded, do you want to download it? Y/n"))) {
       downloadMockDataset(datasetName = datasetName)
