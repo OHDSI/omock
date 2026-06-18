@@ -68,6 +68,8 @@ mockMeasurement <- function(cdm,
   }
 
   type_id <- getConceptId(cdm = cdm, type = "Measurement Type")
+  unit_id <- getConceptId(cdm = cdm, type = "Unit")
+  value_id <- getConceptId(cdm = cdm, type = "Meas Value")
 
 
   # concept count
@@ -106,6 +108,17 @@ mockMeasurement <- function(cdm,
         sample(c(type_id), size = dplyr::n(), replace = TRUE)
       } else {
         type_id
+      },
+      value_as_number = as.numeric(sample(0:100, size = dplyr::n(), replace = TRUE)),
+      unit_concept_id = if (length(unit_id) > 1) {
+        sample(c(unit_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        unit_id
+      },
+      value_as_concept_id = if (length(value_id) > 1) {
+        sample(c(value_id), size = dplyr::n(), replace = TRUE)
+      } else {
+        value_id
       }
     ) |>
     dplyr::rename(
