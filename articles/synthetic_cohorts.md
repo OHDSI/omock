@@ -1,6 +1,7 @@
 # Creating mock cohorts
 
 ``` r
+
 library(omock)
 ```
 
@@ -35,6 +36,7 @@ setting up a synthetic CDM with multiple components for testing or
 analysis.
 
 ``` r
+
 cdm <- mockCdmReference() |>
   mockPerson(nPerson = 100) |>
   mockObservationPeriod() |>

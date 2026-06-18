@@ -34,6 +34,7 @@ Source Software.
 You can install the development version of omock using:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("OHDSI/omock")
 ```
@@ -43,6 +44,7 @@ devtools::install_github("OHDSI/omock")
 With omock we can quickly make a simple mock of OMOP CDM data.
 
 ``` r
+
 library(omopgenerics)
 library(omock)
 library(dplyr)
@@ -53,6 +55,7 @@ person and observation tables (as they are required) but they are
 currently empty.
 
 ``` r
+
 cdm <- emptyCdmReference(cdmName = "mock")
 cdm$person %>%
   glimpse()
@@ -91,6 +94,7 @@ Once we have our empty cdm reference, we can quickly add a person table
 with a specific number of individuals.
 
 ``` r
+
 cdm <- cdm %>%
   omock::mockPerson(nPerson = 1000)
 
@@ -121,6 +125,7 @@ cdm$person %>%
 We can then fill in the observation period table for these individuals.
 
 ``` r
+
 cdm <- cdm %>%
   omock::mockObservationPeriod()
 

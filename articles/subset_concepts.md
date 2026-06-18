@@ -13,6 +13,7 @@ This is useful when you want:
 - to drop unused vocabulary rows after building a mock dataset
 
 ``` r
+
 library(omock)
 library(dplyr)
 #> 
@@ -30,6 +31,7 @@ library(dplyr)
 We first create a simple mock CDM with vocabulary tables.
 
 ``` r
+
 cdm <- mockCdmReference() |>
   mockVocabularyTables()
 
@@ -46,6 +48,7 @@ cdm$concept |>
 Now we subset the vocabulary to two concept IDs.
 
 ``` r
+
 cdm_subset <- cdm |>
   subsetVocabularyTables(conceptSet = c(8507L, 8532L))
 
@@ -83,6 +86,7 @@ If you want to keep only the requested concept IDs plus the configured
 kept domains, set `includeRelated = FALSE`.
 
 ``` r
+
 cdm_strict <- cdm |>
   subsetVocabularyTables(
     conceptSet = c(8507L, 8532L),
@@ -104,6 +108,7 @@ cdm_strict$concept |>
 You can override the default kept domains with `keepDomains`.
 
 ``` r
+
 cdm_no_defaults <- cdm |>
   subsetVocabularyTables(
     conceptSet = c(8507L, 8532L),
@@ -129,6 +134,7 @@ In that case, rows in other OMOP tables that reference removed concepts
 are also filtered.
 
 ``` r
+
 cdm_clinical <- mockVocabularyTables() |>
   mockPerson(nPerson = 10, seed = 1) |>
   mockObservationPeriod(seed = 1) |>
@@ -154,6 +160,7 @@ concept `123` is no longer present in `cdm$concept`. In that case, that
 `condition_occurrence` row is removed as well.
 
 ``` r
+
 cdm_example <- mockVocabularyTables(
   concept = dplyr::tibble(
     concept_id = c(1L, 2L, 3L),

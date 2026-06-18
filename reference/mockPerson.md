@@ -66,10 +66,10 @@ glimpse()
 #> Rows: 10
 #> Columns: 18
 #> $ person_id                   <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-#> $ gender_concept_id           <int> 8532, 8532, 8507, 8532, 8532, 8532, 8532, …
-#> $ year_of_birth               <int> 1966, 1972, 1964, 1997, 1985, 1979, 1992, …
-#> $ month_of_birth              <int> 4, 6, 3, 8, 11, 8, 11, 4, 8, 4
-#> $ day_of_birth                <int> 14, 27, 19, 30, 2, 17, 6, 18, 17, 27
+#> $ gender_concept_id           <int> 8507, 8532, 8532, 8507, 8507, 8532, 8507, …
+#> $ year_of_birth               <int> 1967, 1962, 1969, 1995, 1974, 2000, 1988, …
+#> $ month_of_birth              <int> 8, 11, 2, 2, 12, 5, 6, 9, 4, 9
+#> $ day_of_birth                <int> 16, 1, 1, 4, 18, 16, 14, 16, 24, 7
 #> $ race_concept_id             <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ ethnicity_concept_id        <int> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ birth_datetime              <dttm> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA

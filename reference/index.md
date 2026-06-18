@@ -76,8 +76,8 @@ This group includes functions that set up vocabulary tables.
   **\[experimental\]** : Creates a mock CDM database populated with
   various vocabulary tables.
 - [`mockConcepts()`](https://ohdsi.github.io/omock/reference/mockConcepts.md)
-  **\[experimental\]** : Adds mock concept data to a concept table
-  within a Common Data Model (CDM) object.
+  **\[deprecated\]** : Adds mock concept data to a concept table within
+  a Common Data Model (CDM) object.
 - [`mockVocabularySet()`](https://ohdsi.github.io/omock/reference/mockVocabularySet.md)
   : Creates an empty mock CDM database populated with various vocabulary
   tables set.

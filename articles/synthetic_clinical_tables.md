@@ -7,6 +7,7 @@ specified by the user.
 First, let’s load packages required for this vignette.
 
 ``` r
+
 library(omock)
 library(dplyr)
 library(ggplot2)
@@ -16,6 +17,7 @@ Now, in three lines of code, we can create a cdm reference with a person
 and observation period table for 1000 people.
 
 ``` r
+
 cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
   mockPerson(nPerson = 1000) |>
   mockObservationPeriod()
@@ -65,6 +67,7 @@ example we can require that they were born between 1960 and 1980 like
 so.
 
 ``` r
+
 cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
   mockPerson(
     nPerson = 1000,
@@ -74,6 +77,7 @@ cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
 ```
 
 ``` r
+
 cdm$person |>
   collect() |>
   ggplot() +

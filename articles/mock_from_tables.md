@@ -17,6 +17,7 @@ CDM from a `cohort_table` or a `drug_exposure` table, or with incomplete
 data (e.g. missing columns).
 
 ``` r
+
 library(omock)
 library(dplyr, warn.conflicts = FALSE)
 library(PatientProfiles)
@@ -29,6 +30,7 @@ cohorts. You can do it simple using the mockCdmFromTable() functions in
 a few lines of code.
 
 ``` r
+
 # Define a list of user-defined cohort tables
 cohortTables <- list(
   cohort1 = tibble(
@@ -62,6 +64,7 @@ The generated CDM object will build the `person`, `observation_period`
 and vocabulary tables so that all the cohorts are in observation:
 
 ``` r
+
 cdm$cohort1 |>
   addInObservation()
 #> # A tibble: 10 × 5
@@ -115,12 +118,14 @@ purposes only specifying part of the information. In this case we will
 partially define `person` table to impose all individuals are women:
 
 ``` r
+
 person <- tibble(person_id = 1:5L, gender_concept_id = 8532L, year_of_birth = 1992)
 ```
 
 and we will also create the records of the `drug_exposure` table:
 
 ``` r
+
 drugExposure <- tibble(
   person_id = rep(1:5L, 2),
   drug_concept_id = 19073188L,
@@ -136,6 +141,7 @@ tables necessary to create a minimum viable CDM (it will contain at
 least `person`, `observation_period` and the vocabulary tables):
 
 ``` r
+
 cdm <- mockCdmFromTables(tables = list(person = person, drug_exposure = drugExposure))
 
 cdm
@@ -144,6 +150,7 @@ cdm
 As before all the records of `drug_exposure` will be in observation:
 
 ``` r
+
 cdm$drug_exposure |>
   addInObservation() |>
   group_by(in_observation) |>

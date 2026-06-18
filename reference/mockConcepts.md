@@ -1,6 +1,6 @@
 # Adds mock concept data to a concept table within a Common Data Model (CDM) object.
 
-**\[experimental\]**
+**\[deprecated\]**
 
 ## Usage
 
@@ -39,11 +39,13 @@ A modified `cdm_reference` object.
 
 ## Details
 
-This function inserts new concept entries into a specified domain within
-the concept table of a CDM object.It supports four domains: Condition,
-Drug, Measurement, and Observation. Existing entries with the same
-concept IDs will be overwritten, so caution should be used when adding
-data to prevent unintended data loss.
+`mockConcepts()` is deprecated because it creates placeholder concept
+rows that may be mistaken for real OMOP vocabulary content. Prefer using
+[`mockCdmReference()`](https://ohdsi.github.io/omock/reference/mockCdmReference.md)
+with `vocabularySet = "eunomia"`,
+[`mockVocabularyTables()`](https://ohdsi.github.io/omock/reference/mockVocabularyTables.md),
+or
+[`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md).
 
 ## Examples
 

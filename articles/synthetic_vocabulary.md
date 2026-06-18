@@ -10,6 +10,7 @@ reference.
 First, let’s load packages required for this vignette.
 
 ``` r
+
 library(omock)
 library(dplyr)
 ```
@@ -17,6 +18,7 @@ library(dplyr)
 Then we start off with creating an `cdm` object.
 
 ``` r
+
 cdm <- emptyCdmReference(cdmName = "synthetic cdm") |>
   mockPerson(nPerson = 10, birthRange = as.Date(c("1960-01-01", "1980-12-31"))) |>
   mockObservationPeriod()
@@ -32,6 +34,7 @@ is the vocabulary set from the eunomia test database.
 <https://ohdsi.github.io/Eunomia/>.
 
 ``` r
+
 cdm <- mockVocabularyTables(cdm, vocabularySet = "mock")
 cdm$vocabulary |> print()
 #> # A tibble: 65 × 5
@@ -55,6 +58,7 @@ set vocabularySet to eunomia to create the cdm with eunomia vocabulary
 table.
 
 ``` r
+
 cdm <- mockVocabularyTables(cdm, vocabularySet = "eunomia")
 cdm$vocabulary |> print()
 #> # A tibble: 125 × 5
@@ -79,6 +83,7 @@ for example if you want to insert your own bespoke concept table. you
 can do below.
 
 ``` r
+
 myConceptTable <- data.frame(
   concept_id = 1:3,
   concept_name = c("Condition A", "Condition B", "Drug C"),
