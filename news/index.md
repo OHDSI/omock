@@ -11,6 +11,18 @@
   or
   [`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md)
   instead.
+- `changeCdmVersion()` now uses
+  [`omopgenerics::compareOmopTableFields()`](https://darwin-eu.github.io/omopgenerics/reference/compareOmopTableFields.html)
+  and aligns local OMOP tables to the target CDM version fields.
+- [`mockCdmFromDataset()`](https://ohdsi.github.io/omock/reference/mockCdmFromDataset.md)
+  now validates `cdmVersion` and converts loaded datasets to the
+  requested CDM version when needed.
+- Downloaded mock datasets within 99.99% of their expected size are now
+  reused; users are only asked to delete a dataset when it appears
+  incomplete.
+- Mock dataset CDM names now resolve to a downloadable dataset version
+  before download, avoiding invalid URL errors when a requested target
+  CDM version is not directly hosted.
 
 ## omock 0.6.2
 

@@ -24,11 +24,11 @@ The dataset folder.
 ``` r
 # \donttest{
 mockDatasetsFolder()
-#> [1] "/tmp/RtmpG9HrZr/mockDatasets"
+#> [1] "/tmp/RtmpgtLVbH/mockDatasets"
 mockDatasetsFolder(file.path(tempdir(), "OMOP_DATASETS"))
-#> ℹ Creating /tmp/RtmpG9HrZr/OMOP_DATASETS.
-#> [1] "/tmp/RtmpG9HrZr/OMOP_DATASETS/mockDatasets"
+#> ℹ Creating /tmp/RtmpgtLVbH/OMOP_DATASETS.
+#> [1] "/tmp/RtmpgtLVbH/OMOP_DATASETS/mockDatasets"
 mockDatasetsFolder()
-#> [1] "/tmp/RtmpG9HrZr/OMOP_DATASETS/mockDatasets"
+#> [1] "/tmp/RtmpgtLVbH/OMOP_DATASETS/mockDatasets"
 # }
 ```

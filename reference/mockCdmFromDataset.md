@@ -26,8 +26,9 @@ mockCdmFromDataset(
 
 - cdmVersion:
 
-  Version of the OMOP CDM, can either be '5.3' or '5.4'. By default if
-  not specified in databaseName the cdmVersion will be '5.4'.
+  Version of the OMOP CDM, can either be '5.3' or '5.4'. By default, the
+  dataset's original CDM version is used. If a different version is
+  requested, the returned CDM is converted with `changeCdmVersion()`.
 
 ## Value
 
@@ -41,7 +42,7 @@ library(omock)
 mockDatasetsFolder(tempdir())
 #> Warning: `mockDatasetsFolder()` was deprecated in omock 0.6.0.
 #> ℹ Please use `omopDataFolder()` instead.
-#> [1] "/tmp/RtmpG9HrZr/mockDatasets"
+#> [1] "/tmp/RtmpgtLVbH/mockDatasets"
 downloadMockDataset(datasetName = "GiBleed")
 #> ℹ Attempting download with timeout = 120 seconds.
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
