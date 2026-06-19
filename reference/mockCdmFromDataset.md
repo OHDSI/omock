@@ -42,7 +42,7 @@ library(omock)
 mockDatasetsFolder(tempdir())
 #> Warning: `mockDatasetsFolder()` was deprecated in omock 0.6.0.
 #> ℹ Please use `omopDataFolder()` instead.
-#> [1] "/tmp/RtmpE7kPga/mockDatasets"
+#> [1] "/tmp/Rtmpdrra42/mockDatasets"
 downloadMockDataset(datasetName = "GiBleed")
 #> ℹ Attempting download with timeout = 120 seconds.
 cdm <- mockCdmFromDataset(datasetName = "GiBleed")
