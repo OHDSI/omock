@@ -1,18 +1,56 @@
 # omock (development version)
 
+# omock 0.7.0
+
+## New features
+
+-   Added `subsetVocabularyTables()` to subset vocabulary tables to selected
+    concept IDs while keeping related vocabulary tables consistent.
+-   Added `conceptSet`, `includeRelated`, and `keepDomains` arguments to
+    `mockCdmReference()`, `mockVocabularySet()`, and `mockVocabularyTables()`.
+-   Added a new vignette showing how to subset vocabulary concepts.
+-   `mockMeasurement()` now creates more realistic mock measurements by filling
+    `value_as_number`, `unit_concept_id`, and `value_as_concept_id`.
+-   `mockCohort()` now creates an omopgenerics-style cohort attrition table with
+    an initial qualifying events row.
+
+## CDM version handling
+
+-   `changeCdmVersion()` now uses `omopgenerics::compareOmopTableFields()` to
+    identify added, removed, and renamed fields between OMOP CDM versions.
+-   `changeCdmVersion()` now aligns local OMOP tables to the target CDM version,
+    including removal of fields that do not exist in the target version.
+-   `mockCdmFromDataset()` now validates `cdmVersion` and converts loaded
+    datasets to the requested CDM version when needed.
+-   Mock dataset CDM names now resolve to a downloadable dataset version before
+    download, avoiding invalid URL errors when a requested target CDM version is
+    not directly hosted.
+
+## Improvements and fixes
+
+-   `mockCdmFromTables()` now gives a more informative error when input tables
+    contain missing dates in columns used to derive observation periods.
+-   `mockObservationPeriod()` now returns an empty observation period with an
+    informative message when the person table is empty.
+-   `mockConditionOccurrence()` now generates
+    `round(recordPerson * nrow(person))` records in total and samples condition
+    concepts across those records.
+-   Downloaded mock datasets within 99.99% of their expected size are now
+    reused; users are only asked to delete a dataset when it appears incomplete.
+-   Improved the prompt shown when a downloaded dataset appears incomplete.
+-   Updated documentation with shared roxygen templates and clearer parameter
+    descriptions.
+
+## Deprecations
+
 -   Deprecated `mockConcepts()` because it creates placeholder concept rows that
     may be mistaken for real OMOP vocabulary content. Use
     `mockCdmReference(vocabularySet = "eunomia")`, `mockVocabularyTables()`, or
     `subsetVocabularyTables()` instead.
--   `changeCdmVersion()` now uses `omopgenerics::compareOmopTableFields()` and
-    aligns local OMOP tables to the target CDM version fields.
--   `mockCdmFromDataset()` now validates `cdmVersion` and converts loaded
-    datasets to the requested CDM version when needed.
--   Downloaded mock datasets within 99.99% of their expected size are now
-    reused; users are only asked to delete a dataset when it appears incomplete.
--   Mock dataset CDM names now resolve to a downloadable dataset version before
-    download, avoiding invalid URL errors when a requested target CDM version is
-    not directly hosted.
+
+## Maintenance
+
+-   The minimum required version of `omopgenerics` is now 1.4.0.
 
 # omock 0.6.2
 
