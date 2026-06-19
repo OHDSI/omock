@@ -9,6 +9,7 @@
 ^codecov\.yml$
 ^cran-comments\.md$
 ^data-raw$
+^man-roxygen$
 ^docs$
 ^doc$
 ^paper$
