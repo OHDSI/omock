@@ -1,3 +1,5 @@
+# omock (development version)
+
 # omock 0.7.0
 
 -   Deprecated `mockConcepts()` because it creates placeholder concept rows that
