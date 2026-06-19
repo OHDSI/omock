@@ -17,7 +17,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/ohdsi/omock/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/ohdsi/omock/blob/v0.7.0/inst/CITATION)
 
 Du, Mike, Mercadé-Besora, Núria, Alcalde-Herraiz, Marta, Chen, Xihang,
 Guo, Yuchen, López-Güell, Kim, Burn, Edward, Català, Martí (2025).
