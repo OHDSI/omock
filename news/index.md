@@ -2,6 +2,66 @@
 
 ## omock (development version)
 
+## omock 0.7.0
+
+CRAN release: 2026-06-19
+
+### New features
+
+- Added
+  [`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md)
+  to subset vocabulary tables to selected concept IDs while keeping
+  related vocabulary tables consistent.
+- Added `conceptSet`, `includeRelated`, and `keepDomains` arguments to
+  [`mockCdmReference()`](https://ohdsi.github.io/omock/reference/mockCdmReference.md),
+  [`mockVocabularySet()`](https://ohdsi.github.io/omock/reference/mockVocabularySet.md),
+  and
+  [`mockVocabularyTables()`](https://ohdsi.github.io/omock/reference/mockVocabularyTables.md).
+- Added a new vignette showing how to subset vocabulary concepts.
+- [`mockMeasurement()`](https://ohdsi.github.io/omock/reference/mockMeasurement.md)
+  now creates more realistic mock measurements by filling
+  `value_as_number`, `unit_concept_id`, and `value_as_concept_id`.
+- [`mockCohort()`](https://ohdsi.github.io/omock/reference/mockCohort.md)
+  now creates an omopgenerics-style cohort attrition table with an
+  initial qualifying events row.
+
+### CDM version handling
+
+- `changeCdmVersion()` now uses
+  [`omopgenerics::compareOmopTableFields()`](https://darwin-eu.github.io/omopgenerics/reference/compareOmopTableFields.html)
+  to identify added, removed, and renamed fields between OMOP CDM
+  versions.
+- `changeCdmVersion()` now aligns local OMOP tables to the target CDM
+  version, including removal of fields that do not exist in the target
+  version.
+- [`mockCdmFromDataset()`](https://ohdsi.github.io/omock/reference/mockCdmFromDataset.md)
+  now validates `cdmVersion` and converts loaded datasets to the
+  requested CDM version when needed.
+- Mock dataset CDM names now resolve to a downloadable dataset version
+  before download, avoiding invalid URL errors when a requested target
+  CDM version is not directly hosted.
+
+### Improvements and fixes
+
+- [`mockCdmFromTables()`](https://ohdsi.github.io/omock/reference/mockCdmFromTables.md)
+  now gives a more informative error when input tables contain missing
+  dates in columns used to derive observation periods.
+- [`mockObservationPeriod()`](https://ohdsi.github.io/omock/reference/mockObservationPeriod.md)
+  now returns an empty observation period with an informative message
+  when the person table is empty.
+- [`mockConditionOccurrence()`](https://ohdsi.github.io/omock/reference/mockConditionOccurrence.md)
+  now generates `round(recordPerson * nrow(person))` records in total
+  and samples condition concepts across those records.
+- Downloaded mock datasets within 99.99% of their expected size are now
+  reused; users are only asked to delete a dataset when it appears
+  incomplete.
+- Improved the prompt shown when a downloaded dataset appears
+  incomplete.
+- Updated documentation with shared roxygen templates and clearer
+  parameter descriptions.
+
+### Deprecations
+
 - Deprecated
   [`mockConcepts()`](https://ohdsi.github.io/omock/reference/mockConcepts.md)
   because it creates placeholder concept rows that may be mistaken for
@@ -11,18 +71,10 @@
   or
   [`subsetVocabularyTables()`](https://ohdsi.github.io/omock/reference/subsetVocabularyTables.md)
   instead.
-- `changeCdmVersion()` now uses
-  [`omopgenerics::compareOmopTableFields()`](https://darwin-eu.github.io/omopgenerics/reference/compareOmopTableFields.html)
-  and aligns local OMOP tables to the target CDM version fields.
-- [`mockCdmFromDataset()`](https://ohdsi.github.io/omock/reference/mockCdmFromDataset.md)
-  now validates `cdmVersion` and converts loaded datasets to the
-  requested CDM version when needed.
-- Downloaded mock datasets within 99.99% of their expected size are now
-  reused; users are only asked to delete a dataset when it appears
-  incomplete.
-- Mock dataset CDM names now resolve to a downloadable dataset version
-  before download, avoiding invalid URL errors when a requested target
-  CDM version is not directly hosted.
+
+### Maintenance
+
+- The minimum required version of `omopgenerics` is now 1.4.0.
 
 ## omock 0.6.2
 

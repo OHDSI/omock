@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omock</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Synthetic datasets</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/v0.7.0/vignettes/synthetic_datasets.Rmd" class="external-link"><code>vignettes/synthetic_datasets.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ohdsi/omock/blob/main/vignettes/synthetic_datasets.Rmd" class="external-link"><code>vignettes/synthetic_datasets.Rmd</code></a></small>
       <div class="d-none name"><code>synthetic_datasets.Rmd</code></div>
     </div>
 
@@ -840,7 +840,7 @@ is used also by other packages. You can check the folder by using the
 following function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html" class="external-link">omopDataFolder</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "/tmp/Rtmpdrra42/OMOP_DATASETS"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmplcSuE0/OMOP_DATASETS"</span></span></code></pre></div>
 <p>Note that if you would have set up an environment variable the
 message of temporary folder would not appear and you would see the path
 to you folder.</p>
@@ -912,6 +912,9 @@ connection using the <code>source</code> argument:</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Adding <span style="color: #0000BB;">drug_strength</span> table.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating local <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> object.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Inserting <span style="color: #0000BB;">&lt;cdm_reference&gt;</span> into <span style="color: #0000BB;">duckdb</span>.</span></span>
+<span><span class="co">#&gt; duckdb: caching downloaded extensions in the package library:</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">ℹ</span> /home/runner/work/_temp/Library/duckdb/extensions</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">ℹ</span> This is removed when the package is re-installed; see `?duckdb_storage` to choose a different location.</span></span>
 <span><span class="va">cdm</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;"># OMOP CDM reference (duckdb) of GiBleed</span> <span style="color: #00BBBB;">────────────────────────────────────</span></span></span>

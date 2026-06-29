@@ -90,7 +90,7 @@ function:
 ``` r
 
 omopDataFolder()
-#> [1] "/tmp/Rtmpdrra42/OMOP_DATASETS"
+#> [1] "/tmp/RtmplcSuE0/OMOP_DATASETS"
 ```
 
 Note that if you would have set up an environment variable the message
@@ -182,6 +182,9 @@ cdm <- mockCdmFromDataset(datasetName = "GiBleed", source = "duckdb")
 #> ℹ Adding drug_strength table.
 #> ℹ Creating local <cdm_reference> object.
 #> ℹ Inserting <cdm_reference> into duckdb.
+#> duckdb: caching downloaded extensions in the package library:
+#> ℹ /home/runner/work/_temp/Library/duckdb/extensions
+#> ℹ This is removed when the package is re-installed; see `?duckdb_storage` to choose a different location.
 cdm
 #> 
 #> ── # OMOP CDM reference (duckdb) of GiBleed ────────────────────────────────────
